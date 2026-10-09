@@ -1,6 +1,6 @@
 ---
 name: feeling-to-jargon
-description: 把用户模糊的白话需求匹配到专业术语，并按需扩写成更具体的提示词。
+description: 将用户的感觉和模糊表达翻译成专业术语，并按需补全为更具体、可执行的提示词。
 ---
 
 # Feeling to Jargon
