@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Progressively route a user query to the smallest useful Jargon knowledge set."""
+"""Progressively route a user query to the smallest useful Feeling to Jargon knowledge set."""
 from __future__ import annotations
 import argparse
 import json
@@ -53,7 +53,7 @@ def score(query: str, keywords: list[str]) -> int:
     return points
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Progressive Jargon runtime query")
+    parser = argparse.ArgumentParser(description="Progressive Feeling to Jargon runtime query")
     parser.add_argument("query", nargs="+", help="user request")
     parser.add_argument("--max-leaves", type=positive_int, default=None)
     parser.add_argument("--max-entries", type=positive_int, default=None)

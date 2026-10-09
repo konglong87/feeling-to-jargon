@@ -1,8 +1,8 @@
 <div align="center">
 
-# Jargon
+# Feeling to Jargon
 
-### Jargon，你说感觉，Jargon 帮你专业术语补全。
+### 你说感觉，Feeling to Jargon 帮你补全专业术语。
 
 <p>
   <img src="https://img.shields.io/badge/19%20domains-indexed-20a464" alt="19 domains indexed">
@@ -23,11 +23,11 @@
 
 ## 它能做什么
 
-你知道自己想要什么，但不知道怎么说得专业？Jargon 会识别需求所属领域，按需加载术语，把“有质感”“稳定”“高级”“专业一点”等模糊表达扩展成更具体、更可执行的提示词。
+你知道自己想要什么，但不知道怎么说得专业？Feeling to Jargon 会识别需求所属领域，按需加载术语，把“有质感”“稳定”“高级”“专业一点”等模糊表达扩展成更具体、更可执行的提示词。
 
-Jargon 不替你决定方向。它把专业选项翻译成容易理解的语言，再让你选择真正重要的取舍。
+Feeling to Jargon 不替你决定方向。它把专业选项翻译成容易理解的语言，再让你选择真正重要的取舍。
 
-| 你说 | Jargon 帮你补全 |
+| 你说 | Feeling to Jargon 帮你补全 |
 |---|---|
 | 做一个有质感的网站 | 信息密度、字体层级、对比度、留白节奏、组件一致性 |
 | 做一个稳定的大型后端 | 高可用、流量模型、水平扩展、幂等、熔断、可观测性 |
@@ -39,23 +39,23 @@ Jargon 不替你决定方向。它把专业选项翻译成容易理解的语言�
 推荐使用 `npx`，它适用于 Claude Code、Cursor、Codex、OpenCode 等 Agent 工具：
 
 ```bash
-npx skills add https://github.com/konglong87/jargon
+npx skills add https://github.com/konglong87/feeling-to-jargon
 ```
 
 指定平台或只安装本 Skill：
 
 ```bash
-npx skills add https://github.com/konglong87/jargon --skill jargon --agent claude-code
-npx skills add https://github.com/konglong87/jargon --skill jargon --agent cursor
-npx skills add https://github.com/konglong87/jargon --skill jargon --agent codex
-npx skills add https://github.com/konglong87/jargon --skill jargon --agent opencode
+npx skills add https://github.com/konglong87/feeling-to-jargon --skill feeling-to-jargon --agent claude-code
+npx skills add https://github.com/konglong87/feeling-to-jargon --skill feeling-to-jargon --agent cursor
+npx skills add https://github.com/konglong87/feeling-to-jargon --skill feeling-to-jargon --agent codex
+npx skills add https://github.com/konglong87/feeling-to-jargon --skill feeling-to-jargon --agent opencode
 ```
 
 查看可用 Skill、全局安装：
 
 ```bash
-npx skills add https://github.com/konglong87/jargon --list
-npx skills add https://github.com/konglong87/jargon -g
+npx skills add https://github.com/konglong87/feeling-to-jargon --list
+npx skills add https://github.com/konglong87/feeling-to-jargon -g
 ```
 
 安装后可以直接说：
@@ -68,7 +68,7 @@ npx skills add https://github.com/konglong87/jargon -g
 
 > **索引越来越细，加载越来越少，术语越来越专，LLM 才能真正做到按需增强，而不是把整个知识库塞进上下文。**
 
-Jargon 的运行路径固定为：
+Feeling to Jargon 的运行路径固定为：
 
 ```text
 根领域 → 专业子域 → 用户意图 → 叶子包 → 单条术语/技巧/模板
@@ -78,7 +78,7 @@ Jargon 的运行路径固定为：
 flowchart LR
     A[用户模糊需求] --> B[index/root.json]
     B --> C[index/domains/domain.json]
-    C --> D[index/intents/subdomain.json]
+    C --> D[index/intents/domain/subdomain.json]
     D --> E[index/runtime.json]
     E --> F[最小叶子包]
     F --> G[匹配的单条术语/模板]
@@ -179,7 +179,7 @@ templates/
 ├── aigc/                     # 基础 IP 与七个场景模板
 ├── dashboard/                # Dashboard 审美 Skill 模板
 
-skills/jargon/SKILL.md        # Agent 加载规则
+skills/feeling-to-jargon/SKILL.md        # Agent 加载规则
 scripts/query-index.py        # 渐进式查询器
 scripts/validate-index.py     # 索引一致性校验
 scripts/bootstrap-progressive-content.py # 可重复生成内容与索引
@@ -214,9 +214,9 @@ python3 scripts/bootstrap-progressive-content.py --force
 
 ```bash
 npx skills list
-npx skills remove jargon
-npx skills remove jargon -g
-npx skills remove jargon --agent cursor
+npx skills remove feeling-to-jargon
+npx skills remove feeling-to-jargon -g
+npx skills remove feeling-to-jargon --agent cursor
 ```
 
 若安装器参数发生变化，请以 `npx skills --help` 的当前提示为准。

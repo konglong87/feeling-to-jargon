@@ -1,11 +1,11 @@
 ---
-name: jargon
+name: feeling-to-jargon
 description: 把用户模糊的白话需求匹配到专业术语，并按需扩写成更具体的提示词。
 ---
 
-# Jargon
+# Feeling to Jargon
 
-Jargon 只做一件事：帮助用户把模糊表达说具体。
+Feeling to Jargon 帮助用户把模糊感受翻译成专业术语，再按需补全成可执行的提示词。
 
 ## 渐进式加载协议
 

@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Create Jargon progressive indexes and granular knowledge packages."""
+"""Create Feeling to Jargon progressive indexes and granular knowledge packages."""
 from __future__ import annotations
 import json
 import argparse
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-PARSER = argparse.ArgumentParser(description="Bootstrap or refresh Jargon progressive indexes")
+PARSER = argparse.ArgumentParser(description="Bootstrap or refresh Feeling to Jargon progressive indexes")
 PARSER.add_argument(
     "--force",
     action="store_true",
