@@ -171,6 +171,7 @@
     "route_score_margin": 2,
     "high_confidence_score": 6,
     "high_confidence_margin": 1,
+    "min_route_score": 2,
     "search_fallback": "ask-before-network"
   }
 }

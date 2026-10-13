@@ -3,6 +3,7 @@
 from __future__ import annotations
 import json
 import subprocess
+import unicodedata
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -23,12 +24,14 @@ CASES = [
     ("勾选后让顶部背景、进度环和数字同步变化", {"checkbox-cascade"}, 5),
     ("做一个叠卡展开，关闭时沿原路径叠回", {"stack-card-expand"}, 5),
     ("卡片吸附后再逐段绘制时间线", {"snap-card-timeline"}, 8),
+    ("卡片停稳后画时间线", {"snap-card-timeline"}, 8),
     ("做一个有惯性、回弹和刻度吸附的时间滚轮", {"inertial-wheel"}, 8),
     ("从点击位置开始圆形扩散完成页面转场", {"radial-reveal-transition"}, 5),
 ]
 NEGATIVE_CASES = [
     ("hello world", {"morph-icon", "ripple-button", "liquid-slider"}),
     ("GPUIX mobile", {"morph-icon", "ripple-button", "liquid-slider"}),
+    ("普通列表卡片", {"stack-card-expand", "snap-card-timeline", "inertial-wheel"}),
 ]
 
 for query, expected, max_leaves in CASES:
@@ -79,6 +82,29 @@ gsap_timeline_result = json.loads(raw)
 assert gsap_timeline_result["matches"][0]["leaf_id"] == "gsap-timeline", "specific GSAP query lost top match"
 assert gsap_timeline_result["trace"]["loaded_leaf_count"] <= 2, "specific GSAP query loaded unrelated leaves"
 
+for query, forbidden in [("React", {"gsap-react-lifecycle"}), ("React动画", {"gsap-react-lifecycle"})]:
+    result = json.loads(subprocess.check_output(["python3", str(QUERY), query], text=True))
+    loaded = {item["leaf_id"] for item in result["matches"]}
+    assert loaded.isdisjoint(forbidden), f"{query}: provider-specific false positive"
+
+for query, expected in [
+    ("availability-patterns", "availability-patterns"),
+    ("capacity-model", "capacity-model"),
+    ("scaling-strategies", "scaling-strategies"),
+]:
+    result = json.loads(subprocess.check_output(["python3", str(QUERY), query], text=True))
+    assert result["matches"] and result["matches"][0]["leaf_id"] == expected, f"{query}: canonical route lookup failed"
+
+for query, expected_top in [
+    ("勾选联动", "checkbox-cascade"),
+    ("叠卡展开", "stack-card-expand"),
+    ("卡片停稳后画时间线", "snap-card-timeline"),
+    ("惯性滚轮", "inertial-wheel"),
+    ("圆形扩散转场", "radial-reveal-transition"),
+]:
+    result = json.loads(subprocess.check_output(["python3", str(QUERY), query], text=True))
+    assert result["matches"][0]["leaf_id"] == expected_top, f"{query}: wrong top match"
+
 for query, leaf_id, required_fields in [
     ("勾选后让顶部背景、进度环和数字同步变化", "checkbox-cascade", ("state_machine", "animation_sequence", "spatial_anchor", "acceptance")),
     ("做一个叠卡展开，关闭时沿原路径叠回", "stack-card-expand", ("state_machine", "animation_sequence", "spatial_anchor", "acceptance")),
@@ -99,4 +125,8 @@ for option in ("--max-leaves", "--max-entries"):
         capture_output=True,
     )
     assert completed.returncode != 0, f"{option}: zero must be rejected"
+runtime_doc = json.loads((ROOT / "index/runtime.json").read_text(encoding="utf-8"))
+for route in runtime_doc["routes"]:
+    normalized_keywords = [unicodedata.normalize("NFKC", keyword).casefold().strip() for keyword in route["keywords"]]
+    assert len(normalized_keywords) == len(set(normalized_keywords)), f"duplicate route keywords: {route['leaf_id']}"
 print(f"progressive query ok: {len(CASES)} scenarios")

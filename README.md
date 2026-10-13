@@ -93,7 +93,11 @@ flowchart LR
   "max_intents": 3,
   "max_intents_scope": "per_subdomain",
   "max_leaf_packages": 8,
-  "max_entries_per_leaf": 30
+  "max_entries_per_leaf": 30,
+  "route_score_margin": 2,
+  "high_confidence_score": 6,
+  "high_confidence_margin": 1,
+  "min_route_score": 2
 }
 ```
 

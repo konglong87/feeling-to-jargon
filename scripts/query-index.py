@@ -30,27 +30,58 @@ def positive_int(value: str) -> int:
         raise ValueError("must be a positive integer")
     return parsed
 
+def unique_keywords(keywords: list[str]) -> list[str]:
+    result = []
+    seen = set()
+    for keyword in keywords:
+        normalized = normalize(keyword)
+        if normalized not in seen:
+            seen.add(normalized)
+            result.append(keyword)
+    return result
+
 def score(query: str, keywords: list[str]) -> int:
     q = normalize(query)
-    q_tokens = [token for token in chunks(q) if len(token) >= 3 or any("\u4e00" <= char <= "\u9fff" for char in token)]
+    q_tokens = {
+        token
+        for token in chunks(q)
+        if len(token) >= 3 or any("\u4e00" <= char <= "\u9fff" for char in token)
+    }
     points = 0
-    for keyword in keywords:
+    matched_bigrams: set[str] = set()
+    matched_tokens: set[str] = set()
+    for keyword in unique_keywords(keywords):
         candidate = normalize(keyword)
         if candidate in q and (len(candidate) >= 3 or any("\u4e00" <= char <= "\u9fff" for char in candidate)):
             points += 3
             continue
         # Chinese requests often contain a shorter phrase inside a descriptive
-        # keyword (e.g. “高可用” inside “高可用模式”). Use overlapping bigrams
-        # instead of a heavyweight tokenizer.
-        if any(
-            phrase[i : i + 2] in q
-            for phrase in chinese_runs(candidate)
-            for i in range(0, len(phrase) - 1)
-        ):
-            points += 2
-            continue
-        points += sum(1 for token in q_tokens if token in candidate)
-    return points
+        # keyword (e.g. “高可用” inside “高可用模式”). Count each observed
+        # bigram once per route so repeated aliases cannot inflate a score.
+        for phrase in chinese_runs(candidate):
+            if len(phrase) < 3:
+                continue
+            matched_indices = {
+                index
+                for index in range(0, len(phrase) - 1)
+                if phrase[index : index + 2] in q
+            }
+            # A single shared pair such as “卡片” is too generic. Require
+            # adjacent pairs from the same descriptive phrase, so the query
+            # contains a continuous 3-character fragment rather than two
+            # unrelated pairs scattered across the sentence.
+            adjacent_indices = {
+                index
+                for index in matched_indices
+                if index + 1 in matched_indices
+            }
+            if 0 in adjacent_indices:
+                matched_bigrams.update(
+                    phrase[index : index + 2]
+                    for index in adjacent_indices
+                )
+        matched_tokens.update(token for token in q_tokens if token in candidate)
+    return points + (2 * len(matched_bigrams)) + len(matched_tokens)
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Progressive Feeling to Jargon runtime query")
@@ -62,13 +93,17 @@ def main() -> None:
     root = load("index/root.json")
     runtime = load("index/runtime.json")
     limits = root["loading_policy"]
+    min_route_score = limits.get("min_route_score", 1)
     max_leaves = args.max_leaves if args.max_leaves is not None else limits["max_leaf_packages"]
     max_entries = args.max_entries if args.max_entries is not None else limits["max_entries_per_leaf"]
 
     ranked = []
     for route in runtime["routes"]:
+        provider = normalize(route.get("provider") or "")
+        if provider and provider not in normalize(query):
+            continue
         route_score = score(query, route["keywords"])
-        if route_score:
+        if route_score >= min_route_score:
             ranked.append((route_score, route))
     ranked.sort(key=lambda pair: (-pair[0], pair[1]["entry_count"], pair[1]["leaf_id"]))
 

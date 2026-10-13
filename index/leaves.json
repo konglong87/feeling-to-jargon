@@ -593,7 +593,8 @@
       ],
       "scope": "provider-specific",
       "entry_count": 1,
-      "do_not_generalize": true
+      "do_not_generalize": true,
+      "provider": "GSAP"
     },
     {
       "leaf_id": "gsap-frameworks",
@@ -609,7 +610,8 @@
       ],
       "scope": "provider-specific",
       "entry_count": 1,
-      "do_not_generalize": true
+      "do_not_generalize": true,
+      "provider": "GSAP"
     },
     {
       "leaf_id": "gsap-performance",
@@ -625,7 +627,8 @@
       ],
       "scope": "provider-specific",
       "entry_count": 1,
-      "do_not_generalize": true
+      "do_not_generalize": true,
+      "provider": "GSAP"
     },
     {
       "leaf_id": "gsap-plugins",
@@ -641,7 +644,8 @@
       ],
       "scope": "provider-specific",
       "entry_count": 1,
-      "do_not_generalize": true
+      "do_not_generalize": true,
+      "provider": "GSAP"
     },
     {
       "leaf_id": "gsap-react-lifecycle",
@@ -657,7 +661,8 @@
       ],
       "scope": "provider-specific",
       "entry_count": 1,
-      "do_not_generalize": true
+      "do_not_generalize": true,
+      "provider": "GSAP"
     },
     {
       "leaf_id": "gsap-scrolltrigger",
@@ -673,7 +678,8 @@
       ],
       "scope": "provider-specific",
       "entry_count": 1,
-      "do_not_generalize": true
+      "do_not_generalize": true,
+      "provider": "GSAP"
     },
     {
       "leaf_id": "gsap-timeline",
@@ -689,7 +695,8 @@
       ],
       "scope": "provider-specific",
       "entry_count": 1,
-      "do_not_generalize": true
+      "do_not_generalize": true,
+      "provider": "GSAP"
     },
     {
       "leaf_id": "high-contrast",

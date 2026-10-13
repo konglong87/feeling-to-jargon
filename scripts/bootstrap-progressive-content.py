@@ -3,9 +3,14 @@
 from __future__ import annotations
 import json
 import argparse
+import unicodedata
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+
+def normalize_keyword(value: str) -> str:
+    return unicodedata.normalize("NFKC", value).casefold().strip()
+
 PARSER = argparse.ArgumentParser(description="Bootstrap or refresh Feeling to Jargon progressive indexes")
 PARSER.add_argument(
     "--force",
@@ -74,6 +79,7 @@ root["loading_policy"] = {
     "route_score_margin": 2,
     "high_confidence_score": 6,
     "high_confidence_margin": 1,
+    "min_route_score": 2,
     "search_fallback": "ask-before-network",
 }
 domain_specs = {
@@ -680,11 +686,14 @@ for spec in leaf_defs.values():
 leaf_refs = []
 for leaf_id, spec in sorted(leaf_defs.items()):
     adopt_existing_leaf(spec)
-    leaf_refs.append({
+    leaf_ref = {
         "leaf_id": leaf_id, "title": spec["title"], "path": spec["path"], "domain_id": spec["domain_id"], "subdomain_id": spec["subdomain_id"],
         "knowledge_type": spec["knowledge_type"], "status": spec["status"], "intent_ids": spec["intent_ids"], "scope": spec["scope"],
         "entry_count": len(spec["entries"]), "do_not_generalize": spec.get("do_not_generalize", False)
-    })
+    }
+    if spec.get("provider"):
+        leaf_ref["provider"] = spec["provider"]
+    leaf_refs.append(leaf_ref)
 
 dump("index/leaves.json", {"schema_version": "1.0.0", "knowledge_types": ["term", "pattern", "technique", "guideline", "parameter", "template", "platform-research"], "leaves": leaf_refs})
 
@@ -730,7 +739,7 @@ keywords = {
     "reverse-animation": ["反向动画", "归位", "删除动画", "恢复动画"],
     "flip-reentry": ["FLIP", "列表恢复", "原索引", "共享元素"],
     "motion-accessibility": ["aria", "读屏", "键盘", "减少动态", "prefers-reduced-motion"],
-    "follow": ["跟随", "跟手", "惯性"], "threshold": ["阈值", "触发条件", "断开"], "snap": ["吸附", "锚点", "回弹"],
+    "follow": ["跟随", "跟手", "速度跟随"], "threshold": ["阈值", "触发条件", "断开"], "snap": ["吸附", "锚点", "回弹"],
     "velocity-inheritance": ["速度继承", "释放速度", "摩擦"], "interruption": ["中断", "快速连点", "动画接管"],
     **{k: [v[0], k.replace('-', ' ')] for k, v in interaction_12.items()},
     **{k: [v[0], "dashboard", "后台"] for k, v in dashboard_entries.items()},
@@ -756,9 +765,14 @@ keywords = {
     # generic motion leaves when the user describes the visible outcome.
     "checkbox-cascade": ["勾选联动", "复选框联动", "进度环", "数字滚动", "顶部背景", "checkbox cascade"],
     "stack-card-expand": ["叠卡展开", "卡片铺开", "卡片扇出", "卡片叠回", "stack card expand"],
-    "snap-card-timeline": ["吸附卡画线", "吸附卡加画线", "时间线逐段绘制", "卡片停稳后画线", "snap card timeline"],
+    "snap-card-timeline": ["吸附卡画线", "吸附卡加画线", "时间线逐段绘制", "卡片停稳后画线", "卡片停稳后画时间线", "snap card timeline"],
     "inertial-wheel": ["惯性滚轮", "时间滚轮", "数值滚轮", "阻尼滚轮", "刻度吸附", "inertial wheel"],
     "radial-reveal-transition": ["圆形扩散转场", "圆形转场", "径向揭示", "点击点扩散", "页面圆形扩散", "radial reveal transition"],
+    "press-and-hold-confirm": ["按住蓄力确认", "按住按钮", "长按确认", "危险操作确认", "press and hold confirm"],
+    "gsap-react-lifecycle": ["GSAP React 生命周期", "GSAP", "React 动画清理", "组件卸载清理", "ctx.revert", "useGSAP", "gsap react lifecycle"],
+    "availability-patterns": ["高可用", "高可用模式", "故障转移", "RTO", "RPO", "availability-patterns", "high-availability"],
+    "capacity-model": ["高并发", "并发容量", "容量模型", "RPS", "P95", "P99", "capacity-model", "high-concurrency"],
+    "scaling-strategies": ["高扩展", "扩展策略", "水平扩展", "分片", "异步化", "scaling-strategies", "scalability"],
     "character-ip": ["角色 IP", "三视图", "周边", "一致性", "毛绒玩偶"],
     "gpui-desktop-web": ["GPUIX", "Metal", "DirectX", "Vulkan", "WebGPU", "WebGL2"],
     "gpui-mobile": ["GPUIX", "iOS", "Android", "移动端", "gpui-mobile"],
@@ -766,12 +780,23 @@ keywords = {
 }
 routes = []
 for ref in leaf_refs:
-    routes.append({
-        "leaf_id": ref["leaf_id"], "keywords": keywords.get(ref["leaf_id"], [ref["title"], ref["leaf_id"], ref["subdomain_id"]]),
+    route_keywords = keywords.get(ref["leaf_id"], [ref["title"], ref["leaf_id"], ref["subdomain_id"]])
+    deduplicated_keywords = []
+    seen_keywords = set()
+    for keyword in route_keywords:
+        normalized = normalize_keyword(keyword)
+        if normalized not in seen_keywords:
+            seen_keywords.add(normalized)
+            deduplicated_keywords.append(keyword)
+    route = {
+        "leaf_id": ref["leaf_id"], "keywords": deduplicated_keywords,
         "path": ref["path"], "domain_id": ref["domain_id"], "subdomain_id": ref["subdomain_id"],
         "knowledge_type": ref["knowledge_type"], "entry_count": ref["entry_count"],
         "intent_ids": ref["intent_ids"], "scope": ref["scope"], "do_not_generalize": ref["do_not_generalize"]
-    })
+    }
+    if ref.get("provider"):
+        route["provider"] = ref["provider"]
+    routes.append(route)
 dump("index/runtime.json", {
     "schema_version": "1.0.0", "index_type": "runtime-router", "generated_by": "scripts/bootstrap-progressive-content.py",
     "matching": {"normalization": ["lowercase", "unicode_nfkc"], "scoring": "token-overlap", "tie_break": "specificity_then_entry_count"},

@@ -27,6 +27,7 @@
     "route_score_margin": 2,
     "high_confidence_score": 6,
     "high_confidence_margin": 1,
+    "min_route_score": 2,
     "search_fallback": "ask-before-network"
   },
   "routes": [
@@ -52,7 +53,11 @@
     {
       "leaf_id": "availability-patterns",
       "keywords": [
+        "高可用",
         "高可用模式",
+        "故障转移",
+        "RTO",
+        "RPO",
         "availability-patterns",
         "high-availability"
       ],
@@ -146,7 +151,6 @@
       "leaf_id": "camera-language",
       "keywords": [
         "镜头语言",
-        "camera-language",
         "camera-language"
       ],
       "path": "terms/camera-language/camera-language.json",
@@ -164,7 +168,12 @@
     {
       "leaf_id": "capacity-model",
       "keywords": [
-        "并发容量模型",
+        "高并发",
+        "并发容量",
+        "容量模型",
+        "RPS",
+        "P95",
+        "P99",
         "capacity-model",
         "high-concurrency"
       ],
@@ -555,7 +564,7 @@
       "keywords": [
         "跟随",
         "跟手",
-        "惯性"
+        "速度跟随"
       ],
       "path": "terms/interaction/follow.json",
       "domain_id": "digital-product-uiux",
@@ -712,7 +721,6 @@
       "leaf_id": "gsap-core",
       "keywords": [
         "GSAP Core",
-        "gsap core",
         "gsap.to/from/fromTo",
         "duration"
       ],
@@ -726,7 +734,8 @@
         "audit-gsap"
       ],
       "scope": "provider-specific",
-      "do_not_generalize": true
+      "do_not_generalize": true,
+      "provider": "GSAP"
     },
     {
       "leaf_id": "gsap-frameworks",
@@ -746,7 +755,8 @@
         "audit-gsap"
       ],
       "scope": "provider-specific",
-      "do_not_generalize": true
+      "do_not_generalize": true,
+      "provider": "GSAP"
     },
     {
       "leaf_id": "gsap-performance",
@@ -766,13 +776,13 @@
         "audit-gsap"
       ],
       "scope": "provider-specific",
-      "do_not_generalize": true
+      "do_not_generalize": true,
+      "provider": "GSAP"
     },
     {
       "leaf_id": "gsap-plugins",
       "keywords": [
         "GSAP Plugins",
-        "gsap plugins",
         "Flip",
         "Draggable"
       ],
@@ -786,15 +796,19 @@
         "audit-gsap"
       ],
       "scope": "provider-specific",
-      "do_not_generalize": true
+      "do_not_generalize": true,
+      "provider": "GSAP"
     },
     {
       "leaf_id": "gsap-react-lifecycle",
       "keywords": [
         "GSAP React 生命周期",
-        "gsap react lifecycle",
+        "GSAP",
+        "React 动画清理",
+        "组件卸载清理",
+        "ctx.revert",
         "useGSAP",
-        "gsap.context"
+        "gsap react lifecycle"
       ],
       "path": "terms/animation-tool-adapter/gsap-react-lifecycle.json",
       "domain_id": "digital-product-uiux",
@@ -806,13 +820,13 @@
         "audit-gsap"
       ],
       "scope": "provider-specific",
-      "do_not_generalize": true
+      "do_not_generalize": true,
+      "provider": "GSAP"
     },
     {
       "leaf_id": "gsap-scrolltrigger",
       "keywords": [
         "GSAP ScrollTrigger",
-        "gsap scrolltrigger",
         "ScrollTrigger",
         "scrub"
       ],
@@ -826,13 +840,13 @@
         "audit-gsap"
       ],
       "scope": "provider-specific",
-      "do_not_generalize": true
+      "do_not_generalize": true,
+      "provider": "GSAP"
     },
     {
       "leaf_id": "gsap-timeline",
       "keywords": [
         "GSAP Timeline",
-        "gsap timeline",
         "timeline",
         "label"
       ],
@@ -846,7 +860,8 @@
         "audit-gsap"
       ],
       "scope": "provider-specific",
-      "do_not_generalize": true
+      "do_not_generalize": true,
+      "provider": "GSAP"
     },
     {
       "leaf_id": "high-contrast",
@@ -1376,6 +1391,9 @@
       "leaf_id": "press-and-hold-confirm",
       "keywords": [
         "按住蓄力确认",
+        "按住按钮",
+        "长按确认",
+        "危险操作确认",
         "press and hold confirm"
       ],
       "path": "terms/interaction/advanced/press-and-hold-confirm.json",
@@ -1512,7 +1530,11 @@
     {
       "leaf_id": "scaling-strategies",
       "keywords": [
+        "高扩展",
         "扩展策略",
+        "水平扩展",
+        "分片",
+        "异步化",
         "scaling-strategies",
         "scalability"
       ],
@@ -1706,6 +1728,7 @@
         "吸附卡加画线",
         "时间线逐段绘制",
         "卡片停稳后画线",
+        "卡片停稳后画时间线",
         "snap card timeline"
       ],
       "path": "terms/interaction/continuous/snap-card-timeline.json",

@@ -2,6 +2,7 @@
 """Validate legacy and progressive Feeling to Jargon indexes without loading the whole knowledge corpus."""
 from __future__ import annotations
 import json
+import unicodedata
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -25,7 +26,7 @@ assert len(root_ids) == len(set(root_ids)), "duplicate root domain_id"
 assert len([item["package_id"] for item in packages]) == len(set(item["package_id"] for item in packages)), "duplicate package_id"
 assert set(root_ids) == set(package_ids), f"domain mismatch: roots={set(root_ids)-set(package_ids)}, packages={set(package_ids)-set(root_ids)}"
 policy = root_doc["loading_policy"]
-for key in ("max_subdomains", "max_intents", "max_leaf_packages", "max_entries_per_leaf", "route_score_margin", "high_confidence_score", "high_confidence_margin"):
+for key in ("max_subdomains", "max_intents", "max_leaf_packages", "max_entries_per_leaf", "route_score_margin", "high_confidence_score", "high_confidence_margin", "min_route_score"):
     assert isinstance(policy[key], int) and policy[key] > 0, f"invalid loading limit: {key}"
 assert policy.get("max_intents_scope") == "per_subdomain", "intent limit scope must be per_subdomain"
 for item in packages:
@@ -86,8 +87,10 @@ for leaf in leaves:
     if leaf["scope"] == "provider-specific":
         assert leaf_doc.get("do_not_generalize") is True, f"provider leaf must be scoped: {leaf['leaf_id']}"
 for route in routes:
+    normalized_keywords = [unicodedata.normalize("NFKC", keyword).casefold().strip() for keyword in route["keywords"]]
+    assert len(normalized_keywords) == len(set(normalized_keywords)), f"duplicate route keywords: {route['leaf_id']}"
     manifest = leaf_by_id[route["leaf_id"]]
-    for field in ("path", "domain_id", "subdomain_id", "knowledge_type", "entry_count", "scope", "intent_ids", "do_not_generalize"):
+    for field in ("path", "domain_id", "subdomain_id", "knowledge_type", "entry_count", "scope", "intent_ids", "do_not_generalize", "provider"):
         assert route.get(field) == manifest.get(field), f"runtime metadata mismatch: {route['leaf_id']} field={field}"
     route_intents = set(route.get("intent_ids", []))
     known_intents = intent_ids_by_subdomain[(route["domain_id"], route["subdomain_id"])]
