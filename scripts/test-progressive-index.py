@@ -20,6 +20,11 @@ CASES = [
     ("实现液态玻璃导航并提供移动端降级", {"liquid-glass-bar"}, 8),
     ("用 GSAP 做 React ScrollTrigger，并正确清理", {"gsap-scrolltrigger", "gsap-react-lifecycle"}, 8),
     ("设计一个有 Light/Dark 预览的设计系统", {"living-style-guide-preview"}, 8),
+    ("勾选后让顶部背景、进度环和数字同步变化", {"checkbox-cascade"}, 5),
+    ("做一个叠卡展开，关闭时沿原路径叠回", {"stack-card-expand"}, 5),
+    ("卡片吸附后再逐段绘制时间线", {"snap-card-timeline"}, 8),
+    ("做一个有惯性、回弹和刻度吸附的时间滚轮", {"inertial-wheel"}, 8),
+    ("从点击位置开始圆形扩散完成页面转场", {"radial-reveal-transition"}, 5),
 ]
 NEGATIVE_CASES = [
     ("hello world", {"morph-icon", "ripple-button", "liquid-slider"}),
@@ -73,6 +78,19 @@ raw = subprocess.check_output(["python3", str(QUERY), "GSAP timeline"], text=Tru
 gsap_timeline_result = json.loads(raw)
 assert gsap_timeline_result["matches"][0]["leaf_id"] == "gsap-timeline", "specific GSAP query lost top match"
 assert gsap_timeline_result["trace"]["loaded_leaf_count"] <= 2, "specific GSAP query loaded unrelated leaves"
+
+for query, leaf_id, required_fields in [
+    ("勾选后让顶部背景、进度环和数字同步变化", "checkbox-cascade", ("state_machine", "animation_sequence", "spatial_anchor", "acceptance")),
+    ("做一个叠卡展开，关闭时沿原路径叠回", "stack-card-expand", ("state_machine", "animation_sequence", "spatial_anchor", "acceptance")),
+    ("卡片吸附后再逐段绘制时间线", "snap-card-timeline", ("state_machine", "animation_sequence", "spatial_anchor", "acceptance")),
+    ("做一个有惯性、回弹和刻度吸附的时间滚轮", "inertial-wheel", ("state_machine", "accessibility", "acceptance")),
+    ("从点击位置开始圆形扩散完成页面转场", "radial-reveal-transition", ("state_machine", "animation_sequence", "spatial_anchor", "acceptance")),
+]:
+    result = json.loads(subprocess.check_output(["python3", str(QUERY), query], text=True))
+    leaf = next(item for item in result["matches"] if item["leaf_id"] == leaf_id)
+    entry = leaf["entries"][0]
+    for field in required_fields:
+        assert entry.get(field), f"{leaf_id}: missing {field}"
 
 for option in ("--max-leaves", "--max-entries"):
     completed = subprocess.run(

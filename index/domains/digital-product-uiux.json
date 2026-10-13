@@ -31,7 +31,7 @@
       "title": "连续交互",
       "description": "同一容器内的展开、形变、切换和回退",
       "intent_index": "index/intents/digital-product-uiux/continuous-interaction.json",
-      "leaf_count": 10,
+      "leaf_count": 14,
       "status": "published"
     },
     {
@@ -39,7 +39,7 @@
       "title": "手势交互",
       "description": "跟随、阈值、吸附和手势采样",
       "intent_index": "index/intents/digital-product-uiux/gesture-interaction.json",
-      "leaf_count": 15,
+      "leaf_count": 16,
       "status": "published"
     },
     {

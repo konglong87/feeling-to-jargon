@@ -169,6 +169,8 @@
     "max_leaf_packages": 8,
     "max_entries_per_leaf": 30,
     "route_score_margin": 2,
+    "high_confidence_score": 6,
+    "high_confidence_margin": 1,
     "search_fallback": "ask-before-network"
   }
 }

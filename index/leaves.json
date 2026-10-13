@@ -173,6 +173,23 @@
       "do_not_generalize": false
     },
     {
+      "leaf_id": "checkbox-cascade",
+      "title": "勾选联动",
+      "path": "terms/interaction/continuous/checkbox-cascade.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "continuous-interaction",
+      "knowledge_type": "technique",
+      "status": "published",
+      "intent_ids": [
+        "design-continuous",
+        "implement-continuous",
+        "audit-continuous"
+      ],
+      "scope": "general",
+      "entry_count": 1,
+      "do_not_generalize": false
+    },
+    {
       "leaf_id": "composition-language",
       "title": "构图语言",
       "path": "terms/composition/composition-language.json",
@@ -756,6 +773,23 @@
       "do_not_generalize": false
     },
     {
+      "leaf_id": "inertial-wheel",
+      "title": "惯性滚轮",
+      "path": "terms/interaction/advanced/inertial-wheel.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "gesture-interaction",
+      "knowledge_type": "pattern",
+      "status": "published",
+      "intent_ids": [
+        "design-gesture",
+        "implement-gesture",
+        "audit-gesture"
+      ],
+      "scope": "general",
+      "entry_count": 1,
+      "do_not_generalize": false
+    },
+    {
       "leaf_id": "information-hierarchy",
       "title": "信息层级与密度",
       "path": "terms/information-architecture/information-hierarchy.json",
@@ -1148,6 +1182,23 @@
       "do_not_generalize": false
     },
     {
+      "leaf_id": "radial-reveal-transition",
+      "title": "圆形扩散转场",
+      "path": "terms/interaction/continuous/radial-reveal-transition.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "continuous-interaction",
+      "knowledge_type": "technique",
+      "status": "published",
+      "intent_ids": [
+        "design-continuous",
+        "implement-continuous",
+        "audit-continuous"
+      ],
+      "scope": "general",
+      "entry_count": 1,
+      "do_not_generalize": false
+    },
+    {
       "leaf_id": "reverse-animation",
       "title": "撤销反向动画",
       "path": "terms/interaction/reverse-animation.json",
@@ -1362,6 +1413,23 @@
       "do_not_generalize": false
     },
     {
+      "leaf_id": "snap-card-timeline",
+      "title": "吸附卡加画线",
+      "path": "terms/interaction/continuous/snap-card-timeline.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "continuous-interaction",
+      "knowledge_type": "technique",
+      "status": "published",
+      "intent_ids": [
+        "design-continuous",
+        "implement-continuous",
+        "audit-continuous"
+      ],
+      "scope": "general",
+      "entry_count": 1,
+      "do_not_generalize": false
+    },
+    {
       "leaf_id": "spring-press",
       "title": "Spring 按压回弹",
       "path": "terms/interaction/spring-press.json",
@@ -1420,6 +1488,23 @@
       "intent_ids": [
         "design-interaction",
         "implement-animation"
+      ],
+      "scope": "general",
+      "entry_count": 1,
+      "do_not_generalize": false
+    },
+    {
+      "leaf_id": "stack-card-expand",
+      "title": "叠卡展开",
+      "path": "terms/interaction/continuous/stack-card-expand.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "continuous-interaction",
+      "knowledge_type": "technique",
+      "status": "published",
+      "intent_ids": [
+        "design-continuous",
+        "implement-continuous",
+        "audit-continuous"
       ],
       "scope": "general",
       "entry_count": 1,

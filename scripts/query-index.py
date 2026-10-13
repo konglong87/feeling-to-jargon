@@ -83,7 +83,9 @@ def main() -> None:
         if key not in selected_subdomains:
             selected_subdomains.append(key)
     selected_subdomains = selected_subdomains[: limits["max_subdomains"]]
-    score_margin = limits.get("route_score_margin", 0)
+    default_margin = limits.get("route_score_margin", 0)
+    high_confidence_score = limits.get("high_confidence_score", 0)
+    high_confidence_margin = limits.get("high_confidence_margin", default_margin)
     selected = []
     for subdomain in selected_subdomains:
         subdomain_ranked = [
@@ -93,6 +95,7 @@ def main() -> None:
         if not subdomain_ranked:
             continue
         top_score = subdomain_ranked[0][0]
+        score_margin = high_confidence_margin if top_score >= high_confidence_score else default_margin
         selected.extend(
             pair for pair in subdomain_ranked
             if pair[0] >= max(1, top_score - score_margin)

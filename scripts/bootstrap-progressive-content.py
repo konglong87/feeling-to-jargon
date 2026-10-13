@@ -72,6 +72,8 @@ root["loading_policy"] = {
     "max_leaf_packages": 8,
     "max_entries_per_leaf": 30,
     "route_score_margin": 2,
+    "high_confidence_score": 6,
+    "high_confidence_margin": 1,
     "search_fallback": "ask-before-network",
 }
 domain_specs = {
@@ -277,6 +279,73 @@ for leaf_id, (name, plain, params, states, related) in continuous_patterns.items
         ["design-continuous", "implement-continuous", "audit-continuous"],
     )
 
+# These interaction leaves translate a visual feeling into observable timing,
+# spatial and sequencing terms. They stay independent so a query loads one
+# interaction pattern instead of the entire motion catalog.
+measurable_continuous_interactions = {
+    "checkbox-cascade": {
+        "title": "勾选联动",
+        "plain": "一次勾选按明确先后驱动顶部背景、进度环和数字滚动，多个反馈共享同一完成结果。",
+        "parameters": ["勾选反馈 80–160ms", "背景渐变 180–300ms", "进度环绘制 400–700ms", "数字滚动 300–500ms", "stroke-dashoffset", "数字 Y 轴偏移"],
+        "sequence": ["checkbox checked", "top background transition", "progress ring draw", "count update", "settled"],
+        "spatial_anchor": ["复选框是触发源", "顶部背景覆盖状态区域", "进度环围绕当前任务指标", "数字与进度环保持同一视觉组"],
+        "accessibility": ["键盘 Space/Enter 可勾选", "aria-checked 与视觉状态同步", "减少动态时保留最终进度和数字"],
+        "acceptance": ["勾选后所有反馈都出现", "进度环不早于触发状态", "数字与进度百分比一致", "快速连续勾选不会叠加旧动画"],
+    },
+    "stack-card-expand": {
+        "title": "叠卡展开",
+        "plain": "叠放卡片点击或下滑后扇出成完整铺排，再沿原空间路径叠回，展开期间锁定下方卡片误触。",
+        "parameters": ["Y 轴位移按卡片间距递增", "旋转角度按扇出方向分配", "缩放比例逐层收敛到 1", "Z 轴层级从前到后重排", "展开/收回使用同一锚点"],
+        "sequence": ["collapsed stack", "fan out", "content reveal", "expanded layout", "reverse stack"],
+        "spatial_anchor": ["首张卡片作为展开原点", "卡片沿预设扇形或垂直轨迹排列", "每张卡片保留可点击区域", "关闭时回到原重叠位置"],
+        "accessibility": ["键盘 Enter/Space 展开", "aria-expanded 表达状态", "减少动态时直接切换布局但保留层级"],
+        "acceptance": ["展开前后首张卡位置连续", "卡片不互相遮挡关键内容", "展开期间下层卡片不可误触", "关闭沿原路回叠"],
+    },
+    "snap-card-timeline": {
+        "title": "吸附卡加画线",
+        "plain": "卡片先减速吸附到最近目标，停稳后时间线再从起点逐段绘制到对应卡片位置。",
+        "parameters": ["先吸附后绘制", "卡片停止后延迟 80–160ms", "timeline duration 300–600ms", "stroke-dasharray", "stroke-dashoffset", "卡片最终 Y 轴位置"],
+        "sequence": ["drag or scroll", "decelerating", "snap to nearest card", "settled", "timeline draw", "complete"],
+        "spatial_anchor": ["吸附目标由最近卡片决定", "时间线起点固定在轨道起点", "终点对齐卡片中心或锚点", "线段绘制方向与滚动方向一致"],
+        "accessibility": ["键盘切换卡片时同样触发落位反馈", "aria-current 标记当前卡片", "减少动态时显示完整时间线"],
+        "acceptance": ["时间线绝不早于卡片停稳", "吸附目标稳定不抖动", "线终点准确对齐卡片", "取消或快速切换不会残留旧线段"],
+    },
+    "radial-reveal-transition": {
+        "title": "圆形扩散转场",
+        "plain": "从真实点击位置捕获圆心，以 clip-path circle 扩散覆盖屏幕，完全覆盖后再显示新页面内容。",
+        "parameters": ["捕获 pointer x/y", "最大半径覆盖最远屏幕角", "扩散 duration 300–500ms", "easing ease-out", "新页面在覆盖完成后进入"],
+        "sequence": ["capture origin", "circle expand", "screen covered", "new content enter", "settled", "reverse on back"],
+        "spatial_anchor": ["圆心等于触点坐标", "半径取触点到最远角距离", "新旧页面共享同一转场层", "返回时沿反向路径收回"],
+        "accessibility": ["键盘触发使用按钮中心作为安全圆心", "焦点在新页面可交互后移动", "prefers-reduced-motion 时取消扩散但保留状态切换"],
+        "acceptance": ["圆心不偏离触点", "覆盖完成前不暴露新旧页面混合帧", "返回操作可逆", "视口变化时重新计算最大半径"],
+    },
+}
+for leaf_id, spec in measurable_continuous_interactions.items():
+    add_leaf(
+        f"terms/interaction/continuous/{leaf_id}.json",
+        leaf_id,
+        "digital-product-uiux",
+        "continuous-interaction",
+        spec["title"],
+        "technique",
+        [entry(
+            leaf_id,
+            spec["title"],
+            spec["plain"],
+            "用户用自然语言描述联动、叠卡、吸附画线或圆形转场的感觉时",
+            spec["parameters"],
+            ["follow", "snap", "interruption", "reduced-motion"],
+            ["避免生硬切换", "动画顺序必须可验证", "必须支持中断和反向回退"],
+            aliases=[spec["title"], leaf_id.replace("-", " ")],
+            state_machine=spec["sequence"],
+            animation_sequence=spec["sequence"],
+            spatial_anchor=spec["spatial_anchor"],
+            accessibility=spec["accessibility"],
+            acceptance=spec["acceptance"],
+        )],
+        ["design-continuous", "implement-continuous", "audit-continuous"],
+    )
+
 advanced_interactions = {
     "press-and-hold-confirm": ("按住蓄力确认", "按住危险操作按钮达到 800–1200ms 才确认，未满松手或移动超限则取消。", ["pressing", "charging", "confirmed", "cancel"], ["800–1200ms", "移动超过 10px 取消", "多点触控只认第一指", "进度环与按压时间一致"], ["键盘 Space/Enter", "ESC 取消", "aria-describedby", "替代二次确认"]),
     "rotary-knob": ("旋钮转盘", "拖动或用键盘旋转旋钮，释放后吸附到最近刻度，中心数值同步变化。", ["dragging", "snapping", "idle"], ["-135° 到 +135°", "步进 1 或 5", "小于 0.35 步长磁吸", "touch-action: none"], ["role=slider", "aria-valuemin/max/now", "Home/End 到极值"]),
@@ -287,6 +356,7 @@ advanced_interactions = {
     "drag-to-absorb": ("拖到目标吸入", "拖拽元素靠近目标后目标张开，松手时元素缩小并吸入目标中心。", ["dragging", "hovering", "dropping", "absorbed", "returning"], ["目标半径 1.2 倍或外扩 48px", "目标 scale 1.15", "元素缩至 0.2", "未命中回原位"], ["键盘移动和放置", "目标重叠时按优先级", "多点触控只认第一指"]),
     "segmented-progress": ("分段进度条", "按住暂停，点击左右区域切换上一项或下一项，进度与内容同步。", ["playing", "paused", "switching"], ["200ms 内抬起判定点击", "左右 35% 切换", "中间 30% 暂停", "最后一项循环"], ["左右箭头", "Space 暂停", "aria-live 当前项"]),
     "perspective-carousel": ("景随图换轮播", "拖动距离或速度达到阈值后切换，中心项放大，侧边项透视缩小。", ["dragging", "snapping", "switching"], ["距离超过 20% 或速度超过 0.5px/ms", "perspective 1000px", "侧项 scale 0.85", "无限循环无跳帧"], ["aria-roledescription=carousel", "aria-current", "图片失败降级"]),
+    "inertial-wheel": ("惯性滚轮", "时间或数值滚轮在释放后继承速度惯性减速，越界时阻尼回弹并吸附到最近刻度。", ["dragging", "inertial", "decelerating", "overscrolling", "snapping", "settled"], ["手指阶段 1:1 跟手", "释放后保存 velocity", "friction 衰减", "越界阻尼", "spring 刚度/阻尼", "最近刻度吸附", "限制最大速度避免眩晕"], ["role=slider", "键盘离散步进", "Home/End 到极值", "减少动态时保留当前刻度"]),
 }
 for leaf_id, (name, plain, states, params, accessibility) in advanced_interactions.items():
     add_leaf(
@@ -682,6 +752,13 @@ keywords = {
         for k, v in gsap_leaves.items()
     },
     "living-style-guide-preview": ["活样式指南", "Light", "Dark", "设计系统", "预览", "token"],
+    # Explicit aliases keep the five new feeling-to-term patterns ahead of
+    # generic motion leaves when the user describes the visible outcome.
+    "checkbox-cascade": ["勾选联动", "复选框联动", "进度环", "数字滚动", "顶部背景", "checkbox cascade"],
+    "stack-card-expand": ["叠卡展开", "卡片铺开", "卡片扇出", "卡片叠回", "stack card expand"],
+    "snap-card-timeline": ["吸附卡画线", "吸附卡加画线", "时间线逐段绘制", "卡片停稳后画线", "snap card timeline"],
+    "inertial-wheel": ["惯性滚轮", "时间滚轮", "数值滚轮", "阻尼滚轮", "刻度吸附", "inertial wheel"],
+    "radial-reveal-transition": ["圆形扩散转场", "圆形转场", "径向揭示", "点击点扩散", "页面圆形扩散", "radial reveal transition"],
     "character-ip": ["角色 IP", "三视图", "周边", "一致性", "毛绒玩偶"],
     "gpui-desktop-web": ["GPUIX", "Metal", "DirectX", "Vulkan", "WebGPU", "WebGL2"],
     "gpui-mobile": ["GPUIX", "iOS", "Android", "移动端", "gpui-mobile"],

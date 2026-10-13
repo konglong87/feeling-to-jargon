@@ -25,7 +25,7 @@ assert len(root_ids) == len(set(root_ids)), "duplicate root domain_id"
 assert len([item["package_id"] for item in packages]) == len(set(item["package_id"] for item in packages)), "duplicate package_id"
 assert set(root_ids) == set(package_ids), f"domain mismatch: roots={set(root_ids)-set(package_ids)}, packages={set(package_ids)-set(root_ids)}"
 policy = root_doc["loading_policy"]
-for key in ("max_subdomains", "max_intents", "max_leaf_packages", "max_entries_per_leaf", "route_score_margin"):
+for key in ("max_subdomains", "max_intents", "max_leaf_packages", "max_entries_per_leaf", "route_score_margin", "high_confidence_score", "high_confidence_margin"):
     assert isinstance(policy[key], int) and policy[key] > 0, f"invalid loading limit: {key}"
 assert policy.get("max_intents_scope") == "per_subdomain", "intent limit scope must be per_subdomain"
 for item in packages:
