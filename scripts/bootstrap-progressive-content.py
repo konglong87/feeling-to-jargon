@@ -387,6 +387,31 @@ for leaf_id, (name, plain, states, params, accessibility) in advanced_interactio
         ["design-gesture", "implement-gesture", "audit-gesture"],
     )
 
+add_leaf(
+    "terms/interaction/advanced/edge-docked-fab.json",
+    "edge-docked-fab",
+    "digital-product-uiux",
+    "gesture-interaction",
+    "吸边悬浮球",
+    "pattern",
+    [entry(
+        "edge-docked-fab",
+        "吸边悬浮球",
+        "毛玻璃悬浮球跟手拖拽，释放后吸附到最近左右边缘，闲置后缩成半透明贴边状态。",
+        "需要可移动的悬浮入口，同时避免遮挡底部 Tab 和安全区内容",
+        ["56px 圆球", "0.02 惯性", "距边 12px", "spring 300/30", "无操作 3s 后缩小", "滚动时 opacity 0.4", "停止滚动 400ms 恢复", "垂直位置限制在安全区"],
+        ["follow", "velocity-inheritance", "snap", "interruption"],
+        ["拖拽不能穿出安全区", "吸附后仍保留可点击面积", "页面滚动时不能遮挡底部 Tab", "组件卸载时清理滚动监听和恢复定时器"],
+        aliases=["吸边悬浮球", "贴边悬浮按钮", "edge docked fab"],
+        state_machine=["idle", "dragging", "snapping", "docked", "shrunk", "restoring"],
+        animation_sequence=["follow pointer", "project release velocity", "snap to nearest edge", "shrink after idle", "restore after scroll"],
+        spatial_anchor=["左右边缘为吸附锚点", "距边 12px", "垂直范围避开安全区和底部 Tab"],
+        accessibility=["键盘焦点可达", "方向键移动或提供设置入口替代拖拽", "aria-label 描述悬浮入口", "减少动态时取消缩小和惯性"],
+        acceptance=["拖拽 1:1 跟手", "释放后稳定吸边", "滚动透明度反馈及时", "不遮挡关键导航", "快速拖拽不产生双重吸附"],
+    )],
+    ["design-gesture", "implement-gesture", "audit-gesture"],
+)
+
 # Dashboard terms and reusable style template.
 dashboard_entries = {
     "warm-minimal": ("暖调留白型", "奶油底色、单一黄色强调、细边框和弱阴影，保留呼吸感。", ["#F7F3EA", "一个主强调色", "圆角克制", "弱阴影"]),
@@ -768,6 +793,10 @@ keywords = {
     "snap-card-timeline": ["吸附卡画线", "吸附卡加画线", "时间线逐段绘制", "卡片停稳后画线", "卡片停稳后画时间线", "snap card timeline"],
     "inertial-wheel": ["惯性滚轮", "时间滚轮", "数值滚轮", "阻尼滚轮", "刻度吸附", "inertial wheel"],
     "radial-reveal-transition": ["圆形扩散转场", "圆形转场", "径向揭示", "点击点扩散", "页面圆形扩散", "radial reveal transition"],
+    "submit-state-machine": ["提交状态", "保存按钮", "保存进度环", "保存转进度", "进度环打勾", "submit state machine"],
+    "perspective-carousel": ["景随图换轮播", "卡片层叠轮播", "层叠轮播", "叠卡轮播", "卡片堆叠轮播", "perspective carousel"],
+    "damped-bottom-sheet": ["阻尼弹性抽屉", "撕线弹出面板", "撕线下拉", "撕线下拉打开面板", "撕口下拉", "撕线面板", "撕口弹出", "tear line panel"],
+    "edge-docked-fab": ["吸边悬浮球", "吸边悬浮球，释放后吸附", "贴边悬浮按钮", "edge docked fab"],
     "press-and-hold-confirm": ["按住蓄力确认", "按住按钮", "长按确认", "危险操作确认", "press and hold confirm"],
     "gsap-react-lifecycle": ["GSAP React 生命周期", "GSAP", "React 动画清理", "组件卸载清理", "ctx.revert", "useGSAP", "gsap react lifecycle"],
     "availability-patterns": ["高可用", "高可用模式", "故障转移", "RTO", "RPO", "availability-patterns", "high-availability"],

@@ -27,6 +27,10 @@ CASES = [
     ("卡片停稳后画时间线", {"snap-card-timeline"}, 8),
     ("做一个有惯性、回弹和刻度吸附的时间滚轮", {"inertial-wheel"}, 8),
     ("从点击位置开始圆形扩散完成页面转场", {"radial-reveal-transition"}, 5),
+    ("撕线下拉打开面板，未达阈值回弹", {"damped-bottom-sheet"}, 5),
+    ("保存按钮收缩成进度环，完成后变已保存", {"submit-state-machine"}, 5),
+    ("做一个吸边悬浮球，释放后吸附左右边缘", {"edge-docked-fab"}, 5),
+    ("做一个三张卡片层叠轮播，拖过阈值飞出", {"perspective-carousel"}, 5),
 ]
 NEGATIVE_CASES = [
     ("hello world", {"morph-icon", "ripple-button", "liquid-slider"}),
@@ -101,20 +105,28 @@ for query, expected_top in [
     ("卡片停稳后画时间线", "snap-card-timeline"),
     ("惯性滚轮", "inertial-wheel"),
     ("圆形扩散转场", "radial-reveal-transition"),
+    ("撕线弹出面板", "damped-bottom-sheet"),
+    ("保存按钮变进度环", "submit-state-machine"),
+    ("吸边悬浮球", "edge-docked-fab"),
+    ("卡片层叠轮播", "perspective-carousel"),
 ]:
     result = json.loads(subprocess.check_output(["python3", str(QUERY), query], text=True))
     assert result["matches"][0]["leaf_id"] == expected_top, f"{query}: wrong top match"
 
-for query, leaf_id, required_fields in [
-    ("勾选后让顶部背景、进度环和数字同步变化", "checkbox-cascade", ("state_machine", "animation_sequence", "spatial_anchor", "acceptance")),
-    ("做一个叠卡展开，关闭时沿原路径叠回", "stack-card-expand", ("state_machine", "animation_sequence", "spatial_anchor", "acceptance")),
-    ("卡片吸附后再逐段绘制时间线", "snap-card-timeline", ("state_machine", "animation_sequence", "spatial_anchor", "acceptance")),
-    ("做一个有惯性、回弹和刻度吸附的时间滚轮", "inertial-wheel", ("state_machine", "accessibility", "acceptance")),
-    ("从点击位置开始圆形扩散完成页面转场", "radial-reveal-transition", ("state_machine", "animation_sequence", "spatial_anchor", "acceptance")),
+for query, leaf_id, entry_id, required_fields in [
+    ("勾选后让顶部背景、进度环和数字同步变化", "checkbox-cascade", "checkbox-cascade", ("state_machine", "animation_sequence", "spatial_anchor", "acceptance")),
+    ("做一个叠卡展开，关闭时沿原路径叠回", "stack-card-expand", "stack-card-expand", ("state_machine", "animation_sequence", "spatial_anchor", "acceptance")),
+    ("卡片吸附后再逐段绘制时间线", "snap-card-timeline", "snap-card-timeline", ("state_machine", "animation_sequence", "spatial_anchor", "acceptance")),
+    ("做一个有惯性、回弹和刻度吸附的时间滚轮", "inertial-wheel", "inertial-wheel", ("state_machine", "accessibility", "acceptance")),
+    ("从点击位置开始圆形扩散完成页面转场", "radial-reveal-transition", "radial-reveal-transition", ("state_machine", "animation_sequence", "spatial_anchor", "acceptance")),
+    ("撕线下拉打开面板，未达阈值回弹", "damped-bottom-sheet", "tear-line-panel", ("state_machine", "animation_sequence", "spatial_anchor", "acceptance")),
+    ("保存按钮收缩成进度环，完成后变已保存", "submit-state-machine", "save-progress-ring", ("state_machine", "animation_sequence", "spatial_anchor", "acceptance")),
+    ("做一个吸边悬浮球，释放后吸附左右边缘", "edge-docked-fab", "edge-docked-fab", ("state_machine", "animation_sequence", "spatial_anchor", "acceptance")),
+    ("做一个三张卡片层叠轮播，拖过阈值飞出", "perspective-carousel", "stacked-card-carousel", ("state_machine", "animation_sequence", "spatial_anchor", "acceptance")),
 ]:
     result = json.loads(subprocess.check_output(["python3", str(QUERY), query], text=True))
     leaf = next(item for item in result["matches"] if item["leaf_id"] == leaf_id)
-    entry = leaf["entries"][0]
+    entry = next(item for item in leaf["entries"] if item["id"] == entry_id)
     for field in required_fields:
         assert entry.get(field), f"{leaf_id}: missing {field}"
 

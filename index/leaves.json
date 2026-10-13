@@ -300,7 +300,7 @@
         "spec-component"
       ],
       "scope": "general",
-      "entry_count": 1,
+      "entry_count": 2,
       "do_not_generalize": false
     },
     {
@@ -380,6 +380,23 @@
       "intent_ids": [
         "design-interaction",
         "implement-animation"
+      ],
+      "scope": "general",
+      "entry_count": 1,
+      "do_not_generalize": false
+    },
+    {
+      "leaf_id": "edge-docked-fab",
+      "title": "吸边悬浮球",
+      "path": "terms/interaction/advanced/edge-docked-fab.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "gesture-interaction",
+      "knowledge_type": "pattern",
+      "status": "published",
+      "intent_ids": [
+        "design-gesture",
+        "implement-gesture",
+        "audit-gesture"
       ],
       "scope": "general",
       "entry_count": 1,
@@ -1135,7 +1152,7 @@
         "audit-gesture"
       ],
       "scope": "general",
-      "entry_count": 1,
+      "entry_count": 2,
       "do_not_generalize": false
     },
     {
@@ -1531,7 +1548,7 @@
         "audit-continuous"
       ],
       "scope": "general",
-      "entry_count": 1,
+      "entry_count": 2,
       "do_not_generalize": false
     },
     {

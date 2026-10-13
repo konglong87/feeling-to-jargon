@@ -372,14 +372,19 @@
       "leaf_id": "damped-bottom-sheet",
       "keywords": [
         "阻尼弹性抽屉",
-        "组件",
-        "AI 生成"
+        "撕线弹出面板",
+        "撕线下拉",
+        "撕线下拉打开面板",
+        "撕口下拉",
+        "撕线面板",
+        "撕口弹出",
+        "tear line panel"
       ],
       "path": "terms/component-design/damped-bottom-sheet.json",
       "domain_id": "digital-product-uiux",
       "subdomain_id": "component-design",
       "knowledge_type": "template",
-      "entry_count": 1,
+      "entry_count": 2,
       "intent_ids": [
         "generate-component",
         "spec-component"
@@ -479,6 +484,27 @@
       "intent_ids": [
         "design-interaction",
         "implement-animation"
+      ],
+      "scope": "general",
+      "do_not_generalize": false
+    },
+    {
+      "leaf_id": "edge-docked-fab",
+      "keywords": [
+        "吸边悬浮球",
+        "吸边悬浮球，释放后吸附",
+        "贴边悬浮按钮",
+        "edge docked fab"
+      ],
+      "path": "terms/interaction/advanced/edge-docked-fab.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "gesture-interaction",
+      "knowledge_type": "pattern",
+      "entry_count": 1,
+      "intent_ids": [
+        "design-gesture",
+        "implement-gesture",
+        "audit-gesture"
       ],
       "scope": "general",
       "do_not_generalize": false
@@ -1372,13 +1398,17 @@
       "leaf_id": "perspective-carousel",
       "keywords": [
         "景随图换轮播",
+        "卡片层叠轮播",
+        "层叠轮播",
+        "叠卡轮播",
+        "卡片堆叠轮播",
         "perspective carousel"
       ],
       "path": "terms/interaction/advanced/perspective-carousel.json",
       "domain_id": "digital-product-uiux",
       "subdomain_id": "gesture-interaction",
       "knowledge_type": "pattern",
-      "entry_count": 1,
+      "entry_count": 2,
       "intent_ids": [
         "design-gesture",
         "implement-gesture",
@@ -1842,14 +1872,18 @@
     {
       "leaf_id": "submit-state-machine",
       "keywords": [
-        "提交状态反馈",
+        "提交状态",
+        "保存按钮",
+        "保存进度环",
+        "保存转进度",
+        "进度环打勾",
         "submit state machine"
       ],
       "path": "terms/interaction/continuous/submit-state-machine.json",
       "domain_id": "digital-product-uiux",
       "subdomain_id": "continuous-interaction",
       "knowledge_type": "pattern",
-      "entry_count": 1,
+      "entry_count": 2,
       "intent_ids": [
         "design-continuous",
         "implement-continuous",

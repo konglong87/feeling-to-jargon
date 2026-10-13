@@ -39,7 +39,7 @@
       "title": "手势交互",
       "description": "跟随、阈值、吸附和手势采样",
       "intent_index": "index/intents/digital-product-uiux/gesture-interaction.json",
-      "leaf_count": 16,
+      "leaf_count": 17,
       "status": "published"
     },
     {

@@ -6,7 +6,7 @@
 
 <p>
   <img src="https://img.shields.io/badge/19%20domains-indexed-20a464" alt="19 domains indexed">
-  <img src="https://img.shields.io/badge/104%20leaf%20packages-progressive-6d5dfc" alt="104 progressive leaf packages">
+  <img src="https://img.shields.io/badge/105%20leaf%20packages-progressive-6d5dfc" alt="105 progressive leaf packages">
   <img src="https://img.shields.io/badge/npx-first-f59e0b" alt="npx first">
   <img src="https://img.shields.io/badge/LLM-on--demand-111827" alt="LLM on demand">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-111827" alt="MIT License"></a>
@@ -106,7 +106,7 @@ flowchart LR
 当前已建立：
 
 - 19 个根领域入口
-- 104 个可独立加载的叶子包
+- 105 个可独立加载的叶子包
 - 5 级加载协议
 - 7 种知识类型：术语、模式、技巧、规范、参数、模板、平台研究
 - 非空运行时索引和本地查询器
@@ -136,7 +136,7 @@ python3 scripts/query-index.py "GPUIX 能不能跑移动端？"
 
 覆盖撤销条、FLIP 反向归位、跟随/阈值/吸附、速度继承、可中断动画、12 种基础动效、14 种连续交互和 10 种高级手势模式、Dashboard 视觉配方、5 种视觉效果、GSAP 适配边界、8 个可投喂给 AI 的组件描述，以及键盘、读屏和 `prefers-reduced-motion` 约束。
 
-连续交互包把搜索框、FAB 面板、提交状态、图标变形、标签指示条、步进器、列表展开、FLIP 布局切换、滚动收起和全屏揭示拆成独立叶子；本轮新增勾选联动、叠卡展开、吸附卡加画线和圆形扩散转场，并把惯性滚轮归入高级手势交互。每个模式都用状态机、动画序列、空间锚点、可测参数、可访问性和验收标准描述，把“细腻”“顺滑”“有质感”等感觉翻译成可以实现和检查的术语。高级手势包还覆盖按住确认、旋钮、前后对比、弧形菜单、滑动确认、长按预览、拖拽吸入、分段进度和透视轮播。
+连续交互包把搜索框、FAB 面板、提交状态、图标变形、标签指示条、步进器、列表展开、FLIP 布局切换、滚动收起和全屏揭示拆成独立叶子；本轮新增勾选联动、叠卡展开、吸附卡加画线和圆形扩散转场，并把惯性滚轮归入高级手势交互。已有组件索引继续扩展为撕线弹出面板、保存按钮进度环和卡片层叠轮播；只有没有合适既有边界的吸边悬浮球新建叶子。每个模式都用状态机、动画序列、空间锚点、可测参数、可访问性和验收标准描述，把“细腻”“顺滑”“有质感”等感觉翻译成可以实现和检查的术语。高级手势包还覆盖按住确认、旋钮、前后对比、弧形菜单、滑动确认、长按预览、拖拽吸入、分段进度和透视轮播。
 
 视觉效果包会把实现参数和性能边界一起加载：液态玻璃栏、封面取色氛围光、景深分层滚动、圆柱卷收列表、液滴粘连拖拽。每条记录同时提供性能预算、降级方案、移动端处理和减少动态策略，避免只复制视觉效果而忽略运行成本。
 
