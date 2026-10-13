@@ -90,7 +90,7 @@ for route in routes:
     normalized_keywords = [unicodedata.normalize("NFKC", keyword).casefold().strip() for keyword in route["keywords"]]
     assert len(normalized_keywords) == len(set(normalized_keywords)), f"duplicate route keywords: {route['leaf_id']}"
     manifest = leaf_by_id[route["leaf_id"]]
-    for field in ("path", "domain_id", "subdomain_id", "knowledge_type", "entry_count", "scope", "intent_ids", "do_not_generalize", "provider"):
+    for field in ("title", "path", "domain_id", "subdomain_id", "knowledge_type", "entry_count", "scope", "intent_ids", "do_not_generalize", "provider"):
         assert route.get(field) == manifest.get(field), f"runtime metadata mismatch: {route['leaf_id']} field={field}"
     route_intents = set(route.get("intent_ids", []))
     known_intents = intent_ids_by_subdomain[(route["domain_id"], route["subdomain_id"])]

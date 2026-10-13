@@ -141,4 +141,10 @@ runtime_doc = json.loads((ROOT / "index/runtime.json").read_text(encoding="utf-8
 for route in runtime_doc["routes"]:
     normalized_keywords = [unicodedata.normalize("NFKC", keyword).casefold().strip() for keyword in route["keywords"]]
     assert len(normalized_keywords) == len(set(normalized_keywords)), f"duplicate route keywords: {route['leaf_id']}"
+
+# Every published leaf must remain addressable by its own title. This catches
+# explicit alias lists that accidentally shadow or omit the canonical title.
+for leaf in json.loads((ROOT / "index/leaves.json").read_text(encoding="utf-8"))["leaves"]:
+    result = json.loads(subprocess.check_output(["python3", str(QUERY), leaf["title"]], text=True))
+    assert result["matches"] and result["matches"][0]["leaf_id"] == leaf["leaf_id"], f"title route drift: {leaf['leaf_id']}"
 print(f"progressive query ok: {len(CASES)} scenarios")

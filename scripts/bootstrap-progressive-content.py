@@ -809,7 +809,11 @@ keywords = {
 }
 routes = []
 for ref in leaf_refs:
-    route_keywords = keywords.get(ref["leaf_id"], [ref["title"], ref["leaf_id"], ref["subdomain_id"]])
+    route_keywords = [
+        *keywords.get(ref["leaf_id"], []),
+        ref["title"],
+        ref["leaf_id"],
+    ]
     deduplicated_keywords = []
     seen_keywords = set()
     for keyword in route_keywords:
@@ -818,7 +822,7 @@ for ref in leaf_refs:
             seen_keywords.add(normalized)
             deduplicated_keywords.append(keyword)
     route = {
-        "leaf_id": ref["leaf_id"], "keywords": deduplicated_keywords,
+        "leaf_id": ref["leaf_id"], "title": ref["title"], "keywords": deduplicated_keywords,
         "path": ref["path"], "domain_id": ref["domain_id"], "subdomain_id": ref["subdomain_id"],
         "knowledge_type": ref["knowledge_type"], "entry_count": ref["entry_count"],
         "intent_ids": ref["intent_ids"], "scope": ref["scope"], "do_not_generalize": ref["do_not_generalize"]

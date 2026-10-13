@@ -103,6 +103,9 @@ def main() -> None:
         if provider and provider not in normalize(query):
             continue
         route_score = score(query, route["keywords"])
+        title = normalize(route.get("title") or "")
+        if len(title) >= 3 and title in normalize(query):
+            route_score += 2
         if route_score >= min_route_score:
             ranked.append((route_score, route))
     ranked.sort(key=lambda pair: (-pair[0], pair[1]["entry_count"], pair[1]["leaf_id"]))
