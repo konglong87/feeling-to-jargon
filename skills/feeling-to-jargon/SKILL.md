@@ -46,6 +46,14 @@ python3 scripts/query-index.py "删除列表项，5 秒内撤销并支持键盘"
 
 没有匹配到术语包时，说明覆盖不足；只有在用户允许时才进行网络搜索。搜索结果是本次临时参考，不写回术语列表。
 
+## Dashboard 三层规范（合并分类）
+
+Dashboard 布局变体优先放进已有 `terms/dashboard/layout-patterns.json` 的条目，不为每个配色、场景或布局再建索引叶子。命中后只取当前条目，再按 `contract_ref` 读取 `templates/dashboard/dashboard-style-system.json` 的共享协议；视觉方向复用已有相关叶子，仅在需要时加载，不展开全部变体。
+
+按 `layout / termSkill / uiSkill / agentExec / state / tokens` 输出：术语定义信息结构，UI 定义视觉与栅格，Agent 定义交互状态机。分清共享状态与独立状态，写清每个事件改变什么、不改变什么，以及派生视图和验收断言。示例配色、比例和像素值不是全局默认值。
+
+先检查条目 `evidence` 与模板 `source_gaps`。暖色三栏的执行逻辑仍待确认，可以使用已知布局，但不能把候选房间联动或模式/单位映射当作事实；第六例没有原文，不补造、不建空索引。不要求用户重复确认前四例。
+
 ## AIGC IP 模板
 
 当请求涉及同一角色的多种材质、动作、表情或周边时，先读取 `templates/aigc/base-ip.json`，再按场景读取一个 `templates/aigc/*.json`。合并基础 IP、一致性约束、场景模块和目标工具参数；不要把七个场景全部加载到同一次请求中。中文文字建议预留排版区域，由后期工具叠加。

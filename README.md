@@ -189,6 +189,27 @@ scripts/validate-index.py     # 索引一致性校验
 scripts/bootstrap-progressive-content.py # 可重复生成内容与索引
 ```
 
+## Dashboard：三层规范，不增加索引
+
+术语定义信息结构 → UI 定义视觉与栅格 → Agent 定义交互状态机。布局变体合并到现有 `layout-patterns` 叶子，共用 `templates/dashboard/dashboard-style-system.json`；不会为每种配色或业务场景创建新叶子。
+
+| 同类条目 | 关键约束 | 来源状态 |
+| --- | --- | --- |
+| 多彩错列布局 | 日期只联动柱形与标签；容量圆点独立 | 原文已提供 |
+| 工业分区布局 | 低库存 `st=2`；物料选中联动补货卡；计数由集合派生 | 原文已提供 |
+| 中轴观测布局 | 队列、读数、星图和曲线共享目标与时间 | 原文已提供 |
+| 玻璃点阵布局 | 月份与指标共享状态；点 8 月评分回到 8 月 | 原文已提供 |
+| 暖色三栏布局 | 已知视觉可复用；房间点击、模式/单位映射待确认 | 执行描述不完整 |
+
+具体查询先在叶子内部排序，再应用 `--max-entries` 限额；未指定变体时只返回概览。同分路由不再因为条目合并而降权。
+
+每条提供 `layout / termSkill / uiSkill / agentExec / state / tokens`，并区分原文信息与建议的状态建模。第六例未提供原文，不生成虚构模板或空叶子；前五例的参数只在各自示例内有效。
+
+```bash
+python3 scripts/query-index.py "工业分区布局" --max-entries 1
+python3 scripts/query-index.py "玻璃点阵月份指标联动"
+```
+
 ## 添加新领域骨架 SOP
 
 1. 在 `index/root.json` 增加根领域和 `subdomain_index`。
@@ -200,7 +221,7 @@ scripts/bootstrap-progressive-content.py # 可重复生成内容与索引
 
 ```bash
 python3 scripts/validate-index.py
-python3 scripts/test-progressive-index.py
+python3 scripts/test-progressive-index.py # 包含 Dashboard 合并分类、限载和幂等回归
 python3 scripts/query-index.py "一个真实用户请求"
 ```
 

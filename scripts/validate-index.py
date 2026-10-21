@@ -84,6 +84,10 @@ for leaf in leaves:
     assert leaf_doc["status"] == leaf["status"], f"leaf status mismatch: {leaf['leaf_id']}"
     assert leaf_doc["knowledge_type"] == leaf["knowledge_type"], f"knowledge type mismatch: {leaf['leaf_id']}"
     assert len(leaf_doc.get("entries", [])) == leaf["entry_count"], f"entry count mismatch: {leaf['leaf_id']}"
+    entry_ids = [item["id"] for item in leaf_doc.get("entries", [])]
+    assert len(entry_ids) == len(set(entry_ids)), f"duplicate entry id: {leaf['leaf_id']}"
+    if leaf_doc.get("default_entry_id"):
+        assert leaf_doc["default_entry_id"] in entry_ids, f"missing overview entry: {leaf['leaf_id']}"
     if leaf["scope"] == "provider-specific":
         assert leaf_doc.get("do_not_generalize") is True, f"provider leaf must be scoped: {leaf['leaf_id']}"
 for route in routes:

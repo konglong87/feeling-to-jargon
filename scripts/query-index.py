@@ -83,6 +83,30 @@ def score(query: str, keywords: list[str]) -> int:
         matched_tokens.update(token for token in q_tokens if token in candidate)
     return points + (2 * len(matched_bigrams)) + len(matched_tokens)
 
+def select_entries(query: str, entries: list[dict], limit: int, margin: int, default_entry_id=None) -> list[dict]:
+    """Rank inside a merged family before applying its entry budget."""
+    ranked = []
+    normalized_query = normalize(query)
+    for position, item in enumerate(entries):
+        identifiers = [item.get("id", ""), item.get("name", ""), *item.get("aliases", [])]
+        identifiers = [value for value in identifiers if normalize(value)]
+        exact = any(len(normalize(value)) >= 3 and normalize(value) in normalized_query for value in identifiers)
+        details = [item.get("plain_language", ""), item.get("when_to_use", "")]
+        item_score = score(query, identifiers) + score(query, [value for value in details if value])
+        if exact or item_score:
+            ranked.append((exact, item_score, position, item))
+    if not ranked:
+        # Families may name an overview; preserve other leaves' legacy fallback.
+        if default_entry_id:
+            return [item for item in entries if item["id"] == default_entry_id][:limit]
+        return entries[:limit]
+    ranked.sort(key=lambda item: (-item[0], -item[1], item[2]))
+    if ranked[0][0]:
+        selected = [item for item in ranked if item[0]]
+    else:
+        selected = [item for item in ranked if item[1] >= ranked[0][1] - margin]
+    return [item[3] for item in selected[:limit]]
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Progressive Feeling to Jargon runtime query")
     parser.add_argument("query", nargs="+", help="user request")
@@ -108,7 +132,9 @@ def main() -> None:
             route_score += 2
         if route_score >= min_route_score:
             ranked.append((route_score, route))
-    ranked.sort(key=lambda pair: (-pair[0], pair[1]["entry_count"], pair[1]["leaf_id"]))
+    # A merged family must not lose routing priority just because it contains
+    # more entries. Entry budgets are applied after within-family ranking.
+    ranked.sort(key=lambda pair: (-pair[0], pair[1]["leaf_id"]))
 
     # Keep routes close to the best match within each selected subdomain. This
     # preserves one strong route per relevant subdomain while preventing a
@@ -185,13 +211,10 @@ def main() -> None:
     loaded = []
     for route_score, route in selected:
         leaf = load(route["path"])
-        terms = []
-        for item in leaf.get("entries", [])[:max_entries]:
-            searchable = " ".join([item.get("name", ""), item.get("plain_language", ""), item.get("when_to_use", ""), *item.get("aliases", [])])
-            if score(query, [searchable]) or not ranked:
-                terms.append(item)
-        if not terms:
-            terms = leaf.get("entries", [])[:max_entries]
+        terms = select_entries(
+            query, leaf.get("entries", []), max_entries,
+            limits["route_score_margin"], leaf.get("default_entry_id"),
+        )
         loaded.append({
             "leaf_id": route["leaf_id"], "score": route_score, "knowledge_type": route["knowledge_type"],
             "scope": route["scope"], "do_not_generalize": route["do_not_generalize"],

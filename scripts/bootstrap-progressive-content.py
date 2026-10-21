@@ -7,6 +7,8 @@ import unicodedata
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+DASHBOARD_LAYOUT_LEAF_ID = "layout-patterns"
+DASHBOARD_STYLE_TEMPLATE_PATH = "templates/dashboard/dashboard-style-system.json"
 
 def normalize_keyword(value: str) -> str:
     return unicodedata.normalize("NFKC", value).casefold().strip()
@@ -428,14 +430,6 @@ dashboard_entries = {
 for leaf_id, (name, plain, params) in dashboard_entries.items():
     add_leaf(f"terms/dashboard/{leaf_id}.json", leaf_id, "digital-product-uiux", "dashboard-design", name, "pattern", [entry(leaf_id, name, plain, "Dashboard 需要有明确审美方向且避免模板化", params, ["design-tokens", "layout-patterns"], ["不要所有卡片一样大", "不要默认蓝紫渐变", "不要模板化侧边栏+四张 KPI 卡"])], ["design-dashboard", "audit-dashboard"])
 
-dump("templates/dashboard/dashboard-style-system.json", {
-    "schema_version": "1.0.0", "template_id": "dashboard-style-system", "name": "Dashboard 审美 Skill", "type": "template",
-    "inputs": ["product_or_scene", "style_direction", "content_priority"],
-    "style_directions": [{"id": k, "name": v[0], "rule": v[1], "tokens": v[2]} for k, v in dashboard_entries.items()],
-    "output_contract": ["页面结构", "色彩规范", "组件规范", "可直接给 AI 的提示词"],
-    "forbidden_defaults": ["默认蓝紫渐变", "所有卡片一样大", "满屏圆角矩形", "过多颜色和图标", "模板化侧边栏+顶栏+四张 KPI 卡"]
-})
-
 # Dashboard recipes that need their own routing leaf because each one changes
 # the page's primary visual judgment. Keep them separate from generic tokens.
 
@@ -720,6 +714,62 @@ for leaf_id, spec in sorted(leaf_defs.items()):
         leaf_ref["provider"] = spec["provider"]
     leaf_refs.append(leaf_ref)
 
+# Build references only after adopting the authored leaf contents.
+dump(DASHBOARD_STYLE_TEMPLATE_PATH, {
+    "schema_version": "1.0.0", "template_id": "dashboard-style-system", "name": "Dashboard 审美 Skill", "type": "template",
+    "inputs": ["product_or_scene", "style_direction", "content_priority"],
+    "style_directions": [{"id": k, "name": v[0], "rule": v[1], "tokens": v[2]} for k, v in dashboard_entries.items()],
+    "output_contract": ["页面结构", "色彩规范", "组件规范", "可直接给 AI 的提示词"],
+    "field_contract": {
+        "layout": "布局名称与信息结构；不新增同义叶子",
+        "termSkill": "专业术语与结构关系；引用现有分类",
+        "uiSkill": "视觉层级、栅格、材质、排版；不负责修改业务状态",
+        "agentExec": "事件、前置条件、写入状态、派生视图与不受影响的状态",
+        "state": "唯一事实源、派生关系、不变量；新增实现建议需明确标记",
+        "tokens": "明确单位与适用范围；用户示例值不是全局默认值"
+    },
+    "shared_execution_contract": {
+        "flow": [
+            "事件",
+            "校验/前置条件",
+            "一次状态转换",
+            "派生所有关联视图",
+            "验收"
+        ],
+        "rules": [
+            "共享的是选择 ID 与时间上下文，不是每个面板各自复制一份状态；独立控件不得误联动。",
+            "展示读数由状态派生；请求失败、空数据与快速连续切换不得留下混合视图，异步结果需校验当前上下文。",
+            "颜色/尺寸是当前示例的 token，不是行为触发条件；计数从集合派生，不写死 7→8。",
+            "键盘与指针操作保持同样状态结果；选中/加载/错误不能只靠颜色，动态效果提供减少动态路径。",
+            "固定栏不等于固定整个页面；窄屏策略与断点未提供时先标记建议，不臆造原稿数值。"
+        ],
+        "acceptance": [
+            "事件前/后真实截图覆盖受影响与不受影响区域",
+            "端到端验证状态联动、独立性、错误/快速切换与键盘路径",
+            "截图只验证可见结果，状态一致性同时用断言验证"
+        ]
+    },
+    "source_gaps": [
+        {
+            "slot": 5,
+            "status": "needs_confirmation",
+            "entry_id": "warm-three-column-dashboard",
+            "missing": "完整点击逻辑、模式与单位映射；候选执行逻辑不得默认落地"
+        },
+        {
+            "slot": 6,
+            "status": "missing",
+            "missing": "第六个 Dashboard 的三层提示词原文",
+            "policy": "不创建空叶子、不生成虚构案例，不声称六例完整"
+        }
+    ],
+    "pattern_refs": [
+        {"entry_id": item["id"], "path": leaf_defs[DASHBOARD_LAYOUT_LEAF_ID]["path"], "status": item["evidence"]["status"]}
+        for item in leaf_defs[DASHBOARD_LAYOUT_LEAF_ID]["entries"] if "evidence" in item and "layout" in item
+    ],
+    "forbidden_defaults": ["默认蓝紫渐变", "所有卡片一样大", "满屏圆角矩形", "过多颜色和图标", "模板化侧边栏+顶栏+四张 KPI 卡"]
+})
+
 dump("index/leaves.json", {"schema_version": "1.0.0", "knowledge_types": ["term", "pattern", "technique", "guideline", "parameter", "template", "platform-research"], "leaves": leaf_refs})
 
 for domain_id, subdomains in domain_specs.items():
@@ -807,6 +857,14 @@ keywords = {
     "gpui-mobile": ["GPUIX", "iOS", "Android", "移动端", "gpui-mobile"],
     "three-ui-catalog": ["ThreeUI", "Hero", "Backgrounds", "Three.js", "3D 组件"],
 }
+# Variants stay inside their authored leaf; publish identifiers, not bodies.
+# Keep aliases local to the family so adding a Dashboard does not add a route.
+dashboard_layout = leaf_defs[DASHBOARD_LAYOUT_LEAF_ID]
+keywords[DASHBOARD_LAYOUT_LEAF_ID] = [
+    *keywords[DASHBOARD_LAYOUT_LEAF_ID],
+    *(alias for item in dashboard_layout["entries"]
+      for alias in [item["id"], item["name"], *item.get("aliases", [])]),
+]
 routes = []
 for ref in leaf_refs:
     route_keywords = [
@@ -832,7 +890,7 @@ for ref in leaf_refs:
     routes.append(route)
 dump("index/runtime.json", {
     "schema_version": "1.0.0", "index_type": "runtime-router", "generated_by": "scripts/bootstrap-progressive-content.py",
-    "matching": {"normalization": ["lowercase", "unicode_nfkc"], "scoring": "token-overlap", "tie_break": "specificity_then_entry_count"},
+    "matching": {"normalization": ["lowercase", "unicode_nfkc"], "scoring": "token-overlap", "tie_break": "score_then_leaf_id"},
     "limits": root["loading_policy"], "routes": routes
 })
 print(f"generated {len(leaf_refs)} granular leaves")

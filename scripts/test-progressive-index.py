@@ -3,6 +3,7 @@
 from __future__ import annotations
 import json
 import subprocess
+import sys
 import unicodedata
 from pathlib import Path
 
@@ -147,4 +148,5 @@ for route in runtime_doc["routes"]:
 for leaf in json.loads((ROOT / "index/leaves.json").read_text(encoding="utf-8"))["leaves"]:
     result = json.loads(subprocess.check_output(["python3", str(QUERY), leaf["title"]], text=True))
     assert result["matches"] and result["matches"][0]["leaf_id"] == leaf["leaf_id"], f"title route drift: {leaf['leaf_id']}"
+subprocess.run([sys.executable, str(ROOT / "scripts/test-dashboard-patterns.py")], check=True)
 print(f"progressive query ok: {len(CASES)} scenarios")
