@@ -49,10 +49,12 @@
                 "质感",
                 "精致",
                 "高级",
-                "专业一点"
+                "专业",
+                "讲究"
               ]
             ],
-            "role": "suggestion"
+            "role": "suggestion",
+            "subject_group": 0
           }
         ],
         "questions": [

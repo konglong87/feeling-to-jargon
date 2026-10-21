@@ -16,6 +16,8 @@ def build_index(leaf_defs, root):
                 'fields': {key: entry.get(key, [] if key == 'aliases' else '')
                            for key in ('name', 'aliases', 'plain_language', 'when_to_use')},
                 'retrieval': entry.get('retrieval', {}),
+                'source_question': entry.get('evidence',{}).get('missing_inputs',[]) if entry.get('evidence',{}).get('status') == 'needs_confirmation' else [],
+                'reusable_fields': [key for key in ('termSkill','agentExec','state','tokens') if entry.get(key)],
                 'contract_ref': entry.get('contract_ref'),
                 'composition': entry.get('composition', {}),
                 'required_fields': list(COMPOSITION_FIELDS) if leaf['subdomain_id'] == 'visual-effects' else [],

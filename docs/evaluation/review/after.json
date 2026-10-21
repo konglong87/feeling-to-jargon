@@ -1,0 +1,2102 @@
+{
+  "review_base": "c42dd4a",
+  "method": "Same raw inputs per format, fresh process per CLI run. Size assertions deterministic; timings observational. No model-token inference from characters.",
+  "original_summary": {
+    "cases": 30,
+    "cases_missing_required": 0,
+    "cases_with_forbidden": 0,
+    "status_mismatches": 0,
+    "mean_full_chars": 7604.7,
+    "mean_agent_chars": 2855.4,
+    "agent_reduction_fraction": 0.6245,
+    "median_cli_ms": 51.903
+  },
+  "blind_summary": {
+    "cases": 30,
+    "cases_missing_required": 0,
+    "cases_with_forbidden": 0,
+    "status_mismatches": 0,
+    "mean_full_chars": 6172.3,
+    "mean_agent_chars": 2262.6,
+    "agent_reduction_fraction": 0.6334,
+    "median_cli_ms": 50.754
+  },
+  "original_cases": [
+    {
+      "id": "backend-technical",
+      "query": "后端需要高可用、高并发、高扩展",
+      "leaf_ids": [
+        "availability-patterns",
+        "capacity-model",
+        "scaling-strategies"
+      ],
+      "entry_ids": [
+        "availability-patterns",
+        "capacity-model",
+        "scaling-strategies"
+      ],
+      "status": "needs_clarification",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 12893,
+      "agent_output_chars": 4462,
+      "knowledge_chars": 1985,
+      "elapsed_ms": 108.531,
+      "loaded_leaves": 3,
+      "loaded_entries": 3,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": []
+    },
+    {
+      "id": "backend-vague",
+      "query": "我想做一个大型的后端，给很多人用，要稳定。",
+      "leaf_ids": [
+        "availability-patterns",
+        "capacity-model"
+      ],
+      "entry_ids": [
+        "availability-patterns",
+        "capacity-model"
+      ],
+      "status": "needs_clarification",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 10066,
+      "agent_output_chars": 3545,
+      "knowledge_chars": 1344,
+      "elapsed_ms": 64.959,
+      "loaded_leaves": 2,
+      "loaded_entries": 2,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": []
+    },
+    {
+      "id": "backend-availability",
+      "query": "后端要稳定，别老是宕机。",
+      "leaf_ids": [
+        "availability-patterns"
+      ],
+      "entry_ids": [
+        "availability-patterns"
+      ],
+      "status": "needs_clarification",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 7125,
+      "agent_output_chars": 2520,
+      "knowledge_chars": 707,
+      "elapsed_ms": 54.129,
+      "loaded_leaves": 1,
+      "loaded_entries": 1,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": []
+    },
+    {
+      "id": "capacity",
+      "query": "很多人同时用也别卡。",
+      "leaf_ids": [
+        "capacity-model"
+      ],
+      "entry_ids": [
+        "capacity-model"
+      ],
+      "status": "needs_clarification",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 7180,
+      "agent_output_chars": 2595,
+      "knowledge_chars": 666,
+      "elapsed_ms": 58.358,
+      "loaded_leaves": 1,
+      "loaded_entries": 1,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": []
+    },
+    {
+      "id": "idempotency",
+      "query": "重复点提交别出错。",
+      "leaf_ids": [
+        "idempotency-contract"
+      ],
+      "entry_ids": [
+        "idempotency-contract"
+      ],
+      "status": "needs_clarification",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 6839,
+      "agent_output_chars": 2432,
+      "knowledge_chars": 726,
+      "elapsed_ms": 53.714,
+      "loaded_leaves": 1,
+      "loaded_entries": 1,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": []
+    },
+    {
+      "id": "quality",
+      "query": "我想做一个有质感的网站。",
+      "leaf_ids": [
+        "token-system"
+      ],
+      "entry_ids": [
+        "token-system"
+      ],
+      "status": "needs_clarification",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 6504,
+      "agent_output_chars": 2305,
+      "knowledge_chars": 633,
+      "elapsed_ms": 57.64,
+      "loaded_leaves": 1,
+      "loaded_entries": 1,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": []
+    },
+    {
+      "id": "clutter",
+      "query": "页面看着太乱了，希望舒服一点。",
+      "leaf_ids": [
+        "composition-patterns"
+      ],
+      "entry_ids": [
+        "composition-patterns"
+      ],
+      "status": "needs_clarification",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 6922,
+      "agent_output_chars": 2461,
+      "knowledge_chars": 674,
+      "elapsed_ms": 51.59,
+      "loaded_leaves": 1,
+      "loaded_entries": 1,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": []
+    },
+    {
+      "id": "undo",
+      "query": "删除后可以反悔，而且键盘也能操作。",
+      "leaf_ids": [
+        "undo-window",
+        "motion-accessibility",
+        "reverse-animation"
+      ],
+      "entry_ids": [
+        "undo-window",
+        "undo-aria",
+        "undo-live",
+        "reverse-path",
+        "reduced-motion"
+      ],
+      "status": "needs_clarification",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 11790,
+      "agent_output_chars": 4391,
+      "knowledge_chars": 2714,
+      "elapsed_ms": 54.07,
+      "loaded_leaves": 3,
+      "loaded_entries": 5,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": []
+    },
+    {
+      "id": "industrial",
+      "query": "做工业分区布局，选中物料后联动补货卡。",
+      "leaf_ids": [
+        "layout-patterns"
+      ],
+      "entry_ids": [
+        "industrial-zones-dashboard"
+      ],
+      "status": "needs_clarification",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 11151,
+      "agent_output_chars": 4633,
+      "knowledge_chars": 2924,
+      "elapsed_ms": 52.09,
+      "loaded_leaves": 1,
+      "loaded_entries": 1,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": []
+    },
+    {
+      "id": "industrial-title",
+      "query": "我要一个工业分区布局的 Dashboard",
+      "leaf_ids": [
+        "layout-patterns"
+      ],
+      "entry_ids": [
+        "industrial-zones-dashboard"
+      ],
+      "status": "needs_clarification",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 11154,
+      "agent_output_chars": 4635,
+      "knowledge_chars": 2924,
+      "elapsed_ms": 54.849,
+      "loaded_leaves": 1,
+      "loaded_entries": 1,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": []
+    },
+    {
+      "id": "uncovered",
+      "query": "请推导黎曼猜想的完整证明。",
+      "leaf_ids": [],
+      "entry_ids": [],
+      "status": "coverage_insufficient",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 2782,
+      "agent_output_chars": 977,
+      "knowledge_chars": 0,
+      "elapsed_ms": 49.98,
+      "loaded_leaves": 0,
+      "loaded_entries": 0,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": [
+        "请推导黎曼猜想的完整证明"
+      ]
+    },
+    {
+      "id": "noise",
+      "query": "hello world",
+      "leaf_ids": [],
+      "entry_ids": [],
+      "status": "coverage_insufficient",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 2777,
+      "agent_output_chars": 974,
+      "knowledge_chars": 0,
+      "elapsed_ms": 49.372,
+      "loaded_leaves": 0,
+      "loaded_entries": 0,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": [
+        "hello world"
+      ]
+    },
+    {
+      "id": "ambiguous",
+      "query": "要稳定一点。",
+      "leaf_ids": [],
+      "entry_ids": [],
+      "status": "needs_clarification",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 2830,
+      "agent_output_chars": 1016,
+      "knowledge_chars": 0,
+      "elapsed_ms": 49.072,
+      "loaded_leaves": 0,
+      "loaded_entries": 0,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": []
+    },
+    {
+      "id": "mixed",
+      "query": "网站看着太乱，重复点提交还会出错。",
+      "leaf_ids": [
+        "composition-patterns",
+        "idempotency-contract"
+      ],
+      "entry_ids": [
+        "composition-patterns",
+        "idempotency-contract"
+      ],
+      "status": "needs_clarification",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 10684,
+      "agent_output_chars": 3852,
+      "knowledge_chars": 1369,
+      "elapsed_ms": 58.169,
+      "loaded_leaves": 2,
+      "loaded_entries": 2,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": []
+    },
+    {
+      "id": "gsap",
+      "query": "用 GSAP 做 React ScrollTrigger，并正确清理",
+      "leaf_ids": [
+        "gsap-scrolltrigger",
+        "gsap-react-lifecycle"
+      ],
+      "entry_ids": [
+        "gsap-scrolltrigger",
+        "gsap-react-lifecycle"
+      ],
+      "status": "needs_verification",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 9392,
+      "agent_output_chars": 3667,
+      "knowledge_chars": 2040,
+      "elapsed_ms": 57.181,
+      "loaded_leaves": 2,
+      "loaded_entries": 2,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": []
+    },
+    {
+      "id": "react-only",
+      "query": "React 动画",
+      "leaf_ids": [],
+      "entry_ids": [],
+      "status": "coverage_insufficient",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 2768,
+      "agent_output_chars": 968,
+      "knowledge_chars": 0,
+      "elapsed_ms": 49.085,
+      "loaded_leaves": 0,
+      "loaded_entries": 0,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": [
+        "React 动画"
+      ]
+    },
+    {
+      "id": "no-gsap",
+      "query": "不用 GSAP，只用 CSS 做动画",
+      "leaf_ids": [],
+      "entry_ids": [],
+      "status": "coverage_insufficient",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 2807,
+      "agent_output_chars": 990,
+      "knowledge_chars": 0,
+      "elapsed_ms": 86.679,
+      "loaded_leaves": 0,
+      "loaded_entries": 0,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": [
+        "不用 GSAP",
+        "只用 CSS 做动画"
+      ]
+    },
+    {
+      "id": "gpui",
+      "query": "GPUIX 能不能跑移动端？",
+      "leaf_ids": [
+        "gpui-mobile"
+      ],
+      "entry_ids": [
+        "gpui-mobile"
+      ],
+      "status": "needs_verification",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 5392,
+      "agent_output_chars": 1886,
+      "knowledge_chars": 721,
+      "elapsed_ms": 50.123,
+      "loaded_leaves": 1,
+      "loaded_entries": 1,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": []
+    },
+    {
+      "id": "metal-only",
+      "query": "Metal 动画怎么做",
+      "leaf_ids": [],
+      "entry_ids": [],
+      "status": "coverage_insufficient",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 2777,
+      "agent_output_chars": 974,
+      "knowledge_chars": 0,
+      "elapsed_ms": 48.208,
+      "loaded_leaves": 0,
+      "loaded_entries": 0,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": [
+        "Metal 动画怎么做"
+      ]
+    },
+    {
+      "id": "effects",
+      "query": "实现液态玻璃导航并提供移动端降级",
+      "leaf_ids": [
+        "liquid-glass-bar"
+      ],
+      "entry_ids": [
+        "liquid-glass-bar"
+      ],
+      "status": "ready",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 6162,
+      "agent_output_chars": 2191,
+      "knowledge_chars": 1024,
+      "elapsed_ms": 51.715,
+      "loaded_leaves": 1,
+      "loaded_entries": 1,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": []
+    },
+    {
+      "id": "merge",
+      "query": "比较工业分区布局与暖色三栏布局",
+      "leaf_ids": [
+        "layout-patterns"
+      ],
+      "entry_ids": [
+        "industrial-zones-dashboard",
+        "warm-three-column-dashboard"
+      ],
+      "status": "needs_clarification",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 16663,
+      "agent_output_chars": 7210,
+      "knowledge_chars": 4838,
+      "elapsed_ms": 50.245,
+      "loaded_leaves": 1,
+      "loaded_entries": 2,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": []
+    },
+    {
+      "id": "entry-limit",
+      "query": "玻璃点阵月份指标联动",
+      "leaf_ids": [
+        "layout-patterns"
+      ],
+      "entry_ids": [
+        "glass-dot-matrix-dashboard"
+      ],
+      "status": "needs_clarification",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 11015,
+      "agent_output_chars": 4544,
+      "knowledge_chars": 2841,
+      "elapsed_ms": 52.491,
+      "loaded_leaves": 1,
+      "loaded_entries": 1,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": []
+    },
+    {
+      "id": "paraphrase-capacity",
+      "query": "用户一窝蜂涌进来时，响应速度不要变慢。",
+      "leaf_ids": [
+        "capacity-model"
+      ],
+      "entry_ids": [
+        "capacity-model"
+      ],
+      "status": "partial_coverage",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 7021,
+      "agent_output_chars": 2497,
+      "knowledge_chars": 666,
+      "elapsed_ms": 60.215,
+      "loaded_leaves": 1,
+      "loaded_entries": 1,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": [
+        "响应速度不要变慢"
+      ]
+    },
+    {
+      "id": "paraphrase-availability",
+      "query": "服务出故障后还能继续给用户使用吗？",
+      "leaf_ids": [
+        "availability-patterns"
+      ],
+      "entry_ids": [
+        "availability-patterns"
+      ],
+      "status": "needs_clarification",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 6829,
+      "agent_output_chars": 2426,
+      "knowledge_chars": 707,
+      "elapsed_ms": 50.66,
+      "loaded_leaves": 1,
+      "loaded_entries": 1,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": []
+    },
+    {
+      "id": "paraphrase-submit",
+      "query": "手快连按了几下确认，希望只办一次。",
+      "leaf_ids": [
+        "idempotency-contract"
+      ],
+      "entry_ids": [
+        "idempotency-contract"
+      ],
+      "status": "needs_clarification",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 7005,
+      "agent_output_chars": 2536,
+      "knowledge_chars": 726,
+      "elapsed_ms": 49.639,
+      "loaded_leaves": 1,
+      "loaded_entries": 1,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": []
+    },
+    {
+      "id": "paraphrase-visual",
+      "query": "网页的东西挤成一团，想让人一眼找到重点。",
+      "leaf_ids": [
+        "composition-patterns"
+      ],
+      "entry_ids": [
+        "composition-patterns"
+      ],
+      "status": "needs_clarification",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 6932,
+      "agent_output_chars": 2466,
+      "knowledge_chars": 674,
+      "elapsed_ms": 50.381,
+      "loaded_leaves": 1,
+      "loaded_entries": 1,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": []
+    },
+    {
+      "id": "paraphrase-undo",
+      "query": "误删了一项还能找回来，不用鼠标也可以操作。",
+      "leaf_ids": [
+        "undo-window",
+        "motion-accessibility",
+        "reverse-animation"
+      ],
+      "entry_ids": [
+        "undo-window",
+        "undo-aria",
+        "undo-live",
+        "reverse-path",
+        "reduced-motion"
+      ],
+      "status": "needs_clarification",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 11797,
+      "agent_output_chars": 4395,
+      "knowledge_chars": 2714,
+      "elapsed_ms": 52.579,
+      "loaded_leaves": 3,
+      "loaded_entries": 5,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": []
+    },
+    {
+      "id": "not-ui",
+      "query": "我的论文读着太乱，想理顺论证。",
+      "leaf_ids": [],
+      "entry_ids": [],
+      "status": "coverage_insufficient",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 2797,
+      "agent_output_chars": 983,
+      "knowledge_chars": 0,
+      "elapsed_ms": 51.668,
+      "loaded_leaves": 0,
+      "loaded_entries": 0,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": [
+        "我的论文读着太乱",
+        "想理顺论证"
+      ]
+    },
+    {
+      "id": "stability-no-capacity",
+      "query": "后端要稳定，不需要高并发。",
+      "leaf_ids": [
+        "availability-patterns"
+      ],
+      "entry_ids": [
+        "availability-patterns"
+      ],
+      "status": "needs_clarification",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 6822,
+      "agent_output_chars": 2422,
+      "knowledge_chars": 707,
+      "elapsed_ms": 51.153,
+      "loaded_leaves": 1,
+      "loaded_entries": 1,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": []
+    },
+    {
+      "id": "mixed-coverage",
+      "query": "工业分区布局做好后，再证明黎曼猜想。",
+      "leaf_ids": [
+        "layout-patterns"
+      ],
+      "entry_ids": [
+        "industrial-zones-dashboard"
+      ],
+      "status": "partial_coverage",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 11264,
+      "agent_output_chars": 4709,
+      "knowledge_chars": 2924,
+      "elapsed_ms": 50.223,
+      "loaded_leaves": 1,
+      "loaded_entries": 1,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": [
+        "证明黎曼猜想"
+      ]
+    }
+  ],
+  "blind_cases": [
+    {
+      "id": "negated-clauses",
+      "query": "不用 GSAP，要让网页有质感",
+      "leaf_ids": [
+        "token-system"
+      ],
+      "entry_ids": [
+        "token-system"
+      ],
+      "status": "needs_clarification",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 6509,
+      "agent_output_chars": 2308,
+      "knowledge_chars": 633,
+      "elapsed_ms": 51.036,
+      "loaded_leaves": 1,
+      "loaded_entries": 1,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": []
+    },
+    {
+      "id": "negated-late",
+      "query": "后端要稳定，不考虑扩容",
+      "leaf_ids": [
+        "availability-patterns"
+      ],
+      "entry_ids": [
+        "availability-patterns"
+      ],
+      "status": "needs_clarification",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 6817,
+      "agent_output_chars": 2420,
+      "knowledge_chars": 707,
+      "elapsed_ms": 49.302,
+      "loaded_leaves": 1,
+      "loaded_entries": 1,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": []
+    },
+    {
+      "id": "no-provider",
+      "query": "不是 GPUIX，只是普通网页",
+      "leaf_ids": [],
+      "entry_ids": [],
+      "status": "coverage_insufficient",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 2796,
+      "agent_output_chars": 982,
+      "knowledge_chars": 0,
+      "elapsed_ms": 50.876,
+      "loaded_leaves": 0,
+      "loaded_entries": 0,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": [
+        "不是 GPUIX",
+        "普通网页"
+      ]
+    },
+    {
+      "id": "negated-quality",
+      "query": "页面不要暗色玻璃，只想层次清楚",
+      "leaf_ids": [
+        "composition-patterns"
+      ],
+      "entry_ids": [
+        "composition-patterns"
+      ],
+      "status": "needs_clarification",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 6627,
+      "agent_output_chars": 2368,
+      "knowledge_chars": 674,
+      "elapsed_ms": 49.056,
+      "loaded_leaves": 1,
+      "loaded_entries": 1,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": []
+    },
+    {
+      "id": "scope-mixing",
+      "query": "我最近情绪不稳定，还要开发网站",
+      "leaf_ids": [],
+      "entry_ids": [],
+      "status": "coverage_insufficient",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 2796,
+      "agent_output_chars": 982,
+      "knowledge_chars": 0,
+      "elapsed_ms": 50.631,
+      "loaded_leaves": 0,
+      "loaded_entries": 0,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": [
+        "我最近情绪不稳定",
+        "开发网站"
+      ]
+    },
+    {
+      "id": "cross-clause",
+      "query": "后端的文档在这里，我的椅子不稳定",
+      "leaf_ids": [],
+      "entry_ids": [],
+      "status": "coverage_insufficient",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 2801,
+      "agent_output_chars": 986,
+      "knowledge_chars": 0,
+      "elapsed_ms": 49.71,
+      "loaded_leaves": 0,
+      "loaded_entries": 0,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": [
+        "后端的文档在这里",
+        "我的椅子不稳定"
+      ]
+    },
+    {
+      "id": "not-software",
+      "query": "很多人同时用这个洗衣间也别挤",
+      "leaf_ids": [],
+      "entry_ids": [],
+      "status": "coverage_insufficient",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 2786,
+      "agent_output_chars": 980,
+      "knowledge_chars": 0,
+      "elapsed_ms": 50.161,
+      "loaded_leaves": 0,
+      "loaded_entries": 0,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": [
+        "很多人同时用这个洗衣间也别挤"
+      ]
+    },
+    {
+      "id": "idiom-clear",
+      "query": "网页上到处都在抢注意力，想让重点更突出",
+      "leaf_ids": [
+        "composition-patterns"
+      ],
+      "entry_ids": [
+        "composition-patterns"
+      ],
+      "status": "needs_clarification",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 6635,
+      "agent_output_chars": 2372,
+      "knowledge_chars": 674,
+      "elapsed_ms": 50.92,
+      "loaded_leaves": 1,
+      "loaded_entries": 1,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": []
+    },
+    {
+      "id": "natural-quality",
+      "query": "网站看着廉价，能不能做得更专业",
+      "leaf_ids": [
+        "token-system"
+      ],
+      "entry_ids": [
+        "token-system"
+      ],
+      "status": "needs_clarification",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 6507,
+      "agent_output_chars": 2308,
+      "knowledge_chars": 633,
+      "elapsed_ms": 49.856,
+      "loaded_leaves": 1,
+      "loaded_entries": 1,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": []
+    },
+    {
+      "id": "capacity-rewrite",
+      "query": "一堆用户一起来的时候，服务也要响应快",
+      "leaf_ids": [
+        "capacity-model"
+      ],
+      "entry_ids": [
+        "capacity-model"
+      ],
+      "status": "partial_coverage",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 7018,
+      "agent_output_chars": 2495,
+      "knowledge_chars": 666,
+      "elapsed_ms": 49.779,
+      "loaded_leaves": 1,
+      "loaded_entries": 1,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": [
+        "服务也要响应快"
+      ]
+    },
+    {
+      "id": "repeat-rewrite",
+      "query": "付款按钮多按几回，别扣好几笔",
+      "leaf_ids": [
+        "idempotency-contract"
+      ],
+      "entry_ids": [
+        "idempotency-contract"
+      ],
+      "status": "partial_coverage",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 6962,
+      "agent_output_chars": 2512,
+      "knowledge_chars": 726,
+      "elapsed_ms": 49.157,
+      "loaded_leaves": 1,
+      "loaded_entries": 1,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": [
+        "别扣好几笔"
+      ]
+    },
+    {
+      "id": "repeat-not",
+      "query": "这篇小说的提交情节重复太多",
+      "leaf_ids": [],
+      "entry_ids": [],
+      "status": "coverage_insufficient",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 2783,
+      "agent_output_chars": 978,
+      "knowledge_chars": 0,
+      "elapsed_ms": 48.697,
+      "loaded_leaves": 0,
+      "loaded_entries": 0,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": [
+        "这篇小说的提交情节重复太多"
+      ]
+    },
+    {
+      "id": "undo-rewrite",
+      "query": "手滑删错了还能撤回吗",
+      "leaf_ids": [
+        "undo-window",
+        "motion-accessibility",
+        "reverse-animation"
+      ],
+      "entry_ids": [
+        "undo-window",
+        "undo-aria",
+        "undo-live",
+        "reverse-path",
+        "reduced-motion"
+      ],
+      "status": "needs_clarification",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 11776,
+      "agent_output_chars": 4384,
+      "knowledge_chars": 2714,
+      "elapsed_ms": 49.286,
+      "loaded_leaves": 3,
+      "loaded_entries": 5,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": []
+    },
+    {
+      "id": "undo-keyboard",
+      "query": "删除后能恢复，按 Tab 找得到按钮",
+      "leaf_ids": [
+        "undo-window",
+        "motion-accessibility",
+        "reverse-animation"
+      ],
+      "entry_ids": [
+        "undo-window",
+        "undo-aria",
+        "undo-live",
+        "reverse-path",
+        "reduced-motion"
+      ],
+      "status": "partial_coverage",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 11917,
+      "agent_output_chars": 4479,
+      "knowledge_chars": 2714,
+      "elapsed_ms": 52.198,
+      "loaded_leaves": 3,
+      "loaded_entries": 5,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": [
+        "按 Tab 找得到按钮"
+      ]
+    },
+    {
+      "id": "quality-long",
+      "query": "需要的是页面显得讲究些，不是暗色发光",
+      "leaf_ids": [
+        "token-system"
+      ],
+      "entry_ids": [
+        "token-system"
+      ],
+      "status": "needs_clarification",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 6515,
+      "agent_output_chars": 2311,
+      "knowledge_chars": 633,
+      "elapsed_ms": 50.975,
+      "loaded_leaves": 1,
+      "loaded_entries": 1,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": []
+    },
+    {
+      "id": "mixed-nonscene",
+      "query": "我想做一个有质感的网站，还要毛绒玩偶",
+      "leaf_ids": [
+        "token-system",
+        "character-ip"
+      ],
+      "entry_ids": [
+        "token-system",
+        "base-ip",
+        "scene-module"
+      ],
+      "status": "needs_clarification",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 10221,
+      "agent_output_chars": 3623,
+      "knowledge_chars": 1496,
+      "elapsed_ms": 51.128,
+      "loaded_leaves": 2,
+      "loaded_entries": 3,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": []
+    },
+    {
+      "id": "mixed-provider",
+      "query": "网站有质感一点，GSAP 用在 React 里",
+      "leaf_ids": [
+        "token-system",
+        "gsap-react-lifecycle"
+      ],
+      "entry_ids": [
+        "token-system",
+        "gsap-react-lifecycle"
+      ],
+      "status": "needs_verification",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 10323,
+      "agent_output_chars": 3716,
+      "knowledge_chars": 1642,
+      "elapsed_ms": 56.007,
+      "loaded_leaves": 2,
+      "loaded_entries": 2,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": []
+    },
+    {
+      "id": "within-clause-uncovered",
+      "query": "做工业分区布局再证明黎曼猜想",
+      "leaf_ids": [
+        "layout-patterns"
+      ],
+      "entry_ids": [
+        "industrial-zones-dashboard"
+      ],
+      "status": "partial_coverage",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 11256,
+      "agent_output_chars": 4705,
+      "knowledge_chars": 2924,
+      "elapsed_ms": 50.506,
+      "loaded_leaves": 1,
+      "loaded_entries": 1,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": [
+        "证明黎曼猜想"
+      ]
+    },
+    {
+      "id": "partial-unknown",
+      "query": "页面需要清爽，顺便帮我诊断咳嗽",
+      "leaf_ids": [
+        "composition-patterns"
+      ],
+      "entry_ids": [
+        "composition-patterns"
+      ],
+      "status": "partial_coverage",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 6742,
+      "agent_output_chars": 2445,
+      "knowledge_chars": 674,
+      "elapsed_ms": 50.252,
+      "loaded_leaves": 1,
+      "loaded_entries": 1,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": [
+        "帮我诊断咳嗽"
+      ]
+    },
+    {
+      "id": "ambiguous-plain",
+      "query": "想要舒服又高级",
+      "leaf_ids": [],
+      "entry_ids": [],
+      "status": "needs_clarification",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 2833,
+      "agent_output_chars": 1017,
+      "knowledge_chars": 0,
+      "elapsed_ms": 52.153,
+      "loaded_leaves": 0,
+      "loaded_entries": 0,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": []
+    },
+    {
+      "id": "availability-context",
+      "query": "在线服务断了也别影响大家继续操作",
+      "leaf_ids": [
+        "availability-patterns"
+      ],
+      "entry_ids": [
+        "availability-patterns"
+      ],
+      "status": "needs_clarification",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 6983,
+      "agent_output_chars": 2526,
+      "knowledge_chars": 707,
+      "elapsed_ms": 57.1,
+      "loaded_leaves": 1,
+      "loaded_entries": 1,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": []
+    },
+    {
+      "id": "generic-canonical",
+      "query": "information-hierarchy",
+      "leaf_ids": [
+        "information-hierarchy"
+      ],
+      "entry_ids": [
+        "information-hierarchy"
+      ],
+      "status": "ready",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 5561,
+      "agent_output_chars": 1821,
+      "knowledge_chars": 620,
+      "elapsed_ms": 56.022,
+      "loaded_leaves": 1,
+      "loaded_entries": 1,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": []
+    },
+    {
+      "id": "undo-known",
+      "query": "允许撤销10秒，删除后能反悔",
+      "leaf_ids": [
+        "undo-window",
+        "motion-accessibility",
+        "reverse-animation"
+      ],
+      "entry_ids": [
+        "undo-window",
+        "undo-aria",
+        "undo-live",
+        "reverse-path",
+        "reduced-motion"
+      ],
+      "status": "partial_coverage",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 11901,
+      "agent_output_chars": 4467,
+      "knowledge_chars": 2714,
+      "elapsed_ms": 52.158,
+      "loaded_leaves": 3,
+      "loaded_entries": 5,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": [
+        "允许撤销10秒"
+      ]
+    },
+    {
+      "id": "english",
+      "query": "I want a polished website, not glassmorphism",
+      "leaf_ids": [],
+      "entry_ids": [],
+      "status": "coverage_insufficient",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 2884,
+      "agent_output_chars": 1041,
+      "knowledge_chars": 0,
+      "elapsed_ms": 54.55,
+      "loaded_leaves": 0,
+      "loaded_entries": 0,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": [
+        "I want a polished website",
+        "not glassmorphism"
+      ]
+    },
+    {
+      "id": "document-no-ui",
+      "query": "论文的页面看着乱，需要理清论证而非网站设计",
+      "leaf_ids": [],
+      "entry_ids": [],
+      "status": "coverage_insufficient",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 2824,
+      "agent_output_chars": 997,
+      "knowledge_chars": 0,
+      "elapsed_ms": 50.962,
+      "loaded_leaves": 0,
+      "loaded_entries": 0,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": [
+        "论文的页面看着乱",
+        "需要理清论证",
+        "网站设计"
+      ]
+    },
+    {
+      "id": "mode-negative",
+      "query": "不要工业分区布局，想比较暖色三栏布局",
+      "leaf_ids": [
+        "layout-patterns"
+      ],
+      "entry_ids": [
+        "warm-three-column-dashboard"
+      ],
+      "status": "needs_clarification",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 11165,
+      "agent_output_chars": 4696,
+      "knowledge_chars": 2888,
+      "elapsed_ms": 50.281,
+      "loaded_leaves": 1,
+      "loaded_entries": 1,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": []
+    },
+    {
+      "id": "provider-negation-alt",
+      "query": "React 不依赖GSAP，只用原生CSS动画",
+      "leaf_ids": [],
+      "entry_ids": [],
+      "status": "coverage_insufficient",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 2822,
+      "agent_output_chars": 1000,
+      "knowledge_chars": 0,
+      "elapsed_ms": 52.121,
+      "loaded_leaves": 0,
+      "loaded_entries": 0,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": [
+        "React 不依赖GSAP",
+        "只用原生CSS动画"
+      ]
+    },
+    {
+      "id": "large-not-concurrency",
+      "query": "很多人用的服务，平时错峰，不存在同时访问",
+      "leaf_ids": [],
+      "entry_ids": [],
+      "status": "coverage_insufficient",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 2821,
+      "agent_output_chars": 996,
+      "knowledge_chars": 0,
+      "elapsed_ms": 52.519,
+      "loaded_leaves": 0,
+      "loaded_entries": 0,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": [
+        "很多人用的服务",
+        "平时错峰",
+        "不存在同时访问"
+      ]
+    },
+    {
+      "id": "not-reliable",
+      "query": "不是要稳定后端，是要稳定的椅子",
+      "leaf_ids": [],
+      "entry_ids": [],
+      "status": "coverage_insufficient",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 2798,
+      "agent_output_chars": 984,
+      "knowledge_chars": 0,
+      "elapsed_ms": 49.706,
+      "loaded_leaves": 0,
+      "loaded_entries": 0,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": [
+        "不是要稳定后端",
+        "是要稳定的椅子"
+      ]
+    },
+    {
+      "id": "clutter-metaphor",
+      "query": "网站像赶集，眼睛没地方落",
+      "leaf_ids": [],
+      "entry_ids": [],
+      "status": "coverage_insufficient",
+      "missing": [],
+      "forbidden": [],
+      "status_mismatch": false,
+      "full_output_chars": 2789,
+      "agent_output_chars": 978,
+      "knowledge_chars": 0,
+      "elapsed_ms": 50.292,
+      "loaded_leaves": 0,
+      "loaded_entries": 0,
+      "full_agent_knowledge_identical": true,
+      "unaccounted_clauses": [
+        "网站像赶集",
+        "眼睛没地方落"
+      ]
+    }
+  ],
+  "compact_examples": [
+    {
+      "query": "页面看着太乱了，希望舒服一点。",
+      "output": {
+        "query": "页面看着太乱了，希望舒服一点。",
+        "status": "needs_clarification",
+        "matches": [
+          {
+            "leaf_id": "composition-patterns",
+            "knowledge_type": "pattern",
+            "scope": "general",
+            "do_not_generalize": false,
+            "path": "terms/visual-layout/composition-patterns.json",
+            "score": 12,
+            "entries": [
+              {
+                "id": "composition-patterns",
+                "name": "卡片错位/大图主导/非对称/层叠/留白/破格出血",
+                "plain_language": "用比例、层级和安全区建立页面性格；每次只让少数元素破格。",
+                "when_to_use": "首屏、活动页、详情页和内容信息流",
+                "parameters": [
+                  "错位按 8/12/16px 节奏",
+                  "主图可占半屏或出血",
+                  "使用 7:3 或 8:2 非对称",
+                  "只破一处网格，内容留在安全区"
+                ],
+                "related": [
+                  "layout-patterns",
+                  "design-tokens"
+                ],
+                "constraints": [
+                  "错位无规律会像未对齐",
+                  "出血过多会削弱秩序",
+                  "留白必须仍有视觉焦点"
+                ],
+                "aliases": []
+              }
+            ],
+            "entry_sources": [
+              {
+                "entry_id": "composition-patterns",
+                "role": "suggestion",
+                "source_refs": [
+                  "user_query"
+                ]
+              }
+            ],
+            "provider": null
+          }
+        ],
+        "dependencies": [],
+        "clarifications": [
+          {
+            "id": "primary_task",
+            "question": "页面最重要的信息和用户要完成的任务是什么？"
+          }
+        ],
+        "deferred_clarifications": [],
+        "coverage": {
+          "status": "bounded",
+          "unaccounted_clauses": [],
+          "limitation": "有限词法/组合规则覆盖，不是完整语义理解；有结果不代表整句全部覆盖。"
+        },
+        "composition": {
+          "conflicts": [],
+          "deferred": [],
+          "deduplication": "stable leaf+entry IDs; shared contracts by path",
+          "related_policy": "informational_only; never loaded wholesale"
+        },
+        "verification_required": [],
+        "network_search": "not_requested",
+        "explanations": [
+          {
+            "leaf_id": "composition-patterns",
+            "entry_id": "composition-patterns",
+            "role": "suggestion",
+            "source": "terms/visual-layout/composition-patterns.json#composition-patterns",
+            "evidence": [
+              {
+                "field": "retrieval.rules.visual-clarity",
+                "matched_expression": "页面",
+                "origin": "local_lexical"
+              },
+              {
+                "field": "retrieval.rules.visual-clarity",
+                "matched_expression": "乱",
+                "origin": "local_lexical"
+              },
+              {
+                "field": "retrieval.rules.visual-clarity",
+                "matched_expression": "舒服",
+                "origin": "local_lexical"
+              }
+            ]
+          }
+        ],
+        "delivery": {
+          "scenario_plans": [
+            {
+              "scenario_id": "visual-brief",
+              "match": "partial",
+              "provided_information": {},
+              "not_applicable": [
+                "非界面视觉的乱或舒服",
+                "未确认时不得默认暗色、玻璃、渐变"
+              ],
+              "flow": [
+                "保留用户证据",
+                "只澄清改变方案的信息",
+                "按依赖组合知识",
+                "输出有边界的增强方案",
+                "用原文约束与场景验收检查交付"
+              ],
+              "output_fields": [
+                "原始感觉",
+                "结构与设计令牌候选",
+                "不超过必要数量的澄清",
+                "用户确认后的增强提示词",
+                "截图与任务可读性验收"
+              ],
+              "acceptance": [
+                "候选是方向而非已选美术方案",
+                "未指定的色值、栅格与风格不得作为事实",
+                "用前后截图核对视觉层级与主任务"
+              ]
+            }
+          ],
+          "ready_for_final_prompt": false,
+          "acceptance_checks": {
+            "dependencies_complete_for_emitted_bundles": true,
+            "detected_requests_assembled": true,
+            "whole_request_semantics_verified": false,
+            "parameters_resolved": false,
+            "conflicting_layouts_not_blended": true,
+            "host_llm_workflow_verified": false,
+            "provider_facts_verified": true
+          }
+        },
+        "usage": {
+          "loaded_leaf_count": 1,
+          "loaded_entry_count": 1,
+          "context_chars": 674,
+          "content_char_limit": 24000
+        },
+        "format": "agent"
+      }
+    },
+    {
+      "query": "删除后可以反悔，而且键盘也能操作。",
+      "output": {
+        "query": "删除后可以反悔，而且键盘也能操作。",
+        "status": "needs_clarification",
+        "matches": [
+          {
+            "leaf_id": "undo-window",
+            "knowledge_type": "technique",
+            "scope": "general",
+            "do_not_generalize": false,
+            "path": "terms/interaction/undo-window.json",
+            "score": 12,
+            "entries": [
+              {
+                "id": "undo-window",
+                "name": "可逆操作时间窗口",
+                "plain_language": "删除后保留一段明确的可撤销时间，让用户有机会反悔。",
+                "when_to_use": "删除、归档、批量移除等可逆操作",
+                "parameters": [
+                  "窗口默认 5s；高风险操作 8–10s",
+                  "过期后按钮禁用并完成最终删除"
+                ],
+                "related": [
+                  "progress-feedback",
+                  "reverse-animation"
+                ],
+                "constraints": [
+                  "不要让过期后仍看起来可点击"
+                ],
+                "aliases": [],
+                "composition": {
+                  "required": [
+                    {
+                      "leaf_id": "motion-accessibility",
+                      "entry_ids": [
+                        "undo-aria",
+                        "undo-live"
+                      ]
+                    },
+                    {
+                      "leaf_id": "reverse-animation",
+                      "entry_ids": [
+                        "reverse-path",
+                        "reduced-motion"
+                      ]
+                    }
+                  ],
+                  "conditional": [
+                    {
+                      "when_any": [
+                        "原索引",
+                        "插回",
+                        "真实节点"
+                      ],
+                      "ref": {
+                        "leaf_id": "flip-reentry"
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "entry_sources": [
+              {
+                "entry_id": "undo-window",
+                "role": "explicit",
+                "source_refs": [
+                  "user_query"
+                ]
+              }
+            ],
+            "provider": null
+          },
+          {
+            "leaf_id": "motion-accessibility",
+            "knowledge_type": "guideline",
+            "scope": "general",
+            "do_not_generalize": false,
+            "path": "terms/interaction/accessibility.json",
+            "score": 0,
+            "entries": [
+              {
+                "id": "undo-aria",
+                "name": "撤销按钮可读标签",
+                "plain_language": "按钮要读出操作和剩余时间，例如撤销删除，剩余 5 秒。",
+                "when_to_use": "撤销条、倒计时按钮",
+                "parameters": [
+                  "aria-label 动态更新",
+                  "键盘可聚焦和触发"
+                ],
+                "related": [
+                  "undo-window"
+                ],
+                "constraints": [
+                  "不要每秒通过 aria-live 播报倒计时"
+                ],
+                "aliases": []
+              },
+              {
+                "id": "undo-live",
+                "name": "轻量状态播报",
+                "plain_language": "用 aria-live=polite 提示已删除、可撤销等关键状态。",
+                "when_to_use": "操作结果需要被读屏用户感知",
+                "parameters": [
+                  "只播报状态变化",
+                  "焦点不被撤销条抢走"
+                ],
+                "related": [
+                  "undo-aria"
+                ],
+                "constraints": [
+                  "不重复播报相同状态"
+                ],
+                "aliases": []
+              }
+            ],
+            "entry_sources": [
+              {
+                "entry_id": "undo-aria",
+                "role": "required_dependency",
+                "source_refs": [
+                  "terms/interaction/undo-window.json#undo-window"
+                ]
+              },
+              {
+                "entry_id": "undo-live",
+                "role": "required_dependency",
+                "source_refs": [
+                  "terms/interaction/undo-window.json#undo-window"
+                ]
+              }
+            ],
+            "provider": null
+          },
+          {
+            "leaf_id": "reverse-animation",
+            "knowledge_type": "technique",
+            "scope": "general",
+            "do_not_generalize": false,
+            "path": "terms/interaction/reverse-animation.json",
+            "score": 0,
+            "entries": [
+              {
+                "id": "reverse-path",
+                "name": "沿原路径反向归位",
+                "plain_language": "撤销时沿删除动画的反方向回到原位置，而不是重新淡入。",
+                "when_to_use": "列表删除后恢复原项",
+                "parameters": [
+                  "删除缩小+位移+淡出，撤销放大+反向位移+淡入",
+                  "删除 200–300ms，撤销 180–240ms"
+                ],
+                "related": [
+                  "flip-reentry",
+                  "velocity-inheritance"
+                ],
+                "constraints": [
+                  "必须保留原索引、尺寸和位置上下文"
+                ],
+                "aliases": []
+              },
+              {
+                "id": "reduced-motion",
+                "name": "减少动态降级",
+                "plain_language": "减少动态时保留进度、状态和结果，不强制播放位移动画。",
+                "when_to_use": "用户开启 prefers-reduced-motion",
+                "parameters": [
+                  "保留明确状态变化",
+                  "取消复杂路径和粒子"
+                ],
+                "related": [
+                  "accessibility"
+                ],
+                "constraints": [
+                  "不可因为降级而丢失撤销入口"
+                ],
+                "aliases": []
+              }
+            ],
+            "entry_sources": [
+              {
+                "entry_id": "reverse-path",
+                "role": "required_dependency",
+                "source_refs": [
+                  "terms/interaction/undo-window.json#undo-window"
+                ]
+              },
+              {
+                "entry_id": "reduced-motion",
+                "role": "required_dependency",
+                "source_refs": [
+                  "terms/interaction/undo-window.json#undo-window"
+                ]
+              }
+            ],
+            "provider": null
+          }
+        ],
+        "dependencies": [],
+        "clarifications": [
+          {
+            "id": "undo_window",
+            "question": "允许反悔多久？以本次业务风险确定，不自动采用示例秒数。"
+          }
+        ],
+        "deferred_clarifications": [],
+        "coverage": {
+          "status": "bounded",
+          "unaccounted_clauses": [],
+          "limitation": "有限词法/组合规则覆盖，不是完整语义理解；有结果不代表整句全部覆盖。"
+        },
+        "composition": {
+          "conflicts": [],
+          "deferred": [],
+          "deduplication": "stable leaf+entry IDs; shared contracts by path",
+          "related_policy": "informational_only; never loaded wholesale"
+        },
+        "verification_required": [],
+        "network_search": "not_requested",
+        "explanations": [
+          {
+            "leaf_id": "undo-window",
+            "entry_id": "undo-window",
+            "role": "explicit",
+            "source": "terms/interaction/undo-window.json#undo-window",
+            "evidence": [
+              {
+                "field": "retrieval.rules.recover-deletion",
+                "matched_expression": "删除",
+                "origin": "local_lexical"
+              },
+              {
+                "field": "retrieval.rules.recover-deletion",
+                "matched_expression": "反悔",
+                "origin": "local_lexical"
+              }
+            ]
+          }
+        ],
+        "delivery": {
+          "scenario_plans": [
+            {
+              "scenario_id": "reversible-delete",
+              "match": "partial",
+              "provided_information": {},
+              "not_applicable": [
+                "不可逆且没有恢复语义的删除",
+                "只讨论键盘而没有可撤销操作"
+              ],
+              "flow": [
+                "保留用户证据",
+                "只澄清改变方案的信息",
+                "按依赖组合知识",
+                "输出有边界的增强方案",
+                "用原文约束与场景验收检查交付"
+              ],
+              "output_fields": [
+                "删除与恢复时序",
+                "确认后的时间边界",
+                "键盘和读屏行为",
+                "必要依赖与状态约束",
+                "到期、恢复和焦点验收"
+              ],
+              "acceptance": [
+                "按主条目的 composition 完成依赖闭包",
+                "时间值来自本次业务而非示例默认",
+                "测试撤销、到期、键盘与不重复播报"
+              ]
+            }
+          ],
+          "ready_for_final_prompt": false,
+          "acceptance_checks": {
+            "dependencies_complete_for_emitted_bundles": true,
+            "detected_requests_assembled": true,
+            "whole_request_semantics_verified": false,
+            "parameters_resolved": false,
+            "conflicting_layouts_not_blended": true,
+            "host_llm_workflow_verified": false,
+            "provider_facts_verified": true
+          }
+        },
+        "usage": {
+          "loaded_leaf_count": 3,
+          "loaded_entry_count": 5,
+          "context_chars": 2714,
+          "content_char_limit": 24000
+        },
+        "format": "agent"
+      }
+    },
+    {
+      "query": "做工业分区布局，选中物料后联动补货卡。",
+      "output": {
+        "query": "做工业分区布局，选中物料后联动补货卡。",
+        "status": "needs_clarification",
+        "matches": [
+          {
+            "leaf_id": "layout-patterns",
+            "knowledge_type": "pattern",
+            "scope": "general",
+            "do_not_generalize": false,
+            "path": "terms/dashboard/layout-patterns.json",
+            "score": 28,
+            "entries": [
+              {
+                "id": "industrial-zones-dashboard",
+                "name": "工业分区布局",
+                "plain_language": "右侧固定操作区；左侧状态筛选；玻璃表格；选中态联动",
+                "when_to_use": "需要工业分区布局的信息结构、视觉参数与交互联动规范时",
+                "parameters": [
+                  "accent_hex",
+                  "secondary_accent_hex",
+                  "grid_ratio",
+                  "first_row_px",
+                  "row_height_px"
+                ],
+                "related": [
+                  "grid-glass-dashboard"
+                ],
+                "constraints": [
+                  "布局、视觉和执行状态分层；具体参数只属于本例，不作为同类页面默认值"
+                ],
+                "aliases": [
+                  "工业分区",
+                  "玻璃表格",
+                  "低库存筛选",
+                  "选中物料联动补货卡"
+                ],
+                "contract_ref": "templates/dashboard/dashboard-style-system.json",
+                "layout": "工业分区布局",
+                "termSkill": [
+                  "右侧固定操作区",
+                  "左侧状态筛选",
+                  "玻璃表格",
+                  "选中态联动"
+                ],
+                "uiSkill": {
+                  "background": "雾灰",
+                  "material": "玻璃表格",
+                  "layout": "左侧筛选 / 中部表格 / 右侧固定操作区"
+                },
+                "agentExec": [
+                  {
+                    "event": "filter_low_stock",
+                    "writes": [
+                      "stockFilter"
+                    ],
+                    "sets": {
+                      "stockFilter": 2
+                    },
+                    "updates": [
+                      "visibleRows"
+                    ],
+                    "preserves": [
+                      "replenishmentCount"
+                    ]
+                  },
+                  {
+                    "event": "select_item",
+                    "example": "选中 Prime 85mm",
+                    "writes": [
+                      "selectedItemId"
+                    ],
+                    "updates": [
+                      "replenishmentCard"
+                    ],
+                    "preserves": [
+                      "replenishmentCount"
+                    ]
+                  },
+                  {
+                    "event": "add_to_replenishment",
+                    "writes": [
+                      "replenishmentItems"
+                    ],
+                    "updates": [
+                      "replenishmentCount"
+                    ],
+                    "example_transition": {
+                      "before": 7,
+                      "after": 8
+                    },
+                    "guard": "成功加入一个新项目才增加；重复、失败与空选择不得重复计数"
+                  }
+                ],
+                "state": {
+                  "model_status": "proposed_implementation",
+                  "source": {
+                    "stockFilter": "st 筛选码；低库存 st=2",
+                    "selectedItemId": "稳定物料 ID，不用行号",
+                    "replenishmentItems": "待补货集合"
+                  },
+                  "derived": {
+                    "visibleRows": "items filtered by stockFilter",
+                    "replenishmentCard": "items[selectedItemId]",
+                    "replenishmentCount": "count(replenishmentItems)"
+                  },
+                  "invariants": [
+                    "筛选不应伪装成新增补货",
+                    "选中物料与补货卡一致",
+                    "7→8 是示例断言，不是写死计数；重复加入策略需确认"
+                  ]
+                },
+                "tokens": {
+                  "scope": "provided_example",
+                  "values": {
+                    "accent_hex": "#F3EB30",
+                    "secondary_accent_hex": "#FB9350",
+                    "grid_ratio": [
+                      1.02,
+                      1,
+                      0.72
+                    ],
+                    "first_row_px": 196,
+                    "row_height_px": 60
+                  }
+                },
+                "evidence": {
+                  "status": "provided",
+                  "source": "user_dashboard_brief",
+                  "state_model": "实现建议，不宣称为原始产品已有逻辑"
+                },
+                "composition": {
+                  "exclusive_group": "dashboard-primary-layout",
+                  "alternatives_allowed": true
+                }
+              }
+            ],
+            "entry_sources": [
+              {
+                "entry_id": "industrial-zones-dashboard",
+                "role": "explicit",
+                "source_refs": [
+                  "user_query"
+                ]
+              }
+            ],
+            "provider": null
+          }
+        ],
+        "dependencies": [
+          {
+            "path": "templates/dashboard/dashboard-style-system.json",
+            "required": true,
+            "source_refs": [
+              "terms/dashboard/layout-patterns.json#industrial-zones-dashboard"
+            ],
+            "content": {
+              "field_contract": {
+                "layout": "布局名称与信息结构；不新增同义叶子",
+                "termSkill": "专业术语与结构关系；引用现有分类",
+                "uiSkill": "视觉层级、栅格、材质、排版；不负责修改业务状态",
+                "agentExec": "事件、前置条件、写入状态、派生视图与不受影响的状态",
+                "state": "唯一事实源、派生关系、不变量；新增实现建议需明确标记",
+                "tokens": "明确单位与适用范围；用户示例值不是全局默认值"
+              },
+              "shared_execution_contract": {
+                "flow": [
+                  "事件",
+                  "校验/前置条件",
+                  "一次状态转换",
+                  "派生所有关联视图",
+                  "验收"
+                ],
+                "rules": [
+                  "共享的是选择 ID 与时间上下文，不是每个面板各自复制一份状态；独立控件不得误联动。",
+                  "展示读数由状态派生；请求失败、空数据与快速连续切换不得留下混合视图，异步结果需校验当前上下文。",
+                  "颜色/尺寸是当前示例的 token，不是行为触发条件；计数从集合派生，不写死 7→8。",
+                  "键盘与指针操作保持同样状态结果；选中/加载/错误不能只靠颜色，动态效果提供减少动态路径。",
+                  "固定栏不等于固定整个页面；窄屏策略与断点未提供时先标记建议，不臆造原稿数值。"
+                ],
+                "acceptance": [
+                  "事件前/后真实截图覆盖受影响与不受影响区域",
+                  "端到端验证状态联动、独立性、错误/快速切换与键盘路径",
+                  "截图只验证可见结果，状态一致性同时用断言验证"
+                ]
+              }
+            }
+          }
+        ],
+        "clarifications": [
+          {
+            "id": "dashboard_data",
+            "question": "有哪些可用数据与操作规则？只采用本次确认的字段、状态和参数。"
+          }
+        ],
+        "deferred_clarifications": [],
+        "coverage": {
+          "status": "bounded",
+          "unaccounted_clauses": [],
+          "limitation": "有限词法/组合规则覆盖，不是完整语义理解；有结果不代表整句全部覆盖。"
+        },
+        "composition": {
+          "conflicts": [],
+          "deferred": [],
+          "deduplication": "stable leaf+entry IDs; shared contracts by path",
+          "related_policy": "informational_only; never loaded wholesale"
+        },
+        "verification_required": [],
+        "network_search": "not_requested",
+        "explanations": [
+          {
+            "leaf_id": "layout-patterns",
+            "entry_id": "industrial-zones-dashboard",
+            "role": "explicit",
+            "source": "terms/dashboard/layout-patterns.json#industrial-zones-dashboard",
+            "evidence": [
+              {
+                "field": "name",
+                "matched_expression": "工业分区布局",
+                "origin": "local_lexical"
+              },
+              {
+                "field": "aliases",
+                "matched_expression": "工业分区",
+                "origin": "local_lexical"
+              }
+            ]
+          }
+        ],
+        "delivery": {
+          "scenario_plans": [
+            {
+              "scenario_id": "dashboard-linked-state",
+              "match": "partial",
+              "provided_information": {},
+              "not_applicable": [
+                "只有颜色或普通轮播需求",
+                "不同主布局不能未经确认合成同一页面"
+              ],
+              "flow": [
+                "保留用户证据",
+                "只澄清改变方案的信息",
+                "按依赖组合知识",
+                "输出有边界的增强方案",
+                "用原文约束与场景验收检查交付"
+              ],
+              "output_fields": [
+                "layout",
+                "termSkill",
+                "uiSkill",
+                "agentExec",
+                "state",
+                "tokens"
+              ],
+              "acceptance": [
+                "读取选中条目的 contract_ref 共享协议",
+                "共享状态与独立控件不得误联动",
+                "变体并列展示为选项，不直接叠加成主布局",
+                "仅按已有五种素材组织，不追要额外案例"
+              ]
+            }
+          ],
+          "ready_for_final_prompt": false,
+          "acceptance_checks": {
+            "dependencies_complete_for_emitted_bundles": true,
+            "detected_requests_assembled": true,
+            "whole_request_semantics_verified": false,
+            "parameters_resolved": false,
+            "conflicting_layouts_not_blended": true,
+            "host_llm_workflow_verified": false,
+            "provider_facts_verified": true
+          }
+        },
+        "usage": {
+          "loaded_leaf_count": 1,
+          "loaded_entry_count": 1,
+          "context_chars": 2924,
+          "content_char_limit": 24000
+        },
+        "format": "agent"
+      }
+    }
+  ]
+}

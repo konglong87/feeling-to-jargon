@@ -22,6 +22,8 @@
         "when_to_use": "用户说出职场模糊表达或需要改写协作要求时"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -67,17 +69,28 @@
                 "后端",
                 "服务",
                 "系统",
-                "平台"
+                "平台",
+                "在线服务"
               ],
               [
                 "稳定",
                 "宕机",
                 "故障",
                 "不中断",
-                "可用"
+                "可用",
+                "断了",
+                "掉线"
               ]
             ],
-            "role": "suggestion"
+            "role": "suggestion",
+            "subject_group": 0,
+            "topic_breakers": [
+              "我的",
+              "椅子",
+              "情绪",
+              "论文",
+              "小说"
+            ]
           }
         ],
         "questions": [
@@ -87,6 +100,8 @@
           }
         ]
       },
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -129,6 +144,8 @@
         "when_to_use": "需要明确触发、阈值、取消、边界和键盘替代路径的复杂交互"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -166,6 +183,8 @@
         "when_to_use": "需要高级反馈但仍要保持可理解的操作结果"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -199,6 +218,8 @@
         "when_to_use": "需要高级反馈但仍要保持可理解的操作结果"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -229,6 +250,8 @@
         "when_to_use": "需要状态切换连续、焦点稳定且避免跳页或突然替换容器的组件"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -266,6 +289,8 @@
         "when_to_use": "想要电影感但需要稳定复现时"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -321,7 +346,25 @@
                 "同一时间"
               ]
             ],
-            "role": "explicit"
+            "role": "explicit",
+            "scope_any": [
+              "后端",
+              "服务",
+              "网站",
+              "网页",
+              "系统",
+              "平台",
+              "软件",
+              "响应",
+              "卡",
+              "请求",
+              "访问",
+              "并发"
+            ],
+            "exclude_any": [
+              "不存在同时",
+              "错峰"
+            ]
           },
           {
             "id": "large-audience",
@@ -335,7 +378,25 @@
                 "访问"
               ]
             ],
-            "role": "suggestion"
+            "role": "suggestion",
+            "scope_any": [
+              "后端",
+              "服务",
+              "网站",
+              "网页",
+              "系统",
+              "平台",
+              "软件",
+              "响应",
+              "卡",
+              "请求",
+              "访问",
+              "并发"
+            ],
+            "exclude_any": [
+              "不存在同时",
+              "错峰"
+            ]
           },
           {
             "id": "load-response",
@@ -350,7 +411,25 @@
                 "一起"
               ]
             ],
-            "role": "explicit"
+            "role": "explicit",
+            "scope_any": [
+              "后端",
+              "服务",
+              "网站",
+              "网页",
+              "系统",
+              "平台",
+              "软件",
+              "响应",
+              "卡",
+              "请求",
+              "访问",
+              "并发"
+            ],
+            "exclude_any": [
+              "不存在同时",
+              "错峰"
+            ]
           }
         ],
         "questions": [
@@ -364,6 +443,8 @@
           }
         ]
       },
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -405,6 +486,8 @@
         "when_to_use": "需要高级反馈但仍要保持可理解的操作结果"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -438,6 +521,8 @@
         "when_to_use": "同一角色需要生成三视图、动作、服装、表情或周边"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -483,6 +568,8 @@
         "when_to_use": "需要复用角色但更换表现目标"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -524,6 +611,8 @@
         "when_to_use": "用户用自然语言描述联动、叠卡、吸附画线或圆形转场的感觉时"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -561,6 +650,8 @@
         "when_to_use": "需要主体位置和画面平衡可控时"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -618,7 +709,24 @@
                 "层次"
               ]
             ],
-            "role": "suggestion"
+            "role": "suggestion",
+            "subject_group": 0,
+            "topic_breakers": [
+              "论文",
+              "论证",
+              "小说"
+            ],
+            "scope_any": [
+              "网站",
+              "网页",
+              "界面",
+              "布局",
+              "页面"
+            ],
+            "exclude_any": [
+              "论证",
+              "情节"
+            ]
           }
         ],
         "questions": [
@@ -628,6 +736,8 @@
           }
         ]
       },
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -673,6 +783,8 @@
         "when_to_use": "需要高级反馈但仍要保持可理解的操作结果"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -703,6 +815,8 @@
         "when_to_use": "需要有视觉表现但必须同时控制 GPU、移动端和减少动态成本"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [
@@ -742,6 +856,8 @@
         "when_to_use": "后端或平台方案需要拆解质量属性时"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -780,6 +896,8 @@
         "when_to_use": "需要有视觉表现但必须同时控制 GPU、移动端和减少动态成本"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [
@@ -827,6 +945,8 @@
         "when_to_use": "需要给 AI 编程或设计工具描述可复用组件"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -876,6 +996,8 @@
         "when_to_use": "需要通过撕口下拉打开局部面板，并把撕裂感转成可衡量的位移和开口进度"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -925,6 +1047,8 @@
         "when_to_use": "用户说出职场模糊表达或需要改写协作要求时"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -959,6 +1083,8 @@
         "when_to_use": "需要有视觉表现但必须同时控制 GPU、移动端和减少动态成本"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [
@@ -1010,6 +1136,8 @@
         "when_to_use": "需要给 AI 编程或设计工具描述可复用组件"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -1048,6 +1176,8 @@
         "when_to_use": "需要明确触发、阈值、取消、边界和键盘替代路径的复杂交互"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -1081,6 +1211,8 @@
         "when_to_use": "需要高级反馈但仍要保持可理解的操作结果"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -1119,6 +1251,8 @@
         "when_to_use": "需要可移动的悬浮入口，同时避免遮挡底部 Tab 和安全区内容"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -1164,6 +1298,8 @@
         "when_to_use": "需要给 AI 编程或设计工具描述可复用组件"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -1202,6 +1338,8 @@
         "when_to_use": "需要状态切换连续、焦点稳定且避免跳页或突然替换容器的组件"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -1238,6 +1376,8 @@
         "when_to_use": "列表重排、共享元素和复杂布局撤销"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -1282,6 +1422,8 @@
         "when_to_use": "DOM 节点生命周期较短的列表"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -1319,6 +1461,8 @@
         "when_to_use": "需要给 AI 编程或设计工具描述可复用组件"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -1361,6 +1505,8 @@
         "when_to_use": "拖拽、滚动、转场和惯性动作"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -1398,6 +1544,8 @@
         "when_to_use": "后端或平台方案需要拆解质量属性时"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -1436,6 +1584,8 @@
         "when_to_use": "需要状态切换连续、焦点稳定且避免跳页或突然替换容器的组件"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -1469,6 +1619,8 @@
         "when_to_use": "用户说出职场模糊表达或需要改写协作要求时"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -1506,6 +1658,8 @@
         "when_to_use": "用户明确询问指定平台或组件目录"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -1543,6 +1697,8 @@
         "when_to_use": "用户明确询问指定平台或组件目录"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -1576,6 +1732,8 @@
         "when_to_use": "Dashboard 需要有明确审美方向且避免模板化"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -1613,6 +1771,8 @@
         "when_to_use": "Dashboard 需要有明确审美方向且避免模板化"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -1653,6 +1813,8 @@
         "when_to_use": "用户明确指定 GSAP，或项目已经采用 GSAP 作为动效实现层"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -1697,6 +1859,8 @@
         "when_to_use": "用户明确指定 GSAP，或项目已经采用 GSAP 作为动效实现层"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -1741,6 +1905,8 @@
         "when_to_use": "用户明确指定 GSAP，或项目已经采用 GSAP 作为动效实现层"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -1781,6 +1947,8 @@
         "when_to_use": "用户明确指定 GSAP，或项目已经采用 GSAP 作为动效实现层"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -1829,6 +1997,8 @@
         "when_to_use": "用户明确指定 GSAP，或项目已经采用 GSAP 作为动效实现层"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -1865,6 +2035,8 @@
         "when_to_use": "用户明确指定 GSAP，或项目已经采用 GSAP 作为动效实现层"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -1909,6 +2081,8 @@
         "when_to_use": "用户明确指定 GSAP，或项目已经采用 GSAP 作为动效实现层"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -1946,6 +2120,8 @@
         "when_to_use": "Dashboard 需要有明确审美方向且避免模板化"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -1980,6 +2156,8 @@
         "when_to_use": "需要状态切换连续、焦点稳定且避免跳页或突然替换容器的组件"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -2020,7 +2198,8 @@
                 "连按",
                 "连点",
                 "多点",
-                "点了两次"
+                "点了两次",
+                "多按"
               ],
               [
                 "提交",
@@ -2033,6 +2212,16 @@
             "role": "explicit",
             "also_explain": [
               "一次"
+            ],
+            "scope_any": [
+              "按钮",
+              "点",
+              "按",
+              "请求",
+              "接口",
+              "操作",
+              "下单",
+              "付款"
             ]
           }
         ],
@@ -2043,6 +2232,8 @@
           }
         ]
       },
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -2084,6 +2275,8 @@
         "when_to_use": "Dashboard 需要有明确审美方向且避免模板化"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -2117,6 +2310,8 @@
         "when_to_use": "Dashboard 需要有明确审美方向且避免模板化"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -2155,6 +2350,8 @@
         "when_to_use": "需要明确触发、阈值、取消、边界和键盘替代路径的复杂交互"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -2188,6 +2385,8 @@
         "when_to_use": "复杂后台、内容页和移动端首页"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -2234,6 +2433,8 @@
         "when_to_use": "需要状态切换连续、焦点稳定且避免跳页或突然替换容器的组件"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -2272,6 +2473,8 @@
         "when_to_use": "可拖拽、可快速连点或可反悔的组件"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -2313,6 +2516,8 @@
         "when_to_use": "用户说出职场模糊表达或需要改写协作要求时"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -2353,6 +2558,8 @@
         "when_to_use": "Dashboard 需要有明确审美方向且避免模板化"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": "templates/dashboard/dashboard-style-system.json",
       "composition": {},
       "required_fields": [],
@@ -2402,6 +2609,13 @@
           }
         ]
       },
+      "source_question": [],
+      "reusable_fields": [
+        "termSkill",
+        "agentExec",
+        "state",
+        "tokens"
+      ],
       "contract_ref": "templates/dashboard/dashboard-style-system.json",
       "composition": {
         "exclusive_group": "dashboard-primary-layout",
@@ -2463,6 +2677,13 @@
           }
         ]
       },
+      "source_question": [],
+      "reusable_fields": [
+        "termSkill",
+        "agentExec",
+        "state",
+        "tokens"
+      ],
       "contract_ref": "templates/dashboard/dashboard-style-system.json",
       "composition": {
         "exclusive_group": "dashboard-primary-layout",
@@ -2524,6 +2745,13 @@
           }
         ]
       },
+      "source_question": [],
+      "reusable_fields": [
+        "termSkill",
+        "agentExec",
+        "state",
+        "tokens"
+      ],
       "contract_ref": "templates/dashboard/dashboard-style-system.json",
       "composition": {
         "exclusive_group": "dashboard-primary-layout",
@@ -2585,6 +2813,13 @@
           }
         ]
       },
+      "source_question": [],
+      "reusable_fields": [
+        "termSkill",
+        "agentExec",
+        "state",
+        "tokens"
+      ],
       "contract_ref": "templates/dashboard/dashboard-style-system.json",
       "composition": {
         "exclusive_group": "dashboard-primary-layout",
@@ -2646,6 +2881,16 @@
           }
         ]
       },
+      "source_question": [
+        "房名/照片/温度卡点击后的完整逻辑",
+        "模式枚举及单位映射、换算规则"
+      ],
+      "reusable_fields": [
+        "termSkill",
+        "agentExec",
+        "state",
+        "tokens"
+      ],
       "contract_ref": "templates/dashboard/dashboard-style-system.json",
       "composition": {
         "exclusive_group": "dashboard-primary-layout",
@@ -2691,6 +2936,8 @@
         "when_to_use": "需要有视觉表现但必须同时控制 GPU、移动端和减少动态成本"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [
@@ -2735,6 +2982,8 @@
         "when_to_use": "需要有视觉表现但必须同时控制 GPU、移动端和减少动态成本"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [
@@ -2778,6 +3027,8 @@
         "when_to_use": "需要高级反馈但仍要保持可理解的操作结果"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -2808,6 +3059,8 @@
         "when_to_use": "需要状态切换连续、焦点稳定且避免跳页或突然替换容器的组件"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -2846,6 +3099,8 @@
         "when_to_use": "需要让设计评审和 AI 在写代码前先确认视觉方向"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -2888,6 +3143,8 @@
         "when_to_use": "需要明确触发、阈值、取消、边界和键盘替代路径的复杂交互"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -2925,6 +3182,8 @@
         "when_to_use": "需要给 AI 编程或设计工具描述可复用组件"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -2962,6 +3221,8 @@
         "when_to_use": "用户说出职场模糊表达或需要改写协作要求时"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -2994,6 +3255,8 @@
         "when_to_use": "产品渲染、角色周边和材质迁移"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -3043,6 +3306,8 @@
         "when_to_use": "Dashboard 需要有明确审美方向且避免模板化"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -3076,6 +3341,8 @@
         "when_to_use": "需要高级反馈但仍要保持可理解的操作结果"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -3105,6 +3372,8 @@
         "when_to_use": "撤销条、倒计时按钮"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -3150,6 +3419,8 @@
         "when_to_use": "操作结果需要被读屏用户感知"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -3186,6 +3457,8 @@
         "when_to_use": "文生视频、产品动效和角色动作延展"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -3231,6 +3504,8 @@
         "when_to_use": "角色一致性、产品渲染和批量出图"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -3280,6 +3555,8 @@
         "when_to_use": "后端或平台方案需要拆解质量属性时"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -3318,6 +3595,8 @@
         "when_to_use": "需要明确触发、阈值、取消、边界和键盘替代路径的复杂交互"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -3361,6 +3640,8 @@
         "when_to_use": "需要卡片层级、拖拽跟手、飞出切换和循环补位的移动端轮播"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -3415,6 +3696,8 @@
         "when_to_use": "需要明确触发、阈值、取消、边界和键盘替代路径的复杂交互"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -3448,6 +3731,8 @@
         "when_to_use": "文生图、参考图重绘和产品效果图"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -3498,6 +3783,8 @@
         "when_to_use": "需要明确触发、阈值、取消、边界和键盘替代路径的复杂交互"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -3535,6 +3822,8 @@
         "when_to_use": "用户用自然语言描述联动、叠卡、吸附画线或圆形转场的感觉时"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -3572,6 +3861,8 @@
         "when_to_use": "列表删除后恢复原项"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -3609,6 +3900,8 @@
         "when_to_use": "撤销后的状态需要被快速识别"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -3646,6 +3939,8 @@
         "when_to_use": "用户开启 prefers-reduced-motion"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -3687,6 +3982,8 @@
         "when_to_use": "需要高级反馈但仍要保持可理解的操作结果"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -3721,6 +4018,8 @@
         "when_to_use": "需要明确触发、阈值、取消、边界和键盘替代路径的复杂交互"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -3766,6 +4065,8 @@
           }
         ]
       },
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -3800,6 +4101,8 @@
         "when_to_use": "需要状态切换连续、焦点稳定且避免跳页或突然替换容器的组件"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -3834,6 +4137,8 @@
         "when_to_use": "需要状态切换连续、焦点稳定且避免跳页或突然替换容器的组件"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -3872,6 +4177,8 @@
         "when_to_use": "需要明确触发、阈值、取消、边界和键盘替代路径的复杂交互"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -3909,6 +4216,8 @@
         "when_to_use": "后端或平台方案需要拆解质量属性时"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -3946,6 +4255,8 @@
         "when_to_use": "需要给 AI 编程或设计工具描述可复用组件"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -3987,6 +4298,8 @@
         "when_to_use": "Dashboard 需要有明确审美方向且避免模板化"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -4024,6 +4337,8 @@
         "when_to_use": "需要高级反馈但仍要保持可理解的操作结果"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -4058,6 +4373,8 @@
         "when_to_use": "需要明确触发、阈值、取消、边界和键盘替代路径的复杂交互"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -4096,6 +4413,8 @@
         "when_to_use": "滚轮、底部抽屉、滑块和拖拽"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -4137,6 +4456,8 @@
         "when_to_use": "用户用自然语言描述联动、叠卡、吸附画线或圆形转场的感觉时"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -4170,6 +4491,8 @@
         "when_to_use": "需要高级反馈但仍要保持可理解的操作结果"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -4203,6 +4526,8 @@
         "when_to_use": "需要给 AI 编程或设计工具描述可复用组件"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -4240,6 +4565,8 @@
         "when_to_use": "需要高级反馈但仍要保持可理解的操作结果"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -4277,6 +4604,8 @@
         "when_to_use": "需要高级反馈但仍要保持可理解的操作结果"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -4310,6 +4639,8 @@
         "when_to_use": "用户用自然语言描述联动、叠卡、吸附画线或圆形转场的感觉时"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -4348,6 +4679,8 @@
         "when_to_use": "需要状态切换连续、焦点稳定且避免跳页或突然替换容器的组件"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -4394,6 +4727,8 @@
         "when_to_use": "保存、上传或提交操作需要把进行中、完成和结果连续表达在同一按钮内"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -4440,6 +4775,8 @@
         "when_to_use": "需要状态切换连续、焦点稳定且避免跳页或突然替换容器的组件"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -4477,6 +4814,8 @@
         "when_to_use": "用户明确询问指定平台或组件目录"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -4511,6 +4850,8 @@
         "when_to_use": "半屏弹层、长按拖拽、粘连断开"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -4556,6 +4897,8 @@
         "when_to_use": "需要给 AI 编程或设计工具描述可复用组件"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -4620,10 +4963,12 @@
                 "质感",
                 "精致",
                 "高级",
-                "专业一点"
+                "专业",
+                "讲究"
               ]
             ],
-            "role": "suggestion"
+            "role": "suggestion",
+            "subject_group": 0
           }
         ],
         "questions": [
@@ -4633,6 +4978,8 @@
           }
         ]
       },
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -4678,6 +5025,8 @@
         "when_to_use": "Dashboard 需要有明确审美方向且避免模板化"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -4719,6 +5068,8 @@
         "when_to_use": "需要在多个生图工具间复用提示词"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -4764,14 +5115,16 @@
                 "删除",
                 "误删",
                 "删掉",
-                "移除"
+                "移除",
+                "删错"
               ],
               [
                 "反悔",
                 "恢复",
                 "找回",
                 "撤销",
-                "后悔"
+                "后悔",
+                "撤回"
               ]
             ],
             "role": "explicit"
@@ -4794,6 +5147,8 @@
           }
         ]
       },
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {
         "required": [
@@ -4860,6 +5215,8 @@
         "when_to_use": "需要让剩余时间可见"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -4893,6 +5250,8 @@
         "when_to_use": "误操作成本高且需要可访问性增强的场景"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -4927,6 +5286,8 @@
         "when_to_use": "惯性滚动、抽屉和抛物线飞入"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -4968,6 +5329,8 @@
         "when_to_use": "文生视频和分镜生成"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],
@@ -5013,6 +5376,8 @@
         "when_to_use": "Dashboard 需要有明确审美方向且避免模板化"
       },
       "retrieval": {},
+      "source_question": [],
+      "reusable_fields": [],
       "contract_ref": null,
       "composition": {},
       "required_fields": [],

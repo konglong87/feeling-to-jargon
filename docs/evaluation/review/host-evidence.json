@@ -1,0 +1,2989 @@
+{
+  "kind": "Recorded real Codex CLI host execution, not prewritten context simulations",
+  "host_binary_version": "codex-cli 0.154.0-alpha.6.1",
+  "model_selection": "inherited local configured model; no override",
+  "installer": "skills@1.7.4, local-source --copy installation for Codex",
+  "environment": "macOS, Python 3.9, actual read-only sandbox; no claim for other hosts/platforms",
+  "usage_boundary": "Host usage includes user/global skills/configuration, cached input and accumulated context. Not the marginal token cost of this skill.",
+  "privacy": "Local absolute paths redacted; auth/config/stderr and raw global instructions not published.",
+  "runs": [
+    {
+      "id": "repository",
+      "live_host": true,
+      "commands": [
+        {
+          "command": "/bin/zsh -lc 'cat skills/feeling-to-jargon/SKILL.md'",
+          "exit_code": 0,
+          "output_chars": 3040
+        },
+        {
+          "command": "/bin/zsh -lc 'python3 scripts/query-index.py \"网站像赶集，眼睛没地方落。\"'",
+          "exit_code": 0,
+          "output_chars": 3166,
+          "status": "coverage_insufficient",
+          "query": "网站像赶集，眼睛没地方落。",
+          "mode": "query"
+        },
+        {
+          "command": "/bin/zsh -lc \"cat docs/routing-contract.md; rg -n '视觉层级|视觉噪|信息密度|留白|认知负荷|视觉焦点' terms index/retrieval.json\"",
+          "exit_code": 0,
+          "output_chars": 4402
+        },
+        {
+          "command": "/bin/zsh -lc \"cat terms/information-architecture/information-hierarchy.json terms/visual-layout/composition-patterns.json; rg -n 'context|json.load' scripts/query-index.py\"",
+          "exit_code": 0,
+          "output_chars": 3334
+        },
+        {
+          "command": "/bin/zsh -lc \"python3 scripts/query-index.py '网站像赶集，眼睛没地方落。' --context <(printf '%s' '{\\\"candidates\\\":[{\\\"leaf_id\\\":\\\"information-hierarchy\\\",\\\"entry_id\\\":\\\"information-hierarchy\\\",\\\"evidence_text\\\":\\\"眼睛没地方落\\\",\\\"role\\\":\\\"suggestion\\\"},{\\\"leaf_id\\\":\\\"composition-patterns\\\",\\\"entry_id\\\":\\\"composition-patterns\\\",\\\"evidence_text\\\":\\\"网站像赶集\\\",\\\"role\\\":\\\"suggestion\\\"}]}')\"",
+          "exit_code": 0,
+          "output_chars": 9394,
+          "status": "needs_clarification",
+          "query": "网站像赶集，眼睛没地方落。",
+          "mode": "query"
+        }
+      ],
+      "transport_errors": [
+        "Reconnecting... 1/5 (stream disconnected before completion: Our servers are currently overloaded. Please try again later.)"
+      ],
+      "completed": true,
+      "tool_output_chars": 23336,
+      "query_payloads": [
+        {
+          "query": "网站像赶集，眼睛没地方落。",
+          "strategy": "progressive",
+          "trace": {
+            "levels": [
+              "root",
+              "subdomain",
+              "intent",
+              "leaf",
+              "entry"
+            ],
+            "execution_order": [
+              "read_generated_routing_indexes",
+              "match_scene_or_generic_route",
+              "assemble_atomic_knowledge_bundles",
+              "validate_membership",
+              "check_delivery"
+            ],
+            "root_loaded": "index/root.json",
+            "runtime_router_loaded": "index/runtime.json",
+            "domain_index_paths": [],
+            "intent_index_paths": [],
+            "selected_intents": [],
+            "selected_subdomains": [],
+            "loaded_leaf_paths": [],
+            "loaded_leaf_count": 0,
+            "entry_limit": 30,
+            "loaded_entry_count": 0,
+            "internal_read_paths": [
+              "index/root.json",
+              "index/runtime.json",
+              "index/retrieval.json"
+            ],
+            "internal_index_chars": 141800,
+            "indexes_in_llm_context": false,
+            "context_chars": 0,
+            "content_char_limit": 24000,
+            "content_budget_scope": "Canonical JSON of matches+dependencies; explanation/delivery envelope reported separately.",
+            "routing_ms": 5.48,
+            "total_processing_ms": 8.241,
+            "route_mode": "generic",
+            "runtime_routes_scored": 105,
+            "retrieval_entries_checked": 120,
+            "score_kind": "uncalibrated_heuristic_rank"
+          },
+          "matches": [],
+          "dependencies": [],
+          "status": "coverage_insufficient",
+          "explanations": [],
+          "clarifications": [],
+          "deferred_clarifications": [],
+          "coverage": {
+            "status": "insufficient",
+            "unaccounted_clauses": [
+              "网站像赶集",
+              "眼睛没地方落"
+            ],
+            "limitation": "有限词法/组合规则覆盖，不是完整语义理解；有结果不代表整句全部覆盖。"
+          },
+          "delivery": {
+            "user_need": "网站像赶集，眼睛没地方落。",
+            "explicit_needs": [],
+            "suggested_directions": [],
+            "scenario_plans": [],
+            "output_fields": [
+              "user_need",
+              "candidate_terms",
+              "explicit_vs_suggested",
+              "open_questions",
+              "constraints",
+              "acceptance"
+            ],
+            "prompt_outline": [
+              "保留原始需求及证据",
+              "区分已确认要求与候选术语",
+              "仅使用已加载正文及共享协议",
+              "回答必要问题后再确定参数/风格",
+              "按所选场景验收；未知与分阶段内容明确留出"
+            ],
+            "ready_for_final_prompt": false,
+            "acceptance_checks": {
+              "dependencies_complete_for_emitted_bundles": true,
+              "detected_requests_assembled": false,
+              "whole_request_semantics_verified": false,
+              "parameters_resolved": true,
+              "conflicting_layouts_not_blended": true,
+              "host_llm_workflow_verified": false,
+              "provider_facts_verified": true
+            },
+            "acceptance_sources": []
+          },
+          "verification_required": [],
+          "composition": {
+            "conflicts": [],
+            "deferred": [],
+            "deduplication": "stable leaf+entry IDs; shared contracts by path",
+            "related_policy": "informational_only; never loaded wholesale"
+          },
+          "network_search": "not_requested"
+        },
+        {
+          "query": "网站像赶集，眼睛没地方落。",
+          "strategy": "progressive",
+          "trace": {
+            "levels": [
+              "root",
+              "subdomain",
+              "intent",
+              "leaf",
+              "entry"
+            ],
+            "execution_order": [
+              "read_generated_routing_indexes",
+              "match_scene_or_generic_route",
+              "assemble_atomic_knowledge_bundles",
+              "validate_membership",
+              "check_delivery"
+            ],
+            "root_loaded": "index/root.json",
+            "runtime_router_loaded": "index/runtime.json",
+            "domain_index_paths": [
+              "index/domains/digital-product-uiux.json"
+            ],
+            "intent_index_paths": [
+              "index/intents/digital-product-uiux/visual-layout.json",
+              "index/intents/digital-product-uiux/information-architecture.json"
+            ],
+            "selected_intents": [
+              {
+                "domain_id": "digital-product-uiux",
+                "subdomain_id": "visual-layout",
+                "intent_id": "design-layout"
+              },
+              {
+                "domain_id": "digital-product-uiux",
+                "subdomain_id": "visual-layout",
+                "intent_id": "audit-layout"
+              },
+              {
+                "domain_id": "digital-product-uiux",
+                "subdomain_id": "information-architecture",
+                "intent_id": "design-information"
+              },
+              {
+                "domain_id": "digital-product-uiux",
+                "subdomain_id": "information-architecture",
+                "intent_id": "audit-information"
+              }
+            ],
+            "selected_subdomains": [
+              {
+                "domain_id": "digital-product-uiux",
+                "subdomain_id": "visual-layout"
+              },
+              {
+                "domain_id": "digital-product-uiux",
+                "subdomain_id": "information-architecture"
+              }
+            ],
+            "loaded_leaf_paths": [
+              "terms/visual-layout/composition-patterns.json",
+              "terms/information-architecture/information-hierarchy.json"
+            ],
+            "loaded_leaf_count": 2,
+            "entry_limit": 30,
+            "loaded_entry_count": 2,
+            "internal_read_paths": [
+              "index/root.json",
+              "index/runtime.json",
+              "index/retrieval.json",
+              "terms/visual-layout/composition-patterns.json",
+              "terms/information-architecture/information-hierarchy.json",
+              "index/domains/digital-product-uiux.json",
+              "index/intents/digital-product-uiux/visual-layout.json",
+              "index/intents/digital-product-uiux/information-architecture.json"
+            ],
+            "internal_index_chars": 145207,
+            "indexes_in_llm_context": false,
+            "context_chars": 1265,
+            "content_char_limit": 24000,
+            "content_budget_scope": "Canonical JSON of matches+dependencies; explanation/delivery envelope reported separately.",
+            "routing_ms": 5.795,
+            "total_processing_ms": 9.892,
+            "route_mode": "generic",
+            "runtime_routes_scored": 105,
+            "retrieval_entries_checked": 120,
+            "score_kind": "uncalibrated_heuristic_rank"
+          },
+          "matches": [
+            {
+              "leaf_id": "composition-patterns",
+              "knowledge_type": "pattern",
+              "scope": "general",
+              "do_not_generalize": false,
+              "path": "terms/visual-layout/composition-patterns.json",
+              "score": 12,
+              "entries": [
+                {
+                  "id": "composition-patterns",
+                  "name": "卡片错位/大图主导/非对称/层叠/留白/破格出血",
+                  "plain_language": "用比例、层级和安全区建立页面性格；每次只让少数元素破格。",
+                  "when_to_use": "首屏、活动页、详情页和内容信息流",
+                  "parameters": [
+                    "错位按 8/12/16px 节奏",
+                    "主图可占半屏或出血",
+                    "使用 7:3 或 8:2 非对称",
+                    "只破一处网格，内容留在安全区"
+                  ],
+                  "related": [
+                    "layout-patterns",
+                    "design-tokens"
+                  ],
+                  "constraints": [
+                    "错位无规律会像未对齐",
+                    "出血过多会削弱秩序",
+                    "留白必须仍有视觉焦点"
+                  ],
+                  "aliases": []
+                }
+              ],
+              "entry_sources": [
+                {
+                  "entry_id": "composition-patterns",
+                  "role": "suggestion",
+                  "source_refs": [
+                    "user_query"
+                  ]
+                }
+              ],
+              "provider": null
+            },
+            {
+              "leaf_id": "information-hierarchy",
+              "knowledge_type": "principle",
+              "scope": "general",
+              "do_not_generalize": false,
+              "path": "terms/information-architecture/information-hierarchy.json",
+              "score": 12,
+              "entries": [
+                {
+                  "id": "information-hierarchy",
+                  "name": "信息层级",
+                  "plain_language": "先确定用户要做的决定，再按主次组织标题、数据、操作和辅助说明。",
+                  "when_to_use": "复杂后台、内容页和移动端首页",
+                  "parameters": [
+                    "主任务优先",
+                    "每屏保留一个视觉主角",
+                    "用密度和留白表达层级"
+                  ],
+                  "related": [
+                    "composition-patterns",
+                    "token-system"
+                  ],
+                  "constraints": [
+                    "不要用颜色和图标堆叠替代结构"
+                  ],
+                  "aliases": []
+                }
+              ],
+              "entry_sources": [
+                {
+                  "entry_id": "information-hierarchy",
+                  "role": "suggestion",
+                  "source_refs": [
+                    "user_query"
+                  ]
+                }
+              ],
+              "provider": null
+            }
+          ],
+          "dependencies": [],
+          "status": "needs_clarification",
+          "explanations": [
+            {
+              "leaf_id": "information-hierarchy",
+              "entry_id": "information-hierarchy",
+              "role": "suggestion",
+              "term": "信息层级",
+              "reason": "Host-supplied interpretation, structurally validated but not semantically verified by CLI.",
+              "evidence": [
+                {
+                  "field": "host.candidates",
+                  "matched_expression": "眼睛没地方落",
+                  "origin": "host_interpretation_unverified"
+                }
+              ],
+              "source": "terms/information-architecture/information-hierarchy.json#information-hierarchy"
+            },
+            {
+              "leaf_id": "composition-patterns",
+              "entry_id": "composition-patterns",
+              "role": "suggestion",
+              "term": "卡片错位/大图主导/非对称/层叠/留白/破格出血",
+              "reason": "Host-supplied interpretation, structurally validated but not semantically verified by CLI.",
+              "evidence": [
+                {
+                  "field": "host.candidates",
+                  "matched_expression": "网站像赶集",
+                  "origin": "host_interpretation_unverified"
+                }
+              ],
+              "source": "terms/visual-layout/composition-patterns.json#composition-patterns"
+            }
+          ],
+          "clarifications": [
+            {
+              "id": "primary_task",
+              "question": "页面最重要的信息和用户要完成的任务是什么？"
+            }
+          ],
+          "deferred_clarifications": [],
+          "coverage": {
+            "status": "bounded",
+            "unaccounted_clauses": [],
+            "limitation": "有限词法/组合规则覆盖，不是完整语义理解；有结果不代表整句全部覆盖。"
+          },
+          "delivery": {
+            "user_need": "网站像赶集，眼睛没地方落。",
+            "explicit_needs": [],
+            "suggested_directions": [
+              {
+                "leaf_id": "information-hierarchy",
+                "entry_id": "information-hierarchy",
+                "explanation_index": 0
+              },
+              {
+                "leaf_id": "composition-patterns",
+                "entry_id": "composition-patterns",
+                "explanation_index": 1
+              }
+            ],
+            "scenario_plans": [
+              {
+                "scenario_id": "visual-brief",
+                "name": "视觉感觉转设计方向",
+                "match": "partial",
+                "selected_knowledge": [
+                  {
+                    "leaf_id": "composition-patterns",
+                    "entry_id": "composition-patterns"
+                  }
+                ],
+                "not_applicable": [
+                  "非界面视觉的乱或舒服",
+                  "未确认时不得默认暗色、玻璃、渐变"
+                ],
+                "required_information": [
+                  {
+                    "id": "primary_task",
+                    "question": "页面最重要的信息和用户要完成的任务是什么？"
+                  }
+                ],
+                "provided_information": {},
+                "flow": [
+                  "保留用户证据",
+                  "只澄清改变方案的信息",
+                  "按依赖组合知识",
+                  "输出有边界的增强方案",
+                  "用原文约束与场景验收检查交付"
+                ],
+                "output_fields": [
+                  "原始感觉",
+                  "结构与设计令牌候选",
+                  "不超过必要数量的澄清",
+                  "用户确认后的增强提示词",
+                  "截图与任务可读性验收"
+                ],
+                "acceptance": [
+                  "候选是方向而非已选美术方案",
+                  "未指定的色值、栅格与风格不得作为事实",
+                  "用前后截图核对视觉层级与主任务"
+                ]
+              }
+            ],
+            "output_fields": [
+              "user_need",
+              "candidate_terms",
+              "explicit_vs_suggested",
+              "open_questions",
+              "constraints",
+              "acceptance"
+            ],
+            "prompt_outline": [
+              "保留原始需求及证据",
+              "区分已确认要求与候选术语",
+              "仅使用已加载正文及共享协议",
+              "回答必要问题后再确定参数/风格",
+              "按所选场景验收；未知与分阶段内容明确留出"
+            ],
+            "ready_for_final_prompt": false,
+            "acceptance_checks": {
+              "dependencies_complete_for_emitted_bundles": true,
+              "detected_requests_assembled": true,
+              "whole_request_semantics_verified": false,
+              "parameters_resolved": false,
+              "conflicting_layouts_not_blended": true,
+              "host_llm_workflow_verified": false,
+              "provider_facts_verified": true
+            },
+            "acceptance_sources": [
+              {
+                "source": "terms/visual-layout/composition-patterns.json#composition-patterns",
+                "fields": [
+                  "constraints"
+                ]
+              },
+              {
+                "source": "terms/information-architecture/information-hierarchy.json#information-hierarchy",
+                "fields": [
+                  "constraints"
+                ]
+              }
+            ]
+          },
+          "verification_required": [],
+          "composition": {
+            "conflicts": [],
+            "deferred": [],
+            "deduplication": "stable leaf+entry IDs; shared contracts by path",
+            "related_policy": "informational_only; never loaded wholesale"
+          },
+          "network_search": "not_requested"
+        }
+      ],
+      "usage": {
+        "input_tokens": 161280,
+        "cached_input_tokens": 84933,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1318,
+        "reasoning_output_tokens": 284
+      },
+      "command_count": 5,
+      "final_response": "你这句话，我会先翻译成：\n\n> **页面的信息主次不清，缺少明确的视觉焦点；信息密度与留白可能需要重新组织。**\n\n这是候选解释，不是看过页面后的诊断。“像赶集”不一定意味着内容太多，也可能是所有内容都在抢注意力。\n\n### 对应的专业术语\n\n| 术语 | 对应你的感受 | 可以怎样调整 |\n|---|---|---|\n| **信息层级** | 不知道先看什么、后看什么 | 先明确用户来这里要做什么，再按主次组织标题、内容、操作和辅助说明。 |\n| **视觉焦点** | “眼睛没地方落” | 让当前屏幕有一个明确的视觉主角，其他内容退到次要层级，而不是处处都突出。 |\n| **信息密度与留白** | “网站像赶集” | 用分组、间距和疏密关系区分内容，让重点周围有空间；不是一味删内容或扩大空白。 |\n\n### 建议先做什么\n\n**先排主次，再调样式。** 优先明确最重要的信息和操作，然后降低次要内容的视觉强调，用留白拉开层级。不要靠继续添加颜色、图标或装饰来解决结构问题；留白之后，也必须仍然有焦点。\n\n目前不宜直接决定“大图首屏”“非对称布局”或某种配色风格——这些不是你原话已经确认的要求。\n\n### 需要你澄清两点\n\n1. **用户打开这个页面，最应该先看到什么、完成什么？** 例如找到商品、理解服务，还是查看关键数据。\n2. **能提供最让你觉得“像赶集”的那一屏截图，并说明是手机端还是电脑端吗？** 这样才能区分是内容太密、层级太平，还是局部元素过于抢眼。\n\n确认后，再整理成可执行的设计提示词。后续验收应看**同一设备尺寸下的前后截图**，核对主次是否明确，并实际走一遍主要任务，避免只是变空了，却更难用。\n\n---\n\n本次已读取指定 skill 并运行原话检索。首次未命中；随后依据本地已有条目，保留原话、以“建议解释”身份补充候选后重跑，结果为**需要澄清**，并非 CLI 已验证上述语义。全程未联网、未安装工具、未修改项目代码，也未委托子代理。"
+    },
+    {
+      "id": "installed-extraction-failure",
+      "live_host": true,
+      "commands": [
+        {
+          "command": "/bin/zsh -lc \"pwd; ls -la .agents/skills/feeling-to-jargon; sed -n '1,260p' .agents/skills/feeling-to-jargon/scripts/query.py\"",
+          "exit_code": 0,
+          "output_chars": 2276
+        }
+      ],
+      "transport_errors": [],
+      "completed": true,
+      "tool_output_chars": 2276,
+      "query_payloads": [],
+      "usage": {
+        "input_tokens": 131547,
+        "cached_input_tokens": 40409,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3263,
+        "reasoning_output_tokens": 2102
+      },
+      "command_count": 1,
+      "final_response": "**这句话可以翻译为：“页面视觉噪声较高，信息层级不清晰，缺少明确的视觉焦点和阅读顺序。”** 这是根据原话做的初步解读，尚不是看过页面后的诊断。\n\n先说明实际调用情况：我已用原话调用消费项目内安装的 `.agents/skills/feeling-to-jargon/scripts/query.py`，但当前环境为只读，Skill 入口需要创建临时目录解包运行资源，因此执行失败，**未获得术语检索结果**。没有联网、修改项目、安装工具、委托子代理或读取父目录源码。以下是我的补充解读，不冒充 Skill 的命中结果。\n\n### 相关术语\n\n| 术语 | 对应的感受 | 建议方向 |\n|---|---|---|\n| **视觉噪声（Visual Noise）** | “像赶集”：很多元素同时抢注意力 | 检查强调色、边框、标签、图片和动效是否过多，减少非必要强调 |\n| **视觉层级（Visual Hierarchy）** | 内容看起来同样重要，分不出主次 | 按主任务、辅助信息、次要操作区分字号、字重、对比度和位置 |\n| **视觉焦点（Visual Focal Point）** | “眼睛没地方落”：不知道先看哪里 | 在当前视区明确一个优先关注的内容或操作，弱化竞争元素 |\n| **信息密度与留白（Information Density / Whitespace）** | 可能是内容拥挤、缺乏停顿 | 用分组与组间留白形成节奏；不能仅凭这句话就认定必须删内容 |\n| **阅读动线（Reading Flow）** | 看完一处，不知道接着看哪里 | 用对齐、分组和标题层级建立可理解的浏览顺序 |\n\n### 建议先怎么改\n\n**先确定“用户最该看什么”，再调整“其他内容退到什么位置”。** 不要直接把“像赶集”理解成“改成极简风”或“全部换成灰色”。\n\n优先处理：\n1. 明确当前页面的核心任务与首要信息。\n2. 降低次要内容的视觉权重，避免多个区域同等抢眼。\n3. 将相关信息归组，再调整留白与密度，而不是一味扩大间距。\n\n### 必要的两个问题\n\n1. **能提供最让你觉得“像赶集”的页面截图吗？** 请注明是桌面端还是手机端。\n2. **用户进入这个页面，最希望他先看到什么、完成什么？**\n\n拿到这两项后，才能把候选术语落实到具体修改。验收应对照修改前后截图，并走一遍核心任务：是否能找到首要信息、是否知道下一步做什么，以及弱化次要内容后是否仍能方便地找到它们。"
+    },
+    {
+      "id": "installed-turn1",
+      "live_host": true,
+      "commands": [
+        {
+          "command": "/bin/zsh -lc 'python3 <SKILL_DIR>/scripts/query.py \"网站像赶集，眼睛没地方落。\" --format agent'",
+          "exit_code": 0,
+          "output_chars": 1399,
+          "status": "coverage_insufficient",
+          "query": "网站像赶集，眼睛没地方落。",
+          "mode": "query"
+        },
+        {
+          "command": "/bin/zsh -lc 'python3 <SKILL_DIR>/scripts/query.py --catalog \"信息 留白\"'",
+          "exit_code": 0,
+          "output_chars": 1977,
+          "status": null,
+          "query": "信息 留白",
+          "mode": "catalog"
+        },
+        {
+          "command": "/bin/zsh -lc 'cat <SKILL_DIR>/references/routing-contract.md'",
+          "exit_code": 0,
+          "output_chars": 3802
+        },
+        {
+          "command": "/bin/zsh -lc \"printf '%s' '{\\\"candidates\\\":[{\\\"leaf_id\\\":\\\"information-hierarchy\\\",\\\"entry_id\\\":\\\"information-hierarchy\\\",\\\"evidence_text\\\":\\\"网站像赶集，眼睛没地方落\\\",\\\"role\\\":\\\"suggestion\\\"},{\\\"leaf_id\\\":\\\"composition-language\\\",\\\"entry_id\\\":\\\"composition-language\\\",\\\"evidence_text\\\":\\\"眼睛没地方落\\\",\\\"role\\\":\\\"suggestion\\\"},{\\\"leaf_id\\\":\\\"composition-patterns\\\",\\\"entry_id\\\":\\\"composition-patterns\\\",\\\"evidence_text\\\":\\\"网站像赶集\\\",\\\"role\\\":\\\"suggestion\\\"}]}' | python3 <SKILL_DIR>/scripts/query.py \\\"网站像赶集，眼睛没地方落。\\\" --context - --format agent\"",
+          "exit_code": 0,
+          "output_chars": 4370,
+          "status": "needs_clarification",
+          "query": "网站像赶集，眼睛没地方落。",
+          "mode": "query"
+        }
+      ],
+      "transport_errors": [
+        "Reconnecting... 1/5 (stream disconnected before completion: Our servers are currently overloaded. Please try again later.)"
+      ],
+      "completed": true,
+      "tool_output_chars": 11548,
+      "query_payloads": [
+        {
+          "query": "网站像赶集，眼睛没地方落。",
+          "status": "coverage_insufficient",
+          "matches": [],
+          "dependencies": [],
+          "clarifications": [],
+          "deferred_clarifications": [],
+          "coverage": {
+            "status": "insufficient",
+            "unaccounted_clauses": [
+              "网站像赶集",
+              "眼睛没地方落"
+            ],
+            "limitation": "有限词法/组合规则覆盖，不是完整语义理解；有结果不代表整句全部覆盖。"
+          },
+          "composition": {
+            "conflicts": [],
+            "deferred": [],
+            "deduplication": "stable leaf+entry IDs; shared contracts by path",
+            "related_policy": "informational_only; never loaded wholesale"
+          },
+          "verification_required": [],
+          "network_search": "not_requested",
+          "explanations": [],
+          "delivery": {
+            "scenario_plans": [],
+            "ready_for_final_prompt": false,
+            "acceptance_checks": {
+              "dependencies_complete_for_emitted_bundles": true,
+              "detected_requests_assembled": false,
+              "whole_request_semantics_verified": false,
+              "parameters_resolved": true,
+              "conflicting_layouts_not_blended": true,
+              "host_llm_workflow_verified": false,
+              "provider_facts_verified": true
+            }
+          },
+          "usage": {
+            "loaded_leaf_count": 0,
+            "loaded_entry_count": 0,
+            "context_chars": 0,
+            "content_char_limit": 24000
+          },
+          "format": "agent"
+        },
+        {
+          "query": "网站像赶集，眼睛没地方落。",
+          "status": "needs_clarification",
+          "matches": [
+            {
+              "leaf_id": "composition-language",
+              "knowledge_type": "term",
+              "scope": "general",
+              "do_not_generalize": false,
+              "path": "terms/composition/composition-language.json",
+              "score": 12,
+              "entries": [
+                {
+                  "id": "composition-language",
+                  "name": "主体位置与视觉动线",
+                  "plain_language": "用中心、三分、对称、留白、前中后景和视觉引导线描述构图。",
+                  "when_to_use": "需要主体位置和画面平衡可控时",
+                  "parameters": [
+                    "subject placement",
+                    "negative space",
+                    "foreground/midground/background",
+                    "leading lines"
+                  ],
+                  "related": [
+                    "camera-language",
+                    "prompt-blocks"
+                  ],
+                  "constraints": [
+                    "构图要服务内容主角，不要为了术语堆叠"
+                  ],
+                  "aliases": []
+                }
+              ],
+              "entry_sources": [
+                {
+                  "entry_id": "composition-language",
+                  "role": "suggestion",
+                  "source_refs": [
+                    "user_query"
+                  ]
+                }
+              ],
+              "provider": null
+            },
+            {
+              "leaf_id": "composition-patterns",
+              "knowledge_type": "pattern",
+              "scope": "general",
+              "do_not_generalize": false,
+              "path": "terms/visual-layout/composition-patterns.json",
+              "score": 12,
+              "entries": [
+                {
+                  "id": "composition-patterns",
+                  "name": "卡片错位/大图主导/非对称/层叠/留白/破格出血",
+                  "plain_language": "用比例、层级和安全区建立页面性格；每次只让少数元素破格。",
+                  "when_to_use": "首屏、活动页、详情页和内容信息流",
+                  "parameters": [
+                    "错位按 8/12/16px 节奏",
+                    "主图可占半屏或出血",
+                    "使用 7:3 或 8:2 非对称",
+                    "只破一处网格，内容留在安全区"
+                  ],
+                  "related": [
+                    "layout-patterns",
+                    "design-tokens"
+                  ],
+                  "constraints": [
+                    "错位无规律会像未对齐",
+                    "出血过多会削弱秩序",
+                    "留白必须仍有视觉焦点"
+                  ],
+                  "aliases": []
+                }
+              ],
+              "entry_sources": [
+                {
+                  "entry_id": "composition-patterns",
+                  "role": "suggestion",
+                  "source_refs": [
+                    "user_query"
+                  ]
+                }
+              ],
+              "provider": null
+            },
+            {
+              "leaf_id": "information-hierarchy",
+              "knowledge_type": "principle",
+              "scope": "general",
+              "do_not_generalize": false,
+              "path": "terms/information-architecture/information-hierarchy.json",
+              "score": 12,
+              "entries": [
+                {
+                  "id": "information-hierarchy",
+                  "name": "信息层级",
+                  "plain_language": "先确定用户要做的决定，再按主次组织标题、数据、操作和辅助说明。",
+                  "when_to_use": "复杂后台、内容页和移动端首页",
+                  "parameters": [
+                    "主任务优先",
+                    "每屏保留一个视觉主角",
+                    "用密度和留白表达层级"
+                  ],
+                  "related": [
+                    "composition-patterns",
+                    "token-system"
+                  ],
+                  "constraints": [
+                    "不要用颜色和图标堆叠替代结构"
+                  ],
+                  "aliases": []
+                }
+              ],
+              "entry_sources": [
+                {
+                  "entry_id": "information-hierarchy",
+                  "role": "suggestion",
+                  "source_refs": [
+                    "user_query"
+                  ]
+                }
+              ],
+              "provider": null
+            }
+          ],
+          "dependencies": [],
+          "clarifications": [
+            {
+              "id": "primary_task",
+              "question": "页面最重要的信息和用户要完成的任务是什么？"
+            }
+          ],
+          "deferred_clarifications": [],
+          "coverage": {
+            "status": "bounded",
+            "unaccounted_clauses": [],
+            "limitation": "有限词法/组合规则覆盖，不是完整语义理解；有结果不代表整句全部覆盖。"
+          },
+          "composition": {
+            "conflicts": [],
+            "deferred": [],
+            "deduplication": "stable leaf+entry IDs; shared contracts by path",
+            "related_policy": "informational_only; never loaded wholesale"
+          },
+          "verification_required": [],
+          "network_search": "not_requested",
+          "explanations": [
+            {
+              "leaf_id": "information-hierarchy",
+              "entry_id": "information-hierarchy",
+              "role": "suggestion",
+              "source": "terms/information-architecture/information-hierarchy.json#information-hierarchy",
+              "evidence": [
+                {
+                  "field": "host.candidates",
+                  "matched_expression": "网站像赶集，眼睛没地方落",
+                  "origin": "host_interpretation_unverified"
+                }
+              ]
+            },
+            {
+              "leaf_id": "composition-language",
+              "entry_id": "composition-language",
+              "role": "suggestion",
+              "source": "terms/composition/composition-language.json#composition-language",
+              "evidence": [
+                {
+                  "field": "host.candidates",
+                  "matched_expression": "眼睛没地方落",
+                  "origin": "host_interpretation_unverified"
+                }
+              ]
+            },
+            {
+              "leaf_id": "composition-patterns",
+              "entry_id": "composition-patterns",
+              "role": "suggestion",
+              "source": "terms/visual-layout/composition-patterns.json#composition-patterns",
+              "evidence": [
+                {
+                  "field": "host.candidates",
+                  "matched_expression": "网站像赶集",
+                  "origin": "host_interpretation_unverified"
+                }
+              ]
+            }
+          ],
+          "delivery": {
+            "scenario_plans": [
+              {
+                "scenario_id": "visual-brief",
+                "match": "partial",
+                "provided_information": {},
+                "output_fields": [
+                  "原始感觉",
+                  "结构与设计令牌候选",
+                  "不超过必要数量的澄清",
+                  "用户确认后的增强提示词",
+                  "截图与任务可读性验收"
+                ],
+                "acceptance": [
+                  "候选是方向而非已选美术方案",
+                  "未指定的色值、栅格与风格不得作为事实",
+                  "用前后截图核对视觉层级与主任务"
+                ]
+              }
+            ],
+            "ready_for_final_prompt": false,
+            "acceptance_checks": {
+              "dependencies_complete_for_emitted_bundles": true,
+              "detected_requests_assembled": true,
+              "whole_request_semantics_verified": false,
+              "parameters_resolved": false,
+              "conflicting_layouts_not_blended": true,
+              "host_llm_workflow_verified": false,
+              "provider_facts_verified": true
+            }
+          },
+          "usage": {
+            "loaded_leaf_count": 3,
+            "loaded_entry_count": 3,
+            "context_chars": 1889,
+            "content_char_limit": 24000
+          },
+          "format": "agent"
+        }
+      ],
+      "usage": {
+        "input_tokens": 144220,
+        "cached_input_tokens": 83968,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1783,
+        "reasoning_output_tokens": 634
+      },
+      "command_count": 4,
+      "final_response": "这句话可以先翻译为：\n\n> **页面的信息层级不清，多个元素同时争夺注意力，缺少明确的视觉焦点和浏览动线；可能还存在信息密度与留白失衡。**\n\n这是对原话的**候选解释**，不是看过页面后的诊断。“像赶集”不一定说明内容必须删掉，也可能是所有内容都被做得一样显眼。\n\n### 对应术语与建议\n\n| 相关术语 | 对应你的感觉 | 建议方向 |\n|---|---|---|\n| **信息层级（Information Hierarchy）** | “像赶集”：重要与次要内容混在一起 | 先明确用户的首要任务，再区分核心信息、主要操作和辅助说明；不要靠增加颜色、图标来强调所有内容。 |\n| **视觉焦点（Visual Focal Point）** | “眼睛没地方落”：找不到第一眼该看的地方 | 让当前屏幕有一个明确的视觉主角，用字号、位置、对比和空间关系建立主次，而不是处处加粗、放大。 |\n| **视觉动线（Visual Flow）** | 看完一处，不知道下一步看哪里 | 按任务顺序组织内容，用对齐、分组和标题层级引导浏览，不急于引入复杂布局。 |\n| **留白／负空间（Negative Space）** | 内容挤在一起，缺乏停顿 | 拉开不同信息组之间的距离，保持组内紧凑、组间清晰。留白要帮助突出重点，不是单纯把页面撑大。 |\n\n**优先顺序：先确定主任务 → 重排层级 → 建立焦点 → 调整密度和留白。** 暂时不需要先换配色、加动画，或直接套某种风格。\n\n### 只需先确认两件事\n\n1. **用户打开这个页面，最应该先看到什么、完成什么操作？**\n2. **能提供问题页面的截图，并说明是桌面端还是手机端吗？** 这样才能区分是内容确实过多，还是视觉表达没有主次。\n\n确认后，再整理为可执行的改版提示词。验收应对照同尺寸的前后截图，检查：**第一眼是否有明确重点、相关内容是否成组、主要操作是否容易找到，且必要信息没有被误删。**\n\n*已实际调用消费项目内安装的 Skill。原话首次检索未命中，随后按其协议保留原话、补充既有条目查询；以上术语仍属于待确认的建议。未联网、未修改项目、未安装工具或委托子代理。*"
+    },
+    {
+      "id": "installed-turn2",
+      "live_host": true,
+      "commands": [
+        {
+          "command": "/bin/zsh -lc \"printf '%s' '{\\\"answers\\\":{\\\"primary_task\\\":\\\"让用户第一眼看到当前订单状态。已确认边界：这是手机页面；仅调整信息层级和留白；已有配色保持不变。\\\"},\\\"candidates\\\":[{\\\"leaf_id\\\":\\\"information-hierarchy\\\",\\\"entry_id\\\":\\\"information-hierarchy\\\",\\\"evidence_text\\\":\\\"网站像赶集，眼睛没地方落\\\",\\\"role\\\":\\\"suggestion\\\"},{\\\"leaf_id\\\":\\\"composition-language\\\",\\\"entry_id\\\":\\\"composition-language\\\",\\\"evidence_text\\\":\\\"眼睛没地方落\\\",\\\"role\\\":\\\"suggestion\\\"},{\\\"leaf_id\\\":\\\"composition-patterns\\\",\\\"entry_id\\\":\\\"composition-patterns\\\",\\\"evidence_text\\\":\\\"网站像赶集\\\",\\\"role\\\":\\\"suggestion\\\"}]}' | python3 <SKILL_DIR>/scripts/query.py \\\"网站像赶集，眼睛没地方落。\\\" --context - --format agent\"",
+          "exit_code": 0,
+          "output_chars": 4361,
+          "status": "ready",
+          "query": "网站像赶集，眼睛没地方落。",
+          "mode": "query"
+        }
+      ],
+      "transport_errors": [],
+      "completed": true,
+      "tool_output_chars": 4361,
+      "query_payloads": [
+        {
+          "query": "网站像赶集，眼睛没地方落。",
+          "status": "ready",
+          "matches": [
+            {
+              "leaf_id": "composition-language",
+              "knowledge_type": "term",
+              "scope": "general",
+              "do_not_generalize": false,
+              "path": "terms/composition/composition-language.json",
+              "score": 12,
+              "entries": [
+                {
+                  "id": "composition-language",
+                  "name": "主体位置与视觉动线",
+                  "plain_language": "用中心、三分、对称、留白、前中后景和视觉引导线描述构图。",
+                  "when_to_use": "需要主体位置和画面平衡可控时",
+                  "parameters": [
+                    "subject placement",
+                    "negative space",
+                    "foreground/midground/background",
+                    "leading lines"
+                  ],
+                  "related": [
+                    "camera-language",
+                    "prompt-blocks"
+                  ],
+                  "constraints": [
+                    "构图要服务内容主角，不要为了术语堆叠"
+                  ],
+                  "aliases": []
+                }
+              ],
+              "entry_sources": [
+                {
+                  "entry_id": "composition-language",
+                  "role": "suggestion",
+                  "source_refs": [
+                    "user_query"
+                  ]
+                }
+              ],
+              "provider": null
+            },
+            {
+              "leaf_id": "composition-patterns",
+              "knowledge_type": "pattern",
+              "scope": "general",
+              "do_not_generalize": false,
+              "path": "terms/visual-layout/composition-patterns.json",
+              "score": 12,
+              "entries": [
+                {
+                  "id": "composition-patterns",
+                  "name": "卡片错位/大图主导/非对称/层叠/留白/破格出血",
+                  "plain_language": "用比例、层级和安全区建立页面性格；每次只让少数元素破格。",
+                  "when_to_use": "首屏、活动页、详情页和内容信息流",
+                  "parameters": [
+                    "错位按 8/12/16px 节奏",
+                    "主图可占半屏或出血",
+                    "使用 7:3 或 8:2 非对称",
+                    "只破一处网格，内容留在安全区"
+                  ],
+                  "related": [
+                    "layout-patterns",
+                    "design-tokens"
+                  ],
+                  "constraints": [
+                    "错位无规律会像未对齐",
+                    "出血过多会削弱秩序",
+                    "留白必须仍有视觉焦点"
+                  ],
+                  "aliases": []
+                }
+              ],
+              "entry_sources": [
+                {
+                  "entry_id": "composition-patterns",
+                  "role": "suggestion",
+                  "source_refs": [
+                    "user_query"
+                  ]
+                }
+              ],
+              "provider": null
+            },
+            {
+              "leaf_id": "information-hierarchy",
+              "knowledge_type": "principle",
+              "scope": "general",
+              "do_not_generalize": false,
+              "path": "terms/information-architecture/information-hierarchy.json",
+              "score": 12,
+              "entries": [
+                {
+                  "id": "information-hierarchy",
+                  "name": "信息层级",
+                  "plain_language": "先确定用户要做的决定，再按主次组织标题、数据、操作和辅助说明。",
+                  "when_to_use": "复杂后台、内容页和移动端首页",
+                  "parameters": [
+                    "主任务优先",
+                    "每屏保留一个视觉主角",
+                    "用密度和留白表达层级"
+                  ],
+                  "related": [
+                    "composition-patterns",
+                    "token-system"
+                  ],
+                  "constraints": [
+                    "不要用颜色和图标堆叠替代结构"
+                  ],
+                  "aliases": []
+                }
+              ],
+              "entry_sources": [
+                {
+                  "entry_id": "information-hierarchy",
+                  "role": "suggestion",
+                  "source_refs": [
+                    "user_query"
+                  ]
+                }
+              ],
+              "provider": null
+            }
+          ],
+          "dependencies": [],
+          "clarifications": [],
+          "deferred_clarifications": [],
+          "coverage": {
+            "status": "bounded",
+            "unaccounted_clauses": [],
+            "limitation": "有限词法/组合规则覆盖，不是完整语义理解；有结果不代表整句全部覆盖。"
+          },
+          "composition": {
+            "conflicts": [],
+            "deferred": [],
+            "deduplication": "stable leaf+entry IDs; shared contracts by path",
+            "related_policy": "informational_only; never loaded wholesale"
+          },
+          "verification_required": [],
+          "network_search": "not_requested",
+          "explanations": [
+            {
+              "leaf_id": "information-hierarchy",
+              "entry_id": "information-hierarchy",
+              "role": "suggestion",
+              "source": "terms/information-architecture/information-hierarchy.json#information-hierarchy",
+              "evidence": [
+                {
+                  "field": "host.candidates",
+                  "matched_expression": "网站像赶集，眼睛没地方落",
+                  "origin": "host_interpretation_unverified"
+                }
+              ]
+            },
+            {
+              "leaf_id": "composition-language",
+              "entry_id": "composition-language",
+              "role": "suggestion",
+              "source": "terms/composition/composition-language.json#composition-language",
+              "evidence": [
+                {
+                  "field": "host.candidates",
+                  "matched_expression": "眼睛没地方落",
+                  "origin": "host_interpretation_unverified"
+                }
+              ]
+            },
+            {
+              "leaf_id": "composition-patterns",
+              "entry_id": "composition-patterns",
+              "role": "suggestion",
+              "source": "terms/visual-layout/composition-patterns.json#composition-patterns",
+              "evidence": [
+                {
+                  "field": "host.candidates",
+                  "matched_expression": "网站像赶集",
+                  "origin": "host_interpretation_unverified"
+                }
+              ]
+            }
+          ],
+          "delivery": {
+            "scenario_plans": [
+              {
+                "scenario_id": "visual-brief",
+                "match": "ready",
+                "provided_information": {
+                  "primary_task": "让用户第一眼看到当前订单状态。已确认边界：这是手机页面；仅调整信息层级和留白；已有配色保持不变。"
+                },
+                "output_fields": [
+                  "原始感觉",
+                  "结构与设计令牌候选",
+                  "不超过必要数量的澄清",
+                  "用户确认后的增强提示词",
+                  "截图与任务可读性验收"
+                ],
+                "acceptance": [
+                  "候选是方向而非已选美术方案",
+                  "未指定的色值、栅格与风格不得作为事实",
+                  "用前后截图核对视觉层级与主任务"
+                ]
+              }
+            ],
+            "ready_for_final_prompt": true,
+            "acceptance_checks": {
+              "dependencies_complete_for_emitted_bundles": true,
+              "detected_requests_assembled": true,
+              "whole_request_semantics_verified": false,
+              "parameters_resolved": true,
+              "conflicting_layouts_not_blended": true,
+              "host_llm_workflow_verified": false,
+              "provider_facts_verified": true
+            }
+          },
+          "usage": {
+            "loaded_leaf_count": 3,
+            "loaded_entry_count": 3,
+            "context_chars": 1889,
+            "content_char_limit": 24000
+          },
+          "format": "agent"
+        }
+      ],
+      "usage": {
+        "input_tokens": 208709,
+        "cached_input_tokens": 144946,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3555,
+        "reasoning_output_tokens": 1274
+      },
+      "command_count": 1,
+      "final_response": "已将**原话、上一轮候选术语及你确认的全部边界**传回消费项目内已安装的 Skill。此次返回 `ready`，无待澄清问题，可以生成增强提示词。**这只表示提示词信息已齐备，不代表页面已通过视觉或端到端验收。**\n\n沿用的术语是：**信息层级、视觉焦点与动线、留白／负空间**。布局模式中仅采用“留白”方向，不引入错位、出血或其他新风格。\n\n## 可直接使用的增强提示词\n\n> 请优化现有手机订单页面的信息层级与留白。\n>\n> **原始反馈**：“网站像赶集，眼睛没地方落。”\n>\n> **核心目标**：让用户打开页面后，不必滚动或寻找，就能第一眼识别当前订单状态。\n>\n> **调整要求**\n> 1. **信息层级**：以“当前订单状态”为首屏唯一的核心视觉焦点。通过内容顺序、分组，以及现有字号和字重层级建立主次，避免订单详情、辅助说明和其他模块与状态同等抢眼。\n> 2. **视觉动线**：优先呈现当前订单状态，再组织与该状态直接相关的已有信息或操作，最后呈现其余详情与辅助内容。沿用现有业务逻辑，不新增状态、操作或订单选择规则。\n> 3. **留白与密度**：让状态区域周围有清晰的空间；相关内容组内紧凑，不同信息组之间适度拉开距离。优先复用已有间距规范，不用大量空白把状态关联信息或必要操作挤出可见区域。\n> 4. **严格保持边界**：已有配色保持不变，包括背景、文字、按钮和状态色。仅调整信息层级和留白，不新增字体、装饰、图标、动画或复杂布局，不删除必要信息，不改变现有交互与业务规则。\n>\n> **交付要求**：说明调整前后的信息优先级及间距变化，并提供同一手机视口、同一订单及同一状态下的前后截图。用截图和真实页面操作验证目标，不仅以代码完成或构建通过作为验收依据。\n\n## 验收项\n\n| 验收项 | 通过标准 |\n|---|---|\n| **状态首屏可见** | 手机页面打开后，无需滚动或展开即可读到完整的当前订单状态。 |\n| **第一眼有落点** | 向未参与改版的人展示首屏截图，询问“这笔订单现在是什么状态？”，能直接定位并准确回答，而非在多个模块间寻找。 |\n| **信息主次明确** | 前后截图对照可见：状态最突出，相关信息次之，详情和辅助说明不再与其争夺注意力。 |\n| **留白服务分组** | 同组信息的联系明确，不同组的边界清楚；没有为增加留白造成文字截断、遮挡或不必要的长距离滚动。 |\n| **调整未越界** | 配色未改，必要内容未删，未引入新风格、动画或交互；状态值与原有数据及业务规则一致。 |\n| **真实手机页面可用** | 在项目支持的典型及较窄手机视口检查截图，并走通页面已有关键操作，确认无溢出、重叠或操作回归。 |\n\n本轮仅完成本地 Skill 复核与提示词交付；未联网、修改项目、安装工具、委托子代理或读取父目录源码。"
+    },
+    {
+      "id": "batch-before-fix",
+      "live_host": true,
+      "commands": [
+        {
+          "command": "/bin/zsh -lc 'python3 <SKILL_DIR>/scripts/query.py --help'",
+          "exit_code": 0,
+          "output_chars": 2013
+        },
+        {
+          "command": "/bin/zsh -lc \"python3 <SKILL_DIR>/scripts/query.py '一张卡停下来以后，再把旁边那条线画出来。' --format agent\"",
+          "exit_code": 0,
+          "output_chars": 1412,
+          "status": "coverage_insufficient",
+          "query": "一张卡停下来以后，再把旁边那条线画出来。",
+          "mode": "query"
+        },
+        {
+          "command": "/bin/zsh -lc \"python3 <SKILL_DIR>/scripts/query.py '切换月份以后，所有图表跟着更新。' --format agent\"",
+          "exit_code": 0,
+          "output_chars": 1405,
+          "status": "coverage_insufficient",
+          "query": "切换月份以后，所有图表跟着更新。",
+          "mode": "query"
+        },
+        {
+          "command": "/bin/zsh -lc \"python3 <SKILL_DIR>/scripts/query.py '想做液态玻璃导航并支持移动端降级' --max-chars 100 --format agent\"",
+          "exit_code": 0,
+          "output_chars": 1628,
+          "status": "needs_staging",
+          "query": "想做液态玻璃导航并支持移动端降级",
+          "mode": "query"
+        },
+        {
+          "command": "/bin/zsh -lc \"python3 <SKILL_DIR>/scripts/query.py '不是 GPUIX，也不依赖 GSAP，只是普通网页。服务别一遇到故障就趴窝，付款按钮多按几回不要扣好几笔。' --format agent\"",
+          "exit_code": 0,
+          "output_chars": 3994,
+          "status": "partial_coverage",
+          "query": "不是 GPUIX，也不依赖 GSAP，只是普通网页。服务别一遇到故障就趴窝，付款按钮多按几回不要扣好几笔。",
+          "mode": "query"
+        },
+        {
+          "command": "/bin/zsh -lc \"python3 <SKILL_DIR>/scripts/query.py '按住不放才执行，提前松手就取消。' --format agent\"",
+          "exit_code": 0,
+          "output_chars": 1405,
+          "status": "coverage_insufficient",
+          "query": "按住不放才执行，提前松手就取消。",
+          "mode": "query"
+        },
+        {
+          "command": "/bin/zsh -lc \"cat <SKILL_DIR>/references/routing-contract.md && printf '\\\\n--- catalogs ---\\\\n' && python3 <SKILL_DIR>/scripts/query.py '按住 手势 长按 取消 执行' --catalog --catalog-domain digital-product-uiux --catalog-limit 8 && python3 <SKILL_DIR>/scripts/query.py '卡片 停止 动画 线 延迟 顺序' --catalog --catalog-domain digital-product-uiux --catalog-limit 8 && python3 <SKILL_DIR>/scripts/query.py '切换 月份 图表 更新 联动 筛选' --catalog --catalog-domain digital-product-uiux --catalog-limit 8 && python3 <SKILL_DIR>/scripts/query.py '液态玻璃 导航 移动端 降级' --catalog --catalog-domain digital-product-uiux --catalog-limit 8\"",
+          "exit_code": 0,
+          "output_chars": 4669,
+          "status": null,
+          "query": "切换 月份 图表 更新 联动 筛选",
+          "mode": "catalog"
+        },
+        {
+          "command": "/bin/zsh -lc \"python3 <SKILL_DIR>/scripts/query.py '按住 手势 长按 取消 执行' --catalog --catalog-domain digital-product-uiux --catalog-limit 12\"",
+          "exit_code": 0,
+          "output_chars": 1912,
+          "status": null,
+          "query": "按住 手势 长按 取消 执行",
+          "mode": "catalog"
+        },
+        {
+          "command": "/bin/zsh -lc \"python3 <SKILL_DIR>/scripts/query.py '卡片 停止 动画 线 延迟 顺序' --catalog --catalog-domain digital-product-uiux --catalog-limit 12\"",
+          "exit_code": 0,
+          "output_chars": 3818,
+          "status": null,
+          "query": "卡片 停止 动画 线 延迟 顺序",
+          "mode": "catalog"
+        },
+        {
+          "command": "/bin/zsh -lc \"python3 <SKILL_DIR>/scripts/query.py '液态玻璃 玻璃栏 移动端 降级 性能 减少动态' --catalog --catalog-domain digital-product-uiux --catalog-limit 20\"",
+          "exit_code": 0,
+          "output_chars": 1650,
+          "status": null,
+          "query": "液态玻璃 玻璃栏 移动端 降级 性能 减少动态",
+          "mode": "catalog"
+        },
+        {
+          "command": "/bin/zsh -lc \"python3 <SKILL_DIR>/scripts/query.py '顺序 动画 先后 依次 卡片 线 绘制' --catalog --catalog-domain digital-product-uiux --catalog-limit 20\"",
+          "exit_code": 0,
+          "output_chars": 5852,
+          "status": null,
+          "query": "顺序 动画 先后 依次 卡片 线 绘制",
+          "mode": "catalog"
+        },
+        {
+          "command": "/bin/zsh -lc \"python3 <SKILL_DIR>/scripts/query.py '图表 联动 月份 切换 数据 重算 刷新' --catalog --catalog-domain digital-product-uiux --catalog-limit 20\"",
+          "exit_code": 0,
+          "output_chars": 4612,
+          "status": null,
+          "query": "图表 联动 月份 切换 数据 重算 刷新",
+          "mode": "catalog"
+        },
+        {
+          "command": "/bin/zsh -lc \"printf '%s' '{\\\"providers\\\":[],\\\"answers\\\":{},\\\"candidates\\\":[{\\\"leaf_id\\\":\\\"press-and-hold-confirm\\\",\\\"entry_id\\\":\\\"press-and-hold-confirm\\\",\\\"evidence_text\\\":\\\"按住不放才执行，提前松手就取消\\\",\\\"role\\\":\\\"explicit\\\"}]}' | python3 <SKILL_DIR>/scripts/query.py '按住不放才执行，提前松手就取消。' --context - --format agent\"",
+          "exit_code": 0,
+          "output_chars": 2614,
+          "status": "partial_coverage",
+          "query": "按住不放才执行，提前松手就取消。",
+          "mode": "query"
+        },
+        {
+          "command": "/bin/zsh -lc \"printf '%s' '{\\\"providers\\\":[],\\\"answers\\\":{},\\\"candidates\\\":[{\\\"leaf_id\\\":\\\"press-and-hold-confirm\\\",\\\"entry_id\\\":\\\"press-and-hold-confirm\\\",\\\"evidence_text\\\":\\\"按住不放才执行，提前松手就取消\\\",\\\"role\\\":\\\"suggestion\\\"}]}' | python3 <SKILL_DIR>/scripts/query.py '按住不放才执行，提前松手就取消。' --context - --format agent\"",
+          "exit_code": 0,
+          "output_chars": 2618,
+          "status": "partial_coverage",
+          "query": "按住不放才执行，提前松手就取消。",
+          "mode": "query"
+        },
+        {
+          "command": "/bin/zsh -lc \"printf '%s' '{\\\"providers\\\":[],\\\"answers\\\":{},\\\"candidates\\\":[{\\\"leaf_id\\\":\\\"liquid-glass-bar\\\",\\\"entry_id\\\":\\\"liquid-glass-bar\\\",\\\"evidence_text\\\":\\\"液态玻璃导航并支持移动端降级\\\",\\\"role\\\":\\\"explicit\\\"}]}' | python3 <SKILL_DIR>/scripts/query.py '想做液态玻璃导航并支持移动端降级' --context - --max-chars 100 --format agent\"",
+          "exit_code": 0,
+          "output_chars": 1628,
+          "status": "needs_staging",
+          "query": "想做液态玻璃导航并支持移动端降级",
+          "mode": "query"
+        },
+        {
+          "command": "/bin/zsh -lc \"python3 <SKILL_DIR>/scripts/query.py '数据源变更 派生视图 统一状态 图表刷新' --catalog --catalog-domain digital-product-uiux --catalog-limit 20\"",
+          "exit_code": 0,
+          "output_chars": 618,
+          "status": null,
+          "query": "数据源变更 派生视图 统一状态 图表刷新",
+          "mode": "catalog"
+        },
+        {
+          "command": "/bin/zsh -lc \"python3 <SKILL_DIR>/scripts/query.py '卡片 停下 settle 之后 线条 绘制 顺序 串行 动画' --catalog --catalog-domain digital-product-uiux --catalog-limit 20\"",
+          "exit_code": 0,
+          "output_chars": 5405,
+          "status": null,
+          "query": "卡片 停下 settle 之后 线条 绘制 顺序 串行 动画",
+          "mode": "catalog"
+        },
+        {
+          "command": "/bin/zsh -lc \"python3 <SKILL_DIR>/scripts/query.py '月份 筛选 所有图表 同步 更新 仪表盘 联动' --catalog --catalog-domain digital-product-uiux --catalog-limit 20\"",
+          "exit_code": 0,
+          "output_chars": 3260,
+          "status": null,
+          "query": "月份 筛选 所有图表 同步 更新 仪表盘 联动",
+          "mode": "catalog"
+        },
+        {
+          "command": "/bin/zsh -lc \"printf '%s' '{\\\"providers\\\":[],\\\"answers\\\":{},\\\"candidates\\\":[{\\\"leaf_id\\\":\\\"snap-card-timeline\\\",\\\"entry_id\\\":\\\"snap-card-timeline\\\",\\\"evidence_text\\\":\\\"一张卡停下来以后，再把旁边那条线画出来\\\",\\\"role\\\":\\\"suggestion\\\"}]}' | python3 <SKILL_DIR>/scripts/query.py '一张卡停下来以后，再把旁边那条线画出来。' --context - --format agent\"",
+          "exit_code": 0,
+          "output_chars": 2956,
+          "status": "partial_coverage",
+          "query": "一张卡停下来以后，再把旁边那条线画出来。",
+          "mode": "query"
+        }
+      ],
+      "transport_errors": [
+        "Reconnecting... 1/5 (stream disconnected before completion: Our servers are currently overloaded. Please try again later.)",
+        "Reconnecting... 1/5 (stream disconnected before completion: The service is busy. Please retry later.)"
+      ],
+      "completed": true,
+      "tool_output_chars": 53469,
+      "query_payloads": [
+        {
+          "query": "一张卡停下来以后，再把旁边那条线画出来。",
+          "status": "coverage_insufficient",
+          "matches": [],
+          "dependencies": [],
+          "clarifications": [],
+          "deferred_clarifications": [],
+          "coverage": {
+            "status": "insufficient",
+            "unaccounted_clauses": [
+              "一张卡停下来以后",
+              "把旁边那条线画出来"
+            ],
+            "limitation": "有限词法/组合规则覆盖，不是完整语义理解；有结果不代表整句全部覆盖。"
+          },
+          "composition": {
+            "conflicts": [],
+            "deferred": [],
+            "deduplication": "stable leaf+entry IDs; shared contracts by path",
+            "related_policy": "informational_only; never loaded wholesale"
+          },
+          "verification_required": [],
+          "network_search": "not_requested",
+          "explanations": [],
+          "delivery": {
+            "scenario_plans": [],
+            "ready_for_final_prompt": false,
+            "acceptance_checks": {
+              "dependencies_complete_for_emitted_bundles": true,
+              "detected_requests_assembled": false,
+              "whole_request_semantics_verified": false,
+              "parameters_resolved": true,
+              "conflicting_layouts_not_blended": true,
+              "host_llm_workflow_verified": false,
+              "provider_facts_verified": true
+            }
+          },
+          "usage": {
+            "loaded_leaf_count": 0,
+            "loaded_entry_count": 0,
+            "context_chars": 0,
+            "content_char_limit": 24000
+          },
+          "format": "agent"
+        },
+        {
+          "query": "切换月份以后，所有图表跟着更新。",
+          "status": "coverage_insufficient",
+          "matches": [],
+          "dependencies": [],
+          "clarifications": [],
+          "deferred_clarifications": [],
+          "coverage": {
+            "status": "insufficient",
+            "unaccounted_clauses": [
+              "切换月份以后",
+              "所有图表跟着更新"
+            ],
+            "limitation": "有限词法/组合规则覆盖，不是完整语义理解；有结果不代表整句全部覆盖。"
+          },
+          "composition": {
+            "conflicts": [],
+            "deferred": [],
+            "deduplication": "stable leaf+entry IDs; shared contracts by path",
+            "related_policy": "informational_only; never loaded wholesale"
+          },
+          "verification_required": [],
+          "network_search": "not_requested",
+          "explanations": [],
+          "delivery": {
+            "scenario_plans": [],
+            "ready_for_final_prompt": false,
+            "acceptance_checks": {
+              "dependencies_complete_for_emitted_bundles": true,
+              "detected_requests_assembled": false,
+              "whole_request_semantics_verified": false,
+              "parameters_resolved": true,
+              "conflicting_layouts_not_blended": true,
+              "host_llm_workflow_verified": false,
+              "provider_facts_verified": true
+            }
+          },
+          "usage": {
+            "loaded_leaf_count": 0,
+            "loaded_entry_count": 0,
+            "context_chars": 0,
+            "content_char_limit": 24000
+          },
+          "format": "agent"
+        },
+        {
+          "query": "想做液态玻璃导航并支持移动端降级",
+          "status": "needs_staging",
+          "matches": [],
+          "dependencies": [],
+          "clarifications": [],
+          "deferred_clarifications": [],
+          "coverage": {
+            "status": "insufficient",
+            "unaccounted_clauses": [
+              "想做液态玻璃导航并支持移动端降级"
+            ],
+            "limitation": "有限词法/组合规则覆盖，不是完整语义理解；有结果不代表整句全部覆盖。"
+          },
+          "composition": {
+            "conflicts": [],
+            "deferred": [
+              {
+                "leaf_id": "liquid-glass-bar",
+                "entry_id": "liquid-glass-bar",
+                "reason": "max_content_chars",
+                "required_bundle": [
+                  {
+                    "leaf_id": "liquid-glass-bar",
+                    "entry_id": "liquid-glass-bar"
+                  }
+                ],
+                "required_contracts": [],
+                "next_step": "缩小范围或分阶段完整加载；不得只取外观而省略约束。"
+              }
+            ],
+            "deduplication": "stable leaf+entry IDs; shared contracts by path",
+            "related_policy": "informational_only; never loaded wholesale"
+          },
+          "verification_required": [],
+          "network_search": "not_requested",
+          "explanations": [],
+          "delivery": {
+            "scenario_plans": [],
+            "ready_for_final_prompt": false,
+            "acceptance_checks": {
+              "dependencies_complete_for_emitted_bundles": true,
+              "detected_requests_assembled": false,
+              "whole_request_semantics_verified": false,
+              "parameters_resolved": true,
+              "conflicting_layouts_not_blended": true,
+              "host_llm_workflow_verified": false,
+              "provider_facts_verified": true
+            }
+          },
+          "usage": {
+            "loaded_leaf_count": 0,
+            "loaded_entry_count": 0,
+            "context_chars": 0,
+            "content_char_limit": 100
+          },
+          "format": "agent"
+        },
+        {
+          "query": "不是 GPUIX，也不依赖 GSAP，只是普通网页。服务别一遇到故障就趴窝，付款按钮多按几回不要扣好几笔。",
+          "status": "partial_coverage",
+          "matches": [
+            {
+              "leaf_id": "availability-patterns",
+              "knowledge_type": "term",
+              "scope": "general",
+              "do_not_generalize": false,
+              "path": "terms/software-engineering/availability-patterns.json",
+              "score": 12,
+              "entries": [
+                {
+                  "id": "availability-patterns",
+                  "name": "高可用模式",
+                  "plain_language": "跨实例、节点或可用区部署关键组件，并定义 RTO/RPO 和故障转移。",
+                  "when_to_use": "后端或平台方案需要拆解质量属性时",
+                  "parameters": [
+                    "failure domain",
+                    "redundancy",
+                    "RTO",
+                    "RPO",
+                    "failover"
+                  ],
+                  "related": [
+                    "high-availability",
+                    "capacity-model",
+                    "scaling-strategies",
+                    "observability-contract",
+                    "idempotency-contract"
+                  ],
+                  "constraints": [
+                    "不要把质量属性当作无边界承诺"
+                  ],
+                  "aliases": []
+                }
+              ],
+              "entry_sources": [
+                {
+                  "entry_id": "availability-patterns",
+                  "role": "suggestion",
+                  "source_refs": [
+                    "user_query"
+                  ]
+                }
+              ],
+              "provider": null
+            },
+            {
+              "leaf_id": "idempotency-contract",
+              "knowledge_type": "term",
+              "scope": "general",
+              "do_not_generalize": false,
+              "path": "terms/software-engineering/idempotency-contract.json",
+              "score": 12,
+              "entries": [
+                {
+                  "id": "idempotency-contract",
+                  "name": "幂等契约",
+                  "plain_language": "用操作身份、同键重试、内容一致性、并发响应和结果关联定义重复处理。",
+                  "when_to_use": "后端或平台方案需要拆解质量属性时",
+                  "parameters": [
+                    "operation key",
+                    "retry",
+                    "payload match",
+                    "in-progress",
+                    "result record"
+                  ],
+                  "related": [
+                    "high-availability",
+                    "capacity-model",
+                    "scaling-strategies",
+                    "observability-contract",
+                    "idempotency-contract"
+                  ],
+                  "constraints": [
+                    "不要把质量属性当作无边界承诺"
+                  ],
+                  "aliases": [
+                    "同一操作只处理一次"
+                  ]
+                }
+              ],
+              "entry_sources": [
+                {
+                  "entry_id": "idempotency-contract",
+                  "role": "explicit",
+                  "source_refs": [
+                    "user_query"
+                  ]
+                }
+              ],
+              "provider": null
+            }
+          ],
+          "dependencies": [],
+          "clarifications": [
+            {
+              "id": "failure_tolerance",
+              "question": "关键服务允许中断多久、最多能丢失多少数据？"
+            },
+            {
+              "id": "operation_identity",
+              "question": "重复的是哪种操作，怎样认定两次请求属于同一次业务操作？"
+            },
+            {
+              "id": "uncovered-scope",
+              "question": "这些部分尚未找到可核验覆盖：也不依赖 GSAP；普通网页。请缩小范围或提供资料。"
+            }
+          ],
+          "deferred_clarifications": [],
+          "coverage": {
+            "status": "partial",
+            "unaccounted_clauses": [
+              "也不依赖 GSAP",
+              "普通网页"
+            ],
+            "limitation": "有限词法/组合规则覆盖，不是完整语义理解；有结果不代表整句全部覆盖。"
+          },
+          "composition": {
+            "conflicts": [],
+            "deferred": [],
+            "deduplication": "stable leaf+entry IDs; shared contracts by path",
+            "related_policy": "informational_only; never loaded wholesale"
+          },
+          "verification_required": [],
+          "network_search": "not_requested",
+          "explanations": [
+            {
+              "leaf_id": "availability-patterns",
+              "entry_id": "availability-patterns",
+              "role": "suggestion",
+              "source": "terms/software-engineering/availability-patterns.json#availability-patterns",
+              "evidence": [
+                {
+                  "field": "retrieval.rules.service-reliability",
+                  "matched_expression": "服务",
+                  "origin": "local_lexical"
+                },
+                {
+                  "field": "retrieval.rules.service-reliability",
+                  "matched_expression": "故障",
+                  "origin": "local_lexical"
+                }
+              ]
+            },
+            {
+              "leaf_id": "idempotency-contract",
+              "entry_id": "idempotency-contract",
+              "role": "explicit",
+              "source": "terms/software-engineering/idempotency-contract.json#idempotency-contract",
+              "evidence": [
+                {
+                  "field": "retrieval.rules.repeat-operation",
+                  "matched_expression": "多按",
+                  "origin": "local_lexical"
+                },
+                {
+                  "field": "retrieval.rules.repeat-operation",
+                  "matched_expression": "付款",
+                  "origin": "local_lexical"
+                }
+              ]
+            }
+          ],
+          "delivery": {
+            "scenario_plans": [
+              {
+                "scenario_id": "backend-quality",
+                "match": "partial",
+                "provided_information": {},
+                "output_fields": [
+                  "用户原话与证据",
+                  "候选质量属性",
+                  "已确认目标与建议",
+                  "待确定的业务与量化边界",
+                  "约束与验证方法"
+                ],
+                "acceptance": [
+                  "只讨论有证据的质量属性",
+                  "稳定不得自动带入幂等、并发与扩展",
+                  "不得自动选技术栈或填写容量指标"
+                ]
+              }
+            ],
+            "ready_for_final_prompt": false,
+            "acceptance_checks": {
+              "dependencies_complete_for_emitted_bundles": true,
+              "detected_requests_assembled": false,
+              "whole_request_semantics_verified": false,
+              "parameters_resolved": false,
+              "conflicting_layouts_not_blended": true,
+              "host_llm_workflow_verified": false,
+              "provider_facts_verified": true
+            }
+          },
+          "usage": {
+            "loaded_leaf_count": 2,
+            "loaded_entry_count": 2,
+            "context_chars": 1402,
+            "content_char_limit": 24000
+          },
+          "format": "agent"
+        },
+        {
+          "query": "按住不放才执行，提前松手就取消。",
+          "status": "coverage_insufficient",
+          "matches": [],
+          "dependencies": [],
+          "clarifications": [],
+          "deferred_clarifications": [],
+          "coverage": {
+            "status": "insufficient",
+            "unaccounted_clauses": [
+              "按住不放才执行",
+              "提前松手就取消"
+            ],
+            "limitation": "有限词法/组合规则覆盖，不是完整语义理解；有结果不代表整句全部覆盖。"
+          },
+          "composition": {
+            "conflicts": [],
+            "deferred": [],
+            "deduplication": "stable leaf+entry IDs; shared contracts by path",
+            "related_policy": "informational_only; never loaded wholesale"
+          },
+          "verification_required": [],
+          "network_search": "not_requested",
+          "explanations": [],
+          "delivery": {
+            "scenario_plans": [],
+            "ready_for_final_prompt": false,
+            "acceptance_checks": {
+              "dependencies_complete_for_emitted_bundles": true,
+              "detected_requests_assembled": false,
+              "whole_request_semantics_verified": false,
+              "parameters_resolved": true,
+              "conflicting_layouts_not_blended": true,
+              "host_llm_workflow_verified": false,
+              "provider_facts_verified": true
+            }
+          },
+          "usage": {
+            "loaded_leaf_count": 0,
+            "loaded_entry_count": 0,
+            "context_chars": 0,
+            "content_char_limit": 24000
+          },
+          "format": "agent"
+        },
+        {
+          "query": "按住不放才执行，提前松手就取消。",
+          "status": "partial_coverage",
+          "matches": [
+            {
+              "leaf_id": "press-and-hold-confirm",
+              "knowledge_type": "pattern",
+              "scope": "general",
+              "do_not_generalize": false,
+              "path": "terms/interaction/advanced/press-and-hold-confirm.json",
+              "score": 12,
+              "entries": [
+                {
+                  "id": "press-and-hold-confirm",
+                  "name": "按住蓄力确认",
+                  "plain_language": "按住危险操作按钮达到 800–1200ms 才确认，未满松手或移动超限则取消。",
+                  "when_to_use": "需要明确触发、阈值、取消、边界和键盘替代路径的复杂交互",
+                  "parameters": [
+                    "800–1200ms",
+                    "移动超过 10px 取消",
+                    "多点触控只认第一指",
+                    "进度环与按压时间一致"
+                  ],
+                  "related": [
+                    "follow",
+                    "threshold",
+                    "snap",
+                    "interruption"
+                  ],
+                  "constraints": [
+                    "未达到阈值不能触发",
+                    "快速重复操作不叠加",
+                    "组件卸载时清理定时器和动画"
+                  ],
+                  "aliases": [],
+                  "state_machine": [
+                    "pressing",
+                    "charging",
+                    "confirmed",
+                    "cancel"
+                  ],
+                  "accessibility": [
+                    "键盘 Space/Enter",
+                    "ESC 取消",
+                    "aria-describedby",
+                    "替代二次确认"
+                  ],
+                  "acceptance": [
+                    "60fps",
+                    "手势和键盘结果一致",
+                    "取消后状态完全复位"
+                  ]
+                }
+              ],
+              "entry_sources": [
+                {
+                  "entry_id": "press-and-hold-confirm",
+                  "role": "explicit",
+                  "source_refs": [
+                    "user_query"
+                  ]
+                }
+              ],
+              "provider": null
+            }
+          ],
+          "dependencies": [],
+          "clarifications": [
+            {
+              "id": "uncovered-scope",
+              "question": "这些部分尚未找到可核验覆盖：按住不放才执行；提前松手就取消。请缩小范围或提供资料。"
+            }
+          ],
+          "deferred_clarifications": [],
+          "coverage": {
+            "status": "partial",
+            "unaccounted_clauses": [
+              "按住不放才执行",
+              "提前松手就取消"
+            ],
+            "limitation": "有限词法/组合规则覆盖，不是完整语义理解；有结果不代表整句全部覆盖。"
+          },
+          "composition": {
+            "conflicts": [],
+            "deferred": [],
+            "deduplication": "stable leaf+entry IDs; shared contracts by path",
+            "related_policy": "informational_only; never loaded wholesale"
+          },
+          "verification_required": [],
+          "network_search": "not_requested",
+          "explanations": [
+            {
+              "leaf_id": "press-and-hold-confirm",
+              "entry_id": "press-and-hold-confirm",
+              "role": "explicit",
+              "source": "terms/interaction/advanced/press-and-hold-confirm.json#press-and-hold-confirm",
+              "evidence": [
+                {
+                  "field": "host.candidates",
+                  "matched_expression": "按住不放才执行，提前松手就取消",
+                  "origin": "host_interpretation_unverified"
+                }
+              ]
+            }
+          ],
+          "delivery": {
+            "scenario_plans": [],
+            "ready_for_final_prompt": false,
+            "acceptance_checks": {
+              "dependencies_complete_for_emitted_bundles": true,
+              "detected_requests_assembled": false,
+              "whole_request_semantics_verified": false,
+              "parameters_resolved": false,
+              "conflicting_layouts_not_blended": true,
+              "host_llm_workflow_verified": false,
+              "provider_facts_verified": true
+            }
+          },
+          "usage": {
+            "loaded_leaf_count": 1,
+            "loaded_entry_count": 1,
+            "context_chars": 868,
+            "content_char_limit": 24000
+          },
+          "format": "agent"
+        },
+        {
+          "query": "按住不放才执行，提前松手就取消。",
+          "status": "partial_coverage",
+          "matches": [
+            {
+              "leaf_id": "press-and-hold-confirm",
+              "knowledge_type": "pattern",
+              "scope": "general",
+              "do_not_generalize": false,
+              "path": "terms/interaction/advanced/press-and-hold-confirm.json",
+              "score": 12,
+              "entries": [
+                {
+                  "id": "press-and-hold-confirm",
+                  "name": "按住蓄力确认",
+                  "plain_language": "按住危险操作按钮达到 800–1200ms 才确认，未满松手或移动超限则取消。",
+                  "when_to_use": "需要明确触发、阈值、取消、边界和键盘替代路径的复杂交互",
+                  "parameters": [
+                    "800–1200ms",
+                    "移动超过 10px 取消",
+                    "多点触控只认第一指",
+                    "进度环与按压时间一致"
+                  ],
+                  "related": [
+                    "follow",
+                    "threshold",
+                    "snap",
+                    "interruption"
+                  ],
+                  "constraints": [
+                    "未达到阈值不能触发",
+                    "快速重复操作不叠加",
+                    "组件卸载时清理定时器和动画"
+                  ],
+                  "aliases": [],
+                  "state_machine": [
+                    "pressing",
+                    "charging",
+                    "confirmed",
+                    "cancel"
+                  ],
+                  "accessibility": [
+                    "键盘 Space/Enter",
+                    "ESC 取消",
+                    "aria-describedby",
+                    "替代二次确认"
+                  ],
+                  "acceptance": [
+                    "60fps",
+                    "手势和键盘结果一致",
+                    "取消后状态完全复位"
+                  ]
+                }
+              ],
+              "entry_sources": [
+                {
+                  "entry_id": "press-and-hold-confirm",
+                  "role": "suggestion",
+                  "source_refs": [
+                    "user_query"
+                  ]
+                }
+              ],
+              "provider": null
+            }
+          ],
+          "dependencies": [],
+          "clarifications": [
+            {
+              "id": "uncovered-scope",
+              "question": "这些部分尚未找到可核验覆盖：按住不放才执行；提前松手就取消。请缩小范围或提供资料。"
+            }
+          ],
+          "deferred_clarifications": [],
+          "coverage": {
+            "status": "partial",
+            "unaccounted_clauses": [
+              "按住不放才执行",
+              "提前松手就取消"
+            ],
+            "limitation": "有限词法/组合规则覆盖，不是完整语义理解；有结果不代表整句全部覆盖。"
+          },
+          "composition": {
+            "conflicts": [],
+            "deferred": [],
+            "deduplication": "stable leaf+entry IDs; shared contracts by path",
+            "related_policy": "informational_only; never loaded wholesale"
+          },
+          "verification_required": [],
+          "network_search": "not_requested",
+          "explanations": [
+            {
+              "leaf_id": "press-and-hold-confirm",
+              "entry_id": "press-and-hold-confirm",
+              "role": "suggestion",
+              "source": "terms/interaction/advanced/press-and-hold-confirm.json#press-and-hold-confirm",
+              "evidence": [
+                {
+                  "field": "host.candidates",
+                  "matched_expression": "按住不放才执行，提前松手就取消",
+                  "origin": "host_interpretation_unverified"
+                }
+              ]
+            }
+          ],
+          "delivery": {
+            "scenario_plans": [],
+            "ready_for_final_prompt": false,
+            "acceptance_checks": {
+              "dependencies_complete_for_emitted_bundles": true,
+              "detected_requests_assembled": false,
+              "whole_request_semantics_verified": false,
+              "parameters_resolved": false,
+              "conflicting_layouts_not_blended": true,
+              "host_llm_workflow_verified": false,
+              "provider_facts_verified": true
+            }
+          },
+          "usage": {
+            "loaded_leaf_count": 1,
+            "loaded_entry_count": 1,
+            "context_chars": 870,
+            "content_char_limit": 24000
+          },
+          "format": "agent"
+        },
+        {
+          "query": "想做液态玻璃导航并支持移动端降级",
+          "status": "needs_staging",
+          "matches": [],
+          "dependencies": [],
+          "clarifications": [],
+          "deferred_clarifications": [],
+          "coverage": {
+            "status": "insufficient",
+            "unaccounted_clauses": [
+              "想做液态玻璃导航并支持移动端降级"
+            ],
+            "limitation": "有限词法/组合规则覆盖，不是完整语义理解；有结果不代表整句全部覆盖。"
+          },
+          "composition": {
+            "conflicts": [],
+            "deferred": [
+              {
+                "leaf_id": "liquid-glass-bar",
+                "entry_id": "liquid-glass-bar",
+                "reason": "max_content_chars",
+                "required_bundle": [
+                  {
+                    "leaf_id": "liquid-glass-bar",
+                    "entry_id": "liquid-glass-bar"
+                  }
+                ],
+                "required_contracts": [],
+                "next_step": "缩小范围或分阶段完整加载；不得只取外观而省略约束。"
+              }
+            ],
+            "deduplication": "stable leaf+entry IDs; shared contracts by path",
+            "related_policy": "informational_only; never loaded wholesale"
+          },
+          "verification_required": [],
+          "network_search": "not_requested",
+          "explanations": [],
+          "delivery": {
+            "scenario_plans": [],
+            "ready_for_final_prompt": false,
+            "acceptance_checks": {
+              "dependencies_complete_for_emitted_bundles": true,
+              "detected_requests_assembled": false,
+              "whole_request_semantics_verified": false,
+              "parameters_resolved": true,
+              "conflicting_layouts_not_blended": true,
+              "host_llm_workflow_verified": false,
+              "provider_facts_verified": true
+            }
+          },
+          "usage": {
+            "loaded_leaf_count": 0,
+            "loaded_entry_count": 0,
+            "context_chars": 0,
+            "content_char_limit": 100
+          },
+          "format": "agent"
+        },
+        {
+          "query": "一张卡停下来以后，再把旁边那条线画出来。",
+          "status": "partial_coverage",
+          "matches": [
+            {
+              "leaf_id": "snap-card-timeline",
+              "knowledge_type": "technique",
+              "scope": "general",
+              "do_not_generalize": false,
+              "path": "terms/interaction/continuous/snap-card-timeline.json",
+              "score": 12,
+              "entries": [
+                {
+                  "id": "snap-card-timeline",
+                  "name": "吸附卡加画线",
+                  "plain_language": "卡片先减速吸附到最近目标，停稳后时间线再从起点逐段绘制到对应卡片位置。",
+                  "when_to_use": "用户用自然语言描述联动、叠卡、吸附画线或圆形转场的感觉时",
+                  "parameters": [
+                    "先吸附后绘制",
+                    "卡片停止后延迟 80–160ms",
+                    "timeline duration 300–600ms",
+                    "stroke-dasharray",
+                    "stroke-dashoffset",
+                    "卡片最终 Y 轴位置"
+                  ],
+                  "related": [
+                    "follow",
+                    "snap",
+                    "interruption",
+                    "reduced-motion"
+                  ],
+                  "constraints": [
+                    "避免生硬切换",
+                    "动画顺序必须可验证",
+                    "必须支持中断和反向回退"
+                  ],
+                  "aliases": [
+                    "吸附卡加画线",
+                    "snap card timeline"
+                  ],
+                  "state_machine": [
+                    "drag or scroll",
+                    "decelerating",
+                    "snap to nearest card",
+                    "settled",
+                    "timeline draw",
+                    "complete"
+                  ],
+                  "animation_sequence": [
+                    "drag or scroll",
+                    "decelerating",
+                    "snap to nearest card",
+                    "settled",
+                    "timeline draw",
+                    "complete"
+                  ],
+                  "spatial_anchor": [
+                    "吸附目标由最近卡片决定",
+                    "时间线起点固定在轨道起点",
+                    "终点对齐卡片中心或锚点",
+                    "线段绘制方向与滚动方向一致"
+                  ],
+                  "accessibility": [
+                    "键盘切换卡片时同样触发落位反馈",
+                    "aria-current 标记当前卡片",
+                    "减少动态时显示完整时间线"
+                  ],
+                  "acceptance": [
+                    "时间线绝不早于卡片停稳",
+                    "吸附目标稳定不抖动",
+                    "线终点准确对齐卡片",
+                    "取消或快速切换不会残留旧线段"
+                  ]
+                }
+              ],
+              "entry_sources": [
+                {
+                  "entry_id": "snap-card-timeline",
+                  "role": "suggestion",
+                  "source_refs": [
+                    "user_query"
+                  ]
+                }
+              ],
+              "provider": null
+            }
+          ],
+          "dependencies": [],
+          "clarifications": [
+            {
+              "id": "uncovered-scope",
+              "question": "这些部分尚未找到可核验覆盖：一张卡停下来以后；把旁边那条线画出来。请缩小范围或提供资料。"
+            }
+          ],
+          "deferred_clarifications": [],
+          "coverage": {
+            "status": "partial",
+            "unaccounted_clauses": [
+              "一张卡停下来以后",
+              "把旁边那条线画出来"
+            ],
+            "limitation": "有限词法/组合规则覆盖，不是完整语义理解；有结果不代表整句全部覆盖。"
+          },
+          "composition": {
+            "conflicts": [],
+            "deferred": [],
+            "deduplication": "stable leaf+entry IDs; shared contracts by path",
+            "related_policy": "informational_only; never loaded wholesale"
+          },
+          "verification_required": [],
+          "network_search": "not_requested",
+          "explanations": [
+            {
+              "leaf_id": "snap-card-timeline",
+              "entry_id": "snap-card-timeline",
+              "role": "suggestion",
+              "source": "terms/interaction/continuous/snap-card-timeline.json#snap-card-timeline",
+              "evidence": [
+                {
+                  "field": "host.candidates",
+                  "matched_expression": "一张卡停下来以后，再把旁边那条线画出来",
+                  "origin": "host_interpretation_unverified"
+                }
+              ]
+            }
+          ],
+          "delivery": {
+            "scenario_plans": [],
+            "ready_for_final_prompt": false,
+            "acceptance_checks": {
+              "dependencies_complete_for_emitted_bundles": true,
+              "detected_requests_assembled": false,
+              "whole_request_semantics_verified": false,
+              "parameters_resolved": false,
+              "conflicting_layouts_not_blended": true,
+              "host_llm_workflow_verified": false,
+              "provider_facts_verified": true
+            }
+          },
+          "usage": {
+            "loaded_leaf_count": 1,
+            "loaded_entry_count": 1,
+            "context_chars": 1207,
+            "content_char_limit": 24000
+          },
+          "format": "agent"
+        }
+      ],
+      "usage": {
+        "input_tokens": 358936,
+        "cached_input_tokens": 199997,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 13478,
+        "reasoning_output_tokens": 10123
+      },
+      "command_count": 19,
+      "final_response": "以下为五条**分别查询、分别整理**的结果。标为“建议”的术语不是原话中已确认的专业要求。\n\n1. **按住不放才执行**\n   - **术语：**按住蓄力确认（候选建议；本地知识仅部分覆盖）。\n   - **原话证据：**“按住不放才执行，提前松手就取消。”\n   - **必要问题：**按住多久才触发、移动多少距离算取消？这是危险操作吗？是否需要键盘替代操作？\n   - **验收要点：**未到阈值松手必取消；达到阈值只触发一次；取消后状态复位；键盘操作能完成等效确认或取消。知识包中的时长和移动阈值只是参考，不是已确认要求。\n\n2. **卡片停下后画线**\n   - **术语：**吸附卡加画线（候选建议；本地知识仅部分覆盖）。\n   - **原话证据：**“一张卡停下来以后，再把旁边那条线画出来。”\n   - **必要问题：**卡片是吸附到最近目标吗？线的起点、终点和绘制方向是什么？\n   - **验收要点：**卡片停稳后才开始画线；线端点对齐指定锚点；快速切换或取消不会残留旧线段。候选知识给出的延迟和时长仅作参考，需确认后再采用。\n\n3. **切换月份后更新图表**\n   - **术语：**共享月份筛选状态、图表派生数据同步（宿主建议；本地知识未覆盖）。\n   - **原话证据：**“切换月份以后，所有图表跟着更新。”\n   - **必要问题：**所有图表是否共用同一月份口径？月份一变立即刷新，还是需点击“应用”？\n   - **验收要点：**所有相关图表显示同一月份的数据；快速切换时不混入旧结果；加载、空数据和失败状态有明确反馈。\n\n4. **服务可靠性与重复付款**\n   - **术语：**高可用模式（建议）；幂等契约（明确要求）。\n   - **原话证据：**“服务别一遇到故障就趴窝”对应高可用建议；“付款按钮多按几回不要扣好几笔”对应幂等要求。“普通网页”且“不依赖 GPUIX，也不依赖 GSAP”是明确约束。\n   - **必要问题：**可接受的恢复时间和数据丢失量是多少？如何识别同一笔付款的重复请求？\n   - **验收要点：**故障恢复目标经确认并可验证；同一业务操作的重复或并发请求最多扣款一次，重复请求返回可关联的结果；实现不引入 GPUIX 或 GSAP。\n\n5. **液态玻璃导航，正文预算 100 字符**\n   - **术语：**液态玻璃栏（仅发现目录候选，**未加载知识正文**）。\n   - **原话证据：**“液态玻璃导航并支持移动端降级。”\n   - **查询状态：**按 100 字符正文预算实际查询后，结果为待分阶段加载，正文加载量为 0；因此不能据此确认效果参数或完整方案。\n   - **必要问题：**移动端要降级成什么表现？性能预算和降级触发条件是什么？\n   - **验收要点：**降级后导航仍可用；确认性能预算、移动端回退和减少动态方案后，再按预算加载完整知识并定验收细则。"
+    },
+    {
+      "id": "installed-retest",
+      "live_host": true,
+      "commands": [
+        {
+          "command": "/bin/zsh -lc 'cat <SKILL_DIR>/SKILL.md'",
+          "exit_code": 0,
+          "output_chars": 3690
+        },
+        {
+          "command": "/bin/zsh -lc \"PYTHONDONTWRITEBYTECODE=1 python3 <SKILL_DIR>/scripts/query.py '按住不放才执行，提前松手就取消。' --format agent\"",
+          "exit_code": 0,
+          "output_chars": 1405,
+          "status": "coverage_insufficient",
+          "query": "按住不放才执行，提前松手就取消。",
+          "mode": "query"
+        },
+        {
+          "command": "/bin/zsh -lc \"PYTHONDONTWRITEBYTECODE=1 python3 <SKILL_DIR>/scripts/query.py '一张卡停下来以后，再把旁边那条线画出来。' --format agent\"",
+          "exit_code": 0,
+          "output_chars": 1412,
+          "status": "coverage_insufficient",
+          "query": "一张卡停下来以后，再把旁边那条线画出来。",
+          "mode": "query"
+        },
+        {
+          "command": "/bin/zsh -lc \"PYTHONDONTWRITEBYTECODE=1 python3 <SKILL_DIR>/scripts/query.py '切换月份以后，所有图表跟着更新。' --format agent\"",
+          "exit_code": 0,
+          "output_chars": 1405,
+          "status": "coverage_insufficient",
+          "query": "切换月份以后，所有图表跟着更新。",
+          "mode": "query"
+        },
+        {
+          "command": "/bin/zsh -lc \"PYTHONDONTWRITEBYTECODE=1 python3 <SKILL_DIR>/scripts/query.py --catalog '卡片 停止 动画 后绘制 连接线' --catalog-domain digital-product-uiux\"",
+          "exit_code": 0,
+          "output_chars": 3753,
+          "status": null,
+          "query": "卡片 停止 动画 后绘制 连接线",
+          "mode": "catalog"
+        },
+        {
+          "command": "/bin/zsh -lc \"PYTHONDONTWRITEBYTECODE=1 python3 <SKILL_DIR>/scripts/query.py --catalog '长按 按住 手势 取消 松开' --catalog-domain digital-product-uiux\"",
+          "exit_code": 0,
+          "output_chars": 1670,
+          "status": null,
+          "query": "长按 按住 手势 取消 松开",
+          "mode": "catalog"
+        },
+        {
+          "command": "/bin/zsh -lc \"PYTHONDONTWRITEBYTECODE=1 python3 <SKILL_DIR>/scripts/query.py --catalog '仪表盘 月份筛选 图表 联动 更新' --catalog-domain digital-product-uiux\"",
+          "exit_code": 0,
+          "output_chars": 2810,
+          "status": null,
+          "query": "仪表盘 月份筛选 图表 联动 更新",
+          "mode": "catalog"
+        },
+        {
+          "command": "/bin/zsh -lc 'cat <SKILL_DIR>/references/routing-contract.md'",
+          "exit_code": 0,
+          "output_chars": 3802
+        },
+        {
+          "command": "/bin/zsh -lc \"PYTHONDONTWRITEBYTECODE=1 python3 <SKILL_DIR>/scripts/query.py --catalog '共享状态 月份 全局筛选' --catalog-domain digital-product-uiux\"",
+          "exit_code": 0,
+          "output_chars": 873,
+          "status": null,
+          "query": "共享状态 月份 全局筛选",
+          "mode": "catalog"
+        },
+        {
+          "command": "/bin/zsh -lc \"PYTHONDONTWRITEBYTECODE=1 python3 <SKILL_DIR>/scripts/query.py --catalog '时序 编排 描边 路径 绘制' --catalog-domain digital-product-uiux\"",
+          "exit_code": 0,
+          "output_chars": 3211,
+          "status": null,
+          "query": "时序 编排 描边 路径 绘制",
+          "mode": "catalog"
+        },
+        {
+          "command": "/bin/zsh -lc \"PYTHONDONTWRITEBYTECODE=1 python3 <SKILL_DIR>/scripts/query.py --catalog '日期范围筛选 数据筛选器 图表刷新 仪表盘数据状态' --catalog-domain digital-product-uiux\"",
+          "exit_code": 0,
+          "output_chars": 623,
+          "status": null,
+          "query": "日期范围筛选 数据筛选器 图表刷新 仪表盘数据状态",
+          "mode": "catalog"
+        },
+        {
+          "command": "/bin/zsh -lc \"printf '%s' '{\\\"candidates\\\":[{\\\"leaf_id\\\":\\\"press-and-hold-confirm\\\",\\\"entry_id\\\":\\\"press-and-hold-confirm\\\",\\\"evidence_text\\\":\\\"按住不放才执行，提前松手就取消。\\\",\\\"role\\\":\\\"suggestion\\\"}]}' | PYTHONDONTWRITEBYTECODE=1 python3 <SKILL_DIR>/scripts/query.py '按住不放才执行，提前松手就取消。' --context - --format agent\"",
+          "exit_code": 0,
+          "output_chars": 2507,
+          "status": "ready",
+          "query": "按住不放才执行，提前松手就取消。",
+          "mode": "query"
+        },
+        {
+          "command": "/bin/zsh -lc \"printf '%s' '{\\\"candidates\\\":[{\\\"leaf_id\\\":\\\"snap-card-timeline\\\",\\\"entry_id\\\":\\\"snap-card-timeline\\\",\\\"evidence_text\\\":\\\"一张卡停下来以后，再把旁边那条线画出来。\\\",\\\"role\\\":\\\"suggestion\\\"}]}' | PYTHONDONTWRITEBYTECODE=1 python3 <SKILL_DIR>/scripts/query.py '一张卡停下来以后，再把旁边那条线画出来。' --context - --format agent\"",
+          "exit_code": 0,
+          "output_chars": 2839,
+          "status": "ready",
+          "query": "一张卡停下来以后，再把旁边那条线画出来。",
+          "mode": "query"
+        }
+      ],
+      "transport_errors": [],
+      "completed": true,
+      "tool_output_chars": 30000,
+      "query_payloads": [
+        {
+          "query": "按住不放才执行，提前松手就取消。",
+          "status": "coverage_insufficient",
+          "matches": [],
+          "dependencies": [],
+          "clarifications": [],
+          "deferred_clarifications": [],
+          "coverage": {
+            "status": "insufficient",
+            "unaccounted_clauses": [
+              "按住不放才执行",
+              "提前松手就取消"
+            ],
+            "limitation": "有限词法/组合规则覆盖，不是完整语义理解；有结果不代表整句全部覆盖。"
+          },
+          "composition": {
+            "conflicts": [],
+            "deferred": [],
+            "deduplication": "stable leaf+entry IDs; shared contracts by path",
+            "related_policy": "informational_only; never loaded wholesale"
+          },
+          "verification_required": [],
+          "network_search": "not_requested",
+          "explanations": [],
+          "delivery": {
+            "scenario_plans": [],
+            "ready_for_final_prompt": false,
+            "acceptance_checks": {
+              "dependencies_complete_for_emitted_bundles": true,
+              "detected_requests_assembled": false,
+              "whole_request_semantics_verified": false,
+              "parameters_resolved": true,
+              "conflicting_layouts_not_blended": true,
+              "host_llm_workflow_verified": false,
+              "provider_facts_verified": true
+            }
+          },
+          "usage": {
+            "loaded_leaf_count": 0,
+            "loaded_entry_count": 0,
+            "context_chars": 0,
+            "content_char_limit": 24000
+          },
+          "format": "agent"
+        },
+        {
+          "query": "一张卡停下来以后，再把旁边那条线画出来。",
+          "status": "coverage_insufficient",
+          "matches": [],
+          "dependencies": [],
+          "clarifications": [],
+          "deferred_clarifications": [],
+          "coverage": {
+            "status": "insufficient",
+            "unaccounted_clauses": [
+              "一张卡停下来以后",
+              "把旁边那条线画出来"
+            ],
+            "limitation": "有限词法/组合规则覆盖，不是完整语义理解；有结果不代表整句全部覆盖。"
+          },
+          "composition": {
+            "conflicts": [],
+            "deferred": [],
+            "deduplication": "stable leaf+entry IDs; shared contracts by path",
+            "related_policy": "informational_only; never loaded wholesale"
+          },
+          "verification_required": [],
+          "network_search": "not_requested",
+          "explanations": [],
+          "delivery": {
+            "scenario_plans": [],
+            "ready_for_final_prompt": false,
+            "acceptance_checks": {
+              "dependencies_complete_for_emitted_bundles": true,
+              "detected_requests_assembled": false,
+              "whole_request_semantics_verified": false,
+              "parameters_resolved": true,
+              "conflicting_layouts_not_blended": true,
+              "host_llm_workflow_verified": false,
+              "provider_facts_verified": true
+            }
+          },
+          "usage": {
+            "loaded_leaf_count": 0,
+            "loaded_entry_count": 0,
+            "context_chars": 0,
+            "content_char_limit": 24000
+          },
+          "format": "agent"
+        },
+        {
+          "query": "切换月份以后，所有图表跟着更新。",
+          "status": "coverage_insufficient",
+          "matches": [],
+          "dependencies": [],
+          "clarifications": [],
+          "deferred_clarifications": [],
+          "coverage": {
+            "status": "insufficient",
+            "unaccounted_clauses": [
+              "切换月份以后",
+              "所有图表跟着更新"
+            ],
+            "limitation": "有限词法/组合规则覆盖，不是完整语义理解；有结果不代表整句全部覆盖。"
+          },
+          "composition": {
+            "conflicts": [],
+            "deferred": [],
+            "deduplication": "stable leaf+entry IDs; shared contracts by path",
+            "related_policy": "informational_only; never loaded wholesale"
+          },
+          "verification_required": [],
+          "network_search": "not_requested",
+          "explanations": [],
+          "delivery": {
+            "scenario_plans": [],
+            "ready_for_final_prompt": false,
+            "acceptance_checks": {
+              "dependencies_complete_for_emitted_bundles": true,
+              "detected_requests_assembled": false,
+              "whole_request_semantics_verified": false,
+              "parameters_resolved": true,
+              "conflicting_layouts_not_blended": true,
+              "host_llm_workflow_verified": false,
+              "provider_facts_verified": true
+            }
+          },
+          "usage": {
+            "loaded_leaf_count": 0,
+            "loaded_entry_count": 0,
+            "context_chars": 0,
+            "content_char_limit": 24000
+          },
+          "format": "agent"
+        },
+        {
+          "query": "按住不放才执行，提前松手就取消。",
+          "status": "ready",
+          "matches": [
+            {
+              "leaf_id": "press-and-hold-confirm",
+              "knowledge_type": "pattern",
+              "scope": "general",
+              "do_not_generalize": false,
+              "path": "terms/interaction/advanced/press-and-hold-confirm.json",
+              "score": 12,
+              "entries": [
+                {
+                  "id": "press-and-hold-confirm",
+                  "name": "按住蓄力确认",
+                  "plain_language": "按住危险操作按钮达到 800–1200ms 才确认，未满松手或移动超限则取消。",
+                  "when_to_use": "需要明确触发、阈值、取消、边界和键盘替代路径的复杂交互",
+                  "parameters": [
+                    "800–1200ms",
+                    "移动超过 10px 取消",
+                    "多点触控只认第一指",
+                    "进度环与按压时间一致"
+                  ],
+                  "related": [
+                    "follow",
+                    "threshold",
+                    "snap",
+                    "interruption"
+                  ],
+                  "constraints": [
+                    "未达到阈值不能触发",
+                    "快速重复操作不叠加",
+                    "组件卸载时清理定时器和动画"
+                  ],
+                  "aliases": [],
+                  "state_machine": [
+                    "pressing",
+                    "charging",
+                    "confirmed",
+                    "cancel"
+                  ],
+                  "accessibility": [
+                    "键盘 Space/Enter",
+                    "ESC 取消",
+                    "aria-describedby",
+                    "替代二次确认"
+                  ],
+                  "acceptance": [
+                    "60fps",
+                    "手势和键盘结果一致",
+                    "取消后状态完全复位"
+                  ]
+                }
+              ],
+              "entry_sources": [
+                {
+                  "entry_id": "press-and-hold-confirm",
+                  "role": "suggestion",
+                  "source_refs": [
+                    "user_query"
+                  ]
+                }
+              ],
+              "provider": null
+            }
+          ],
+          "dependencies": [],
+          "clarifications": [],
+          "deferred_clarifications": [],
+          "coverage": {
+            "status": "bounded",
+            "unaccounted_clauses": [],
+            "limitation": "有限词法/组合规则覆盖，不是完整语义理解；有结果不代表整句全部覆盖。"
+          },
+          "composition": {
+            "conflicts": [],
+            "deferred": [],
+            "deduplication": "stable leaf+entry IDs; shared contracts by path",
+            "related_policy": "informational_only; never loaded wholesale"
+          },
+          "verification_required": [],
+          "network_search": "not_requested",
+          "explanations": [
+            {
+              "leaf_id": "press-and-hold-confirm",
+              "entry_id": "press-and-hold-confirm",
+              "role": "suggestion",
+              "source": "terms/interaction/advanced/press-and-hold-confirm.json#press-and-hold-confirm",
+              "evidence": [
+                {
+                  "field": "host.candidates",
+                  "matched_expression": "按住不放才执行，提前松手就取消。",
+                  "origin": "host_interpretation_unverified"
+                }
+              ]
+            }
+          ],
+          "delivery": {
+            "scenario_plans": [],
+            "ready_for_final_prompt": true,
+            "acceptance_checks": {
+              "dependencies_complete_for_emitted_bundles": true,
+              "detected_requests_assembled": true,
+              "whole_request_semantics_verified": false,
+              "parameters_resolved": true,
+              "conflicting_layouts_not_blended": true,
+              "host_llm_workflow_verified": false,
+              "provider_facts_verified": true
+            }
+          },
+          "usage": {
+            "loaded_leaf_count": 1,
+            "loaded_entry_count": 1,
+            "context_chars": 870,
+            "content_char_limit": 24000
+          },
+          "format": "agent"
+        },
+        {
+          "query": "一张卡停下来以后，再把旁边那条线画出来。",
+          "status": "ready",
+          "matches": [
+            {
+              "leaf_id": "snap-card-timeline",
+              "knowledge_type": "technique",
+              "scope": "general",
+              "do_not_generalize": false,
+              "path": "terms/interaction/continuous/snap-card-timeline.json",
+              "score": 12,
+              "entries": [
+                {
+                  "id": "snap-card-timeline",
+                  "name": "吸附卡加画线",
+                  "plain_language": "卡片先减速吸附到最近目标，停稳后时间线再从起点逐段绘制到对应卡片位置。",
+                  "when_to_use": "用户用自然语言描述联动、叠卡、吸附画线或圆形转场的感觉时",
+                  "parameters": [
+                    "先吸附后绘制",
+                    "卡片停止后延迟 80–160ms",
+                    "timeline duration 300–600ms",
+                    "stroke-dasharray",
+                    "stroke-dashoffset",
+                    "卡片最终 Y 轴位置"
+                  ],
+                  "related": [
+                    "follow",
+                    "snap",
+                    "interruption",
+                    "reduced-motion"
+                  ],
+                  "constraints": [
+                    "避免生硬切换",
+                    "动画顺序必须可验证",
+                    "必须支持中断和反向回退"
+                  ],
+                  "aliases": [
+                    "吸附卡加画线",
+                    "snap card timeline"
+                  ],
+                  "state_machine": [
+                    "drag or scroll",
+                    "decelerating",
+                    "snap to nearest card",
+                    "settled",
+                    "timeline draw",
+                    "complete"
+                  ],
+                  "animation_sequence": [
+                    "drag or scroll",
+                    "decelerating",
+                    "snap to nearest card",
+                    "settled",
+                    "timeline draw",
+                    "complete"
+                  ],
+                  "spatial_anchor": [
+                    "吸附目标由最近卡片决定",
+                    "时间线起点固定在轨道起点",
+                    "终点对齐卡片中心或锚点",
+                    "线段绘制方向与滚动方向一致"
+                  ],
+                  "accessibility": [
+                    "键盘切换卡片时同样触发落位反馈",
+                    "aria-current 标记当前卡片",
+                    "减少动态时显示完整时间线"
+                  ],
+                  "acceptance": [
+                    "时间线绝不早于卡片停稳",
+                    "吸附目标稳定不抖动",
+                    "线终点准确对齐卡片",
+                    "取消或快速切换不会残留旧线段"
+                  ]
+                }
+              ],
+              "entry_sources": [
+                {
+                  "entry_id": "snap-card-timeline",
+                  "role": "suggestion",
+                  "source_refs": [
+                    "user_query"
+                  ]
+                }
+              ],
+              "provider": null
+            }
+          ],
+          "dependencies": [],
+          "clarifications": [],
+          "deferred_clarifications": [],
+          "coverage": {
+            "status": "bounded",
+            "unaccounted_clauses": [],
+            "limitation": "有限词法/组合规则覆盖，不是完整语义理解；有结果不代表整句全部覆盖。"
+          },
+          "composition": {
+            "conflicts": [],
+            "deferred": [],
+            "deduplication": "stable leaf+entry IDs; shared contracts by path",
+            "related_policy": "informational_only; never loaded wholesale"
+          },
+          "verification_required": [],
+          "network_search": "not_requested",
+          "explanations": [
+            {
+              "leaf_id": "snap-card-timeline",
+              "entry_id": "snap-card-timeline",
+              "role": "suggestion",
+              "source": "terms/interaction/continuous/snap-card-timeline.json#snap-card-timeline",
+              "evidence": [
+                {
+                  "field": "host.candidates",
+                  "matched_expression": "一张卡停下来以后，再把旁边那条线画出来。",
+                  "origin": "host_interpretation_unverified"
+                }
+              ]
+            }
+          ],
+          "delivery": {
+            "scenario_plans": [],
+            "ready_for_final_prompt": true,
+            "acceptance_checks": {
+              "dependencies_complete_for_emitted_bundles": true,
+              "detected_requests_assembled": true,
+              "whole_request_semantics_verified": false,
+              "parameters_resolved": true,
+              "conflicting_layouts_not_blended": true,
+              "host_llm_workflow_verified": false,
+              "provider_facts_verified": true
+            }
+          },
+          "usage": {
+            "loaded_leaf_count": 1,
+            "loaded_entry_count": 1,
+            "context_chars": 1207,
+            "content_char_limit": 24000
+          },
+          "format": "agent"
+        }
+      ],
+      "usage": {
+        "input_tokens": 221143,
+        "cached_input_tokens": 137165,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3517,
+        "reasoning_output_tokens": 1344
+      },
+      "command_count": 13,
+      "final_response": "已实际调用指定的本地 Skill，未联网、修改项目、安装工具或委托子代理。**但有一项操作失误：第 3 项做了 3 次 catalog 查询，比上限多 1 次；因此本次操作并非完全合规，已停止继续检索。**\n\n### 1. 按住不放才执行，提前松手就取消\n\n- **术语与证据**：原话“按住不放”“提前松手就取消”明确了持续按压与取消关系。候选术语是**按住蓄力确认**（`press-and-hold-confirm`），身份为 **建议 `suggestion`**，不是用户已经确认的交互方案。\n- **真正必要的问题**：是“按满一定时长后执行一次”，还是“按住期间持续执行”？若是前者，需要按多久？\n- **建议与验收**：若采用蓄力确认，未满阈值松手不得执行，取消后进度复位；满阈值只触发一次，连续操作不叠加；键盘与触摸结果一致。库中的 **800–1200ms 是参考参数，不是已确认要求**。\n- **本地覆盖**：原话首次查询无命中；经 **1 次 catalog＋1 次候选重跑**，加载到上述模式，返回 `ready / bounded`。但“持续执行还是到时确认”仍需澄清，不能把 `ready` 当作语义已完全验证。\n\n### 2. 一张卡停下来以后，再把旁边那条线画出来\n\n- **术语与证据**：“停下来以后，再……”明确的是**串行动画／完成后触发绘线**。本地候选为**吸附卡加画线**（`snap-card-timeline`），身份为 **建议 `suggestion`**；原话没有确认“吸附到最近卡片”。\n- **真正必要的问题**：“停下来”指拖动／滚动后落位，还是入场动画完成？线的起点、终点分别在哪里？\n- **建议与验收**：以卡片完成落位作为绘线前置条件，不只凭固定延时猜测；线不得提前出现，终点准确对齐；快速切换或中断后不残留旧线段；减少动态时直接展示最终线条。不主动引入 GSAP。\n- **本地覆盖**：原话首次无命中；经 **2 次 catalog＋1 次候选重跑**，加载到上述技巧，返回 `ready / bounded`。顺序关系可参考，吸附行为和空间锚点仍未确认。\n\n### 3. 切换月份以后，所有图表跟着更新\n\n- **术语与证据**：“切换月份”“所有图表跟着更新”可表达为**全局月份筛选、共享状态驱动的图表联动**。这是我的**宿主推断／建议**，不是本地检索已确认的术语命中；也不代表必须采用某种 Dashboard 布局。\n- **真正必要的问题**：月份按哪个业务日期字段及什么时区划分？切月时其他筛选、图表选中项应保留还是重置？\n- **建议与验收**：月份作为共享状态，各图表派生数据统一依赖它；切月后所有图表的月份、数据一致；快速连续切月时旧响应不得覆盖新月份，空数据和失败状态有明确反馈。\n- **本地覆盖**：原话首次查询无命中；目录只找到不足以证明本需求的布局等候选，**没有加载到可确认覆盖的知识包，也未做候选重跑**。只能报告本次覆盖不足，不能断言知识库完全没有相关内容。catalog 实际用了 **3 次，超预算 1 次**。\n\n**验收边界**：以上是待执行的验收要点，并非产品测试通过。前两项需录屏或逐帧观察时序，第 3 项需真实数据端到端核对并截图；本次未实现界面，也未完成这些验收。"
+    },
+    {
+      "id": "installed-month",
+      "live_host": true,
+      "commands": [
+        {
+          "command": "/bin/zsh -lc \"python3 <SKILL_DIR>/scripts/query.py '切换月份以后，所有图表跟着更新。' --format agent\"",
+          "exit_code": 0,
+          "output_chars": 1405,
+          "status": "coverage_insufficient",
+          "query": "切换月份以后，所有图表跟着更新。",
+          "mode": "query"
+        },
+        {
+          "command": "/bin/zsh -lc \"python3 <SKILL_DIR>/scripts/query.py --catalog 'dashboard chart date range state synchronization' --catalog-domain digital-product-uiux\"",
+          "exit_code": 0,
+          "output_chars": 4900,
+          "status": null,
+          "query": "dashboard chart date range state synchronization",
+          "mode": "catalog"
+        },
+        {
+          "command": "/bin/zsh -lc 'cat <SKILL_DIR>/references/routing-contract.md'",
+          "exit_code": 0,
+          "output_chars": 3847
+        },
+        {
+          "command": "/bin/zsh -lc \"printf '%s' '{\\\"candidates\\\":[{\\\"leaf_id\\\":\\\"layout-patterns\\\",\\\"entry_id\\\":\\\"glass-dot-matrix-dashboard\\\",\\\"evidence_text\\\":\\\"切换月份以后，所有图表跟着更新。\\\",\\\"role\\\":\\\"suggestion\\\"}]}' | python3 <SKILL_DIR>/scripts/query.py '切换月份以后，所有图表跟着更新。' --context - --format agent\"",
+          "exit_code": 0,
+          "output_chars": 4936,
+          "status": "needs_clarification",
+          "query": "切换月份以后，所有图表跟着更新。",
+          "mode": "query"
+        }
+      ],
+      "transport_errors": [],
+      "completed": true,
+      "tool_output_chars": 15088,
+      "query_payloads": [
+        {
+          "query": "切换月份以后，所有图表跟着更新。",
+          "status": "coverage_insufficient",
+          "matches": [],
+          "dependencies": [],
+          "clarifications": [],
+          "deferred_clarifications": [],
+          "coverage": {
+            "status": "insufficient",
+            "unaccounted_clauses": [
+              "切换月份以后",
+              "所有图表跟着更新"
+            ],
+            "limitation": "有限词法/组合规则覆盖，不是完整语义理解；有结果不代表整句全部覆盖。"
+          },
+          "composition": {
+            "conflicts": [],
+            "deferred": [],
+            "deduplication": "stable leaf+entry IDs; shared contracts by path",
+            "related_policy": "informational_only; never loaded wholesale"
+          },
+          "verification_required": [],
+          "network_search": "not_requested",
+          "explanations": [],
+          "delivery": {
+            "scenario_plans": [],
+            "ready_for_final_prompt": false,
+            "acceptance_checks": {
+              "dependencies_complete_for_emitted_bundles": true,
+              "detected_requests_assembled": false,
+              "whole_request_semantics_verified": false,
+              "parameters_resolved": true,
+              "conflicting_layouts_not_blended": true,
+              "host_llm_workflow_verified": false,
+              "provider_facts_verified": true
+            }
+          },
+          "usage": {
+            "loaded_leaf_count": 0,
+            "loaded_entry_count": 0,
+            "context_chars": 0,
+            "content_char_limit": 24000
+          },
+          "format": "agent"
+        },
+        {
+          "query": "切换月份以后，所有图表跟着更新。",
+          "status": "needs_clarification",
+          "matches": [
+            {
+              "leaf_id": "layout-patterns",
+              "knowledge_type": "pattern",
+              "scope": "general",
+              "do_not_generalize": false,
+              "path": "terms/dashboard/layout-patterns.json",
+              "score": 12,
+              "entries": [
+                {
+                  "id": "glass-dot-matrix-dashboard",
+                  "name": "玻璃点阵布局",
+                  "plain_language": "浅灰玻璃；点阵读数；月份切换；指标趋势联动",
+                  "when_to_use": "需要玻璃点阵布局的信息结构、视觉参数与交互联动规范时",
+                  "parameters": [
+                    "radius_px",
+                    "gap_px"
+                  ],
+                  "related": [
+                    "grid-glass-dashboard"
+                  ],
+                  "constraints": [
+                    "布局、视觉和执行状态分层；具体参数只属于本例，不作为同类页面默认值"
+                  ],
+                  "aliases": [
+                    "玻璃点阵",
+                    "点阵读数",
+                    "月份指标联动",
+                    "二氧化碳趋势"
+                  ],
+                  "contract_ref": "templates/dashboard/dashboard-style-system.json",
+                  "layout": "玻璃点阵布局",
+                  "termSkill": [
+                    "浅灰玻璃",
+                    "点阵读数",
+                    "月份切换",
+                    "指标趋势联动"
+                  ],
+                  "uiSkill": {
+                    "background": "浅灰",
+                    "material": "玻璃",
+                    "accent": "荧光黄绿",
+                    "readout": "点阵读数"
+                  },
+                  "agentExec": [
+                    {
+                      "event": "select_month",
+                      "writes": [
+                        "selectedMonth"
+                      ],
+                      "updates": [
+                        "metricReadout",
+                        "trendSeries"
+                      ],
+                      "preserves": [
+                        "selectedMetric"
+                      ]
+                    },
+                    {
+                      "event": "select_monthly_metric",
+                      "example": "点击 8 月评分指标",
+                      "writes": [
+                        "selectedMonth",
+                        "selectedMetric"
+                      ],
+                      "example_values": {
+                        "selectedMonth": 8,
+                        "selectedMetric": "score"
+                      },
+                      "updates": [
+                        "metricReadout",
+                        "trendSeries"
+                      ],
+                      "guard": "月份与指标在同一次状态转换中提交"
+                    },
+                    {
+                      "event": "select_carbon_metric",
+                      "example": "选择二氧化碳",
+                      "writes": [
+                        "selectedMetric",
+                        "trendVisible"
+                      ],
+                      "example_values": {
+                        "selectedMetric": "co2",
+                        "trendVisible": true
+                      },
+                      "updates": [
+                        "metricReadout",
+                        "trendSeries"
+                      ],
+                      "preserves": [
+                        "selectedMonth"
+                      ]
+                    }
+                  ],
+                  "state": {
+                    "model_status": "proposed_implementation",
+                    "source": {
+                      "selectedMonth": "共享月份",
+                      "selectedMetric": "共享指标",
+                      "trendVisible": "趋势浮层可见状态"
+                    },
+                    "derived": {
+                      "metricReadout": "metrics[selectedMonth][selectedMetric]",
+                      "trendSeries": "series[selectedMonth][selectedMetric]"
+                    },
+                    "invariants": [
+                      "点 8 月评分后所有月份视图回到 8 月",
+                      "切换二氧化碳不丢失月份，趋势与读数使用同一指标",
+                      "关闭趋势浮层不重置月份或指标"
+                    ]
+                  },
+                  "tokens": {
+                    "scope": "provided_example",
+                    "values": {
+                      "radius_px": 30,
+                      "gap_px": 14
+                    }
+                  },
+                  "evidence": {
+                    "status": "provided",
+                    "source": "user_dashboard_brief",
+                    "state_model": "实现建议，不宣称为原始产品已有逻辑"
+                  },
+                  "composition": {
+                    "exclusive_group": "dashboard-primary-layout",
+                    "alternatives_allowed": true
+                  }
+                }
+              ],
+              "entry_sources": [
+                {
+                  "entry_id": "glass-dot-matrix-dashboard",
+                  "role": "suggestion",
+                  "source_refs": [
+                    "user_query"
+                  ]
+                }
+              ],
+              "provider": null
+            }
+          ],
+          "dependencies": [
+            {
+              "path": "templates/dashboard/dashboard-style-system.json",
+              "required": true,
+              "source_refs": [
+                "terms/dashboard/layout-patterns.json#glass-dot-matrix-dashboard"
+              ],
+              "content": {
+                "field_contract": {
+                  "layout": "布局名称与信息结构；不新增同义叶子",
+                  "termSkill": "专业术语与结构关系；引用现有分类",
+                  "uiSkill": "视觉层级、栅格、材质、排版；不负责修改业务状态",
+                  "agentExec": "事件、前置条件、写入状态、派生视图与不受影响的状态",
+                  "state": "唯一事实源、派生关系、不变量；新增实现建议需明确标记",
+                  "tokens": "明确单位与适用范围；用户示例值不是全局默认值"
+                },
+                "shared_execution_contract": {
+                  "flow": [
+                    "事件",
+                    "校验/前置条件",
+                    "一次状态转换",
+                    "派生所有关联视图",
+                    "验收"
+                  ],
+                  "rules": [
+                    "共享的是选择 ID 与时间上下文，不是每个面板各自复制一份状态；独立控件不得误联动。",
+                    "展示读数由状态派生；请求失败、空数据与快速连续切换不得留下混合视图，异步结果需校验当前上下文。",
+                    "颜色/尺寸是当前示例的 token，不是行为触发条件；计数从集合派生，不写死 7→8。",
+                    "键盘与指针操作保持同样状态结果；选中/加载/错误不能只靠颜色，动态效果提供减少动态路径。",
+                    "固定栏不等于固定整个页面；窄屏策略与断点未提供时先标记建议，不臆造原稿数值。"
+                  ],
+                  "acceptance": [
+                    "事件前/后真实截图覆盖受影响与不受影响区域",
+                    "端到端验证状态联动、独立性、错误/快速切换与键盘路径",
+                    "截图只验证可见结果，状态一致性同时用断言验证"
+                  ]
+                }
+              }
+            }
+          ],
+          "clarifications": [
+            {
+              "id": "dashboard_data",
+              "question": "有哪些可用数据与操作规则？只采用本次确认的字段、状态和参数。"
+            }
+          ],
+          "deferred_clarifications": [],
+          "coverage": {
+            "status": "bounded",
+            "unaccounted_clauses": [],
+            "limitation": "有限词法/组合规则覆盖，不是完整语义理解；有结果不代表整句全部覆盖。"
+          },
+          "composition": {
+            "conflicts": [],
+            "deferred": [],
+            "deduplication": "stable leaf+entry IDs; shared contracts by path",
+            "related_policy": "informational_only; never loaded wholesale"
+          },
+          "verification_required": [],
+          "network_search": "not_requested",
+          "explanations": [
+            {
+              "leaf_id": "layout-patterns",
+              "entry_id": "glass-dot-matrix-dashboard",
+              "role": "suggestion",
+              "source": "terms/dashboard/layout-patterns.json#glass-dot-matrix-dashboard",
+              "evidence": [
+                {
+                  "field": "host.candidates",
+                  "matched_expression": "切换月份以后，所有图表跟着更新。",
+                  "origin": "host_interpretation_unverified"
+                }
+              ]
+            }
+          ],
+          "delivery": {
+            "scenario_plans": [
+              {
+                "scenario_id": "dashboard-linked-state",
+                "match": "partial",
+                "provided_information": {},
+                "not_applicable": [
+                  "只有颜色或普通轮播需求",
+                  "不同主布局不能未经确认合成同一页面"
+                ],
+                "flow": [
+                  "保留用户证据",
+                  "只澄清改变方案的信息",
+                  "按依赖组合知识",
+                  "输出有边界的增强方案",
+                  "用原文约束与场景验收检查交付"
+                ],
+                "output_fields": [
+                  "layout",
+                  "termSkill",
+                  "uiSkill",
+                  "agentExec",
+                  "state",
+                  "tokens"
+                ],
+                "acceptance": [
+                  "读取选中条目的 contract_ref 共享协议",
+                  "共享状态与独立控件不得误联动",
+                  "变体并列展示为选项，不直接叠加成主布局",
+                  "仅按已有五种素材组织，不追要额外案例"
+                ]
+              }
+            ],
+            "ready_for_final_prompt": false,
+            "acceptance_checks": {
+              "dependencies_complete_for_emitted_bundles": true,
+              "detected_requests_assembled": true,
+              "whole_request_semantics_verified": false,
+              "parameters_resolved": false,
+              "conflicting_layouts_not_blended": true,
+              "host_llm_workflow_verified": false,
+              "provider_facts_verified": true
+            }
+          },
+          "usage": {
+            "loaded_leaf_count": 1,
+            "loaded_entry_count": 1,
+            "context_chars": 2843,
+            "content_char_limit": 24000
+          },
+          "format": "agent"
+        }
+      ],
+      "usage": {
+        "input_tokens": 138040,
+        "cached_input_tokens": 101161,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3971,
+        "reasoning_output_tokens": 2931
+      },
+      "command_count": 4,
+      "final_response": "我实际调用了消费项目内已安装的 Skill。它没有直接识别这句话的完整含义；按 Skill 的流程查了有限的术语候选，并将“玻璃点阵布局”作为**建议**回查。因此，下面的状态模型是可参考的方向，不代表你的原话已经确认了该布局或所有实现细节。\n\n### 相关术语\n\n- **筛选状态联动**：切换月份后，让受该月份筛选影响的图表一并更新。\n- **共享状态 / 单一事实源**：把当前月份作为共享状态，避免每张图表各自保存一份可能不一致的月份。\n- **派生视图**：图表数据和读数根据当前月份及各自的数据规则生成。\n- **状态不变量**：切换后，所有纳入联动的图表都对应同一个月份；不应联动的状态则保持不变。\n- **异步竞态保护**：快速连续切换月份时，较早请求的结果不能覆盖最后选中的月份。\n\n### 原话要求与建议的区别\n\n**原话明确提出：**切换月份后，所有图表跟着更新。\n\n**实现建议，尚待确认：**用共享的 `selectedMonth` 作为月份状态，并由它更新相关图表；快速切换时校验异步结果是否仍对应当前月份。Skill 还给出了“玻璃点阵布局”这一视觉候选，但你没有提出视觉风格要求，所以它不是需求。\n\n### 必要问题\n\n1. “所有图表”具体包括哪些图表或指标？有没有应保留独立月份或筛选条件的区域？\n2. 各图表的数据字段、月份范围和统计规则是什么？是否只要求数据联动，还是也要新增或调整月份选择控件？\n3. 无数据、加载失败、快速连续切换时，页面应如何呈现？\n\n### 验收项\n\n- 在端到端流程中选择某个月，确认所有约定纳入联动的图表、读数和相关标签都对应该月。\n- 用状态或数据断言验证结果一致；仅凭截图不能证明数据对应正确。\n- 确认不应联动的区域或独立筛选条件没有被重置。\n- 快速切换月份时，较早返回的数据不会覆盖当前月份的结果。\n- 覆盖无数据和请求失败状态；键盘操作与鼠标操作产生相同的月份选择结果。\n- 提供切换前后、覆盖受影响区域的真实截图，并完成端到端验证。\n\n目前数据与业务规则尚未明确，因此这些是需求整理与验收项，不是对项目已经完成或已测试的声明。"
+    }
+  ]
+}

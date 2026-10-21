@@ -1,27 +1,13 @@
 """Explainable, bounded text routing. This is not embedding/LLM semantics."""
 from __future__ import annotations
 import json
+import sys
+from contextlib import nullcontext
 import re
 from collections import Counter
+from text_evidence import clauses, negated, positive_query, literal_evidence, rule_evidence
 from lexical import normalize, score
-from routing_policy import (NEGATION_MARKERS, CLAUSE_SEPARATORS, EVIDENCE_SCORE,
-                            IDENTITY_BONUS, MAX_HOST_CANDIDATES)
-
-
-def clauses(query):
-    return [part.strip(' ，。.!?') for part in re.split(CLAUSE_SEPARATORS, query) if part.strip()]
-
-
-def negated(query, expression):
-    q, term = normalize(query), normalize(expression)
-    occurrences = [match.start() for match in re.finditer(re.escape(term), q)] if term else []
-    pattern = '(?:' + '|'.join(re.escape(x) for x in NEGATION_MARKERS) + r')[^，。；！？;.!?]{0,8}$'
-    return bool(occurrences) and all(re.search(pattern, q[:position]) for position in occurrences)
-
-
-def positive_query(query):
-    pattern = '(?:' + '|'.join(re.escape(x) for x in NEGATION_MARKERS) + r')[^，。；！？;.!?]*(?:但[^，。；！？;.!?]*)?'
-    return re.sub(pattern, '', normalize(query))
+from routing_policy import EVIDENCE_SCORE, IDENTITY_BONUS, MAX_HOST_CANDIDATES
 
 
 def provider_allowed(record, query, context):
@@ -30,7 +16,7 @@ def provider_allowed(record, query, context):
         return record.get('scope') != 'provider-specific'
     if negated(query, provider):
         return False
-    return (normalize(provider) in normalize(query)
+    return (bool(literal_evidence(query,provider,'provider'))
             or normalize(query).strip(' 。') == normalize(record['leaf_id'])
             or normalize(provider) in [normalize(p) for p in context.get('providers', [])])
 
@@ -38,7 +24,7 @@ def provider_allowed(record, query, context):
 def context_from_file(path, records):
     if not path:
         return {'providers': [], 'answers': {}, 'candidates': []}
-    with open(path, encoding='utf-8') as handle:
+    with (nullcontext(sys.stdin) if path=='-' else open(path, encoding='utf-8')) as handle:
         value = json.load(handle)
     if not isinstance(value, dict) or set(value) - {'providers', 'answers', 'candidates'}:
         raise ValueError('context accepts only providers, answers, candidates')
@@ -51,40 +37,29 @@ def context_from_file(path, records):
         raise ValueError('too many or invalid host candidates')
     known = {(item['leaf_id'], item['entry_id']) for item in records}
     slots = {q['id'] for record in records for q in record['retrieval'].get('questions', [])}
-    slots.update('source:' + record['entry_id'] for record in records)
+    slots.update('source:' + record['entry_id'] for record in records if record.get('source_question'))
+    groups = {record['composition']['exclusive_group'] for record in records if record['composition'].get('exclusive_group')}
+    slots.update('choose:' + group for group in groups)
     if set(value['answers']) - slots:
         raise ValueError('unknown answer slot')
+    for group in groups:
+        selection = value['answers'].get('choose:' + group)
+        choices = {record['entry_id'] for record in records if record['composition'].get('exclusive_group') == group}
+        if selection and selection not in choices:
+            raise ValueError('layout choice must be a known entry ID in its exclusive group')
     providers = {normalize(record['provider']) for record in records if record.get('provider')}
     if any(normalize(provider) not in providers for provider in value['providers']):
         raise ValueError('unknown project provider')
     for candidate in value['candidates']:
         if not isinstance(candidate, dict) or set(candidate) != {'leaf_id','entry_id','evidence_text','role'}:
             raise ValueError('host candidate requires leaf_id, entry_id, evidence_text, role')
+        if not all(isinstance(candidate[field],str) and candidate[field].strip() for field in ('leaf_id','entry_id')):
+            raise ValueError('host candidate IDs must be nonempty strings')
         if (candidate['leaf_id'], candidate['entry_id']) not in known:
             raise ValueError('unknown host knowledge ID')
         if candidate['role'] not in ('explicit','suggestion') or not isinstance(candidate['evidence_text'], str) or not candidate['evidence_text'].strip():
             raise ValueError('host candidate needs a role and nonempty evidence')
     return value
-
-
-def literal_evidence(query, value, field):
-    if value and normalize(value) in normalize(query) and not negated(query, value):
-        start = normalize(query).index(normalize(value))
-        return {'field':field, 'matched_expression':query[start:start+len(value)], 'origin':'local_lexical'}
-    return None
-
-
-def rule_evidence(query, rule):
-    hits = []
-    for group in rule['all']:
-        group_hits = [hit for phrase in group
-                      if (hit := literal_evidence(query, phrase, 'retrieval.rules.' + rule['id']))]
-        if not group_hits:
-            return []
-        hits.extend(group_hits)
-    hits.extend(hit for phrase in rule.get('also_explain', [])
-                if (hit := literal_evidence(query, phrase, 'retrieval.rules.' + rule['id'])))
-    return hits
 
 
 def discover_candidates(query, records, routes, context):
@@ -131,11 +106,21 @@ def discover_candidates(query, records, routes, context):
             raise ValueError('host candidate violates provider scope or explicit exclusion')
         if negated(query, hint['evidence_text']):
             raise ValueError('host candidate evidence is explicitly excluded')
-        if key not in found:
+        if key in found:
+            evidence={'field':'host.candidates','matched_expression':hint['evidence_text'],
+                      'origin':'host_interpretation_unverified'}
+            if evidence not in found[key]['evidence']:
+                found[key]['evidence'].append(evidence)
+        else:
             found[key] = {'record':record,'role':hint['role'],'score':EVIDENCE_SCORE,
                           'evidence':[{'field':'host.candidates','matched_expression':hint['evidence_text'],
                                        'origin':'host_interpretation_unverified'}],
                           'reason':'Host-supplied interpretation, structurally validated but not semantically verified by CLI.'}
+    for key,item in list(found.items()):
+        group=item['record']['composition'].get('exclusive_group')
+        choice=context['answers'].get('choose:'+group) if group else None
+        if choice and choice != key[1]:
+            del found[key]
     return found
 
 
@@ -144,6 +129,17 @@ def route_query(query, runtime, index, context, limits, fast=True):
     scene_leaves = {leaf for scene in index['scenarios'] for leaf in scene['primary_leaves']}
     seeded_leaves = {key[0] for key in candidates}
     shortcut = fast and bool(seeded_leaves) and seeded_leaves <= scene_leaves
+    # A cheap literal guard prevents a scene shortcut from losing a second task.
+    guarded = 0
+    shared = Counter(normalize(word) for route in runtime['routes'] for word in set(route['keywords']))
+    for route in runtime['routes']:
+        if route['leaf_id'] in scene_leaves:
+            continue
+        guarded += 1
+        if any(shared[normalize(word)] == 1 and len(normalize(word)) >= 3
+               and literal_evidence(query,word,'runtime.guard') for word in route['keywords']):
+            shortcut = False
+            break
     if any(route.get('provider') and normalize(route['provider']) in positive_query(query) for route in runtime['routes']):
         shortcut = False
     # A non-scene explicit technical term must still get the generic path.
@@ -176,5 +172,5 @@ def route_query(query, runtime, index, context, limits, fast=True):
         by_leaf[id] = max(by_leaf.get(id,(0,routes[id])),(candidate['score'],routes[id]),key=lambda item:item[0])
     ranked = sorted(by_leaf.values(),key=lambda pair:(-pair[0],pair[1]['leaf_id']))
     return ranked,candidates,{'route_mode':'scenario_fast_path' if shortcut else 'generic',
-                              'runtime_routes_scored':scanned, 'retrieval_entries_checked':len(index['entries']),
+                              'runtime_routes_scored':scanned, 'runtime_literal_guards_checked':guarded, 'retrieval_entries_checked':len(index['entries']),
                               'score_kind':'uncalibrated_heuristic_rank'}

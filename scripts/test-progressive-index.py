@@ -150,4 +150,5 @@ for leaf in json.loads((ROOT / "index/leaves.json").read_text(encoding="utf-8"))
     assert result["matches"] and result["matches"][0]["leaf_id"] == leaf["leaf_id"], f"title route drift: {leaf['leaf_id']}"
 subprocess.run([sys.executable, str(ROOT / "scripts/test-dashboard-patterns.py")], check=True)
 subprocess.run([sys.executable, '-B', str(ROOT/'scripts/test-user-outcomes.py')], check=True)
+subprocess.run([sys.executable, '-B', str(ROOT/'scripts/test-review.py')], check=True)
 print(f"progressive query ok: {len(CASES)} scenarios")

@@ -64,6 +64,18 @@ npx skills add https://github.com/konglong87/feeling-to-jargon -g
 删除列表项，5 秒内撤销并支持键盘；撤销时要沿原路径回来。
 ```
 
+## 安装后如何调用
+
+在任意消费项目中，以安装的 `SKILL.md` 所在目录作为 `SKILL_DIR`：
+
+```bash
+python3 <SKILL_DIR>/scripts/query.py "我想做一个有质感的网站" --format agent
+```
+
+这是自包含的只读入口，不需要另找源码仓库，也不依赖消费项目的当前工作目录。正文仍在源码叶子中唯一维护；随包运行资源由构建器生成并校验，无需联网、解包写盘或额外 Python 依赖（需要 Python 3.9+）。
+
+`agent` 输出保留完整知识正文、必需依赖、场景流程与范围约束，只压缩重复解释和诊断。需要调试时可切回兼容的 `--format full`。原话未命中时，宿主可按 Skill 的有限 catalog / 证据回填协议理解改写；这与原始 CLI 自带语义能力是两回事。
+
 ## 渐进式索引
 
 **知识组织、检索路由与知识组合分别负责“存在哪里”“找到什么”“怎样一起完成任务”。不以分类更细或命中更多叶子作为目标。**
@@ -101,7 +113,7 @@ CLI 使用有限词法与组合证据，不是向量或 LLM 语义检索。分�
 
 配方只引用已有条目、`contract_ref` 与 `composition`。部分命中保留已确定内容，只询问改变方案的信息；无场景时回退到通用检索，无知识时明确覆盖不足。候选输出区分 `explicit` 与 `suggestion`，没有参数依据时不替用户填数值。
 
-[架构与验收方案](docs/evaluation/architecture.md) · [CLI/宿主调用契约](docs/routing-contract.md) · [真实输入评测](docs/evaluation/report.md)
+[架构与验收方案](docs/evaluation/architecture.md) · [CLI/宿主调用契约](docs/routing-contract.md) · [初版真实输入评测](docs/evaluation/report.md) · [真实宿主复审与成本](docs/evaluation/review/report.md)
 
 ## 按需查询
 
@@ -220,9 +232,12 @@ python3 scripts/query-index.py "玻璃点阵月份指标联动"
 6. 跑校验和端到端查询：
 
 ```bash
+python3 scripts/build-skill.py # 源码/知识/调用契约改动后重建随包资源
 python3 scripts/validate-index.py
 python3 scripts/test-progressive-index.py # 包含 Dashboard 与真实白话/组合回归
 python3 scripts/evaluate-user-outcomes.py # 重新测量；不覆盖修改前基线
+python3 scripts/evaluate-review.py # 复审固定输入的完整/紧凑输出对比
+python3 scripts/verify-host-review.py # 核对保留的真实宿主证据，不会重新调用模型
 python3 scripts/query-index.py "一个真实用户请求"
 ```
 

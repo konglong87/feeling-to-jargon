@@ -1,0 +1,323 @@
+{
+  "baseline_revision": "c42dd4a",
+  "method": "Frozen before review edits. Additional natural requests and adversarial scope/negation cases; not distribution accuracy.",
+  "cases": [
+    {
+      "id": "negated-clauses",
+      "query": "不用 GSAP，要让网页有质感",
+      "required": [
+        "token-system"
+      ],
+      "forbidden": [
+        "gsap-core",
+        "gsap-react-lifecycle"
+      ],
+      "expected_status": null,
+      "notes": ""
+    },
+    {
+      "id": "negated-late",
+      "query": "后端要稳定，不考虑扩容",
+      "required": [
+        "availability-patterns"
+      ],
+      "forbidden": [
+        "scaling-strategies",
+        "capacity-model",
+        "idempotency-contract"
+      ],
+      "expected_status": null,
+      "notes": ""
+    },
+    {
+      "id": "no-provider",
+      "query": "不是 GPUIX，只是普通网页",
+      "required": [],
+      "forbidden": [
+        "gpui-mobile",
+        "gpui-desktop-web"
+      ],
+      "expected_status": null,
+      "notes": ""
+    },
+    {
+      "id": "negated-quality",
+      "query": "页面不要暗色玻璃，只想层次清楚",
+      "required": [
+        "composition-patterns"
+      ],
+      "forbidden": [
+        "liquid-glass-bar",
+        "tonal-dark-dashboard"
+      ],
+      "expected_status": null,
+      "notes": ""
+    },
+    {
+      "id": "scope-mixing",
+      "query": "我最近情绪不稳定，还要开发网站",
+      "required": [],
+      "forbidden": [
+        "availability-patterns",
+        "token-system"
+      ],
+      "expected_status": null,
+      "notes": ""
+    },
+    {
+      "id": "cross-clause",
+      "query": "后端的文档在这里，我的椅子不稳定",
+      "required": [],
+      "forbidden": [
+        "availability-patterns"
+      ],
+      "expected_status": null,
+      "notes": ""
+    },
+    {
+      "id": "not-software",
+      "query": "很多人同时用这个洗衣间也别挤",
+      "required": [],
+      "forbidden": [
+        "capacity-model"
+      ],
+      "expected_status": null,
+      "notes": ""
+    },
+    {
+      "id": "idiom-clear",
+      "query": "网页上到处都在抢注意力，想让重点更突出",
+      "required": [
+        "composition-patterns"
+      ],
+      "forbidden": [],
+      "expected_status": null,
+      "notes": ""
+    },
+    {
+      "id": "natural-quality",
+      "query": "网站看着廉价，能不能做得更专业",
+      "required": [
+        "token-system"
+      ],
+      "forbidden": [],
+      "expected_status": null,
+      "notes": ""
+    },
+    {
+      "id": "capacity-rewrite",
+      "query": "一堆用户一起来的时候，服务也要响应快",
+      "required": [
+        "capacity-model"
+      ],
+      "forbidden": [],
+      "expected_status": null,
+      "notes": ""
+    },
+    {
+      "id": "repeat-rewrite",
+      "query": "付款按钮多按几回，别扣好几笔",
+      "required": [
+        "idempotency-contract"
+      ],
+      "forbidden": [],
+      "expected_status": null,
+      "notes": ""
+    },
+    {
+      "id": "repeat-not",
+      "query": "这篇小说的提交情节重复太多",
+      "required": [],
+      "forbidden": [
+        "idempotency-contract"
+      ],
+      "expected_status": null,
+      "notes": ""
+    },
+    {
+      "id": "undo-rewrite",
+      "query": "手滑删错了还能撤回吗",
+      "required": [
+        "undo-window",
+        "motion-accessibility",
+        "reverse-animation"
+      ],
+      "forbidden": [],
+      "expected_status": null,
+      "notes": ""
+    },
+    {
+      "id": "undo-keyboard",
+      "query": "删除后能恢复，按 Tab 找得到按钮",
+      "required": [
+        "undo-window",
+        "motion-accessibility"
+      ],
+      "forbidden": [],
+      "expected_status": null,
+      "notes": ""
+    },
+    {
+      "id": "quality-long",
+      "query": "需要的是页面显得讲究些，不是暗色发光",
+      "required": [
+        "token-system"
+      ],
+      "forbidden": [
+        "tonal-dark-dashboard",
+        "liquid-glass-bar"
+      ],
+      "expected_status": null,
+      "notes": ""
+    },
+    {
+      "id": "mixed-nonscene",
+      "query": "我想做一个有质感的网站，还要毛绒玩偶",
+      "required": [
+        "token-system",
+        "character-ip"
+      ],
+      "forbidden": [],
+      "expected_status": null,
+      "notes": ""
+    },
+    {
+      "id": "mixed-provider",
+      "query": "网站有质感一点，GSAP 用在 React 里",
+      "required": [
+        "token-system",
+        "gsap-react-lifecycle"
+      ],
+      "forbidden": [],
+      "expected_status": null,
+      "notes": ""
+    },
+    {
+      "id": "within-clause-uncovered",
+      "query": "做工业分区布局再证明黎曼猜想",
+      "required": [
+        "layout-patterns"
+      ],
+      "forbidden": [],
+      "expected_status": "partial_coverage",
+      "notes": ""
+    },
+    {
+      "id": "partial-unknown",
+      "query": "页面需要清爽，顺便帮我诊断咳嗽",
+      "required": [
+        "composition-patterns"
+      ],
+      "forbidden": [],
+      "expected_status": "partial_coverage",
+      "notes": ""
+    },
+    {
+      "id": "ambiguous-plain",
+      "query": "想要舒服又高级",
+      "required": [],
+      "forbidden": [],
+      "expected_status": "needs_clarification",
+      "notes": ""
+    },
+    {
+      "id": "availability-context",
+      "query": "在线服务断了也别影响大家继续操作",
+      "required": [
+        "availability-patterns"
+      ],
+      "forbidden": [],
+      "expected_status": null,
+      "notes": ""
+    },
+    {
+      "id": "generic-canonical",
+      "query": "information-hierarchy",
+      "required": [
+        "information-hierarchy"
+      ],
+      "forbidden": [],
+      "expected_status": null,
+      "notes": ""
+    },
+    {
+      "id": "undo-known",
+      "query": "允许撤销10秒，删除后能反悔",
+      "required": [
+        "undo-window"
+      ],
+      "forbidden": [],
+      "expected_status": null,
+      "notes": ""
+    },
+    {
+      "id": "english",
+      "query": "I want a polished website, not glassmorphism",
+      "required": [],
+      "forbidden": [
+        "liquid-glass-bar"
+      ],
+      "expected_status": null,
+      "notes": ""
+    },
+    {
+      "id": "document-no-ui",
+      "query": "论文的页面看着乱，需要理清论证而非网站设计",
+      "required": [],
+      "forbidden": [
+        "composition-patterns",
+        "token-system"
+      ],
+      "expected_status": null,
+      "notes": ""
+    },
+    {
+      "id": "mode-negative",
+      "query": "不要工业分区布局，想比较暖色三栏布局",
+      "required": [
+        "layout-patterns"
+      ],
+      "forbidden": [],
+      "expected_status": null,
+      "notes": ""
+    },
+    {
+      "id": "provider-negation-alt",
+      "query": "React 不依赖GSAP，只用原生CSS动画",
+      "required": [],
+      "forbidden": [
+        "gsap-react-lifecycle"
+      ],
+      "expected_status": null,
+      "notes": ""
+    },
+    {
+      "id": "large-not-concurrency",
+      "query": "很多人用的服务，平时错峰，不存在同时访问",
+      "required": [],
+      "forbidden": [
+        "capacity-model"
+      ],
+      "expected_status": null,
+      "notes": ""
+    },
+    {
+      "id": "not-reliable",
+      "query": "不是要稳定后端，是要稳定的椅子",
+      "required": [],
+      "forbidden": [
+        "availability-patterns"
+      ],
+      "expected_status": null,
+      "notes": ""
+    },
+    {
+      "id": "clutter-metaphor",
+      "query": "网站像赶集，眼睛没地方落",
+      "required": [],
+      "forbidden": [],
+      "expected_status": null,
+      "notes": "Host-only semantic recovery; raw CLI may abstain."
+    }
+  ]
+}

@@ -54,7 +54,24 @@
                 "层次"
               ]
             ],
-            "role": "suggestion"
+            "role": "suggestion",
+            "subject_group": 0,
+            "topic_breakers": [
+              "论文",
+              "论证",
+              "小说"
+            ],
+            "scope_any": [
+              "网站",
+              "网页",
+              "界面",
+              "布局",
+              "页面"
+            ],
+            "exclude_any": [
+              "论证",
+              "情节"
+            ]
           }
         ],
         "questions": [

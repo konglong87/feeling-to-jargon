@@ -27,7 +27,7 @@ python3 scripts/query-index.py "我想做一个有质感的网站" --no-fast-pat
 
 `composition.required` 是必需引用；`conditional` 只在显式条件命中时进入同一原子依赖闭包；`exclusive_group` 表示不可直接合并的主布局。`contract_ref` 继续沿用，Dashboard 只投影共享协议，不输出十套审美示例。松散 `related` 不自动展开。例子中的配色、栅格与时间不等于本次用户选值。
 
-## 可选宿主输入（本轮只做协议模拟测试）
+## 可选宿主输入（结构校验；真实宿主结果见复审报告）
 
 宿主可能比 CLI 更理解隐喻，但需要保留原话与证据，而不是假装 CLI 自带语义能力。宿主可将明确的既有上下文和解释写入 JSON，通过 `--context` 传入：
 
@@ -58,4 +58,27 @@ python3 scripts/query-index.py "网页需要更有呼吸感" --context context.j
 
 ## 验证边界
 
-本轮实际运行原始 CLI、关闭快路径的对照、依赖/预算端到端与模拟 host JSON。没有运行真实宿主 LLM 的完整多轮工作流，也没有实现四种场景的真实网站/后端产品，因此不声称完成 Agent 或最终产品验收。GitHub 文档截图只验证发布后的说明，不替代 CLI 与业务验收。
+初版优化运行了原始 CLI、关闭快路径对照、依赖/预算端到端与模拟 host JSON。后续复审增加了实际安装后的真实 Codex 宿主、原话回退与确认后的多轮交付，记录在 `docs/evaluation/review/report.md`；这不等于所有宿主或最终网站/后端产品均通过验收。CLI 不自行认证宿主语义；GitHub 文档截图只验证发布后的说明。
+
+## 安装入口与紧凑交付（复审补充）
+
+安装包是完整 Skill，而不是要求用户保留源码仓库。以 SKILL.md 的实际目录作为 `SKILL_DIR`，在任意消费项目调用：
+
+```bash
+python3 <SKILL_DIR>/scripts/query.py "网站像赶集，眼睛没地方落" --format agent
+python3 <SKILL_DIR>/scripts/query.py --catalog "信息 留白"
+python3 <SKILL_DIR>/scripts/query.py --resource templates/aigc/base-ip.json --format agent
+```
+
+`--format full` 保留原兼容 JSON 和诊断信息；`--format agent` 使用紧凑序列化，删除重复诊断/场景外壳，不裁剪 `matches / dependencies` 的正文与关键约束。`--catalog` 只返回有限数量的已有 ID 和名称，不是语义判断；`--resource` 只读取一个明确的逻辑 JSON 引用，禁止拿整个索引代替按需加载。
+
+宿主需要补充候选或确认信息时，从 stdin 传 JSON，避免临时上下文文件：
+
+```bash
+printf '%s' '{"candidates":[{"leaf_id":"composition-patterns","entry_id":"composition-patterns","evidence_text":"网站像赶集","role":"suggestion"}]}' |
+  python3 <SKILL_DIR>/scripts/query.py "网站像赶集，眼睛没地方落" --context - --format agent
+```
+
+`choose:<exclusive_group>` 回答必须是该组的实际条目 ID，例如 `choose:dashboard-primary-layout = industrial-zones-dashboard`，组合器只加载已选方案；`source:*` 只接受真正存在的来源澄清项，不能用任意 entry ID 伪造已确认状态。
+
+源码正文仍只有一份；`scripts/build-skill.py` 生成运行 ZIP 与随包契约，`--check` 校验派生包是否过期。启动器校验内容哈希、安全路径和资源总大小，直接从只读 ZIP 内导入 Python 并按需读取 JSON，不临时解包、不创建知识缓存或新数据库。

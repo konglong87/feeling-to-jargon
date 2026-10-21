@@ -5,12 +5,15 @@ import argparse
 import json
 import re
 import time
+import zipfile
 from pathlib import Path
 from lexical import normalize, score, select_entries, positive_int
 from routing_policy import ROOT, RETRIEVAL_INDEX, MAX_CONTENT_CHARS
 from retrieval import context_from_file, route_query, literal_evidence, positive_query, negated
 from composition import Composer, content_size
 from scenario_delivery import delivery
+from output_formats import agent_output, catalog
+from routing_policy import CATALOG_LIMIT
 
 
 class KnowledgeLoader:
@@ -22,7 +25,11 @@ class KnowledgeLoader:
         if not path.is_relative_to(self.root.resolve()) or path.suffix != '.json':
             raise ValueError('knowledge reference must be a repository JSON path')
         if relative not in self.cache:
-            self.cache[relative] = json.loads(path.read_text(encoding='utf-8'))
+            if self.root.is_file():
+                with zipfile.ZipFile(self.root) as archive:
+                    self.cache[relative] = json.loads(archive.read(relative).decode('utf-8'))
+            else:
+                self.cache[relative] = json.loads(path.read_text(encoding='utf-8'))
             self.read_paths.append(relative)
         return self.cache[relative]
 
@@ -97,6 +104,10 @@ def query_knowledge(query, args):
             terms=select_entries(positive_query(query),leaf['entries'],len(leaf['entries']),limits['route_score_margin'],leaf.get('default_entry_id'))
             selected=[generic_candidate(query,route,record_by_key[(route['leaf_id'],term['id'])],value) for term in terms]
         for candidate in selected:
+            group=candidate['record']['composition'].get('exclusive_group')
+            choice=context['answers'].get('choose:'+group) if group else None
+            if choice and choice != candidate['record']['entry_id']:
+                continue
             key=(route['leaf_id'],candidate['record']['entry_id'])
             candidates.setdefault(key,candidate)
             composer.add(key,candidate['role'],candidate['reason'])
@@ -127,18 +138,37 @@ def query_knowledge(query, args):
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('query',nargs='+',help='raw user request')
+    parser.add_argument('query',nargs='*',help='raw user request')
     parser.add_argument('--max-leaves',type=positive_int)
     parser.add_argument('--max-entries',type=positive_int)
     parser.add_argument('--max-chars',type=positive_int,help='knowledge body budget, not model tokens; may only lower policy limit')
     parser.add_argument('--no-fast-path',action='store_true',help='audit with generic route scan while retaining composition contracts')
+    parser.add_argument('--format', choices=('full','agent'), default='full', help='agent removes diagnostic duplication, not required knowledge')
+    parser.add_argument('--resource', help='read one exact terms/ or templates/ JSON reference from installed knowledge')
+    parser.add_argument('--catalog', action='store_true', help='bounded lexical discovery of known IDs for host interpretation')
+    parser.add_argument('--catalog-domain', help='optional existing domain ID to bound catalog discovery')
+    parser.add_argument('--catalog-limit', type=positive_int, default=CATALOG_LIMIT)
     parser.add_argument('--context',help='optional host JSON: providers, answers, evidence-grounded candidates; no model is called')
     args=parser.parse_args()
     try:
-        output=query_knowledge(' '.join(args.query),args)
+        if args.resource:
+            if not args.resource.startswith(('terms/','templates/')):
+                raise ValueError('resource must name an exact terms/ or templates/ reference')
+            output={'source':args.resource,'content':KnowledgeLoader(ROOT)(args.resource)}
+        elif args.catalog:
+            index=KnowledgeLoader(ROOT)(RETRIEVAL_INDEX)
+            if args.catalog_domain and args.catalog_domain not in {record['domain_id'] for record in index['entries']}:
+                raise ValueError('unknown catalog domain ID')
+            output=catalog(index,' '.join(args.query),args.catalog_limit,args.catalog_domain)
+        else:
+            if not args.query:
+                parser.error('a raw query is required unless using --catalog or --resource')
+            output=query_knowledge(' '.join(args.query),args)
+            if args.format=='agent':
+                output=agent_output(output)
     except (ValueError,KeyError,StopIteration,OSError) as error:
         parser.error(str(error))
-    print(json.dumps(output,ensure_ascii=False,indent=2))
+    print(json.dumps(output,ensure_ascii=False,**({'separators':(',',':')} if args.format=='agent' or args.catalog else {'indent':2})))
 
 
 if __name__=='__main__':

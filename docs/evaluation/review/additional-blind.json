@@ -1,0 +1,96 @@
+[
+  {
+    "id": "spring",
+    "query": "手指松开后，希望它像弹簧一样回到原处",
+    "status": "coverage_insufficient",
+    "leaf_ids": [],
+    "raw_cli_only": true
+  },
+  {
+    "id": "hold",
+    "query": "按住不放才执行，提前松手就取消",
+    "status": "coverage_insufficient",
+    "leaf_ids": [],
+    "raw_cli_only": true
+  },
+  {
+    "id": "undo-swipe",
+    "query": "滑走删掉以后还能撤回来",
+    "status": "needs_clarification",
+    "leaf_ids": [
+      "undo-window",
+      "motion-accessibility",
+      "reverse-animation"
+    ],
+    "raw_cli_only": true
+  },
+  {
+    "id": "timeline",
+    "query": "一张卡停下来以后，再把旁边那条线画出来",
+    "status": "coverage_insufficient",
+    "leaf_ids": [],
+    "raw_cli_only": true
+  },
+  {
+    "id": "month",
+    "query": "切换月份以后，所有图表跟着更新",
+    "status": "coverage_insufficient",
+    "leaf_ids": [],
+    "raw_cli_only": true
+  },
+  {
+    "id": "dense",
+    "query": "界面东西挤在一起，想让重点醒目",
+    "status": "needs_clarification",
+    "leaf_ids": [
+      "composition-patterns"
+    ],
+    "raw_cli_only": true
+  },
+  {
+    "id": "sync",
+    "query": "房间换到卧室后，右边的控制也换过去",
+    "status": "coverage_insufficient",
+    "leaf_ids": [],
+    "raw_cli_only": true
+  },
+  {
+    "id": "throughput",
+    "query": "请求一下子涌进来时，别排队太久",
+    "status": "partial_coverage",
+    "leaf_ids": [
+      "capacity-model"
+    ],
+    "raw_cli_only": true
+  },
+  {
+    "id": "repeat-order",
+    "query": "手快点了两次下单，不要生成两笔订单",
+    "status": "needs_clarification",
+    "leaf_ids": [
+      "idempotency-contract"
+    ],
+    "raw_cli_only": true
+  },
+  {
+    "id": "irrelevant",
+    "query": "我想知道怎么给猫剪指甲",
+    "status": "coverage_insufficient",
+    "leaf_ids": [],
+    "raw_cli_only": true
+  },
+  {
+    "id": "not-style",
+    "query": "写作风格太花哨，但不是要改网站",
+    "status": "coverage_insufficient",
+    "leaf_ids": [],
+    "raw_cli_only": true
+  },
+  {
+    "id": "implicit-undo",
+    "query": "删完才发现选错了，能不能有后悔药",
+    "status": "coverage_insufficient",
+    "leaf_ids": [],
+    "raw_cli_only": true
+  }
+]

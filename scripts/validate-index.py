@@ -103,4 +103,5 @@ for route in routes:
     assert route_intents <= known_intents, f"runtime intent mismatch: {route['leaf_id']}"
     assert route["keywords"], f"empty runtime keywords: {route['leaf_id']}"
 subprocess.run([sys.executable, '-B', str(ROOT/'scripts/validate-routing.py')], check=True)
+subprocess.run([sys.executable, '-B', str(ROOT/'scripts/build-skill.py'), '--check'], check=True)
 print(f"index ok: {len(root)} domains, {len(packages)} legacy packages, {len(leaves)} progressive leaves, {len(routes)} runtime routes")

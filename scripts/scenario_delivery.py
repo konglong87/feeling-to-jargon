@@ -1,7 +1,7 @@
 """Build actionable, bounded handoffs from recipes and composed source entries."""
 from __future__ import annotations
 import re
-from retrieval import clauses, normalize
+from retrieval import clauses, normalize, positive_query
 from routing_policy import (MAX_QUESTIONS, AMBIGUOUS_TERMS, COMPARISON_TERMS, BASE_OUTPUT_FIELDS,
                             STATUS_READY, STATUS_CLARIFY, STATUS_UNCOVERED, STATUS_PARTIAL, STATUS_STAGING, STATUS_VERIFY)
 
@@ -47,7 +47,9 @@ def delivery(query, candidates, matches, dependencies, recipes, records, context
         if not selected:
             continue
         slots={q['id'] for key in selected for q in record_by_id[key]['retrieval'].get('questions',[])}
-        needed=[q for id,q in questions.items() if id in slots or id.startswith('source:')]
+        slots.update('source:' + key[1] for key in selected if record_by_id[key].get('source_question'))
+        slots.update('choose:' + record_by_id[key]['composition']['exclusive_group'] for key in selected if record_by_id[key]['composition'].get('exclusive_group'))
+        needed=[q for id,q in questions.items() if id in slots]
         plans.append({'scenario_id':scene['id'],'name':scene['name'],
                       'match':'partial' if needed else 'ready',
                       'selected_knowledge':[{'leaf_id':key[0],'entry_id':key[1]} for key in sorted(selected)],
@@ -58,7 +60,7 @@ def delivery(query, candidates, matches, dependencies, recipes, records, context
     evidence=[item['matched_expression'] for exp in explanations for item in exp['evidence']]
     unaccounted=[]
     for clause in clauses(query):
-        if any(normalize(text) in normalize(clause) for text in evidence):
+        if any(normalize(text) in normalize(clause) or normalize(clause) in normalize(text) for text in evidence):
             continue
         # Required dependencies can cover keyboard and their other authored expressions.
         searchable=' '.join(str(entry) for _,entry in entry_pairs)
@@ -70,11 +72,15 @@ def delivery(query, candidates, matches, dependencies, recipes, records, context
                          if all('\u4e00' <= ch <= '\u9fff' for ch in clause[i:i+3])}
             if any(fragment in searchable for fragment in fragments):
                 continue
-            if clause.startswith(('不需要', '不用', '不要')):
+            if not positive_query(clause).strip():
                 continue  # continuation/exclusion, not a new covered capability claim
         if clause and (not matches or len(clauses(query))>1):
             unaccounted.append(clause)
-    if not matches and re.fullmatch(r'(?:想要|想|要|有|更|更有|希望|感觉|看起来|太|不)?(?:' + '|'.join(AMBIGUOUS_TERMS) + r')(?:一点|一些|点|些|了|点儿)?[。.!?]*', query.strip()):
+    ambiguous_remainder=query.strip()
+    for word in AMBIGUOUS_TERMS:
+        ambiguous_remainder=ambiguous_remainder.replace(word,'')
+    is_vague=any(word in query for word in AMBIGUOUS_TERMS) and bool(re.fullmatch(r'[想要有更太一点些了又和且希望感觉看起来。.!?\s]*',ambiguous_remainder))
+    if not matches and is_vague:
         questions['scope']={'id':'scope','question':'你说的是软件服务的可靠性、界面视觉，还是其他对象？请补充对象与具体不满意之处。'}
         unaccounted=[]
     elif unaccounted and matches:

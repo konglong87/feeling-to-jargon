@@ -1,0 +1,7 @@
+{
+  "schema_version": "1.0.0",
+  "generated_by": "scripts/build-skill.py",
+  "source_of_truth": "Repository scripts/index/terms/templates; do not hand-edit generated bundle.",
+  "sha256": "5ad3c64cce8b64d22381de5055e2a7788262b9c69b64dc9c1c2f14f372fc2a72",
+  "file_count": 216
+}
