@@ -83,3 +83,16 @@ printf '%s' '{"candidates":[{"leaf_id":"composition-patterns","entry_id":"compos
 `choose:<exclusive_group>` 回答必须是该组的实际条目 ID，例如 `choose:dashboard-primary-layout = industrial-zones-dashboard`，组合器只加载已选方案；`source:*` 只接受真正存在的来源澄清项，不能用任意 entry ID 伪造已确认状态。
 
 源码正文仍只有一份；`scripts/build-skill.py` 生成运行 ZIP 与随包契约，`--check` 校验派生包是否过期。启动器校验内容哈希、安全路径和资源总大小，直接从只读 ZIP 内导入 Python 并按需读取 JSON，不临时解包、不创建知识缓存或新数据库。
+
+
+## Feeling-first terminology previews (2026-10-21)
+
+`candidate_terms` is the user-facing terminology surface, not a mandate to load more leaves. `terms` are verbatim source-backed selections, with literal user expressions, applicability, role and source ID. `knowledge_loaded=false` explicitly means implementation constraints have NOT been loaded. Offer conditional explanations first, then ask only a scope question; do not turn source example numbers/materials into defaults.
+
+Author optional `retrieval.feelings` beside the owning entry. Prefer `rule_ref` to reuse an existing scoped rule: the generator derives feeling groups from its non-subject groups and applicability from its subject group; do not maintain a second copy of the same cue list. Reuse conjunctive `all`, `scope_any`, `exclude_any` and the evidence matcher. `terms` must quote existing canonical name/definition/parameters (validator enforced); the generator projects them, no independent thesaurus. Short cue-only inputs may preview directions without a domain; named nonmatching objects are not silently treated as UI/services. An explicit same-clause matching scope seeds normal routing/composition. `context.answers.feeling_scope` accepts only an authored scope (e.g. 页面/按钮/后端), then uses the original feeling to load the chosen domain through the same composer. Provider-specific knowledge is never activated by feelings alone.
+
+Preview limits are centralized in `routing_policy.py`: at most four unloaded directions, four terms per direction, definition capped at 120 characters. Loaded entries remain represented even if they exceed the optional preview count; their existing body limits still apply. `omitted_directions` reports optional preview clipping. Required constraints are not preview text and remain atomic under the body budget.
+
+`output_cost` reports compact JSON Unicode character counts before adding its own cost object, plus terminology, explanations and knowledge component sizes. This is not tokens or billing. Actual printed full/compact lengths and real-host tool-output counts are measured separately in evaluation; index reads are not model-context payloads.
+
+Feeling previews keep the original clause around modifiers such as 再稳一点; they must not strip a named object by treating 再 as a topic break. Bare ambiguous 后台 does not select Dashboard styles without design evidence; the routing policy centralizes this gate. Preview terms do not turn an uncovered second request into a covered one, and preview-only output never claims knowledge bundles have been assembled.

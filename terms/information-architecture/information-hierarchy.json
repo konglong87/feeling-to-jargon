@@ -29,7 +29,51 @@
       "constraints": [
         "不要用颜色和图标堆叠替代结构"
       ],
-      "aliases": []
+      "aliases": [],
+      "retrieval": {
+        "feelings": [
+          {
+            "id": "felt-hierarchy",
+            "all": [
+              [
+                "乱",
+                "挤",
+                "没重点",
+                "没有重点",
+                "主次不清",
+                "找不到重点",
+                "眼花",
+                "杂乱"
+              ]
+            ],
+            "scope_any": [
+              "网站",
+              "网页",
+              "页面",
+              "界面",
+              "布局",
+              "dashboard"
+            ],
+            "terms": [
+              "信息层级",
+              "主任务优先"
+            ],
+            "role": "suggestion",
+            "exclude_any": [
+              "论文",
+              "论证",
+              "小说",
+              "情节"
+            ]
+          }
+        ],
+        "questions": [
+          {
+            "id": "primary_task",
+            "question": "页面最重要的信息和用户要完成的任务是什么？"
+          }
+        ]
+      }
     }
   ]
 }

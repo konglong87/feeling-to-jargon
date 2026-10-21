@@ -11,7 +11,7 @@ ROOT=Path(__file__).resolve().parents[1]
 SKILL=ROOT/'skills/feeling-to-jargon'
 RUNTIME_MODULES=(
     'query-index.py','routing_policy.py','lexical.py','text_evidence.py',
-    'retrieval.py','composition.py','scenario_delivery.py','output_formats.py',
+    'retrieval.py','feeling_preview.py','composition.py','scenario_delivery.py','output_formats.py',
 )
 
 

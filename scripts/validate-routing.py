@@ -22,7 +22,7 @@ def validate():
     for key,record in records.items():
         if record['scope']=='provider-specific':
             assert record['provider'],'provider-specific content must name its provider'
-        for rule in record['retrieval'].get('rules',[]):
+        for rule in record['retrieval'].get('rules',[]) + record['retrieval'].get('feelings',[]):
             assert rule['role'] in ('explicit','suggestion')
             assert rule['all'] and all(group and all(isinstance(v,str) and v.strip() for v in group) for group in rule['all'])
         question_ids={item['id'] for item in record['retrieval'].get('questions',[])}
@@ -34,6 +34,11 @@ def validate():
             assert target.is_relative_to(ROOT.resolve()) and target.is_file(),'unsafe or missing contract'
             json.loads(target.read_text())
         entry=next(e for e in authored[key[0]]['entries'] if e['id']==key[1])
+        for feeling in record['retrieval'].get('feelings',[]):
+            assert feeling['role'] == 'suggestion', 'feelings cannot decide user requirements'
+            assert feeling.get('scope_any') and all(isinstance(v,str) and v.strip() for v in feeling['scope_any'])
+            source = ' '.join([entry['name'],entry['plain_language'],*entry.get('parameters',[])])
+            assert feeling.get('terms') and all(isinstance(v,str) and v.strip() and v in source for v in feeling['terms']), 'preview terms must quote canonical knowledge'
         assert all(entry.get(field) for field in record['required_fields']),'mandatory effect constraints missing'
         refs=list(record['composition'].get('required',[]))
         refs.extend(item['ref'] for item in record['composition'].get('conditional',[]))

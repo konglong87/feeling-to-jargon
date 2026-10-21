@@ -29,7 +29,34 @@
       "constraints": [
         "不能产生双重回调或状态竞态"
       ],
-      "aliases": []
+      "aliases": [],
+      "retrieval": {
+        "feelings": [
+          {
+            "id": "felt-continuity",
+            "all": [
+              [
+                "顺滑",
+                "丝滑",
+                "不连贯"
+              ]
+            ],
+            "scope_any": [
+              "按钮",
+              "动效",
+              "动画",
+              "拖拽",
+              "滑动",
+              "滚动",
+              "交互"
+            ],
+            "terms": [
+              "可中断与恢复"
+            ],
+            "role": "suggestion"
+          }
+        ]
+      }
     }
   ]
 }

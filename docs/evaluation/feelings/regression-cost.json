@@ -1,0 +1,1389 @@
+{
+  "original30": {
+    "summary": {
+      "cases": 30,
+      "cases_missing_required": 0,
+      "cases_with_forbidden": 0,
+      "status_mismatches": 0,
+      "mean_full_chars": 8949.5,
+      "mean_agent_chars": 3701.6,
+      "agent_reduction_fraction": 0.5864,
+      "median_cli_ms": 55.94
+    },
+    "cases": [
+      {
+        "id": "backend-technical",
+        "query": "后端需要高可用、高并发、高扩展",
+        "leaf_ids": [
+          "availability-patterns",
+          "capacity-model",
+          "scaling-strategies"
+        ],
+        "entry_ids": [
+          "availability-patterns",
+          "capacity-model",
+          "scaling-strategies"
+        ],
+        "status": "needs_clarification",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 14944,
+        "agent_output_chars": 5889,
+        "knowledge_chars": 1985,
+        "elapsed_ms": 66.188,
+        "loaded_leaves": 3,
+        "loaded_entries": 3,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": []
+      },
+      {
+        "id": "backend-vague",
+        "query": "我想做一个大型的后端，给很多人用，要稳定。",
+        "leaf_ids": [
+          "availability-patterns",
+          "capacity-model"
+        ],
+        "entry_ids": [
+          "availability-patterns",
+          "capacity-model"
+        ],
+        "status": "needs_clarification",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 11790,
+        "agent_output_chars": 4728,
+        "knowledge_chars": 1344,
+        "elapsed_ms": 56.731,
+        "loaded_leaves": 2,
+        "loaded_entries": 2,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": []
+      },
+      {
+        "id": "backend-availability",
+        "query": "后端要稳定，别老是宕机。",
+        "leaf_ids": [
+          "availability-patterns"
+        ],
+        "entry_ids": [
+          "availability-patterns"
+        ],
+        "status": "needs_clarification",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 8350,
+        "agent_output_chars": 3350,
+        "knowledge_chars": 707,
+        "elapsed_ms": 55.337,
+        "loaded_leaves": 1,
+        "loaded_entries": 1,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": []
+      },
+      {
+        "id": "capacity",
+        "query": "很多人同时用也别卡。",
+        "leaf_ids": [
+          "capacity-model"
+        ],
+        "entry_ids": [
+          "capacity-model"
+        ],
+        "status": "needs_clarification",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 8151,
+        "agent_output_chars": 3280,
+        "knowledge_chars": 666,
+        "elapsed_ms": 55.399,
+        "loaded_leaves": 1,
+        "loaded_entries": 1,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": []
+      },
+      {
+        "id": "idempotency",
+        "query": "重复点提交别出错。",
+        "leaf_ids": [
+          "idempotency-contract"
+        ],
+        "entry_ids": [
+          "idempotency-contract"
+        ],
+        "status": "needs_clarification",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 7798,
+        "agent_output_chars": 3123,
+        "knowledge_chars": 726,
+        "elapsed_ms": 55.57,
+        "loaded_leaves": 1,
+        "loaded_entries": 1,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": []
+      },
+      {
+        "id": "quality",
+        "query": "我想做一个有质感的网站。",
+        "leaf_ids": [
+          "token-system"
+        ],
+        "entry_ids": [
+          "token-system"
+        ],
+        "status": "needs_clarification",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 7544,
+        "agent_output_chars": 3015,
+        "knowledge_chars": 633,
+        "elapsed_ms": 55.859,
+        "loaded_leaves": 1,
+        "loaded_entries": 1,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": []
+      },
+      {
+        "id": "clutter",
+        "query": "页面看着太乱了，希望舒服一点。",
+        "leaf_ids": [
+          "composition-patterns",
+          "information-hierarchy"
+        ],
+        "entry_ids": [
+          "composition-patterns",
+          "information-hierarchy"
+        ],
+        "status": "needs_clarification",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 11382,
+        "agent_output_chars": 4535,
+        "knowledge_chars": 1265,
+        "elapsed_ms": 55.661,
+        "loaded_leaves": 2,
+        "loaded_entries": 2,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": []
+      },
+      {
+        "id": "undo",
+        "query": "删除后可以反悔，而且键盘也能操作。",
+        "leaf_ids": [
+          "undo-window",
+          "motion-accessibility",
+          "reverse-animation"
+        ],
+        "entry_ids": [
+          "undo-window",
+          "undo-aria",
+          "undo-live",
+          "reverse-path",
+          "reduced-motion"
+        ],
+        "status": "needs_clarification",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 12703,
+        "agent_output_chars": 5037,
+        "knowledge_chars": 2714,
+        "elapsed_ms": 62.218,
+        "loaded_leaves": 3,
+        "loaded_entries": 5,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": []
+      },
+      {
+        "id": "industrial",
+        "query": "做工业分区布局，选中物料后联动补货卡。",
+        "leaf_ids": [
+          "layout-patterns"
+        ],
+        "entry_ids": [
+          "industrial-zones-dashboard"
+        ],
+        "status": "needs_clarification",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 12113,
+        "agent_output_chars": 5328,
+        "knowledge_chars": 2924,
+        "elapsed_ms": 59.787,
+        "loaded_leaves": 1,
+        "loaded_entries": 1,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": []
+      },
+      {
+        "id": "industrial-title",
+        "query": "我要一个工业分区布局的 Dashboard",
+        "leaf_ids": [
+          "layout-patterns"
+        ],
+        "entry_ids": [
+          "industrial-zones-dashboard"
+        ],
+        "status": "needs_clarification",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 12117,
+        "agent_output_chars": 5330,
+        "knowledge_chars": 2924,
+        "elapsed_ms": 57.919,
+        "loaded_leaves": 1,
+        "loaded_entries": 1,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": []
+      },
+      {
+        "id": "uncovered",
+        "query": "请推导黎曼猜想的完整证明。",
+        "leaf_ids": [],
+        "entry_ids": [],
+        "status": "coverage_insufficient",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 3207,
+        "agent_output_chars": 1293,
+        "knowledge_chars": 0,
+        "elapsed_ms": 54.12,
+        "loaded_leaves": 0,
+        "loaded_entries": 0,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": [
+          "请推导黎曼猜想的完整证明"
+        ]
+      },
+      {
+        "id": "noise",
+        "query": "hello world",
+        "leaf_ids": [],
+        "entry_ids": [],
+        "status": "coverage_insufficient",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 3203,
+        "agent_output_chars": 1290,
+        "knowledge_chars": 0,
+        "elapsed_ms": 53.995,
+        "loaded_leaves": 0,
+        "loaded_entries": 0,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": [
+          "hello world"
+        ]
+      },
+      {
+        "id": "ambiguous",
+        "query": "要稳定一点。",
+        "leaf_ids": [],
+        "entry_ids": [],
+        "status": "needs_clarification",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 3926,
+        "agent_output_chars": 1780,
+        "knowledge_chars": 0,
+        "elapsed_ms": 54.095,
+        "loaded_leaves": 0,
+        "loaded_entries": 0,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": []
+      },
+      {
+        "id": "mixed",
+        "query": "网站看着太乱，重复点提交还会出错。",
+        "leaf_ids": [
+          "composition-patterns",
+          "idempotency-contract",
+          "information-hierarchy"
+        ],
+        "entry_ids": [
+          "composition-patterns",
+          "idempotency-contract",
+          "information-hierarchy"
+        ],
+        "status": "needs_clarification",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 15656,
+        "agent_output_chars": 6292,
+        "knowledge_chars": 1960,
+        "elapsed_ms": 56.237,
+        "loaded_leaves": 3,
+        "loaded_entries": 3,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": []
+      },
+      {
+        "id": "gsap",
+        "query": "用 GSAP 做 React ScrollTrigger，并正确清理",
+        "leaf_ids": [
+          "gsap-scrolltrigger",
+          "gsap-react-lifecycle"
+        ],
+        "entry_ids": [
+          "gsap-scrolltrigger",
+          "gsap-react-lifecycle"
+        ],
+        "status": "needs_verification",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 11006,
+        "agent_output_chars": 4866,
+        "knowledge_chars": 2040,
+        "elapsed_ms": 62.837,
+        "loaded_leaves": 2,
+        "loaded_entries": 2,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": []
+      },
+      {
+        "id": "react-only",
+        "query": "React 动画",
+        "leaf_ids": [],
+        "entry_ids": [],
+        "status": "coverage_insufficient",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 3192,
+        "agent_output_chars": 1284,
+        "knowledge_chars": 0,
+        "elapsed_ms": 53.779,
+        "loaded_leaves": 0,
+        "loaded_entries": 0,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": [
+          "React 动画"
+        ]
+      },
+      {
+        "id": "no-gsap",
+        "query": "不用 GSAP，只用 CSS 做动画",
+        "leaf_ids": [],
+        "entry_ids": [],
+        "status": "coverage_insufficient",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 3233,
+        "agent_output_chars": 1306,
+        "knowledge_chars": 0,
+        "elapsed_ms": 57.133,
+        "loaded_leaves": 0,
+        "loaded_entries": 0,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": [
+          "不用 GSAP",
+          "只用 CSS 做动画"
+        ]
+      },
+      {
+        "id": "gpui",
+        "query": "GPUIX 能不能跑移动端？",
+        "leaf_ids": [
+          "gpui-mobile"
+        ],
+        "entry_ids": [
+          "gpui-mobile"
+        ],
+        "status": "needs_verification",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 6315,
+        "agent_output_chars": 2550,
+        "knowledge_chars": 721,
+        "elapsed_ms": 57.453,
+        "loaded_leaves": 1,
+        "loaded_entries": 1,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": []
+      },
+      {
+        "id": "metal-only",
+        "query": "Metal 动画怎么做",
+        "leaf_ids": [],
+        "entry_ids": [],
+        "status": "coverage_insufficient",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 3203,
+        "agent_output_chars": 1290,
+        "knowledge_chars": 0,
+        "elapsed_ms": 53.038,
+        "loaded_leaves": 0,
+        "loaded_entries": 0,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": [
+          "Metal 动画怎么做"
+        ]
+      },
+      {
+        "id": "effects",
+        "query": "实现液态玻璃导航并提供移动端降级",
+        "leaf_ids": [
+          "liquid-glass-bar"
+        ],
+        "entry_ids": [
+          "liquid-glass-bar"
+        ],
+        "status": "ready",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 7113,
+        "agent_output_chars": 2885,
+        "knowledge_chars": 1024,
+        "elapsed_ms": 55.681,
+        "loaded_leaves": 1,
+        "loaded_entries": 1,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": []
+      },
+      {
+        "id": "merge",
+        "query": "比较工业分区布局与暖色三栏布局",
+        "leaf_ids": [
+          "layout-patterns"
+        ],
+        "entry_ids": [
+          "industrial-zones-dashboard",
+          "warm-three-column-dashboard"
+        ],
+        "status": "needs_clarification",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 18150,
+        "agent_output_chars": 8272,
+        "knowledge_chars": 4838,
+        "elapsed_ms": 55.859,
+        "loaded_leaves": 1,
+        "loaded_entries": 2,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": []
+      },
+      {
+        "id": "entry-limit",
+        "query": "玻璃点阵月份指标联动",
+        "leaf_ids": [
+          "layout-patterns"
+        ],
+        "entry_ids": [
+          "glass-dot-matrix-dashboard"
+        ],
+        "status": "needs_clarification",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 11975,
+        "agent_output_chars": 5235,
+        "knowledge_chars": 2841,
+        "elapsed_ms": 70.358,
+        "loaded_leaves": 1,
+        "loaded_entries": 1,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": []
+      },
+      {
+        "id": "paraphrase-capacity",
+        "query": "用户一窝蜂涌进来时，响应速度不要变慢。",
+        "leaf_ids": [
+          "capacity-model"
+        ],
+        "entry_ids": [
+          "capacity-model"
+        ],
+        "status": "partial_coverage",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 7964,
+        "agent_output_chars": 3172,
+        "knowledge_chars": 666,
+        "elapsed_ms": 58.802,
+        "loaded_leaves": 1,
+        "loaded_entries": 1,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": [
+          "响应速度不要变慢"
+        ]
+      },
+      {
+        "id": "paraphrase-availability",
+        "query": "服务出故障后还能继续给用户使用吗？",
+        "leaf_ids": [
+          "availability-patterns"
+        ],
+        "entry_ids": [
+          "availability-patterns"
+        ],
+        "status": "needs_clarification",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 7889,
+        "agent_output_chars": 3154,
+        "knowledge_chars": 707,
+        "elapsed_ms": 55.822,
+        "loaded_leaves": 1,
+        "loaded_entries": 1,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": []
+      },
+      {
+        "id": "paraphrase-submit",
+        "query": "手快连按了几下确认，希望只办一次。",
+        "leaf_ids": [
+          "idempotency-contract"
+        ],
+        "entry_ids": [
+          "idempotency-contract"
+        ],
+        "status": "needs_clarification",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 7978,
+        "agent_output_chars": 3232,
+        "knowledge_chars": 726,
+        "elapsed_ms": 55.164,
+        "loaded_leaves": 1,
+        "loaded_entries": 1,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": []
+      },
+      {
+        "id": "paraphrase-visual",
+        "query": "网页的东西挤成一团，想让人一眼找到重点。",
+        "leaf_ids": [
+          "composition-patterns",
+          "information-hierarchy"
+        ],
+        "entry_ids": [
+          "composition-patterns",
+          "information-hierarchy"
+        ],
+        "status": "needs_clarification",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 11376,
+        "agent_output_chars": 4535,
+        "knowledge_chars": 1265,
+        "elapsed_ms": 57.142,
+        "loaded_leaves": 2,
+        "loaded_entries": 2,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": []
+      },
+      {
+        "id": "paraphrase-undo",
+        "query": "误删了一项还能找回来，不用鼠标也可以操作。",
+        "leaf_ids": [
+          "undo-window",
+          "motion-accessibility",
+          "reverse-animation"
+        ],
+        "entry_ids": [
+          "undo-window",
+          "undo-aria",
+          "undo-live",
+          "reverse-path",
+          "reduced-motion"
+        ],
+        "status": "needs_clarification",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 12712,
+        "agent_output_chars": 5041,
+        "knowledge_chars": 2714,
+        "elapsed_ms": 57.701,
+        "loaded_leaves": 3,
+        "loaded_entries": 5,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": []
+      },
+      {
+        "id": "not-ui",
+        "query": "我的论文读着太乱，想理顺论证。",
+        "leaf_ids": [],
+        "entry_ids": [],
+        "status": "coverage_insufficient",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 3223,
+        "agent_output_chars": 1299,
+        "knowledge_chars": 0,
+        "elapsed_ms": 57.5,
+        "loaded_leaves": 0,
+        "loaded_entries": 0,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": [
+          "我的论文读着太乱",
+          "想理顺论证"
+        ]
+      },
+      {
+        "id": "stability-no-capacity",
+        "query": "后端要稳定，不需要高并发。",
+        "leaf_ids": [
+          "availability-patterns"
+        ],
+        "entry_ids": [
+          "availability-patterns"
+        ],
+        "status": "needs_clarification",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 8046,
+        "agent_output_chars": 3252,
+        "knowledge_chars": 707,
+        "elapsed_ms": 55.034,
+        "loaded_leaves": 1,
+        "loaded_entries": 1,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": []
+      },
+      {
+        "id": "mixed-coverage",
+        "query": "工业分区布局做好后，再证明黎曼猜想。",
+        "leaf_ids": [
+          "layout-patterns"
+        ],
+        "entry_ids": [
+          "industrial-zones-dashboard"
+        ],
+        "status": "partial_coverage",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 12227,
+        "agent_output_chars": 5404,
+        "knowledge_chars": 2924,
+        "elapsed_ms": 56.021,
+        "loaded_leaves": 1,
+        "loaded_entries": 1,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": [
+          "证明黎曼猜想"
+        ]
+      }
+    ]
+  },
+  "previous_review30": {
+    "summary": {
+      "cases": 30,
+      "cases_missing_required": 0,
+      "cases_with_forbidden": 0,
+      "status_mismatches": 0,
+      "mean_full_chars": 7041.9,
+      "mean_agent_chars": 2864.9,
+      "agent_reduction_fraction": 0.5932,
+      "median_cli_ms": 56.49
+    },
+    "cases": [
+      {
+        "id": "negated-clauses",
+        "query": "不用 GSAP，要让网页有质感",
+        "leaf_ids": [
+          "token-system"
+        ],
+        "entry_ids": [
+          "token-system"
+        ],
+        "status": "needs_clarification",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 7551,
+        "agent_output_chars": 3018,
+        "knowledge_chars": 633,
+        "elapsed_ms": 56.251,
+        "loaded_leaves": 1,
+        "loaded_entries": 1,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": []
+      },
+      {
+        "id": "negated-late",
+        "query": "后端要稳定，不考虑扩容",
+        "leaf_ids": [
+          "availability-patterns"
+        ],
+        "entry_ids": [
+          "availability-patterns"
+        ],
+        "status": "needs_clarification",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 8042,
+        "agent_output_chars": 3250,
+        "knowledge_chars": 707,
+        "elapsed_ms": 54.926,
+        "loaded_leaves": 1,
+        "loaded_entries": 1,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": []
+      },
+      {
+        "id": "no-provider",
+        "query": "不是 GPUIX，只是普通网页",
+        "leaf_ids": [],
+        "entry_ids": [],
+        "status": "coverage_insufficient",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 3222,
+        "agent_output_chars": 1298,
+        "knowledge_chars": 0,
+        "elapsed_ms": 56.938,
+        "loaded_leaves": 0,
+        "loaded_entries": 0,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": [
+          "不是 GPUIX",
+          "普通网页"
+        ]
+      },
+      {
+        "id": "negated-quality",
+        "query": "页面不要暗色玻璃，只想层次清楚",
+        "leaf_ids": [
+          "composition-patterns"
+        ],
+        "entry_ids": [
+          "composition-patterns"
+        ],
+        "status": "needs_clarification",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 7616,
+        "agent_output_chars": 3089,
+        "knowledge_chars": 674,
+        "elapsed_ms": 56.366,
+        "loaded_leaves": 1,
+        "loaded_entries": 1,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": []
+      },
+      {
+        "id": "scope-mixing",
+        "query": "我最近情绪不稳定，还要开发网站",
+        "leaf_ids": [],
+        "entry_ids": [],
+        "status": "coverage_insufficient",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 3222,
+        "agent_output_chars": 1298,
+        "knowledge_chars": 0,
+        "elapsed_ms": 56.274,
+        "loaded_leaves": 0,
+        "loaded_entries": 0,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": [
+          "我最近情绪不稳定",
+          "开发网站"
+        ]
+      },
+      {
+        "id": "cross-clause",
+        "query": "后端的文档在这里，我的椅子不稳定",
+        "leaf_ids": [],
+        "entry_ids": [],
+        "status": "coverage_insufficient",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 3227,
+        "agent_output_chars": 1302,
+        "knowledge_chars": 0,
+        "elapsed_ms": 56.355,
+        "loaded_leaves": 0,
+        "loaded_entries": 0,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": [
+          "后端的文档在这里",
+          "我的椅子不稳定"
+        ]
+      },
+      {
+        "id": "not-software",
+        "query": "很多人同时用这个洗衣间也别挤",
+        "leaf_ids": [],
+        "entry_ids": [],
+        "status": "coverage_insufficient",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 3211,
+        "agent_output_chars": 1296,
+        "knowledge_chars": 0,
+        "elapsed_ms": 59.133,
+        "loaded_leaves": 0,
+        "loaded_entries": 0,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": [
+          "很多人同时用这个洗衣间也别挤"
+        ]
+      },
+      {
+        "id": "idiom-clear",
+        "query": "网页上到处都在抢注意力，想让重点更突出",
+        "leaf_ids": [
+          "composition-patterns"
+        ],
+        "entry_ids": [
+          "composition-patterns"
+        ],
+        "status": "needs_clarification",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 7624,
+        "agent_output_chars": 3093,
+        "knowledge_chars": 674,
+        "elapsed_ms": 56.58,
+        "loaded_leaves": 1,
+        "loaded_entries": 1,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": []
+      },
+      {
+        "id": "natural-quality",
+        "query": "网站看着廉价，能不能做得更专业",
+        "leaf_ids": [
+          "token-system"
+        ],
+        "entry_ids": [
+          "token-system"
+        ],
+        "status": "needs_clarification",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 7847,
+        "agent_output_chars": 3112,
+        "knowledge_chars": 633,
+        "elapsed_ms": 58.523,
+        "loaded_leaves": 1,
+        "loaded_entries": 1,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": []
+      },
+      {
+        "id": "capacity-rewrite",
+        "query": "一堆用户一起来的时候，服务也要响应快",
+        "leaf_ids": [
+          "capacity-model"
+        ],
+        "entry_ids": [
+          "capacity-model"
+        ],
+        "status": "partial_coverage",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 7963,
+        "agent_output_chars": 3171,
+        "knowledge_chars": 666,
+        "elapsed_ms": 176.406,
+        "loaded_leaves": 1,
+        "loaded_entries": 1,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": [
+          "服务也要响应快"
+        ]
+      },
+      {
+        "id": "repeat-rewrite",
+        "query": "付款按钮多按几回，别扣好几笔",
+        "leaf_ids": [
+          "idempotency-contract"
+        ],
+        "entry_ids": [
+          "idempotency-contract"
+        ],
+        "status": "partial_coverage",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 7921,
+        "agent_output_chars": 3203,
+        "knowledge_chars": 726,
+        "elapsed_ms": 56.198,
+        "loaded_leaves": 1,
+        "loaded_entries": 1,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": [
+          "别扣好几笔"
+        ]
+      },
+      {
+        "id": "repeat-not",
+        "query": "这篇小说的提交情节重复太多",
+        "leaf_ids": [],
+        "entry_ids": [],
+        "status": "coverage_insufficient",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 3209,
+        "agent_output_chars": 1294,
+        "knowledge_chars": 0,
+        "elapsed_ms": 55.543,
+        "loaded_leaves": 0,
+        "loaded_entries": 0,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": [
+          "这篇小说的提交情节重复太多"
+        ]
+      },
+      {
+        "id": "undo-rewrite",
+        "query": "手滑删错了还能撤回吗",
+        "leaf_ids": [
+          "undo-window",
+          "motion-accessibility",
+          "reverse-animation"
+        ],
+        "entry_ids": [
+          "undo-window",
+          "undo-aria",
+          "undo-live",
+          "reverse-path",
+          "reduced-motion"
+        ],
+        "status": "needs_clarification",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 12690,
+        "agent_output_chars": 5030,
+        "knowledge_chars": 2714,
+        "elapsed_ms": 56.535,
+        "loaded_leaves": 3,
+        "loaded_entries": 5,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": []
+      },
+      {
+        "id": "undo-keyboard",
+        "query": "删除后能恢复，按 Tab 找得到按钮",
+        "leaf_ids": [
+          "undo-window",
+          "motion-accessibility",
+          "reverse-animation"
+        ],
+        "entry_ids": [
+          "undo-window",
+          "undo-aria",
+          "undo-live",
+          "reverse-path",
+          "reduced-motion"
+        ],
+        "status": "partial_coverage",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 12831,
+        "agent_output_chars": 5125,
+        "knowledge_chars": 2714,
+        "elapsed_ms": 58.295,
+        "loaded_leaves": 3,
+        "loaded_entries": 5,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": [
+          "按 Tab 找得到按钮"
+        ]
+      },
+      {
+        "id": "quality-long",
+        "query": "需要的是页面显得讲究些，不是暗色发光",
+        "leaf_ids": [
+          "token-system"
+        ],
+        "entry_ids": [
+          "token-system"
+        ],
+        "status": "needs_clarification",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 7556,
+        "agent_output_chars": 3021,
+        "knowledge_chars": 633,
+        "elapsed_ms": 56.775,
+        "loaded_leaves": 1,
+        "loaded_entries": 1,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": []
+      },
+      {
+        "id": "mixed-nonscene",
+        "query": "我想做一个有质感的网站，还要毛绒玩偶",
+        "leaf_ids": [
+          "token-system",
+          "character-ip"
+        ],
+        "entry_ids": [
+          "token-system",
+          "base-ip",
+          "scene-module"
+        ],
+        "status": "needs_clarification",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 12212,
+        "agent_output_chars": 4990,
+        "knowledge_chars": 1496,
+        "elapsed_ms": 56.407,
+        "loaded_leaves": 2,
+        "loaded_entries": 3,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": []
+      },
+      {
+        "id": "mixed-provider",
+        "query": "网站有质感一点，GSAP 用在 React 里",
+        "leaf_ids": [
+          "token-system",
+          "gsap-react-lifecycle"
+        ],
+        "entry_ids": [
+          "token-system",
+          "gsap-react-lifecycle"
+        ],
+        "status": "needs_verification",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 11965,
+        "agent_output_chars": 4873,
+        "knowledge_chars": 1642,
+        "elapsed_ms": 69.013,
+        "loaded_leaves": 2,
+        "loaded_entries": 2,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": []
+      },
+      {
+        "id": "within-clause-uncovered",
+        "query": "做工业分区布局再证明黎曼猜想",
+        "leaf_ids": [
+          "layout-patterns"
+        ],
+        "entry_ids": [
+          "industrial-zones-dashboard"
+        ],
+        "status": "partial_coverage",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 12219,
+        "agent_output_chars": 5400,
+        "knowledge_chars": 2924,
+        "elapsed_ms": 58.448,
+        "loaded_leaves": 1,
+        "loaded_entries": 1,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": [
+          "证明黎曼猜想"
+        ]
+      },
+      {
+        "id": "partial-unknown",
+        "query": "页面需要清爽，顺便帮我诊断咳嗽",
+        "leaf_ids": [
+          "composition-patterns"
+        ],
+        "entry_ids": [
+          "composition-patterns"
+        ],
+        "status": "partial_coverage",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 7765,
+        "agent_output_chars": 3155,
+        "knowledge_chars": 674,
+        "elapsed_ms": 55.005,
+        "loaded_leaves": 1,
+        "loaded_entries": 1,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": [
+          "帮我诊断咳嗽"
+        ]
+      },
+      {
+        "id": "ambiguous-plain",
+        "query": "想要舒服又高级",
+        "leaf_ids": [],
+        "entry_ids": [],
+        "status": "needs_clarification",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 3259,
+        "agent_output_chars": 1333,
+        "knowledge_chars": 0,
+        "elapsed_ms": 54.651,
+        "loaded_leaves": 0,
+        "loaded_entries": 0,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": []
+      },
+      {
+        "id": "availability-context",
+        "query": "在线服务断了也别影响大家继续操作",
+        "leaf_ids": [
+          "availability-patterns"
+        ],
+        "entry_ids": [
+          "availability-patterns"
+        ],
+        "status": "needs_clarification",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 8058,
+        "agent_output_chars": 3261,
+        "knowledge_chars": 707,
+        "elapsed_ms": 57.212,
+        "loaded_leaves": 1,
+        "loaded_entries": 1,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": []
+      },
+      {
+        "id": "generic-canonical",
+        "query": "information-hierarchy",
+        "leaf_ids": [
+          "information-hierarchy"
+        ],
+        "entry_ids": [
+          "information-hierarchy"
+        ],
+        "status": "needs_clarification",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 7615,
+        "agent_output_chars": 2945,
+        "knowledge_chars": 620,
+        "elapsed_ms": 54.975,
+        "loaded_leaves": 1,
+        "loaded_entries": 1,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": []
+      },
+      {
+        "id": "undo-known",
+        "query": "允许撤销10秒，删除后能反悔",
+        "leaf_ids": [
+          "undo-window",
+          "motion-accessibility",
+          "reverse-animation"
+        ],
+        "entry_ids": [
+          "undo-window",
+          "undo-aria",
+          "undo-live",
+          "reverse-path",
+          "reduced-motion"
+        ],
+        "status": "partial_coverage",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 12815,
+        "agent_output_chars": 5113,
+        "knowledge_chars": 2714,
+        "elapsed_ms": 56.169,
+        "loaded_leaves": 3,
+        "loaded_entries": 5,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": [
+          "允许撤销10秒"
+        ]
+      },
+      {
+        "id": "english",
+        "query": "I want a polished website, not glassmorphism",
+        "leaf_ids": [],
+        "entry_ids": [],
+        "status": "coverage_insufficient",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 3310,
+        "agent_output_chars": 1357,
+        "knowledge_chars": 0,
+        "elapsed_ms": 60.106,
+        "loaded_leaves": 0,
+        "loaded_entries": 0,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": [
+          "I want a polished website",
+          "not glassmorphism"
+        ]
+      },
+      {
+        "id": "document-no-ui",
+        "query": "论文的页面看着乱，需要理清论证而非网站设计",
+        "leaf_ids": [],
+        "entry_ids": [],
+        "status": "coverage_insufficient",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 3250,
+        "agent_output_chars": 1313,
+        "knowledge_chars": 0,
+        "elapsed_ms": 56.124,
+        "loaded_leaves": 0,
+        "loaded_entries": 0,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": [
+          "论文的页面看着乱",
+          "需要理清论证",
+          "网站设计"
+        ]
+      },
+      {
+        "id": "mode-negative",
+        "query": "不要工业分区布局，想比较暖色三栏布局",
+        "leaf_ids": [
+          "layout-patterns"
+        ],
+        "entry_ids": [
+          "warm-three-column-dashboard"
+        ],
+        "status": "needs_clarification",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 12123,
+        "agent_output_chars": 5386,
+        "knowledge_chars": 2888,
+        "elapsed_ms": 57.319,
+        "loaded_leaves": 1,
+        "loaded_entries": 1,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": []
+      },
+      {
+        "id": "provider-negation-alt",
+        "query": "React 不依赖GSAP，只用原生CSS动画",
+        "leaf_ids": [],
+        "entry_ids": [],
+        "status": "coverage_insufficient",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 3248,
+        "agent_output_chars": 1316,
+        "knowledge_chars": 0,
+        "elapsed_ms": 57.533,
+        "loaded_leaves": 0,
+        "loaded_entries": 0,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": [
+          "React 不依赖GSAP",
+          "只用原生CSS动画"
+        ]
+      },
+      {
+        "id": "large-not-concurrency",
+        "query": "很多人用的服务，平时错峰，不存在同时访问",
+        "leaf_ids": [],
+        "entry_ids": [],
+        "status": "coverage_insufficient",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 3248,
+        "agent_output_chars": 1312,
+        "knowledge_chars": 0,
+        "elapsed_ms": 56.445,
+        "loaded_leaves": 0,
+        "loaded_entries": 0,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": [
+          "很多人用的服务",
+          "平时错峰",
+          "不存在同时访问"
+        ]
+      },
+      {
+        "id": "not-reliable",
+        "query": "不是要稳定后端，是要稳定的椅子",
+        "leaf_ids": [],
+        "entry_ids": [],
+        "status": "coverage_insufficient",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 3224,
+        "agent_output_chars": 1300,
+        "knowledge_chars": 0,
+        "elapsed_ms": 60.652,
+        "loaded_leaves": 0,
+        "loaded_entries": 0,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": [
+          "不是要稳定后端",
+          "是要稳定的椅子"
+        ]
+      },
+      {
+        "id": "clutter-metaphor",
+        "query": "网站像赶集，眼睛没地方落",
+        "leaf_ids": [],
+        "entry_ids": [],
+        "status": "coverage_insufficient",
+        "missing": [],
+        "forbidden": [],
+        "status_mismatch": false,
+        "full_output_chars": 3214,
+        "agent_output_chars": 1294,
+        "knowledge_chars": 0,
+        "elapsed_ms": 55.721,
+        "loaded_leaves": 0,
+        "loaded_entries": 0,
+        "full_agent_knowledge_identical": true,
+        "unaccounted_clauses": [
+          "网站像赶集",
+          "眼睛没地方落"
+        ]
+      }
+    ]
+  }
+}

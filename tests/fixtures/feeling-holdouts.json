@@ -1,0 +1,384 @@
+[
+  {
+    "id": "h01",
+    "query": "看着有些挤，想要舒服一点",
+    "expected_directions": [
+      "information-hierarchy",
+      "composition-patterns"
+    ],
+    "forbidden_directions": [
+      "liquid-glass",
+      "gsap-performance",
+      "idempotency-contract",
+      "scaling-strategies"
+    ],
+    "expected_status": "needs_clarification"
+  },
+  {
+    "id": "h02",
+    "query": "能不能有点呼吸感",
+    "expected_directions": [
+      "composition-patterns"
+    ],
+    "forbidden_directions": [
+      "liquid-glass",
+      "gsap-performance",
+      "idempotency-contract",
+      "scaling-strategies"
+    ],
+    "expected_status": "needs_clarification"
+  },
+  {
+    "id": "h03",
+    "query": "希望更讲究一些",
+    "expected_directions": [
+      "token-system"
+    ],
+    "forbidden_directions": [
+      "liquid-glass",
+      "gsap-performance",
+      "idempotency-contract",
+      "scaling-strategies"
+    ],
+    "expected_status": "needs_clarification"
+  },
+  {
+    "id": "h04",
+    "query": "我想高级一些",
+    "expected_directions": [
+      "token-system"
+    ],
+    "forbidden_directions": [
+      "liquid-glass",
+      "gsap-performance",
+      "idempotency-contract",
+      "scaling-strategies"
+    ],
+    "expected_status": "needs_clarification"
+  },
+  {
+    "id": "h05",
+    "query": "看起来没有重点",
+    "expected_directions": [
+      "information-hierarchy"
+    ],
+    "forbidden_directions": [
+      "liquid-glass",
+      "gsap-performance",
+      "idempotency-contract",
+      "scaling-strategies"
+    ],
+    "expected_status": "needs_clarification"
+  },
+  {
+    "id": "h06",
+    "query": "页面希望再透气一些",
+    "expected_directions": [
+      "composition-patterns"
+    ],
+    "forbidden_directions": [
+      "liquid-glass",
+      "gsap-performance",
+      "idempotency-contract",
+      "scaling-strategies"
+    ],
+    "expected_status": "needs_clarification"
+  },
+  {
+    "id": "h07",
+    "query": "能不能稳一点",
+    "expected_directions": [
+      "availability-patterns"
+    ],
+    "forbidden_directions": [
+      "liquid-glass",
+      "gsap-performance",
+      "idempotency-contract",
+      "scaling-strategies"
+    ],
+    "expected_status": "needs_clarification"
+  },
+  {
+    "id": "h08",
+    "query": "平台要更稳一些",
+    "expected_directions": [
+      "availability-patterns"
+    ],
+    "forbidden_directions": [
+      "liquid-glass",
+      "gsap-performance",
+      "idempotency-contract",
+      "scaling-strategies"
+    ],
+    "expected_status": "needs_clarification"
+  },
+  {
+    "id": "h09",
+    "query": "按钮能不能像弹簧一样",
+    "expected_directions": [
+      "spring-press"
+    ],
+    "forbidden_directions": [
+      "liquid-glass",
+      "gsap-performance",
+      "idempotency-contract",
+      "scaling-strategies"
+    ],
+    "expected_status": "needs_clarification"
+  },
+  {
+    "id": "h10",
+    "query": "动画希望丝滑一些",
+    "expected_directions": [
+      "velocity-inheritance",
+      "interruption"
+    ],
+    "forbidden_directions": [
+      "liquid-glass",
+      "gsap-performance",
+      "idempotency-contract",
+      "scaling-strategies"
+    ],
+    "expected_status": "needs_clarification"
+  },
+  {
+    "id": "h11",
+    "query": "我希望界面看着不那么拥挤",
+    "expected_directions": [
+      "composition-patterns",
+      "information-hierarchy"
+    ],
+    "forbidden_directions": [
+      "liquid-glass",
+      "gsap-performance",
+      "idempotency-contract",
+      "scaling-strategies"
+    ],
+    "expected_status": "needs_clarification"
+  },
+  {
+    "id": "h12",
+    "query": "我希望看起来更精致一些",
+    "expected_directions": [
+      "token-system"
+    ],
+    "forbidden_directions": [
+      "liquid-glass",
+      "gsap-performance",
+      "idempotency-contract",
+      "scaling-strategies"
+    ],
+    "expected_status": "needs_clarification"
+  },
+  {
+    "id": "h13",
+    "query": "后台别在大家一起来的时候趴窝",
+    "expected_directions": [
+      "availability-patterns",
+      "capacity-model"
+    ],
+    "forbidden_directions": [
+      "liquid-glass",
+      "gsap-performance",
+      "idempotency-contract",
+      "scaling-strategies"
+    ],
+    "expected_status": "needs_clarification"
+  },
+  {
+    "id": "h14",
+    "query": "屏幕像早高峰，眼睛没地方落",
+    "expected_directions": [
+      "composition-patterns",
+      "information-hierarchy"
+    ],
+    "forbidden_directions": [
+      "liquid-glass",
+      "gsap-performance",
+      "idempotency-contract",
+      "scaling-strategies"
+    ],
+    "expected_status": "needs_clarification"
+  },
+  {
+    "id": "h15",
+    "query": "滑起来别一顿一顿",
+    "expected_directions": [
+      "velocity-inheritance",
+      "interruption"
+    ],
+    "forbidden_directions": [
+      "liquid-glass",
+      "gsap-performance",
+      "idempotency-contract",
+      "scaling-strategies"
+    ],
+    "expected_status": "needs_clarification"
+  },
+  {
+    "id": "h16",
+    "query": "按钮压下去以后想让它自己弹回来",
+    "expected_directions": [
+      "spring-press"
+    ],
+    "forbidden_directions": [
+      "liquid-glass",
+      "gsap-performance",
+      "idempotency-contract",
+      "scaling-strategies"
+    ],
+    "expected_status": "needs_clarification"
+  },
+  {
+    "id": "h17",
+    "query": "办公室想要再透气一些",
+    "expected_directions": [],
+    "forbidden_directions": [
+      "liquid-glass",
+      "gsap-performance",
+      "idempotency-contract",
+      "scaling-strategies",
+      "composition-patterns",
+      "information-hierarchy",
+      "token-system",
+      "availability-patterns",
+      "spring-press",
+      "velocity-inheritance",
+      "interruption"
+    ],
+    "expected_status": "coverage_insufficient"
+  },
+  {
+    "id": "h18",
+    "query": "论文没有重点，帮我整理论证",
+    "expected_directions": [],
+    "forbidden_directions": [
+      "liquid-glass",
+      "gsap-performance",
+      "idempotency-contract",
+      "scaling-strategies",
+      "composition-patterns",
+      "information-hierarchy",
+      "token-system",
+      "availability-patterns",
+      "spring-press",
+      "velocity-inheritance",
+      "interruption"
+    ],
+    "expected_status": "coverage_insufficient"
+  },
+  {
+    "id": "h19",
+    "query": "不要高级感，不用玻璃渐变",
+    "expected_directions": [],
+    "forbidden_directions": [
+      "liquid-glass",
+      "gsap-performance",
+      "idempotency-contract",
+      "scaling-strategies",
+      "composition-patterns",
+      "information-hierarchy",
+      "token-system",
+      "availability-patterns",
+      "spring-press",
+      "velocity-inheritance",
+      "interruption"
+    ],
+    "expected_status": "coverage_insufficient"
+  },
+  {
+    "id": "h20",
+    "query": "椅子能不能再稳一点",
+    "expected_directions": [],
+    "forbidden_directions": [
+      "liquid-glass",
+      "gsap-performance",
+      "idempotency-contract",
+      "scaling-strategies",
+      "composition-patterns",
+      "information-hierarchy",
+      "token-system",
+      "availability-patterns",
+      "spring-press",
+      "velocity-inheritance",
+      "interruption"
+    ],
+    "expected_status": "coverage_insufficient"
+  },
+  {
+    "id": "h21",
+    "query": "帮我测一颗系外行星的轨道",
+    "expected_directions": [],
+    "forbidden_directions": [
+      "liquid-glass",
+      "gsap-performance",
+      "idempotency-contract",
+      "scaling-strategies",
+      "composition-patterns",
+      "information-hierarchy",
+      "token-system",
+      "availability-patterns",
+      "spring-press",
+      "velocity-inheritance",
+      "interruption"
+    ],
+    "expected_status": "coverage_insufficient"
+  },
+  {
+    "id": "h22",
+    "query": "菜做得更讲究一些",
+    "expected_directions": [],
+    "forbidden_directions": [
+      "liquid-glass",
+      "gsap-performance",
+      "idempotency-contract",
+      "scaling-strategies",
+      "composition-patterns",
+      "information-hierarchy",
+      "token-system",
+      "availability-patterns",
+      "spring-press",
+      "velocity-inheritance",
+      "interruption"
+    ],
+    "expected_status": "coverage_insufficient"
+  },
+  {
+    "id": "h23",
+    "query": "衣服穿起来太挤了",
+    "expected_directions": [],
+    "forbidden_directions": [
+      "liquid-glass",
+      "gsap-performance",
+      "idempotency-contract",
+      "scaling-strategies",
+      "composition-patterns",
+      "information-hierarchy",
+      "token-system",
+      "availability-patterns",
+      "spring-press",
+      "velocity-inheritance",
+      "interruption"
+    ],
+    "expected_status": "coverage_insufficient"
+  },
+  {
+    "id": "h24",
+    "query": "不要有质感，暂不做网站设计",
+    "expected_directions": [],
+    "forbidden_directions": [
+      "liquid-glass",
+      "gsap-performance",
+      "idempotency-contract",
+      "scaling-strategies",
+      "composition-patterns",
+      "information-hierarchy",
+      "token-system",
+      "availability-patterns",
+      "spring-press",
+      "velocity-inheritance",
+      "interruption"
+    ],
+    "expected_status": "coverage_insufficient"
+  }
+]

@@ -34,3 +34,16 @@ CATALOG_PREFIX_CHARS = 2
 CATALOG_IDENTITY_BONUS = 4
 CATALOG_BODY_WEIGHT = 1
 NEGATION_SCOPE_CHARS = 12
+
+# Optional feeling previews do not consume the implementation knowledge budget.
+MAX_FEELING_DIRECTIONS = 4
+MAX_TERMS_PER_DIRECTION = 4
+MAX_TERM_DEFINITION_CHARS = 120
+FEELING_FILLERS = ('像', '一样', '我希望', '看起来', '给人的感觉', '感觉', '看着', '我想', '希望', '想要',
+                   '能不能', '一些', '一点', '一下', '有点', '有些', '更加', '有', '些', '更',
+                   '太', '很', '要', '再', '点', '了', '的', '地', '得', '不', '别')
+
+# 再稳一点 is a modifier within one subject, not a new topic.
+FEELING_CLAUSE_SEPARATORS = CLAUSE_SEPARATORS.replace('|再(?=.{2,})', '')
+# A bare 后台 can mean a service or a dashboard; it is not evidence for visual styles.
+AMBIGUOUS_ROUTE_SCOPES = {'后台': ('设计', '界面', '排版', '布局', '仪表盘')}

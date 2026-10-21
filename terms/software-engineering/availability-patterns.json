@@ -54,7 +54,9 @@
                 "不中断",
                 "可用",
                 "断了",
-                "掉线"
+                "掉线",
+                "稳",
+                "可靠"
               ]
             ],
             "role": "suggestion",
@@ -72,6 +74,18 @@
           {
             "id": "failure_tolerance",
             "question": "关键服务允许中断多久、最多能丢失多少数据？"
+          }
+        ],
+        "feelings": [
+          {
+            "id": "felt-reliability",
+            "rule_ref": "service-reliability",
+            "terms": [
+              "高可用模式",
+              "故障转移",
+              "RTO",
+              "RPO"
+            ]
           }
         ]
       }

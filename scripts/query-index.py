@@ -12,7 +12,8 @@ from routing_policy import ROOT, RETRIEVAL_INDEX, MAX_CONTENT_CHARS
 from retrieval import context_from_file, route_query, literal_evidence, positive_query, negated
 from composition import Composer, content_size
 from scenario_delivery import delivery
-from output_formats import agent_output, catalog
+from output_formats import agent_output, catalog, output_cost
+from feeling_preview import discover_feelings, terminology, add_preview_delivery
 from routing_policy import CATALOG_LIMIT
 
 
@@ -132,8 +133,13 @@ def query_knowledge(query, args):
         'content_budget_scope':'Canonical JSON of matches+dependencies; explanation/delivery envelope reported separately.',
         'routing_ms':round(routing_ms,3),'total_processing_ms':round((time.perf_counter()-started)*1000,3),**route_trace,
     }
-    return {'query':query,'strategy':'progressive','trace':trace,'matches':matches,'dependencies':dependencies,
-            **result,'network_search':'not_requested'}
+    output = {'query':query,'strategy':'progressive','trace':trace,'matches':matches,'dependencies':dependencies,
+              **result,'network_search':'not_requested'}
+    terms, omitted = terminology(candidates, discover_feelings(query,index['entries'],context), matches)
+    add_preview_delivery(output, terms, omitted)
+    trace['candidate_terms_chars'] = len(json.dumps(terms,ensure_ascii=False,separators=(',',':')))
+    trace['total_processing_ms'] = round((time.perf_counter()-started)*1000,3)
+    return output
 
 
 def main():
@@ -168,6 +174,8 @@ def main():
                 output=agent_output(output)
     except (ValueError,KeyError,StopIteration,OSError) as error:
         parser.error(str(error))
+    if 'matches' in output:
+        output['output_cost'] = output_cost(output)
     print(json.dumps(output,ensure_ascii=False,**({'separators':(',',':')} if args.format=='agent' or args.catalog else {'indent':2})))
 
 

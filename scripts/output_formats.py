@@ -1,5 +1,6 @@
 """Presentation only: compact host handoff never drops source knowledge."""
 from copy import deepcopy
+import json
 import re
 from lexical import normalize
 from routing_policy import (CATALOG_LIMIT, CATALOG_MAX_LIMIT, CATALOG_SUMMARY_CHARS,
@@ -9,7 +10,7 @@ from routing_policy import (CATALOG_LIMIT, CATALOG_MAX_LIMIT, CATALOG_SUMMARY_CH
 def agent_output(result):
     output={key:deepcopy(result[key]) for key in (
         'query','status','matches','dependencies','clarifications','deferred_clarifications',
-        'coverage','composition','verification_required','network_search')}
+        'coverage','composition','verification_required','network_search','candidate_terms','terminology_preview')}
     explanations=[]
     for item in result['explanations']:
         evidence=[]
@@ -29,7 +30,7 @@ def agent_output(result):
                         'ready_for_final_prompt':result['delivery']['ready_for_final_prompt'],
                         'acceptance_checks':result['delivery']['acceptance_checks']}
     output['usage']={key:result['trace'][key] for key in (
-        'loaded_leaf_count','loaded_entry_count','context_chars','content_char_limit')}
+        'loaded_leaf_count','loaded_entry_count','context_chars','content_char_limit','candidate_terms_chars')}
     output['format']='agent'
     return output
 
@@ -60,3 +61,14 @@ def catalog(index,query,limit=CATALOG_LIMIT,domain=None):
     return {'mode':'catalog','query':query,'candidates':matches[:count],
             'total_matches':len(matches),'omitted':max(0,len(matches)-count),
             'semantics':'Lexical ID discovery only; not evidence that these candidates fit the original request.'}
+
+
+def output_cost(output):
+    """Deterministic character accounting, not model token/billing estimates."""
+    def size(value):
+        return len(json.dumps(value,ensure_ascii=False,separators=(',',':')))
+    return {'unit':'unicode_characters_not_tokens',
+            'compact_payload_chars_without_cost':size(output),
+            'candidate_terms_chars':size(output.get('candidate_terms',[])),
+            'explanations_chars':size(output.get('explanations',[])),
+            'knowledge_chars':size({'matches':output.get('matches',[]),'dependencies':output.get('dependencies',[])})}

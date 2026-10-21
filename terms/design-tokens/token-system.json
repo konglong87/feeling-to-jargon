@@ -50,17 +50,36 @@
                 "精致",
                 "高级",
                 "专业",
-                "讲究"
+                "讲究",
+                "廉价"
               ]
             ],
             "role": "suggestion",
-            "subject_group": 0
+            "subject_group": 0,
+            "exclude_any": [
+              "论文",
+              "论证",
+              "小说",
+              "情节"
+            ]
           }
         ],
         "questions": [
           {
             "id": "visual_priority",
             "question": "更想改善排版层级、留白、配色一致性还是材质？有没有偏好的参考？"
+          }
+        ],
+        "feelings": [
+          {
+            "id": "felt-quality",
+            "rule_ref": "visual-quality",
+            "terms": [
+              "文字层级",
+              "主强调色",
+              "圆角/阴影",
+              "卡片材质"
+            ]
           }
         ]
       }

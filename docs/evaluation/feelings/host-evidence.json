@@ -1,0 +1,1790 @@
+{
+  "kind": "Actual installed Codex host execution, not hand-authored candidate contexts",
+  "host": "codex-cli 0.154.0-alpha.6.1, inherited configured model; no model override",
+  "environment": "macOS; copied Skills installation via skills@1.7.4; real read-only sandbox",
+  "scope": "In-session source snapshots for first four runs; verified run matches the final bundled runtime SHA256.",
+  "limits": "Captured batch tool outputs sometimes omit an earlier command payload. Absence is not proof of a successful body load. Captured character counts are observations, not a strict cost ceiling. Full host tokens include global instructions/history and are NOT skill marginal cost.",
+  "privacy": "Only installed-skill commands, known query payloads and final answers retained; raw private logs/config/stderr removed after review.",
+  "runs": [
+    {
+      "id": "short",
+      "live_host": true,
+      "completed": true,
+      "commands": [
+        {
+          "command": "/bin/zsh -lc 'cat .agents/skills/feeling-to-jargon/SKILL.md'",
+          "exit_code": 0,
+          "captured_output_chars": 4195,
+          "captured_payload_count": 0
+        },
+        {
+          "command": "/bin/zsh -lc 'python3 <SKILL_DIR>/scripts/query.py \"太挤了。\" --format agent'",
+          "exit_code": 0,
+          "captured_output_chars": 2718,
+          "captured_payload_count": 1
+        }
+      ],
+      "query_payloads": [
+        {
+          "query": "太挤了。",
+          "status": "needs_clarification",
+          "matches": [],
+          "dependencies": [],
+          "clarifications": [
+            {
+              "id": "feeling_scope",
+              "question": "以上术语只是候选方向。你指的对象是什么，例如页面、按钮、后端？确认对象后再细化，不必先知道专业术语。"
+            }
+          ],
+          "deferred_clarifications": [],
+          "coverage": {
+            "status": "candidate_directions_only",
+            "unaccounted_clauses": [
+              "太挤了"
+            ],
+            "limitation": "有限词法/组合规则覆盖，不是完整语义理解；有结果不代表整句全部覆盖。"
+          },
+          "composition": {
+            "conflicts": [],
+            "deferred": [],
+            "deduplication": "stable leaf+entry IDs; shared contracts by path",
+            "related_policy": "informational_only; never loaded wholesale"
+          },
+          "verification_required": [],
+          "network_search": "not_requested",
+          "candidate_terms": [
+            {
+              "leaf_id": "composition-patterns",
+              "entry_id": "composition-patterns",
+              "name": "卡片错位/大图主导/非对称/层叠/留白/破格出血",
+              "terms": [
+                "留白",
+                "比例"
+              ],
+              "definition": "用比例、层级和安全区建立页面性格；每次只让少数元素破格。",
+              "role": "suggestion",
+              "user_expressions": [
+                "挤"
+              ],
+              "applicable_when": [
+                "网站",
+                "网页",
+                "页面",
+                "界面",
+                "布局",
+                "dashboard"
+              ],
+              "scope_confirmed": false,
+              "knowledge_loaded": false,
+              "source": "terms/visual-layout/composition-patterns.json#composition-patterns"
+            },
+            {
+              "leaf_id": "information-hierarchy",
+              "entry_id": "information-hierarchy",
+              "name": "信息层级",
+              "terms": [
+                "信息层级",
+                "主任务优先"
+              ],
+              "definition": "先确定用户要做的决定，再按主次组织标题、数据、操作和辅助说明。",
+              "role": "suggestion",
+              "user_expressions": [
+                "挤"
+              ],
+              "applicable_when": [
+                "网站",
+                "网页",
+                "页面",
+                "界面",
+                "布局",
+                "dashboard"
+              ],
+              "scope_confirmed": false,
+              "knowledge_loaded": false,
+              "source": "terms/information-architecture/information-hierarchy.json#information-hierarchy"
+            }
+          ],
+          "terminology_preview": {
+            "semantics": "术语方向不是用户已选方案；未加载正文的候选只能用于解释/澄清，不能用于直接实现。",
+            "omitted_directions": 0
+          },
+          "explanations": [],
+          "delivery": {
+            "scenario_plans": [],
+            "ready_for_final_prompt": false,
+            "acceptance_checks": {
+              "dependencies_complete_for_emitted_bundles": true,
+              "detected_requests_assembled": false,
+              "whole_request_semantics_verified": false,
+              "parameters_resolved": false,
+              "conflicting_layouts_not_blended": true,
+              "host_llm_workflow_verified": false,
+              "provider_facts_verified": true
+            }
+          },
+          "usage": {
+            "loaded_leaf_count": 0,
+            "loaded_entry_count": 0,
+            "context_chars": 0,
+            "content_char_limit": 24000,
+            "candidate_terms_chars": 796
+          },
+          "format": "agent",
+          "output_cost": {
+            "unit": "unicode_characters_not_tokens",
+            "compact_payload_chars_without_cost": 2001,
+            "candidate_terms_chars": 796,
+            "explanations_chars": 2,
+            "knowledge_chars": 32,
+            "scope": "Compact serialization before adding output_cost; includes source metadata. No claim about host/global prompt tokens."
+          }
+        }
+      ],
+      "thread_id": "01a15cd0-f109-71c2-84b0-cdef1fa9376c",
+      "usage_including_global_context": {
+        "input_tokens": 82888,
+        "cached_input_tokens": 27318,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 410,
+        "reasoning_output_tokens": 147
+      },
+      "final_response": "如果你指的是**页面或界面**，“太挤了”可能对应这些专业表达：\n\n- **留白不足**：内容之间缺少空隙，看起来不透气。\n- **信息层级不清**：标题、正文、按钮都在抢注意力，主次不明显。\n- **元素比例不协调**：部分元素占比过大，挤压了其他内容的空间。\n\n你觉得挤的是**整个页面、某个局部，还是其他对象**？",
+      "captured_tool_output_chars": 6913,
+      "runtime_sha256": null
+    },
+    {
+      "id": "confirmed",
+      "live_host": true,
+      "completed": true,
+      "commands": [
+        {
+          "command": "/bin/zsh -lc 'cat <SKILL_DIR>/SKILL.md'",
+          "exit_code": 0,
+          "captured_output_chars": 4195,
+          "captured_payload_count": 0
+        },
+        {
+          "command": "/bin/zsh -lc \"printf '%s' '{\\\"answers\\\":{\\\"feeling_scope\\\":\\\"网站\\\"}}' | python3 -B <SKILL_DIR>/scripts/query.py '太挤了。说的是网站。现在最想让人一眼知道先做什么，不要替我选暗色、玻璃或渐变。' --context - --format agent\"",
+          "exit_code": 0,
+          "captured_output_chars": 4802,
+          "captured_payload_count": 1
+        },
+        {
+          "command": "/bin/zsh -lc \"python3 -B <SKILL_DIR>/scripts/query.py --catalog '信息层级 主任务 留白' --catalog-domain digital-product-uiux --format agent; cat <SKILL_DIR>/references/routing-contract.md\"",
+          "exit_code": 0,
+          "captured_output_chars": 8422,
+          "captured_payload_count": 1
+        },
+        {
+          "command": "/bin/zsh -lc \"sed -n '25,58p' <SKILL_DIR>/references/routing-contract.md\"",
+          "exit_code": 0,
+          "captured_output_chars": 1319,
+          "captured_payload_count": 0
+        },
+        {
+          "command": "/bin/zsh -lc \"printf '%s' '{\\\"answers\\\":{\\\"feeling_scope\\\":\\\"网站\\\",\\\"primary_task\\\":\\\"现在最想让人一眼知道先做什么\\\"},\\\"candidates\\\":[{\\\"leaf_id\\\":\\\"information-hierarchy\\\",\\\"entry_id\\\":\\\"information-hierarchy\\\",\\\"evidence_text\\\":\\\"现在最想让人一眼知道先做什么\\\",\\\"role\\\":\\\"suggestion\\\"},{\\\"leaf_id\\\":\\\"composition-patterns\\\",\\\"entry_id\\\":\\\"composition-patterns\\\",\\\"evidence_text\\\":\\\"太挤了\\\",\\\"role\\\":\\\"suggestion\\\"}]}' | python3 -B <SKILL_DIR>/scripts/query.py '太挤了。说的是网站。现在最想让人一眼知道先做什么，不要替我选暗色、玻璃或渐变。' --context - --format agent\"",
+          "exit_code": 0,
+          "captured_output_chars": 4947,
+          "captured_payload_count": 1
+        }
+      ],
+      "query_payloads": [
+        {
+          "query": "太挤了。说的是网站。现在最想让人一眼知道先做什么，不要替我选暗色、玻璃或渐变。",
+          "status": "partial_coverage",
+          "matches": [
+            {
+              "leaf_id": "composition-patterns",
+              "knowledge_type": "pattern",
+              "scope": "general",
+              "do_not_generalize": false,
+              "path": "terms/visual-layout/composition-patterns.json",
+              "score": 12,
+              "entries": [
+                {
+                  "id": "composition-patterns",
+                  "name": "卡片错位/大图主导/非对称/层叠/留白/破格出血",
+                  "plain_language": "用比例、层级和安全区建立页面性格；每次只让少数元素破格。",
+                  "when_to_use": "首屏、活动页、详情页和内容信息流",
+                  "parameters": [
+                    "错位按 8/12/16px 节奏",
+                    "主图可占半屏或出血",
+                    "使用 7:3 或 8:2 非对称",
+                    "只破一处网格，内容留在安全区"
+                  ],
+                  "related": [
+                    "layout-patterns",
+                    "design-tokens"
+                  ],
+                  "constraints": [
+                    "错位无规律会像未对齐",
+                    "出血过多会削弱秩序",
+                    "留白必须仍有视觉焦点"
+                  ],
+                  "aliases": []
+                }
+              ],
+              "entry_sources": [
+                {
+                  "entry_id": "composition-patterns",
+                  "role": "suggestion",
+                  "source_refs": [
+                    "user_query"
+                  ]
+                }
+              ],
+              "provider": null
+            },
+            {
+              "leaf_id": "information-hierarchy",
+              "knowledge_type": "principle",
+              "scope": "general",
+              "do_not_generalize": false,
+              "path": "terms/information-architecture/information-hierarchy.json",
+              "score": 12,
+              "entries": [
+                {
+                  "id": "information-hierarchy",
+                  "name": "信息层级",
+                  "plain_language": "先确定用户要做的决定，再按主次组织标题、数据、操作和辅助说明。",
+                  "when_to_use": "复杂后台、内容页和移动端首页",
+                  "parameters": [
+                    "主任务优先",
+                    "每屏保留一个视觉主角",
+                    "用密度和留白表达层级"
+                  ],
+                  "related": [
+                    "composition-patterns",
+                    "token-system"
+                  ],
+                  "constraints": [
+                    "不要用颜色和图标堆叠替代结构"
+                  ],
+                  "aliases": []
+                }
+              ],
+              "entry_sources": [
+                {
+                  "entry_id": "information-hierarchy",
+                  "role": "suggestion",
+                  "source_refs": [
+                    "user_query"
+                  ]
+                }
+              ],
+              "provider": null
+            }
+          ],
+          "dependencies": [],
+          "clarifications": [
+            {
+              "id": "primary_task",
+              "question": "页面最重要的信息和用户要完成的任务是什么？"
+            },
+            {
+              "id": "uncovered-scope",
+              "question": "这些部分尚未找到可核验覆盖：说的是网站；现在最想让人一眼知道先做什么。请缩小范围或提供资料。"
+            }
+          ],
+          "deferred_clarifications": [],
+          "coverage": {
+            "status": "partial",
+            "unaccounted_clauses": [
+              "说的是网站",
+              "现在最想让人一眼知道先做什么"
+            ],
+            "limitation": "有限词法/组合规则覆盖，不是完整语义理解；有结果不代表整句全部覆盖。"
+          },
+          "composition": {
+            "conflicts": [],
+            "deferred": [],
+            "deduplication": "stable leaf+entry IDs; shared contracts by path",
+            "related_policy": "informational_only; never loaded wholesale"
+          },
+          "verification_required": [],
+          "network_search": "not_requested",
+          "candidate_terms": [
+            {
+              "leaf_id": "composition-patterns",
+              "entry_id": "composition-patterns",
+              "name": "卡片错位/大图主导/非对称/层叠/留白/破格出血",
+              "terms": [
+                "留白",
+                "比例"
+              ],
+              "definition": "用比例、层级和安全区建立页面性格；每次只让少数元素破格。",
+              "role": "suggestion",
+              "user_expressions": [
+                "挤"
+              ],
+              "applicable_when": [
+                "页面",
+                "网页",
+                "界面",
+                "布局",
+                "网站"
+              ],
+              "scope_confirmed": true,
+              "knowledge_loaded": true,
+              "source": "terms/visual-layout/composition-patterns.json#composition-patterns"
+            },
+            {
+              "leaf_id": "information-hierarchy",
+              "entry_id": "information-hierarchy",
+              "name": "信息层级",
+              "terms": [
+                "信息层级",
+                "主任务优先"
+              ],
+              "definition": "先确定用户要做的决定，再按主次组织标题、数据、操作和辅助说明。",
+              "role": "suggestion",
+              "user_expressions": [
+                "挤"
+              ],
+              "applicable_when": [
+                "网站",
+                "网页",
+                "页面",
+                "界面",
+                "布局",
+                "dashboard"
+              ],
+              "scope_confirmed": true,
+              "knowledge_loaded": true,
+              "source": "terms/information-architecture/information-hierarchy.json#information-hierarchy"
+            }
+          ],
+          "terminology_preview": {
+            "semantics": "术语方向不是用户已选方案；未加载正文的候选只能用于解释/澄清，不能用于直接实现。",
+            "omitted_directions": 0
+          },
+          "explanations": [
+            {
+              "leaf_id": "composition-patterns",
+              "entry_id": "composition-patterns",
+              "role": "suggestion",
+              "source": "terms/visual-layout/composition-patterns.json#composition-patterns",
+              "evidence": [
+                {
+                  "field": "retrieval.rules.felt-space",
+                  "matched_expression": "挤",
+                  "origin": "local_lexical"
+                }
+              ]
+            },
+            {
+              "leaf_id": "information-hierarchy",
+              "entry_id": "information-hierarchy",
+              "role": "suggestion",
+              "source": "terms/information-architecture/information-hierarchy.json#information-hierarchy",
+              "evidence": [
+                {
+                  "field": "retrieval.rules.felt-hierarchy",
+                  "matched_expression": "挤",
+                  "origin": "local_lexical"
+                }
+              ]
+            }
+          ],
+          "delivery": {
+            "scenario_plans": [
+              {
+                "scenario_id": "visual-brief",
+                "match": "partial",
+                "provided_information": {},
+                "not_applicable": [
+                  "非界面视觉的乱或舒服",
+                  "未确认时不得默认暗色、玻璃、渐变"
+                ],
+                "flow": [
+                  "保留用户证据",
+                  "只澄清改变方案的信息",
+                  "按依赖组合知识",
+                  "输出有边界的增强方案",
+                  "用原文约束与场景验收检查交付"
+                ],
+                "output_fields": [
+                  "原始感觉",
+                  "结构与设计令牌候选",
+                  "不超过必要数量的澄清",
+                  "用户确认后的增强提示词",
+                  "截图与任务可读性验收"
+                ],
+                "acceptance": [
+                  "候选是方向而非已选美术方案",
+                  "未指定的色值、栅格与风格不得作为事实",
+                  "用前后截图核对视觉层级与主任务"
+                ]
+              }
+            ],
+            "ready_for_final_prompt": false,
+            "acceptance_checks": {
+              "dependencies_complete_for_emitted_bundles": true,
+              "detected_requests_assembled": false,
+              "whole_request_semantics_verified": false,
+              "parameters_resolved": false,
+              "conflicting_layouts_not_blended": true,
+              "host_llm_workflow_verified": false,
+              "provider_facts_verified": true
+            }
+          },
+          "usage": {
+            "loaded_leaf_count": 2,
+            "loaded_entry_count": 2,
+            "context_chars": 1265,
+            "content_char_limit": 24000,
+            "candidate_terms_chars": 780
+          },
+          "format": "agent",
+          "output_cost": {
+            "unit": "unicode_characters_not_tokens",
+            "compact_payload_chars_without_cost": 4208,
+            "candidate_terms_chars": 780,
+            "explanations_chars": 558,
+            "knowledge_chars": 1265
+          }
+        },
+        {
+          "mode": "catalog",
+          "query": "信息层级 主任务 留白",
+          "candidates": [
+            {
+              "leaf_id": "information-hierarchy",
+              "entry_id": "information-hierarchy",
+              "name": "信息层级",
+              "summary": "先确定用户要做的决定，再按主次组织标题、数据、操作和辅助说明。",
+              "reusable_fields": [],
+              "domain_id": "digital-product-uiux",
+              "subdomain_id": "information-architecture",
+              "source": "terms/information-architecture/information-hierarchy.json#information-hierarchy",
+              "provider": null,
+              "scope": "general"
+            },
+            {
+              "leaf_id": "composition-patterns",
+              "entry_id": "composition-patterns",
+              "name": "卡片错位/大图主导/非对称/层叠/留白/破格出血",
+              "summary": "用比例、层级和安全区建立页面性格；每次只让少数元素破格。",
+              "reusable_fields": [],
+              "domain_id": "digital-product-uiux",
+              "subdomain_id": "visual-layout",
+              "source": "terms/visual-layout/composition-patterns.json#composition-patterns",
+              "provider": null,
+              "scope": "general"
+            },
+            {
+              "leaf_id": "warm-minimal",
+              "entry_id": "warm-minimal",
+              "name": "暖调留白型",
+              "summary": "奶油底色、单一黄色强调、细边框和弱阴影，保留呼吸感。",
+              "reusable_fields": [],
+              "domain_id": "digital-product-uiux",
+              "subdomain_id": "dashboard-design",
+              "source": "terms/dashboard/warm-minimal.json#warm-minimal",
+              "provider": null,
+              "scope": "general"
+            },
+            {
+              "leaf_id": "grouped-sidebar-dashboard",
+              "entry_id": "grouped-sidebar-dashboard",
+              "name": "分组侧边栏 Dashboard",
+              "summary": "把导航拆成三组并用大留白分隔，主区用超大细体字、三组数字和横向比例条建立节奏。",
+              "reusable_fields": [],
+              "domain_id": "digital-product-uiux",
+              "subdomain_id": "dashboard-design",
+              "source": "terms/dashboard/grouped-sidebar-dashboard.json#grouped-sidebar-dashboard",
+              "provider": null,
+              "scope": "general"
+            },
+            {
+              "leaf_id": "layout-patterns",
+              "entry_id": "axial-observatory-dashboard",
+              "name": "中轴观测布局",
+              "summary": "中央主视图；双侧信息栏；共享选中态；时间轴预览",
+              "reusable_fields": [
+                "termSkill",
+                "agentExec",
+                "state",
+                "tokens"
+              ],
+              "domain_id": "digital-product-uiux",
+              "subdomain_id": "dashboard-design",
+              "source": "terms/dashboard/layout-patterns.json#axial-observatory-dashboard",
+              "provider": null,
+              "scope": "general"
+            },
+            {
+              "leaf_id": "layout-patterns",
+              "entry_id": "layout-patterns",
+              "name": "高级布局模式",
+              "summary": "用错位、大图、非对称、层叠、留白和破格出血建立布局性格。",
+              "reusable_fields": [],
+              "domain_id": "digital-product-uiux",
+              "subdomain_id": "dashboard-design",
+              "source": "terms/dashboard/layout-patterns.json#layout-patterns",
+              "provider": null,
+              "scope": "general"
+            }
+          ],
+          "total_matches": 6,
+          "omitted": 0,
+          "semantics": "Lexical ID discovery only; not evidence that these candidates fit the original request."
+        },
+        {
+          "query": "太挤了。说的是网站。现在最想让人一眼知道先做什么，不要替我选暗色、玻璃或渐变。",
+          "status": "partial_coverage",
+          "matches": [
+            {
+              "leaf_id": "composition-patterns",
+              "knowledge_type": "pattern",
+              "scope": "general",
+              "do_not_generalize": false,
+              "path": "terms/visual-layout/composition-patterns.json",
+              "score": 12,
+              "entries": [
+                {
+                  "id": "composition-patterns",
+                  "name": "卡片错位/大图主导/非对称/层叠/留白/破格出血",
+                  "plain_language": "用比例、层级和安全区建立页面性格；每次只让少数元素破格。",
+                  "when_to_use": "首屏、活动页、详情页和内容信息流",
+                  "parameters": [
+                    "错位按 8/12/16px 节奏",
+                    "主图可占半屏或出血",
+                    "使用 7:3 或 8:2 非对称",
+                    "只破一处网格，内容留在安全区"
+                  ],
+                  "related": [
+                    "layout-patterns",
+                    "design-tokens"
+                  ],
+                  "constraints": [
+                    "错位无规律会像未对齐",
+                    "出血过多会削弱秩序",
+                    "留白必须仍有视觉焦点"
+                  ],
+                  "aliases": []
+                }
+              ],
+              "entry_sources": [
+                {
+                  "entry_id": "composition-patterns",
+                  "role": "suggestion",
+                  "source_refs": [
+                    "user_query"
+                  ]
+                }
+              ],
+              "provider": null
+            },
+            {
+              "leaf_id": "information-hierarchy",
+              "knowledge_type": "principle",
+              "scope": "general",
+              "do_not_generalize": false,
+              "path": "terms/information-architecture/information-hierarchy.json",
+              "score": 12,
+              "entries": [
+                {
+                  "id": "information-hierarchy",
+                  "name": "信息层级",
+                  "plain_language": "先确定用户要做的决定，再按主次组织标题、数据、操作和辅助说明。",
+                  "when_to_use": "复杂后台、内容页和移动端首页",
+                  "parameters": [
+                    "主任务优先",
+                    "每屏保留一个视觉主角",
+                    "用密度和留白表达层级"
+                  ],
+                  "related": [
+                    "composition-patterns",
+                    "token-system"
+                  ],
+                  "constraints": [
+                    "不要用颜色和图标堆叠替代结构"
+                  ],
+                  "aliases": []
+                }
+              ],
+              "entry_sources": [
+                {
+                  "entry_id": "information-hierarchy",
+                  "role": "suggestion",
+                  "source_refs": [
+                    "user_query"
+                  ]
+                }
+              ],
+              "provider": null
+            }
+          ],
+          "dependencies": [],
+          "clarifications": [
+            {
+              "id": "uncovered-scope",
+              "question": "这些部分尚未找到可核验覆盖：说的是网站。请缩小范围或提供资料。"
+            }
+          ],
+          "deferred_clarifications": [],
+          "coverage": {
+            "status": "partial",
+            "unaccounted_clauses": [
+              "说的是网站"
+            ],
+            "limitation": "有限词法/组合规则覆盖，不是完整语义理解；有结果不代表整句全部覆盖。"
+          },
+          "composition": {
+            "conflicts": [],
+            "deferred": [],
+            "deduplication": "stable leaf+entry IDs; shared contracts by path",
+            "related_policy": "informational_only; never loaded wholesale"
+          },
+          "verification_required": [],
+          "network_search": "not_requested",
+          "candidate_terms": [
+            {
+              "leaf_id": "composition-patterns",
+              "entry_id": "composition-patterns",
+              "name": "卡片错位/大图主导/非对称/层叠/留白/破格出血",
+              "terms": [
+                "留白",
+                "比例"
+              ],
+              "definition": "用比例、层级和安全区建立页面性格；每次只让少数元素破格。",
+              "role": "suggestion",
+              "user_expressions": [
+                "挤"
+              ],
+              "applicable_when": [
+                "页面",
+                "网页",
+                "界面",
+                "布局",
+                "网站"
+              ],
+              "scope_confirmed": true,
+              "knowledge_loaded": true,
+              "source": "terms/visual-layout/composition-patterns.json#composition-patterns"
+            },
+            {
+              "leaf_id": "information-hierarchy",
+              "entry_id": "information-hierarchy",
+              "name": "信息层级",
+              "terms": [
+                "信息层级",
+                "主任务优先"
+              ],
+              "definition": "先确定用户要做的决定，再按主次组织标题、数据、操作和辅助说明。",
+              "role": "suggestion",
+              "user_expressions": [
+                "挤"
+              ],
+              "applicable_when": [
+                "网站",
+                "网页",
+                "页面",
+                "界面",
+                "布局",
+                "dashboard"
+              ],
+              "scope_confirmed": true,
+              "knowledge_loaded": true,
+              "source": "terms/information-architecture/information-hierarchy.json#information-hierarchy"
+            }
+          ],
+          "terminology_preview": {
+            "semantics": "术语方向不是用户已选方案；未加载正文的候选只能用于解释/澄清，不能用于直接实现。",
+            "omitted_directions": 0
+          },
+          "explanations": [
+            {
+              "leaf_id": "composition-patterns",
+              "entry_id": "composition-patterns",
+              "role": "suggestion",
+              "source": "terms/visual-layout/composition-patterns.json#composition-patterns",
+              "evidence": [
+                {
+                  "field": "retrieval.rules.felt-space",
+                  "matched_expression": "挤",
+                  "origin": "local_lexical"
+                },
+                {
+                  "field": "host.candidates",
+                  "matched_expression": "太挤了",
+                  "origin": "host_interpretation_unverified"
+                }
+              ]
+            },
+            {
+              "leaf_id": "information-hierarchy",
+              "entry_id": "information-hierarchy",
+              "role": "suggestion",
+              "source": "terms/information-architecture/information-hierarchy.json#information-hierarchy",
+              "evidence": [
+                {
+                  "field": "retrieval.rules.felt-hierarchy",
+                  "matched_expression": "挤",
+                  "origin": "local_lexical"
+                },
+                {
+                  "field": "host.candidates",
+                  "matched_expression": "现在最想让人一眼知道先做什么",
+                  "origin": "host_interpretation_unverified"
+                }
+              ]
+            }
+          ],
+          "delivery": {
+            "scenario_plans": [
+              {
+                "scenario_id": "visual-brief",
+                "match": "ready",
+                "provided_information": {
+                  "primary_task": "现在最想让人一眼知道先做什么"
+                },
+                "not_applicable": [
+                  "非界面视觉的乱或舒服",
+                  "未确认时不得默认暗色、玻璃、渐变"
+                ],
+                "flow": [
+                  "保留用户证据",
+                  "只澄清改变方案的信息",
+                  "按依赖组合知识",
+                  "输出有边界的增强方案",
+                  "用原文约束与场景验收检查交付"
+                ],
+                "output_fields": [
+                  "原始感觉",
+                  "结构与设计令牌候选",
+                  "不超过必要数量的澄清",
+                  "用户确认后的增强提示词",
+                  "截图与任务可读性验收"
+                ],
+                "acceptance": [
+                  "候选是方向而非已选美术方案",
+                  "未指定的色值、栅格与风格不得作为事实",
+                  "用前后截图核对视觉层级与主任务"
+                ]
+              }
+            ],
+            "ready_for_final_prompt": false,
+            "acceptance_checks": {
+              "dependencies_complete_for_emitted_bundles": true,
+              "detected_requests_assembled": false,
+              "whole_request_semantics_verified": false,
+              "parameters_resolved": false,
+              "conflicting_layouts_not_blended": true,
+              "host_llm_workflow_verified": false,
+              "provider_facts_verified": true
+            }
+          },
+          "usage": {
+            "loaded_leaf_count": 2,
+            "loaded_entry_count": 2,
+            "context_chars": 1265,
+            "content_char_limit": 24000,
+            "candidate_terms_chars": 780
+          },
+          "format": "agent",
+          "output_cost": {
+            "unit": "unicode_characters_not_tokens",
+            "compact_payload_chars_without_cost": 4353,
+            "candidate_terms_chars": 780,
+            "explanations_chars": 763,
+            "knowledge_chars": 1265
+          }
+        }
+      ],
+      "thread_id": "01a15cd0-f109-71c2-84b0-cdef1fa9376c",
+      "usage_including_global_context": {
+        "input_tokens": 360993,
+        "cached_input_tokens": 279734,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1459,
+        "reasoning_output_tokens": 170
+      },
+      "final_response": "你的重点不是单纯“把间距拉大”，而是：**让网站主次清楚，用户一眼知道先做什么。**\n\n### 相关术语\n- **信息层级**：按重要程度组织标题、内容、操作和辅助说明，避免所有信息都在抢注意力。\n- **主任务优先**：优先突出当前页面最重要的行动，让次要操作退居其次。\n- **视觉焦点**：每屏有一个明确的注意力中心，服务于主任务，而不是让多个模块同等突出。\n- **留白与信息密度**：用内容之间的空间和疏密表达分组、拉开主次；不是一味增加空白，导致重点反而分散。\n\n建议组合为：**以信息层级和主任务优先为核心，用留白辅助建立视觉焦点**，而不是先决定美术风格。\n\n### 可直接使用的需求表达\n> 当前网站给人的感觉“太挤了”。请优先优化信息层级，让用户进入页面后，一眼知道应该先做什么。围绕页面已有的核心业务任务组织内容，突出对应的关键信息与主要操作，降低次要操作、辅助说明和装饰元素的视觉权重。通过清晰的内容分组、合理的留白与信息密度建立主次，避免所有模块同时抢注意力，也不要仅靠增加颜色或图标解决结构问题。此次不预设暗色、玻璃或渐变，不擅自引入新的视觉风格或固定布局参数。具体首要业务动作以现有业务定义为准，不自行编造。\n\n### 验收重点\n- 对比调整前后的同尺寸截图，主任务及其操作入口应成为明确的视觉焦点。\n- 让不了解页面的人浏览后指出“第一步做什么”，核对是否符合业务预期。\n- 次要信息仍能找到，但不再与主要操作争抢注意力；留白增加后，页面也不能失去焦点。\n\n以上是需求与设计方向，尚不代表实际网站已通过验收。",
+      "captured_tool_output_chars": 23685,
+      "runtime_sha256": null
+    },
+    {
+      "id": "holdout-host",
+      "live_host": true,
+      "completed": true,
+      "commands": [
+        {
+          "command": "/bin/zsh -lc 'cat .agents/skills/feeling-to-jargon/SKILL.md'",
+          "exit_code": 0,
+          "captured_output_chars": 4195,
+          "captured_payload_count": 0
+        },
+        {
+          "command": "/bin/zsh -lc 'python3 <SKILL_DIR>/scripts/query.py \"屏幕像早高峰，眼睛没地方落。\" --format agent\npython3 <SKILL_DIR>/scripts/query.py \"后台别在大家一起来的时候趴窝。\" --format agent\npython3 <SKILL_DIR>/scripts/query.py \"滑起来别一顿一顿。\" --format agent'",
+          "exit_code": 0,
+          "captured_output_chars": 3002,
+          "captured_payload_count": 2
+        },
+        {
+          "command": "/bin/zsh -lc 'cat .agents/skills/feeling-to-jargon/references/routing-contract.md\npython3 <SKILL_DIR>/scripts/query.py --catalog \"信息 留白\" --catalog-domain digital-product-uiux --format agent\npython3 <SKILL_DIR>/scripts/query.py --catalog \"并发 可用\" --format agent\npython3 <SKILL_DIR>/scripts/query.py --catalog \"滚动 流畅\" --catalog-domain digital-product-uiux --format agent'",
+          "exit_code": 0,
+          "captured_output_chars": 2579,
+          "captured_payload_count": 1
+        },
+        {
+          "command": "/bin/zsh -lc \"sed -n '65,160p' .agents/skills/feeling-to-jargon/references/routing-contract.md\npython3 <SKILL_DIR>/scripts/query.py --catalog \\\"信息密度 视觉层级 留白\\\" --catalog-domain digital-product-uiux --format agent\npython3 <SKILL_DIR>/scripts/query.py --catalog \\\"性能 帧\\\" --catalog-domain digital-product-uiux --format agent\"",
+          "exit_code": 0,
+          "captured_output_chars": 6909,
+          "captured_payload_count": 2
+        },
+        {
+          "command": "/bin/zsh -lc \"printf '%s' '{\\\"candidates\\\":[{\\\"leaf_id\\\":\\\"information-hierarchy\\\",\\\"entry_id\\\":\\\"information-hierarchy\\\",\\\"evidence_text\\\":\\\"屏幕像早高峰，眼睛没地方落。\\\",\\\"role\\\":\\\"suggestion\\\"},{\\\"leaf_id\\\":\\\"composition-patterns\\\",\\\"entry_id\\\":\\\"composition-patterns\\\",\\\"evidence_text\\\":\\\"屏幕像早高峰，眼睛没地方落。\\\",\\\"role\\\":\\\"suggestion\\\"}]}' | python3 <SKILL_DIR>/scripts/query.py \\\"屏幕像早高峰，眼睛没地方落。\\\" --context - --format agent\nprintf '%s' '{\\\"candidates\\\":[{\\\"leaf_id\\\":\\\"capacity-model\\\",\\\"entry_id\\\":\\\"capacity-model\\\",\\\"evidence_text\\\":\\\"后台别在大家一起来的时候趴窝。\\\",\\\"role\\\":\\\"suggestion\\\"},{\\\"leaf_id\\\":\\\"availability-patterns\\\",\\\"entry_id\\\":\\\"availability-patterns\\\",\\\"evidence_text\\\":\\\"后台别在大家一起来的时候趴窝。\\\",\\\"role\\\":\\\"suggestion\\\"}]}' | python3 <SKILL_DIR>/scripts/query.py \\\"后台别在大家一起来的时候趴窝。\\\" --context - --format agent\"",
+          "exit_code": 0,
+          "captured_output_chars": 4445,
+          "captured_payload_count": 1
+        }
+      ],
+      "query_payloads": [
+        {
+          "query": "后台别在大家一起来的时候趴窝。",
+          "status": "coverage_insufficient",
+          "matches": [],
+          "dependencies": [],
+          "clarifications": [],
+          "deferred_clarifications": [],
+          "coverage": {
+            "status": "insufficient",
+            "unaccounted_clauses": [
+              "后台别在大家一起来的时候趴窝"
+            ],
+            "limitation": "有限词法/组合规则覆盖，不是完整语义理解；有结果不代表整句全部覆盖。"
+          },
+          "composition": {
+            "conflicts": [],
+            "deferred": [],
+            "deduplication": "stable leaf+entry IDs; shared contracts by path",
+            "related_policy": "informational_only; never loaded wholesale"
+          },
+          "verification_required": [],
+          "network_search": "not_requested",
+          "candidate_terms": [],
+          "terminology_preview": {
+            "semantics": "术语方向不是用户已选方案；未加载正文的候选只能用于解释/澄清，不能用于直接实现。",
+            "omitted_directions": 0
+          },
+          "explanations": [],
+          "delivery": {
+            "scenario_plans": [],
+            "ready_for_final_prompt": false,
+            "acceptance_checks": {
+              "dependencies_complete_for_emitted_bundles": true,
+              "detected_requests_assembled": false,
+              "whole_request_semantics_verified": false,
+              "parameters_resolved": true,
+              "conflicting_layouts_not_blended": true,
+              "host_llm_workflow_verified": false,
+              "provider_facts_verified": true
+            }
+          },
+          "usage": {
+            "loaded_leaf_count": 0,
+            "loaded_entry_count": 0,
+            "context_chars": 0,
+            "content_char_limit": 24000,
+            "candidate_terms_chars": 2
+          },
+          "format": "agent",
+          "output_cost": {
+            "unit": "unicode_characters_not_tokens",
+            "compact_payload_chars_without_cost": 1129,
+            "candidate_terms_chars": 2,
+            "explanations_chars": 2,
+            "knowledge_chars": 32
+          }
+        },
+        {
+          "query": "滑起来别一顿一顿。",
+          "status": "coverage_insufficient",
+          "matches": [],
+          "dependencies": [],
+          "clarifications": [],
+          "deferred_clarifications": [],
+          "coverage": {
+            "status": "insufficient",
+            "unaccounted_clauses": [
+              "滑起来别一顿一顿"
+            ],
+            "limitation": "有限词法/组合规则覆盖，不是完整语义理解；有结果不代表整句全部覆盖。"
+          },
+          "composition": {
+            "conflicts": [],
+            "deferred": [],
+            "deduplication": "stable leaf+entry IDs; shared contracts by path",
+            "related_policy": "informational_only; never loaded wholesale"
+          },
+          "verification_required": [],
+          "network_search": "not_requested",
+          "candidate_terms": [],
+          "terminology_preview": {
+            "semantics": "术语方向不是用户已选方案；未加载正文的候选只能用于解释/澄清，不能用于直接实现。",
+            "omitted_directions": 0
+          },
+          "explanations": [],
+          "delivery": {
+            "scenario_plans": [],
+            "ready_for_final_prompt": false,
+            "acceptance_checks": {
+              "dependencies_complete_for_emitted_bundles": true,
+              "detected_requests_assembled": false,
+              "whole_request_semantics_verified": false,
+              "parameters_resolved": true,
+              "conflicting_layouts_not_blended": true,
+              "host_llm_workflow_verified": false,
+              "provider_facts_verified": true
+            }
+          },
+          "usage": {
+            "loaded_leaf_count": 0,
+            "loaded_entry_count": 0,
+            "context_chars": 0,
+            "content_char_limit": 24000,
+            "candidate_terms_chars": 2
+          },
+          "format": "agent",
+          "output_cost": {
+            "unit": "unicode_characters_not_tokens",
+            "compact_payload_chars_without_cost": 1117,
+            "candidate_terms_chars": 2,
+            "explanations_chars": 2,
+            "knowledge_chars": 32
+          }
+        },
+        {
+          "mode": "catalog",
+          "query": "滚动 流畅",
+          "candidates": [
+            {
+              "leaf_id": "count-animation",
+              "entry_id": "count-animation",
+              "name": "Count 数字滚动",
+              "summary": "数字按位滚动并在最后一段明显减速。",
+              "reusable_fields": [],
+              "domain_id": "digital-product-uiux",
+              "subdomain_id": "interaction-motion",
+              "source": "terms/interaction/count-animation.json#count-animation",
+              "provider": null,
+              "scope": "general"
+            },
+            {
+              "leaf_id": "depth-layer-scroll",
+              "entry_id": "depth-layer-scroll",
+              "name": "景深分层滚动",
+              "summary": "把内容拆为前、中、后三层，按滚动进度驱动不同速度、模糊和亮度，形成可控景深。",
+              "reusable_fields": [],
+              "domain_id": "digital-product-uiux",
+              "subdomain_id": "visual-effects",
+              "source": "terms/visual-effects/depth-layer-scroll.json#depth-layer-scroll",
+              "provider": null,
+              "scope": "general"
+            },
+            {
+              "leaf_id": "magnetic-cursor-odometer",
+              "entry_id": "magnetic-cursor-odometer",
+              "name": "磁吸游标与滚动码表",
+              "summary": "折线图拖拽时数据点磁吸，顶部数值使用 Odometer 按位滚动，拖拽、吸附和数值用 lerp+spring 联动。",
+              "reusable_fields": [],
+              "domain_id": "digital-product-uiux",
+              "subdomain_id": "component-design",
+              "source": "terms/component-design/magnetic-cursor-odometer.json#magnetic-cursor-odometer",
+              "provider": null,
+              "scope": "general"
+            },
+            {
+              "leaf_id": "scroll-header-collapse",
+              "entry_id": "scroll-header-collapse",
+              "name": "顶栏随滚动收起",
+              "summary": "滚动进度驱动搜索栏和顶栏收缩，反向滚动恢复。",
+              "reusable_fields": [],
+              "domain_id": "digital-product-uiux",
+              "subdomain_id": "continuous-interaction",
+              "source": "terms/interaction/continuous/scroll-header-collapse.json#scroll-header-collapse",
+              "provider": null,
+              "scope": "general"
+            },
+            {
+              "leaf_id": "checkbox-cascade",
+              "entry_id": "checkbox-cascade",
+              "name": "勾选联动",
+              "summary": "一次勾选按明确先后驱动顶部背景、进度环和数字滚动，多个反馈共享同一完成结果。",
+              "reusable_fields": [],
+              "domain_id": "digital-product-uiux",
+              "subdomain_id": "continuous-interaction",
+              "source": "terms/interaction/continuous/checkbox-cascade.json#checkbox-cascade",
+              "provider": null,
+              "scope": "general"
+            },
+            {
+              "leaf_id": "gsap-scrolltrigger",
+              "entry_id": "gsap-scrolltrigger",
+              "name": "GSAP ScrollTrigger",
+              "summary": "用 scrub、pin 和 start/end 将动画绑定到滚动进度，并避免把滚动逻辑散落在组件中。",
+              "reusable_fields": [],
+              "domain_id": "digital-product-uiux",
+              "subdomain_id": "animation-tool-adapter",
+              "source": "terms/animation-tool-adapter/gsap-scrolltrigger.json#gsap-scrolltrigger",
+              "provider": "GSAP",
+              "scope": "provider-specific"
+            },
+            {
+              "leaf_id": "liquid-glass-bar",
+              "entry_id": "liquid-glass-bar",
+              "name": "液态玻璃栏",
+              "summary": "固定导航使用背景模糊、轻微折射和随滚动位移的高光，底色与文字对比度随背景亮度平滑调整。",
+              "reusable_fields": [],
+              "domain_id": "digital-product-uiux",
+              "subdomain_id": "visual-effects",
+              "source": "terms/visual-effects/liquid-glass-bar.json#liquid-glass-bar",
+              "provider": null,
+              "scope": "general"
+            }
+          ],
+          "total_matches": 7,
+          "omitted": 0,
+          "semantics": "Lexical ID discovery only; not evidence that these candidates fit the original request."
+        },
+        {
+          "mode": "catalog",
+          "query": "信息密度 视觉层级 留白",
+          "candidates": [
+            {
+              "leaf_id": "layout-patterns",
+              "entry_id": "layout-patterns",
+              "name": "高级布局模式",
+              "summary": "用错位、大图、非对称、层叠、留白和破格出血建立布局性格。",
+              "reusable_fields": [],
+              "domain_id": "digital-product-uiux",
+              "subdomain_id": "dashboard-design",
+              "source": "terms/dashboard/layout-patterns.json#layout-patterns",
+              "provider": null,
+              "scope": "general"
+            },
+            {
+              "leaf_id": "composition-patterns",
+              "entry_id": "composition-patterns",
+              "name": "卡片错位/大图主导/非对称/层叠/留白/破格出血",
+              "summary": "用比例、层级和安全区建立页面性格；每次只让少数元素破格。",
+              "reusable_fields": [],
+              "domain_id": "digital-product-uiux",
+              "subdomain_id": "visual-layout",
+              "source": "terms/visual-layout/composition-patterns.json#composition-patterns",
+              "provider": null,
+              "scope": "general"
+            },
+            {
+              "leaf_id": "high-contrast",
+              "entry_id": "high-contrast",
+              "name": "强对比视觉型",
+              "summary": "一张主卡占据视觉中心，用高饱和对比和大数字建立层级。",
+              "reusable_fields": [],
+              "domain_id": "digital-product-uiux",
+              "subdomain_id": "dashboard-design",
+              "source": "terms/dashboard/high-contrast.json#high-contrast",
+              "provider": null,
+              "scope": "general"
+            },
+            {
+              "leaf_id": "information-hierarchy",
+              "entry_id": "information-hierarchy",
+              "name": "信息层级",
+              "summary": "先确定用户要做的决定，再按主次组织标题、数据、操作和辅助说明。",
+              "reusable_fields": [],
+              "domain_id": "digital-product-uiux",
+              "subdomain_id": "information-architecture",
+              "source": "terms/information-architecture/information-hierarchy.json#information-hierarchy",
+              "provider": null,
+              "scope": "general"
+            },
+            {
+              "leaf_id": "warm-minimal",
+              "entry_id": "warm-minimal",
+              "name": "暖调留白型",
+              "summary": "奶油底色、单一黄色强调、细边框和弱阴影，保留呼吸感。",
+              "reusable_fields": [],
+              "domain_id": "digital-product-uiux",
+              "subdomain_id": "dashboard-design",
+              "source": "terms/dashboard/warm-minimal.json#warm-minimal",
+              "provider": null,
+              "scope": "general"
+            },
+            {
+              "leaf_id": "grouped-sidebar-dashboard",
+              "entry_id": "grouped-sidebar-dashboard",
+              "name": "分组侧边栏 Dashboard",
+              "summary": "把导航拆成三组并用大留白分隔，主区用超大细体字、三组数字和横向比例条建立节奏。",
+              "reusable_fields": [],
+              "domain_id": "digital-product-uiux",
+              "subdomain_id": "dashboard-design",
+              "source": "terms/dashboard/grouped-sidebar-dashboard.json#grouped-sidebar-dashboard",
+              "provider": null,
+              "scope": "general"
+            },
+            {
+              "leaf_id": "layout-patterns",
+              "entry_id": "axial-observatory-dashboard",
+              "name": "中轴观测布局",
+              "summary": "中央主视图；双侧信息栏；共享选中态；时间轴预览",
+              "reusable_fields": [
+                "termSkill",
+                "agentExec",
+                "state",
+                "tokens"
+              ],
+              "domain_id": "digital-product-uiux",
+              "subdomain_id": "dashboard-design",
+              "source": "terms/dashboard/layout-patterns.json#axial-observatory-dashboard",
+              "provider": null,
+              "scope": "general"
+            }
+          ],
+          "total_matches": 7,
+          "omitted": 0,
+          "semantics": "Lexical ID discovery only; not evidence that these candidates fit the original request."
+        },
+        {
+          "mode": "catalog",
+          "query": "性能 帧",
+          "candidates": [
+            {
+              "leaf_id": "gsap-performance",
+              "entry_id": "gsap-performance",
+              "name": "GSAP 性能边界",
+              "summary": "把高频动效限制在合成属性，批量更新并减少布局读取，给复杂效果设置设备降级策略。",
+              "reusable_fields": [],
+              "domain_id": "digital-product-uiux",
+              "subdomain_id": "animation-tool-adapter",
+              "source": "terms/animation-tool-adapter/gsap-performance.json#gsap-performance",
+              "provider": "GSAP",
+              "scope": "provider-specific"
+            }
+          ],
+          "total_matches": 1,
+          "omitted": 0,
+          "semantics": "Lexical ID discovery only; not evidence that these candidates fit the original request."
+        },
+        {
+          "query": "后台别在大家一起来的时候趴窝。",
+          "status": "needs_clarification",
+          "matches": [
+            {
+              "leaf_id": "availability-patterns",
+              "knowledge_type": "term",
+              "scope": "general",
+              "do_not_generalize": false,
+              "path": "terms/software-engineering/availability-patterns.json",
+              "score": 12,
+              "entries": [
+                {
+                  "id": "availability-patterns",
+                  "name": "高可用模式",
+                  "plain_language": "跨实例、节点或可用区部署关键组件，并定义 RTO/RPO 和故障转移。",
+                  "when_to_use": "后端或平台方案需要拆解质量属性时",
+                  "parameters": [
+                    "failure domain",
+                    "redundancy",
+                    "RTO",
+                    "RPO",
+                    "failover"
+                  ],
+                  "related": [
+                    "high-availability",
+                    "capacity-model",
+                    "scaling-strategies",
+                    "observability-contract",
+                    "idempotency-contract"
+                  ],
+                  "constraints": [
+                    "不要把质量属性当作无边界承诺"
+                  ],
+                  "aliases": []
+                }
+              ],
+              "entry_sources": [
+                {
+                  "entry_id": "availability-patterns",
+                  "role": "suggestion",
+                  "source_refs": [
+                    "user_query"
+                  ]
+                }
+              ],
+              "provider": null
+            },
+            {
+              "leaf_id": "capacity-model",
+              "knowledge_type": "term",
+              "scope": "general",
+              "do_not_generalize": false,
+              "path": "terms/software-engineering/capacity-model.json",
+              "score": 12,
+              "entries": [
+                {
+                  "id": "capacity-model",
+                  "name": "并发容量模型",
+                  "plain_language": "用平均值、峰值、突发、P95/P99 和增长率描述高并发，而不是只说高并发。",
+                  "when_to_use": "后端或平台方案需要拆解质量属性时",
+                  "parameters": [
+                    "RPS",
+                    "burst",
+                    "P95/P99",
+                    "growth rate"
+                  ],
+                  "related": [
+                    "high-availability",
+                    "capacity-model",
+                    "scaling-strategies",
+                    "observability-contract",
+                    "idempotency-contract"
+                  ],
+                  "constraints": [
+                    "不要把质量属性当作无边界承诺"
+                  ],
+                  "aliases": []
+                }
+              ],
+              "entry_sources": [
+                {
+                  "entry_id": "capacity-model",
+                  "role": "suggestion",
+                  "source_refs": [
+                    "user_query"
+                  ]
+                }
+              ],
+              "provider": null
+            }
+          ],
+          "dependencies": [],
+          "clarifications": [
+            {
+              "id": "failure_tolerance",
+              "question": "关键服务允许中断多久、最多能丢失多少数据？"
+            },
+            {
+              "id": "peak_load",
+              "question": "预计同时在线或峰值请求规模是多少？若只有用户总数，先区分总量与并发。"
+            },
+            {
+              "id": "response_target",
+              "question": "哪些操作不能变慢，期望的响应时间是多少？"
+            }
+          ],
+          "deferred_clarifications": [],
+          "coverage": {
+            "status": "bounded",
+            "unaccounted_clauses": [],
+            "limitation": "有限词法/组合规则覆盖，不是完整语义理解；有结果不代表整句全部覆盖。"
+          },
+          "composition": {
+            "conflicts": [],
+            "deferred": [],
+            "deduplication": "stable leaf+entry IDs; shared contracts by path",
+            "related_policy": "informational_only; never loaded wholesale"
+          },
+          "verification_required": [],
+          "network_search": "not_requested",
+          "candidate_terms": [
+            {
+              "leaf_id": "capacity-model",
+              "entry_id": "capacity-model",
+              "name": "并发容量模型",
+              "terms": [
+                "并发容量模型"
+              ],
+              "definition": "用平均值、峰值、突发、P95/P99 和增长率描述高并发，而不是只说高并发。",
+              "role": "suggestion",
+              "user_expressions": [
+                "后台别在大家一起来的时候趴窝。"
+              ],
+              "applicable_when": [
+                "后端或平台方案需要拆解质量属性时"
+              ],
+              "scope_confirmed": null,
+              "knowledge_loaded": true,
+              "source": "terms/software-engineering/capacity-model.json#capacity-model"
+            },
+            {
+              "leaf_id": "availability-patterns",
+              "entry_id": "availability-patterns",
+              "name": "高可用模式",
+              "terms": [
+                "高可用模式"
+              ],
+              "definition": "跨实例、节点或可用区部署关键组件，并定义 RTO/RPO 和故障转移。",
+              "role": "suggestion",
+              "user_expressions": [
+                "后台别在大家一起来的时候趴窝。"
+              ],
+              "applicable_when": [
+                "后端或平台方案需要拆解质量属性时"
+              ],
+              "scope_confirmed": null,
+              "knowledge_loaded": true,
+              "source": "terms/software-engineering/availability-patterns.json#availability-patterns"
+            }
+          ],
+          "terminology_preview": {
+            "semantics": "术语方向不是用户已选方案；未加载正文的候选只能用于解释/澄清，不能用于直接实现。",
+            "omitted_directions": 0
+          },
+          "explanations": [
+            {
+              "leaf_id": "capacity-model",
+              "entry_id": "capacity-model",
+              "role": "suggestion",
+              "source": "terms/software-engineering/capacity-model.json#capacity-model",
+              "evidence": [
+                {
+                  "field": "host.candidates",
+                  "matched_expression": "后台别在大家一起来的时候趴窝。",
+                  "origin": "host_interpretation_unverified"
+                }
+              ]
+            },
+            {
+              "leaf_id": "availability-patterns",
+              "entry_id": "availability-patterns",
+              "role": "suggestion",
+              "source": "terms/software-engineering/availability-patterns.json#availability-patterns",
+              "evidence": [
+                {
+                  "field": "host.candidates",
+                  "matched_expression": "后台别在大家一起来的时候趴窝。",
+                  "origin": "host_interpretation_unverified"
+                }
+              ]
+            }
+          ],
+          "delivery": {
+            "scenario_plans": [
+              {
+                "scenario_id": "backend-quality",
+                "match": "partial",
+                "provided_information": {},
+                "not_applicable": [
+                  "没有软件/服务语境的稳定感受",
+                  "只有总用户数时不得认定峰值并发"
+                ],
+                "flow": [
+                  "保留用户证据",
+                  "只澄清改变方案的信息",
+                  "按依赖组合知识",
+                  "输出有边界的增强方案",
+                  "用原文约束与场景验收检查交付"
+                ],
+                "output_fields": [
+                  "用户原话与证据",
+                  "候选质量属性",
+                  "已确认目标与建议",
+                  "待确定的业务与量化边界",
+                  "约束与验证方法"
+                ],
+                "acceptance": [
+                  "只讨论有证据的质量属性",
+                  "稳定不得自动带入幂等、并发与扩展",
+                  "不得自动选技术栈或填写容量指标"
+                ]
+              }
+            ],
+            "ready_for_final_prompt": false,
+            "acceptance_checks": {
+              "dependencies_complete_for_emitted_bundles": true,
+              "detected_requests_assembled": true,
+              "whole_request_semantics_verified": false,
+              "parameters_resolved": false,
+              "conflicting_layouts_not_blended": true,
+              "host_llm_workflow_verified": false,
+              "provider_facts_verified": true
+            }
+          },
+          "usage": {
+            "loaded_leaf_count": 2,
+            "loaded_entry_count": 2,
+            "context_chars": 1344,
+            "content_char_limit": 24000,
+            "candidate_terms_chars": 752
+          },
+          "format": "agent",
+          "output_cost": {
+            "unit": "unicode_characters_not_tokens",
+            "compact_payload_chars_without_cost": 4271,
+            "candidate_terms_chars": 752,
+            "explanations_chars": 573,
+            "knowledge_chars": 1344
+          }
+        }
+      ],
+      "thread_id": "01a15cd8-d714-7c22-8178-4c0fcf1ed4b6",
+      "usage_including_global_context": {
+        "input_tokens": 176489,
+        "cached_input_tokens": 143744,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2136,
+        "reasoning_output_tokens": 460
+      },
+      "final_response": "### 请求 1：「屏幕像早高峰，眼睛没地方落。」\n\n**如果指页面界面，可以翻译为：信息密度偏高、信息层级不清、缺少视觉焦点。**\n\n- **信息层级**：标题、关键数据、主要操作和辅助说明没有拉开主次，所有内容都在抢注意力。\n- **视觉焦点**：缺少明确的“第一眼看这里”，用户不知道先看什么。\n- **密度与留白**：可以通过分组、间距和留白减轻拥挤感，但留白后仍要保留重点，不是单纯把页面撑大。\n\n**可用于沟通：**\n> 请围绕用户的主任务重新组织信息层级，减少同屏元素争抢注意力，用分组和留白突出主要信息与操作。\n\n**边界与必要问题：**这不等于必须删内容，也不意味着要换成某种配色或布局。**这个页面最希望用户第一眼看到什么、完成什么任务？**\n\n---\n\n### 请求 2：「后台别在大家一起来的时候趴窝。」\n\n**核心术语是：峰值并发承载能力，需要用“并发容量模型”明确边界。**\n\n- **并发容量模型**：把“大家一起来”拆成峰值请求速率、突发持续时间，以及关键操作的响应时间要求，而不是只看注册用户总数。\n- **高可用**：如果“趴窝”还包括实例或节点故障后整个服务不可用，就需要进一步讨论故障转移与恢复能力；这是条件性方向，不是已经确定要上的架构。\n\n**可用于沟通：**\n> 后台需要在约定的峰值并发和突发流量下保持关键服务可用，并满足约定的响应时间要求。\n\n**边界与必要问题：**不能据此承诺无限并发、零故障，也不能直接决定技术栈或引入幂等方案。需要确认：**峰值有多少请求、持续多久？哪些操作必须保障，允许慢到什么程度？**若还要求故障恢复，再确认允许中断多久、最多能丢多少数据。\n\n---\n\n### 请求 3：「滑起来别一顿一顿。」\n\n**如果指页面或列表滚动，可先翻译为：减少滚动卡顿，提升滚动流畅性。**\n\n“一顿一顿”是在描述运动不连续，但仅凭这句话，还不能判断是画面掉帧、滑动反馈迟滞，还是加载内容时出现停顿。当前已安装术语库没有覆盖对应的通用滚动性能条目，因此这里是原意释义，不是库内已有的优化方案。\n\n**可用于沟通：**\n> 希望滑动过程连续、跟手，减少可感知的停顿；先确认卡顿发生的具体交互与设备，再确定优化方向。\n\n**边界与必要问题：**“顺滑”不等于加缓动、延长动画或引入动画库，也不能直接指定统一帧率指标。**你说的是页面上下滚动，还是轮播、拖拽等滑动交互？主要在哪类设备上出现？**",
+      "captured_tool_output_chars": 21130,
+      "runtime_sha256": null
+    },
+    {
+      "id": "final-runtime",
+      "live_host": true,
+      "completed": true,
+      "commands": [
+        {
+          "command": "/bin/zsh -lc 'cat .agents/skills/feeling-to-jargon/SKILL.md'",
+          "exit_code": 0,
+          "captured_output_chars": 4195,
+          "captured_payload_count": 0
+        },
+        {
+          "command": "/bin/zsh -lc 'python3 \"$PWD/.agents/skills/feeling-to-jargon/scripts/query.py\" \"稳一点\" --format agent'",
+          "exit_code": 0,
+          "captured_output_chars": 2192,
+          "captured_payload_count": 1
+        },
+        {
+          "command": "/bin/zsh -lc 'python3 \"$PWD/.agents/skills/feeling-to-jargon/scripts/query.py\" \"有质感一点\" --format agent'",
+          "exit_code": 0,
+          "captured_output_chars": 2176,
+          "captured_payload_count": 1
+        }
+      ],
+      "query_payloads": [
+        {
+          "query": "稳一点",
+          "status": "needs_clarification",
+          "matches": [],
+          "dependencies": [],
+          "clarifications": [
+            {
+              "id": "feeling_scope",
+              "question": "以上术语只是候选方向。你指的对象是什么，例如页面、按钮、后端？确认对象后再细化，不必先知道专业术语。"
+            }
+          ],
+          "deferred_clarifications": [],
+          "coverage": {
+            "status": "candidate_directions_only",
+            "unaccounted_clauses": [],
+            "limitation": "有限词法/组合规则覆盖，不是完整语义理解；有结果不代表整句全部覆盖。"
+          },
+          "composition": {
+            "conflicts": [],
+            "deferred": [],
+            "deduplication": "stable leaf+entry IDs; shared contracts by path",
+            "related_policy": "informational_only; never loaded wholesale"
+          },
+          "verification_required": [],
+          "network_search": "not_requested",
+          "candidate_terms": [
+            {
+              "leaf_id": "availability-patterns",
+              "entry_id": "availability-patterns",
+              "name": "高可用模式",
+              "terms": [
+                "高可用模式",
+                "故障转移",
+                "RTO",
+                "RPO"
+              ],
+              "definition": "跨实例、节点或可用区部署关键组件，并定义 RTO/RPO 和故障转移。",
+              "role": "suggestion",
+              "user_expressions": [
+                "稳"
+              ],
+              "applicable_when": [
+                "后端",
+                "服务",
+                "系统",
+                "平台",
+                "在线服务"
+              ],
+              "scope_confirmed": false,
+              "knowledge_loaded": false,
+              "source": "terms/software-engineering/availability-patterns.json#availability-patterns"
+            }
+          ],
+          "terminology_preview": {
+            "semantics": "术语方向不是用户已选方案；未加载正文的候选只能用于解释/澄清，不能用于直接实现。",
+            "omitted_directions": 0
+          },
+          "explanations": [],
+          "delivery": {
+            "scenario_plans": [],
+            "ready_for_final_prompt": false,
+            "acceptance_checks": {
+              "dependencies_complete_for_emitted_bundles": true,
+              "detected_requests_assembled": false,
+              "whole_request_semantics_verified": false,
+              "parameters_resolved": false,
+              "conflicting_layouts_not_blended": true,
+              "host_llm_workflow_verified": false,
+              "provider_facts_verified": true
+            }
+          },
+          "usage": {
+            "loaded_leaf_count": 0,
+            "loaded_entry_count": 0,
+            "context_chars": 0,
+            "content_char_limit": 24000,
+            "candidate_terms_chars": 403
+          },
+          "format": "agent",
+          "output_cost": {
+            "unit": "unicode_characters_not_tokens",
+            "compact_payload_chars_without_cost": 1602,
+            "candidate_terms_chars": 403,
+            "explanations_chars": 2,
+            "knowledge_chars": 32
+          }
+        },
+        {
+          "query": "有质感一点",
+          "status": "needs_clarification",
+          "matches": [],
+          "dependencies": [],
+          "clarifications": [
+            {
+              "id": "feeling_scope",
+              "question": "以上术语只是候选方向。你指的对象是什么，例如页面、按钮、后端？确认对象后再细化，不必先知道专业术语。"
+            }
+          ],
+          "deferred_clarifications": [],
+          "coverage": {
+            "status": "candidate_directions_only",
+            "unaccounted_clauses": [],
+            "limitation": "有限词法/组合规则覆盖，不是完整语义理解；有结果不代表整句全部覆盖。"
+          },
+          "composition": {
+            "conflicts": [],
+            "deferred": [],
+            "deduplication": "stable leaf+entry IDs; shared contracts by path",
+            "related_policy": "informational_only; never loaded wholesale"
+          },
+          "verification_required": [],
+          "network_search": "not_requested",
+          "candidate_terms": [
+            {
+              "leaf_id": "token-system",
+              "entry_id": "token-system",
+              "name": "底色/强调色/层级/材质/主角五变量",
+              "terms": [
+                "文字层级",
+                "主强调色",
+                "圆角/阴影",
+                "卡片材质"
+              ],
+              "definition": "Dashboard 的审美方向主要由底色、强调色、布局层级、材质和内容主角决定。",
+              "role": "suggestion",
+              "user_expressions": [
+                "质感"
+              ],
+              "applicable_when": [
+                "网站",
+                "网页",
+                "界面",
+                "页面",
+                "dashboard"
+              ],
+              "scope_confirmed": false,
+              "knowledge_loaded": false,
+              "source": "terms/design-tokens/token-system.json#token-system"
+            }
+          ],
+          "terminology_preview": {
+            "semantics": "术语方向不是用户已选方案；未加载正文的候选只能用于解释/澄清，不能用于直接实现。",
+            "omitted_directions": 0
+          },
+          "explanations": [],
+          "delivery": {
+            "scenario_plans": [],
+            "ready_for_final_prompt": false,
+            "acceptance_checks": {
+              "dependencies_complete_for_emitted_bundles": true,
+              "detected_requests_assembled": true,
+              "whole_request_semantics_verified": false,
+              "parameters_resolved": false,
+              "conflicting_layouts_not_blended": true,
+              "host_llm_workflow_verified": false,
+              "provider_facts_verified": true
+            }
+          },
+          "usage": {
+            "loaded_leaf_count": 0,
+            "loaded_entry_count": 0,
+            "context_chars": 0,
+            "content_char_limit": 24000,
+            "candidate_terms_chars": 386
+          },
+          "format": "agent",
+          "output_cost": {
+            "unit": "unicode_characters_not_tokens",
+            "compact_payload_chars_without_cost": 1586,
+            "candidate_terms_chars": 386,
+            "explanations_chars": 2,
+            "knowledge_chars": 32
+          }
+        }
+      ],
+      "thread_id": "01a15cdb-2304-7303-88bc-20b14fe3fbb0",
+      "usage_including_global_context": {
+        "input_tokens": 77039,
+        "cached_input_tokens": 50226,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1002,
+        "reasoning_output_tokens": 469
+      },
+      "final_response": "### 用户 A：「稳一点」\n\n**如果你指的是后端或在线服务**，可以先翻译为这些候选术语：\n- **高可用性**：部分组件出故障时，服务仍尽量可用。\n- **故障转移**：当前实例出问题时，由其他实例接替。\n- **恢复目标（RTO / RPO）**：分别明确“多久恢复”和“最多能接受丢失多少数据”。\n\n这些是可能的方向，不代表都需要采用。**你想让什么“稳一点”——页面视觉、交互表现，还是后端服务？**\n\n### 用户 B：「有质感一点」\n\n**如果你指的是网页或界面**，可以先翻译为这些候选术语：\n- **文字层级**：让标题、正文、辅助信息有清楚的主次。\n- **主强调色**：用明确的重点色突出关键内容。\n- **圆角与阴影**：通过边缘形态和明暗关系表达层次。\n- **卡片材质**：明确表面的视觉表现，而不只是换个颜色。\n\n“有质感”还不能直接等同于暗色、玻璃或渐变风格。**你想调整的对象是什么——整个页面、某个组件，还是图片或实物？**",
+      "captured_tool_output_chars": 8563,
+      "runtime_sha256": "b9fa79a56592adde9d81a98485a008b00ffff3dafbc56a3737a9eefb1b9bf04e"
+    },
+    {
+      "id": "verified",
+      "live_host": true,
+      "completed": true,
+      "commands": [
+        {
+          "command": "/bin/zsh -lc 'pwd && cat .agents/skills/feeling-to-jargon/SKILL.md'",
+          "exit_code": 0,
+          "captured_output_chars": 4270,
+          "captured_payload_count": 0
+        },
+        {
+          "command": "/bin/zsh -lc 'python3 .agents/skills/feeling-to-jargon/scripts/query.py \"太挤了。\" --format agent'",
+          "exit_code": 0,
+          "captured_output_chars": 2574,
+          "captured_payload_count": 1
+        }
+      ],
+      "query_payloads": [
+        {
+          "query": "太挤了。",
+          "status": "needs_clarification",
+          "matches": [],
+          "dependencies": [],
+          "clarifications": [
+            {
+              "id": "feeling_scope",
+              "question": "以上术语只是候选方向。你指的对象是什么，例如页面、按钮、后端？确认对象后再细化，不必先知道专业术语。"
+            }
+          ],
+          "deferred_clarifications": [],
+          "coverage": {
+            "status": "candidate_directions_only",
+            "unaccounted_clauses": [],
+            "limitation": "有限词法/组合规则覆盖，不是完整语义理解；有结果不代表整句全部覆盖。"
+          },
+          "composition": {
+            "conflicts": [],
+            "deferred": [],
+            "deduplication": "stable leaf+entry IDs; shared contracts by path",
+            "related_policy": "informational_only; never loaded wholesale"
+          },
+          "verification_required": [],
+          "network_search": "not_requested",
+          "candidate_terms": [
+            {
+              "leaf_id": "composition-patterns",
+              "entry_id": "composition-patterns",
+              "name": "卡片错位/大图主导/非对称/层叠/留白/破格出血",
+              "terms": [
+                "留白",
+                "比例"
+              ],
+              "definition": "用比例、层级和安全区建立页面性格；每次只让少数元素破格。",
+              "role": "suggestion",
+              "user_expressions": [
+                "挤"
+              ],
+              "applicable_when": [
+                "页面",
+                "网页",
+                "界面",
+                "布局",
+                "网站"
+              ],
+              "scope_confirmed": false,
+              "knowledge_loaded": false,
+              "source": "terms/visual-layout/composition-patterns.json#composition-patterns"
+            },
+            {
+              "leaf_id": "information-hierarchy",
+              "entry_id": "information-hierarchy",
+              "name": "信息层级",
+              "terms": [
+                "信息层级",
+                "主任务优先"
+              ],
+              "definition": "先确定用户要做的决定，再按主次组织标题、数据、操作和辅助说明。",
+              "role": "suggestion",
+              "user_expressions": [
+                "挤"
+              ],
+              "applicable_when": [
+                "网站",
+                "网页",
+                "页面",
+                "界面",
+                "布局",
+                "dashboard"
+              ],
+              "scope_confirmed": false,
+              "knowledge_loaded": false,
+              "source": "terms/information-architecture/information-hierarchy.json#information-hierarchy"
+            }
+          ],
+          "terminology_preview": {
+            "semantics": "术语方向不是用户已选方案；未加载正文的候选只能用于解释/澄清，不能用于直接实现。",
+            "omitted_directions": 0
+          },
+          "explanations": [],
+          "delivery": {
+            "scenario_plans": [],
+            "ready_for_final_prompt": false,
+            "acceptance_checks": {
+              "dependencies_complete_for_emitted_bundles": true,
+              "detected_requests_assembled": false,
+              "whole_request_semantics_verified": false,
+              "parameters_resolved": false,
+              "conflicting_layouts_not_blended": true,
+              "host_llm_workflow_verified": false,
+              "provider_facts_verified": true
+            }
+          },
+          "usage": {
+            "loaded_leaf_count": 0,
+            "loaded_entry_count": 0,
+            "context_chars": 0,
+            "content_char_limit": 24000,
+            "candidate_terms_chars": 784
+          },
+          "format": "agent",
+          "output_cost": {
+            "unit": "unicode_characters_not_tokens",
+            "compact_payload_chars_without_cost": 1984,
+            "candidate_terms_chars": 784,
+            "explanations_chars": 2,
+            "knowledge_chars": 32
+          }
+        }
+      ],
+      "thread_id": "01a15cdc-be20-7612-bb02-c4ab46cb57f4",
+      "usage_including_global_context": {
+        "input_tokens": 76294,
+        "cached_input_tokens": 32670,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 747,
+        "reasoning_output_tokens": 481
+      },
+      "final_response": "如果你说的是**页面或界面布局**，“太挤了”通常可以具体化为：\n\n- **留白不足 / 空间比例失衡**：元素间距太小，内容贴得过近，缺少呼吸感。\n- **信息层级不清 / 信息密度过高**：标题、数据、按钮和辅助说明争夺注意力，主任务不突出。\n\n你指的是**整个页面、某个卡片/组件，还是按钮和文字之间的布局**？",
+      "captured_tool_output_chars": 6844,
+      "runtime_sha256": "92d1891a6937b3a2b3b169a601c0cfedcd684929f733a167ecab45b50750d99d"
+    }
+  ]
+}

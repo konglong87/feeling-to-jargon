@@ -1,7 +1,23 @@
 """Generate a disposable retrieval projection from authored entry metadata."""
 import re
+from copy import deepcopy
 from collections import Counter
 from routing_policy import COMPOSITION_FIELDS, SCENARIO_SOURCE
+
+def project_retrieval(entry):
+    """Existing scoped rules can also supply feeling cues; never copy their lists."""
+    retrieval = deepcopy(entry.get('retrieval', {}))
+    rules = {rule['id']:rule for rule in retrieval.get('rules',[])}
+    for feeling in retrieval.get('feelings',[]):
+        if 'rule_ref' not in feeling:
+            continue
+        rule = rules[feeling['rule_ref']]
+        subject = rule['subject_group']
+        feeling.update({'all':[group for i,group in enumerate(rule['all']) if i != subject],
+                        'scope_any':rule['all'][subject],
+                        'exclude_any':rule.get('exclude_any',[]), 'role':'suggestion'})
+    return retrieval
+
 
 def build_index(leaf_defs, root):
     import json
@@ -15,7 +31,7 @@ def build_index(leaf_defs, root):
                 'provider': leaf.get('provider') or entry.get('provider'),
                 'fields': {key: entry.get(key, [] if key == 'aliases' else '')
                            for key in ('name', 'aliases', 'plain_language', 'when_to_use')},
-                'retrieval': entry.get('retrieval', {}),
+                'retrieval': project_retrieval(entry),
                 'source_question': entry.get('evidence',{}).get('missing_inputs',[]) if entry.get('evidence',{}).get('status') == 'needs_confirmation' else [],
                 'reusable_fields': [key for key in ('termSkill','agentExec','state','tokens') if entry.get(key)],
                 'contract_ref': entry.get('contract_ref'),

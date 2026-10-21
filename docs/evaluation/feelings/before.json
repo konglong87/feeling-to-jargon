@@ -1,0 +1,2779 @@
+[
+  {
+    "id": "crowded",
+    "query": "太挤了",
+    "expected_directions": [
+      "information-hierarchy",
+      "composition-patterns"
+    ],
+    "result": {
+      "query": "太挤了",
+      "strategy": "progressive",
+      "trace": {
+        "levels": [
+          "root",
+          "subdomain",
+          "intent",
+          "leaf",
+          "entry"
+        ],
+        "execution_order": [
+          "read_generated_routing_indexes",
+          "match_scene_or_generic_route",
+          "assemble_atomic_knowledge_bundles",
+          "validate_membership",
+          "check_delivery"
+        ],
+        "root_loaded": "index/root.json",
+        "runtime_router_loaded": "index/runtime.json",
+        "domain_index_paths": [],
+        "intent_index_paths": [],
+        "selected_intents": [],
+        "selected_subdomains": [],
+        "loaded_leaf_paths": [],
+        "loaded_leaf_count": 0,
+        "entry_limit": 30,
+        "loaded_entry_count": 0,
+        "internal_read_paths": [
+          "index/root.json",
+          "index/runtime.json",
+          "index/retrieval.json"
+        ],
+        "internal_index_chars": 148251,
+        "indexes_in_llm_context": false,
+        "context_chars": 0,
+        "content_char_limit": 24000,
+        "content_budget_scope": "Canonical JSON of matches+dependencies; explanation/delivery envelope reported separately.",
+        "routing_ms": 22.871,
+        "total_processing_ms": 25.605,
+        "route_mode": "generic",
+        "runtime_routes_scored": 105,
+        "runtime_literal_guards_checked": 96,
+        "retrieval_entries_checked": 120,
+        "score_kind": "uncalibrated_heuristic_rank"
+      },
+      "matches": [],
+      "dependencies": [],
+      "status": "coverage_insufficient",
+      "explanations": [],
+      "clarifications": [],
+      "deferred_clarifications": [],
+      "coverage": {
+        "status": "insufficient",
+        "unaccounted_clauses": [
+          "太挤了"
+        ],
+        "limitation": "有限词法/组合规则覆盖，不是完整语义理解；有结果不代表整句全部覆盖。"
+      },
+      "delivery": {
+        "user_need": "太挤了",
+        "explicit_needs": [],
+        "suggested_directions": [],
+        "scenario_plans": [],
+        "output_fields": [
+          "user_need",
+          "candidate_terms",
+          "explicit_vs_suggested",
+          "open_questions",
+          "constraints",
+          "acceptance"
+        ],
+        "prompt_outline": [
+          "保留原始需求及证据",
+          "区分已确认要求与候选术语",
+          "仅使用已加载正文及共享协议",
+          "回答必要问题后再确定参数/风格",
+          "按所选场景验收；未知与分阶段内容明确留出"
+        ],
+        "ready_for_final_prompt": false,
+        "acceptance_checks": {
+          "dependencies_complete_for_emitted_bundles": true,
+          "detected_requests_assembled": false,
+          "whole_request_semantics_verified": false,
+          "parameters_resolved": true,
+          "conflicting_layouts_not_blended": true,
+          "host_llm_workflow_verified": false,
+          "provider_facts_verified": true
+        },
+        "acceptance_sources": []
+      },
+      "verification_required": [],
+      "composition": {
+        "conflicts": [],
+        "deferred": [],
+        "deduplication": "stable leaf+entry IDs; shared contracts by path",
+        "related_policy": "informational_only; never loaded wholesale"
+      },
+      "network_search": "not_requested"
+    },
+    "agent_chars": 957
+  },
+  {
+    "id": "focus",
+    "query": "没重点",
+    "expected_directions": [
+      "information-hierarchy"
+    ],
+    "result": {
+      "query": "没重点",
+      "strategy": "progressive",
+      "trace": {
+        "levels": [
+          "root",
+          "subdomain",
+          "intent",
+          "leaf",
+          "entry"
+        ],
+        "execution_order": [
+          "read_generated_routing_indexes",
+          "match_scene_or_generic_route",
+          "assemble_atomic_knowledge_bundles",
+          "validate_membership",
+          "check_delivery"
+        ],
+        "root_loaded": "index/root.json",
+        "runtime_router_loaded": "index/runtime.json",
+        "domain_index_paths": [],
+        "intent_index_paths": [],
+        "selected_intents": [],
+        "selected_subdomains": [],
+        "loaded_leaf_paths": [],
+        "loaded_leaf_count": 0,
+        "entry_limit": 30,
+        "loaded_entry_count": 0,
+        "internal_read_paths": [
+          "index/root.json",
+          "index/runtime.json",
+          "index/retrieval.json"
+        ],
+        "internal_index_chars": 148251,
+        "indexes_in_llm_context": false,
+        "context_chars": 0,
+        "content_char_limit": 24000,
+        "content_budget_scope": "Canonical JSON of matches+dependencies; explanation/delivery envelope reported separately.",
+        "routing_ms": 22.607,
+        "total_processing_ms": 24.419,
+        "route_mode": "generic",
+        "runtime_routes_scored": 105,
+        "runtime_literal_guards_checked": 96,
+        "retrieval_entries_checked": 120,
+        "score_kind": "uncalibrated_heuristic_rank"
+      },
+      "matches": [],
+      "dependencies": [],
+      "status": "coverage_insufficient",
+      "explanations": [],
+      "clarifications": [],
+      "deferred_clarifications": [],
+      "coverage": {
+        "status": "insufficient",
+        "unaccounted_clauses": [
+          "没重点"
+        ],
+        "limitation": "有限词法/组合规则覆盖，不是完整语义理解；有结果不代表整句全部覆盖。"
+      },
+      "delivery": {
+        "user_need": "没重点",
+        "explicit_needs": [],
+        "suggested_directions": [],
+        "scenario_plans": [],
+        "output_fields": [
+          "user_need",
+          "candidate_terms",
+          "explicit_vs_suggested",
+          "open_questions",
+          "constraints",
+          "acceptance"
+        ],
+        "prompt_outline": [
+          "保留原始需求及证据",
+          "区分已确认要求与候选术语",
+          "仅使用已加载正文及共享协议",
+          "回答必要问题后再确定参数/风格",
+          "按所选场景验收；未知与分阶段内容明确留出"
+        ],
+        "ready_for_final_prompt": false,
+        "acceptance_checks": {
+          "dependencies_complete_for_emitted_bundles": true,
+          "detected_requests_assembled": false,
+          "whole_request_semantics_verified": false,
+          "parameters_resolved": true,
+          "conflicting_layouts_not_blended": true,
+          "host_llm_workflow_verified": false,
+          "provider_facts_verified": true
+        },
+        "acceptance_sources": []
+      },
+      "verification_required": [],
+      "composition": {
+        "conflicts": [],
+        "deferred": [],
+        "deduplication": "stable leaf+entry IDs; shared contracts by path",
+        "related_policy": "informational_only; never loaded wholesale"
+      },
+      "network_search": "not_requested"
+    },
+    "agent_chars": 957
+  },
+  {
+    "id": "breath",
+    "query": "有呼吸感",
+    "expected_directions": [
+      "composition-patterns"
+    ],
+    "result": {
+      "query": "有呼吸感",
+      "strategy": "progressive",
+      "trace": {
+        "levels": [
+          "root",
+          "subdomain",
+          "intent",
+          "leaf",
+          "entry"
+        ],
+        "execution_order": [
+          "read_generated_routing_indexes",
+          "match_scene_or_generic_route",
+          "assemble_atomic_knowledge_bundles",
+          "validate_membership",
+          "check_delivery"
+        ],
+        "root_loaded": "index/root.json",
+        "runtime_router_loaded": "index/runtime.json",
+        "domain_index_paths": [],
+        "intent_index_paths": [],
+        "selected_intents": [],
+        "selected_subdomains": [],
+        "loaded_leaf_paths": [],
+        "loaded_leaf_count": 0,
+        "entry_limit": 30,
+        "loaded_entry_count": 0,
+        "internal_read_paths": [
+          "index/root.json",
+          "index/runtime.json",
+          "index/retrieval.json"
+        ],
+        "internal_index_chars": 148251,
+        "indexes_in_llm_context": false,
+        "context_chars": 0,
+        "content_char_limit": 24000,
+        "content_budget_scope": "Canonical JSON of matches+dependencies; explanation/delivery envelope reported separately.",
+        "routing_ms": 22.977,
+        "total_processing_ms": 24.844,
+        "route_mode": "generic",
+        "runtime_routes_scored": 105,
+        "runtime_literal_guards_checked": 96,
+        "retrieval_entries_checked": 120,
+        "score_kind": "uncalibrated_heuristic_rank"
+      },
+      "matches": [],
+      "dependencies": [],
+      "status": "coverage_insufficient",
+      "explanations": [],
+      "clarifications": [],
+      "deferred_clarifications": [],
+      "coverage": {
+        "status": "insufficient",
+        "unaccounted_clauses": [
+          "有呼吸感"
+        ],
+        "limitation": "有限词法/组合规则覆盖，不是完整语义理解；有结果不代表整句全部覆盖。"
+      },
+      "delivery": {
+        "user_need": "有呼吸感",
+        "explicit_needs": [],
+        "suggested_directions": [],
+        "scenario_plans": [],
+        "output_fields": [
+          "user_need",
+          "candidate_terms",
+          "explicit_vs_suggested",
+          "open_questions",
+          "constraints",
+          "acceptance"
+        ],
+        "prompt_outline": [
+          "保留原始需求及证据",
+          "区分已确认要求与候选术语",
+          "仅使用已加载正文及共享协议",
+          "回答必要问题后再确定参数/风格",
+          "按所选场景验收；未知与分阶段内容明确留出"
+        ],
+        "ready_for_final_prompt": false,
+        "acceptance_checks": {
+          "dependencies_complete_for_emitted_bundles": true,
+          "detected_requests_assembled": false,
+          "whole_request_semantics_verified": false,
+          "parameters_resolved": true,
+          "conflicting_layouts_not_blended": true,
+          "host_llm_workflow_verified": false,
+          "provider_facts_verified": true
+        },
+        "acceptance_sources": []
+      },
+      "verification_required": [],
+      "composition": {
+        "conflicts": [],
+        "deferred": [],
+        "deduplication": "stable leaf+entry IDs; shared contracts by path",
+        "related_policy": "informational_only; never loaded wholesale"
+      },
+      "network_search": "not_requested"
+    },
+    "agent_chars": 959
+  },
+  {
+    "id": "quality",
+    "query": "有质感一点",
+    "expected_directions": [
+      "token-system"
+    ],
+    "result": {
+      "query": "有质感一点",
+      "strategy": "progressive",
+      "trace": {
+        "levels": [
+          "root",
+          "subdomain",
+          "intent",
+          "leaf",
+          "entry"
+        ],
+        "execution_order": [
+          "read_generated_routing_indexes",
+          "match_scene_or_generic_route",
+          "assemble_atomic_knowledge_bundles",
+          "validate_membership",
+          "check_delivery"
+        ],
+        "root_loaded": "index/root.json",
+        "runtime_router_loaded": "index/runtime.json",
+        "domain_index_paths": [],
+        "intent_index_paths": [],
+        "selected_intents": [],
+        "selected_subdomains": [],
+        "loaded_leaf_paths": [],
+        "loaded_leaf_count": 0,
+        "entry_limit": 30,
+        "loaded_entry_count": 0,
+        "internal_read_paths": [
+          "index/root.json",
+          "index/runtime.json",
+          "index/retrieval.json"
+        ],
+        "internal_index_chars": 148251,
+        "indexes_in_llm_context": false,
+        "context_chars": 0,
+        "content_char_limit": 24000,
+        "content_budget_scope": "Canonical JSON of matches+dependencies; explanation/delivery envelope reported separately.",
+        "routing_ms": 23.181,
+        "total_processing_ms": 25.147,
+        "route_mode": "generic",
+        "runtime_routes_scored": 105,
+        "runtime_literal_guards_checked": 96,
+        "retrieval_entries_checked": 120,
+        "score_kind": "uncalibrated_heuristic_rank"
+      },
+      "matches": [],
+      "dependencies": [],
+      "status": "needs_clarification",
+      "explanations": [],
+      "clarifications": [
+        {
+          "id": "scope",
+          "question": "你说的是软件服务的可靠性、界面视觉，还是其他对象？请补充对象与具体不满意之处。"
+        }
+      ],
+      "deferred_clarifications": [],
+      "coverage": {
+        "status": "bounded",
+        "unaccounted_clauses": [],
+        "limitation": "有限词法/组合规则覆盖，不是完整语义理解；有结果不代表整句全部覆盖。"
+      },
+      "delivery": {
+        "user_need": "有质感一点",
+        "explicit_needs": [],
+        "suggested_directions": [],
+        "scenario_plans": [],
+        "output_fields": [
+          "user_need",
+          "candidate_terms",
+          "explicit_vs_suggested",
+          "open_questions",
+          "constraints",
+          "acceptance"
+        ],
+        "prompt_outline": [
+          "保留原始需求及证据",
+          "区分已确认要求与候选术语",
+          "仅使用已加载正文及共享协议",
+          "回答必要问题后再确定参数/风格",
+          "按所选场景验收；未知与分阶段内容明确留出"
+        ],
+        "ready_for_final_prompt": false,
+        "acceptance_checks": {
+          "dependencies_complete_for_emitted_bundles": true,
+          "detected_requests_assembled": true,
+          "whole_request_semantics_verified": false,
+          "parameters_resolved": false,
+          "conflicting_layouts_not_blended": true,
+          "host_llm_workflow_verified": false,
+          "provider_facts_verified": true
+        },
+        "acceptance_sources": []
+      },
+      "verification_required": [],
+      "composition": {
+        "conflicts": [],
+        "deferred": [],
+        "deduplication": "stable leaf+entry IDs; shared contracts by path",
+        "related_policy": "informational_only; never loaded wholesale"
+      },
+      "network_search": "not_requested"
+    },
+    "agent_chars": 1014
+  },
+  {
+    "id": "premium",
+    "query": "高级一点",
+    "expected_directions": [
+      "token-system"
+    ],
+    "result": {
+      "query": "高级一点",
+      "strategy": "progressive",
+      "trace": {
+        "levels": [
+          "root",
+          "subdomain",
+          "intent",
+          "leaf",
+          "entry"
+        ],
+        "execution_order": [
+          "read_generated_routing_indexes",
+          "match_scene_or_generic_route",
+          "assemble_atomic_knowledge_bundles",
+          "validate_membership",
+          "check_delivery"
+        ],
+        "root_loaded": "index/root.json",
+        "runtime_router_loaded": "index/runtime.json",
+        "domain_index_paths": [],
+        "intent_index_paths": [],
+        "selected_intents": [],
+        "selected_subdomains": [],
+        "loaded_leaf_paths": [],
+        "loaded_leaf_count": 0,
+        "entry_limit": 30,
+        "loaded_entry_count": 0,
+        "internal_read_paths": [
+          "index/root.json",
+          "index/runtime.json",
+          "index/retrieval.json"
+        ],
+        "internal_index_chars": 148251,
+        "indexes_in_llm_context": false,
+        "context_chars": 0,
+        "content_char_limit": 24000,
+        "content_budget_scope": "Canonical JSON of matches+dependencies; explanation/delivery envelope reported separately.",
+        "routing_ms": 23.145,
+        "total_processing_ms": 25.117,
+        "route_mode": "generic",
+        "runtime_routes_scored": 105,
+        "runtime_literal_guards_checked": 96,
+        "retrieval_entries_checked": 120,
+        "score_kind": "uncalibrated_heuristic_rank"
+      },
+      "matches": [],
+      "dependencies": [],
+      "status": "needs_clarification",
+      "explanations": [],
+      "clarifications": [
+        {
+          "id": "scope",
+          "question": "你说的是软件服务的可靠性、界面视觉，还是其他对象？请补充对象与具体不满意之处。"
+        }
+      ],
+      "deferred_clarifications": [],
+      "coverage": {
+        "status": "bounded",
+        "unaccounted_clauses": [],
+        "limitation": "有限词法/组合规则覆盖，不是完整语义理解；有结果不代表整句全部覆盖。"
+      },
+      "delivery": {
+        "user_need": "高级一点",
+        "explicit_needs": [],
+        "suggested_directions": [],
+        "scenario_plans": [],
+        "output_fields": [
+          "user_need",
+          "candidate_terms",
+          "explicit_vs_suggested",
+          "open_questions",
+          "constraints",
+          "acceptance"
+        ],
+        "prompt_outline": [
+          "保留原始需求及证据",
+          "区分已确认要求与候选术语",
+          "仅使用已加载正文及共享协议",
+          "回答必要问题后再确定参数/风格",
+          "按所选场景验收；未知与分阶段内容明确留出"
+        ],
+        "ready_for_final_prompt": false,
+        "acceptance_checks": {
+          "dependencies_complete_for_emitted_bundles": true,
+          "detected_requests_assembled": true,
+          "whole_request_semantics_verified": false,
+          "parameters_resolved": false,
+          "conflicting_layouts_not_blended": true,
+          "host_llm_workflow_verified": false,
+          "provider_facts_verified": true
+        },
+        "acceptance_sources": []
+      },
+      "verification_required": [],
+      "composition": {
+        "conflicts": [],
+        "deferred": [],
+        "deduplication": "stable leaf+entry IDs; shared contracts by path",
+        "related_policy": "informational_only; never loaded wholesale"
+      },
+      "network_search": "not_requested"
+    },
+    "agent_chars": 1013
+  },
+  {
+    "id": "messy",
+    "query": "太乱了",
+    "expected_directions": [
+      "information-hierarchy",
+      "composition-patterns"
+    ],
+    "result": {
+      "query": "太乱了",
+      "strategy": "progressive",
+      "trace": {
+        "levels": [
+          "root",
+          "subdomain",
+          "intent",
+          "leaf",
+          "entry"
+        ],
+        "execution_order": [
+          "read_generated_routing_indexes",
+          "match_scene_or_generic_route",
+          "assemble_atomic_knowledge_bundles",
+          "validate_membership",
+          "check_delivery"
+        ],
+        "root_loaded": "index/root.json",
+        "runtime_router_loaded": "index/runtime.json",
+        "domain_index_paths": [],
+        "intent_index_paths": [],
+        "selected_intents": [],
+        "selected_subdomains": [],
+        "loaded_leaf_paths": [],
+        "loaded_leaf_count": 0,
+        "entry_limit": 30,
+        "loaded_entry_count": 0,
+        "internal_read_paths": [
+          "index/root.json",
+          "index/runtime.json",
+          "index/retrieval.json"
+        ],
+        "internal_index_chars": 148251,
+        "indexes_in_llm_context": false,
+        "context_chars": 0,
+        "content_char_limit": 24000,
+        "content_budget_scope": "Canonical JSON of matches+dependencies; explanation/delivery envelope reported separately.",
+        "routing_ms": 22.952,
+        "total_processing_ms": 24.871,
+        "route_mode": "generic",
+        "runtime_routes_scored": 105,
+        "runtime_literal_guards_checked": 96,
+        "retrieval_entries_checked": 120,
+        "score_kind": "uncalibrated_heuristic_rank"
+      },
+      "matches": [],
+      "dependencies": [],
+      "status": "needs_clarification",
+      "explanations": [],
+      "clarifications": [
+        {
+          "id": "scope",
+          "question": "你说的是软件服务的可靠性、界面视觉，还是其他对象？请补充对象与具体不满意之处。"
+        }
+      ],
+      "deferred_clarifications": [],
+      "coverage": {
+        "status": "bounded",
+        "unaccounted_clauses": [],
+        "limitation": "有限词法/组合规则覆盖，不是完整语义理解；有结果不代表整句全部覆盖。"
+      },
+      "delivery": {
+        "user_need": "太乱了",
+        "explicit_needs": [],
+        "suggested_directions": [],
+        "scenario_plans": [],
+        "output_fields": [
+          "user_need",
+          "candidate_terms",
+          "explicit_vs_suggested",
+          "open_questions",
+          "constraints",
+          "acceptance"
+        ],
+        "prompt_outline": [
+          "保留原始需求及证据",
+          "区分已确认要求与候选术语",
+          "仅使用已加载正文及共享协议",
+          "回答必要问题后再确定参数/风格",
+          "按所选场景验收；未知与分阶段内容明确留出"
+        ],
+        "ready_for_final_prompt": false,
+        "acceptance_checks": {
+          "dependencies_complete_for_emitted_bundles": true,
+          "detected_requests_assembled": true,
+          "whole_request_semantics_verified": false,
+          "parameters_resolved": false,
+          "conflicting_layouts_not_blended": true,
+          "host_llm_workflow_verified": false,
+          "provider_facts_verified": true
+        },
+        "acceptance_sources": []
+      },
+      "verification_required": [],
+      "composition": {
+        "conflicts": [],
+        "deferred": [],
+        "deduplication": "stable leaf+entry IDs; shared contracts by path",
+        "related_policy": "informational_only; never loaded wholesale"
+      },
+      "network_search": "not_requested"
+    },
+    "agent_chars": 1012
+  },
+  {
+    "id": "cheap",
+    "query": "看着廉价",
+    "expected_directions": [
+      "token-system"
+    ],
+    "result": {
+      "query": "看着廉价",
+      "strategy": "progressive",
+      "trace": {
+        "levels": [
+          "root",
+          "subdomain",
+          "intent",
+          "leaf",
+          "entry"
+        ],
+        "execution_order": [
+          "read_generated_routing_indexes",
+          "match_scene_or_generic_route",
+          "assemble_atomic_knowledge_bundles",
+          "validate_membership",
+          "check_delivery"
+        ],
+        "root_loaded": "index/root.json",
+        "runtime_router_loaded": "index/runtime.json",
+        "domain_index_paths": [],
+        "intent_index_paths": [],
+        "selected_intents": [],
+        "selected_subdomains": [],
+        "loaded_leaf_paths": [],
+        "loaded_leaf_count": 0,
+        "entry_limit": 30,
+        "loaded_entry_count": 0,
+        "internal_read_paths": [
+          "index/root.json",
+          "index/runtime.json",
+          "index/retrieval.json"
+        ],
+        "internal_index_chars": 148251,
+        "indexes_in_llm_context": false,
+        "context_chars": 0,
+        "content_char_limit": 24000,
+        "content_budget_scope": "Canonical JSON of matches+dependencies; explanation/delivery envelope reported separately.",
+        "routing_ms": 22.742,
+        "total_processing_ms": 24.583,
+        "route_mode": "generic",
+        "runtime_routes_scored": 105,
+        "runtime_literal_guards_checked": 96,
+        "retrieval_entries_checked": 120,
+        "score_kind": "uncalibrated_heuristic_rank"
+      },
+      "matches": [],
+      "dependencies": [],
+      "status": "coverage_insufficient",
+      "explanations": [],
+      "clarifications": [],
+      "deferred_clarifications": [],
+      "coverage": {
+        "status": "insufficient",
+        "unaccounted_clauses": [
+          "看着廉价"
+        ],
+        "limitation": "有限词法/组合规则覆盖，不是完整语义理解；有结果不代表整句全部覆盖。"
+      },
+      "delivery": {
+        "user_need": "看着廉价",
+        "explicit_needs": [],
+        "suggested_directions": [],
+        "scenario_plans": [],
+        "output_fields": [
+          "user_need",
+          "candidate_terms",
+          "explicit_vs_suggested",
+          "open_questions",
+          "constraints",
+          "acceptance"
+        ],
+        "prompt_outline": [
+          "保留原始需求及证据",
+          "区分已确认要求与候选术语",
+          "仅使用已加载正文及共享协议",
+          "回答必要问题后再确定参数/风格",
+          "按所选场景验收；未知与分阶段内容明确留出"
+        ],
+        "ready_for_final_prompt": false,
+        "acceptance_checks": {
+          "dependencies_complete_for_emitted_bundles": true,
+          "detected_requests_assembled": false,
+          "whole_request_semantics_verified": false,
+          "parameters_resolved": true,
+          "conflicting_layouts_not_blended": true,
+          "host_llm_workflow_verified": false,
+          "provider_facts_verified": true
+        },
+        "acceptance_sources": []
+      },
+      "verification_required": [],
+      "composition": {
+        "conflicts": [],
+        "deferred": [],
+        "deduplication": "stable leaf+entry IDs; shared contracts by path",
+        "related_policy": "informational_only; never loaded wholesale"
+      },
+      "network_search": "not_requested"
+    },
+    "agent_chars": 959
+  },
+  {
+    "id": "stable",
+    "query": "稳一点",
+    "expected_directions": [
+      "availability-patterns"
+    ],
+    "result": {
+      "query": "稳一点",
+      "strategy": "progressive",
+      "trace": {
+        "levels": [
+          "root",
+          "subdomain",
+          "intent",
+          "leaf",
+          "entry"
+        ],
+        "execution_order": [
+          "read_generated_routing_indexes",
+          "match_scene_or_generic_route",
+          "assemble_atomic_knowledge_bundles",
+          "validate_membership",
+          "check_delivery"
+        ],
+        "root_loaded": "index/root.json",
+        "runtime_router_loaded": "index/runtime.json",
+        "domain_index_paths": [],
+        "intent_index_paths": [],
+        "selected_intents": [],
+        "selected_subdomains": [],
+        "loaded_leaf_paths": [],
+        "loaded_leaf_count": 0,
+        "entry_limit": 30,
+        "loaded_entry_count": 0,
+        "internal_read_paths": [
+          "index/root.json",
+          "index/runtime.json",
+          "index/retrieval.json"
+        ],
+        "internal_index_chars": 148251,
+        "indexes_in_llm_context": false,
+        "context_chars": 0,
+        "content_char_limit": 24000,
+        "content_budget_scope": "Canonical JSON of matches+dependencies; explanation/delivery envelope reported separately.",
+        "routing_ms": 22.809,
+        "total_processing_ms": 24.604,
+        "route_mode": "generic",
+        "runtime_routes_scored": 105,
+        "runtime_literal_guards_checked": 96,
+        "retrieval_entries_checked": 120,
+        "score_kind": "uncalibrated_heuristic_rank"
+      },
+      "matches": [],
+      "dependencies": [],
+      "status": "coverage_insufficient",
+      "explanations": [],
+      "clarifications": [],
+      "deferred_clarifications": [],
+      "coverage": {
+        "status": "insufficient",
+        "unaccounted_clauses": [
+          "稳一点"
+        ],
+        "limitation": "有限词法/组合规则覆盖，不是完整语义理解；有结果不代表整句全部覆盖。"
+      },
+      "delivery": {
+        "user_need": "稳一点",
+        "explicit_needs": [],
+        "suggested_directions": [],
+        "scenario_plans": [],
+        "output_fields": [
+          "user_need",
+          "candidate_terms",
+          "explicit_vs_suggested",
+          "open_questions",
+          "constraints",
+          "acceptance"
+        ],
+        "prompt_outline": [
+          "保留原始需求及证据",
+          "区分已确认要求与候选术语",
+          "仅使用已加载正文及共享协议",
+          "回答必要问题后再确定参数/风格",
+          "按所选场景验收；未知与分阶段内容明确留出"
+        ],
+        "ready_for_final_prompt": false,
+        "acceptance_checks": {
+          "dependencies_complete_for_emitted_bundles": true,
+          "detected_requests_assembled": false,
+          "whole_request_semantics_verified": false,
+          "parameters_resolved": true,
+          "conflicting_layouts_not_blended": true,
+          "host_llm_workflow_verified": false,
+          "provider_facts_verified": true
+        },
+        "acceptance_sources": []
+      },
+      "verification_required": [],
+      "composition": {
+        "conflicts": [],
+        "deferred": [],
+        "deduplication": "stable leaf+entry IDs; shared contracts by path",
+        "related_policy": "informational_only; never loaded wholesale"
+      },
+      "network_search": "not_requested"
+    },
+    "agent_chars": 957
+  },
+  {
+    "id": "concurrent",
+    "query": "很多人同时用也别卡",
+    "expected_directions": [
+      "concurrency-capacity"
+    ],
+    "result": {
+      "query": "很多人同时用也别卡",
+      "strategy": "progressive",
+      "trace": {
+        "levels": [
+          "root",
+          "subdomain",
+          "intent",
+          "leaf",
+          "entry"
+        ],
+        "execution_order": [
+          "read_generated_routing_indexes",
+          "match_scene_or_generic_route",
+          "assemble_atomic_knowledge_bundles",
+          "validate_membership",
+          "check_delivery"
+        ],
+        "root_loaded": "index/root.json",
+        "runtime_router_loaded": "index/runtime.json",
+        "domain_index_paths": [
+          "index/domains/software-engineering-architecture.json"
+        ],
+        "intent_index_paths": [
+          "index/intents/software-engineering-architecture/high-concurrency.json"
+        ],
+        "selected_intents": [
+          {
+            "domain_id": "software-engineering-architecture",
+            "subdomain_id": "high-concurrency",
+            "intent_id": "model-capacity"
+          },
+          {
+            "domain_id": "software-engineering-architecture",
+            "subdomain_id": "high-concurrency",
+            "intent_id": "tune-performance"
+          }
+        ],
+        "selected_subdomains": [
+          {
+            "domain_id": "software-engineering-architecture",
+            "subdomain_id": "high-concurrency"
+          }
+        ],
+        "loaded_leaf_paths": [
+          "terms/software-engineering/capacity-model.json"
+        ],
+        "loaded_leaf_count": 1,
+        "entry_limit": 30,
+        "loaded_entry_count": 1,
+        "internal_read_paths": [
+          "index/root.json",
+          "index/runtime.json",
+          "index/retrieval.json",
+          "terms/software-engineering/capacity-model.json",
+          "index/domains/software-engineering-architecture.json",
+          "index/intents/software-engineering-architecture/high-concurrency.json"
+        ],
+        "internal_index_chars": 150374,
+        "indexes_in_llm_context": false,
+        "context_chars": 666,
+        "content_char_limit": 24000,
+        "content_budget_scope": "Canonical JSON of matches+dependencies; explanation/delivery envelope reported separately.",
+        "routing_ms": 22.865,
+        "total_processing_ms": 26.161,
+        "route_mode": "scenario_fast_path",
+        "runtime_routes_scored": 0,
+        "runtime_literal_guards_checked": 96,
+        "retrieval_entries_checked": 120,
+        "score_kind": "uncalibrated_heuristic_rank"
+      },
+      "matches": [
+        {
+          "leaf_id": "capacity-model",
+          "knowledge_type": "term",
+          "scope": "general",
+          "do_not_generalize": false,
+          "path": "terms/software-engineering/capacity-model.json",
+          "score": 12,
+          "entries": [
+            {
+              "id": "capacity-model",
+              "name": "并发容量模型",
+              "plain_language": "用平均值、峰值、突发、P95/P99 和增长率描述高并发，而不是只说高并发。",
+              "when_to_use": "后端或平台方案需要拆解质量属性时",
+              "parameters": [
+                "RPS",
+                "burst",
+                "P95/P99",
+                "growth rate"
+              ],
+              "related": [
+                "high-availability",
+                "capacity-model",
+                "scaling-strategies",
+                "observability-contract",
+                "idempotency-contract"
+              ],
+              "constraints": [
+                "不要把质量属性当作无边界承诺"
+              ],
+              "aliases": []
+            }
+          ],
+          "entry_sources": [
+            {
+              "entry_id": "capacity-model",
+              "role": "explicit",
+              "source_refs": [
+                "user_query"
+              ]
+            }
+          ],
+          "provider": null
+        }
+      ],
+      "dependencies": [],
+      "status": "needs_clarification",
+      "explanations": [
+        {
+          "leaf_id": "capacity-model",
+          "entry_id": "capacity-model",
+          "role": "explicit",
+          "term": "并发容量模型",
+          "reason": "Matched authored identity or bounded conjunctive evidence; parameters are not inferred.",
+          "evidence": [
+            {
+              "field": "retrieval.rules.simultaneous-load",
+              "matched_expression": "人",
+              "origin": "local_lexical"
+            },
+            {
+              "field": "retrieval.rules.simultaneous-load",
+              "matched_expression": "同时",
+              "origin": "local_lexical"
+            },
+            {
+              "field": "retrieval.rules.large-audience",
+              "matched_expression": "很多人",
+              "origin": "local_lexical"
+            },
+            {
+              "field": "retrieval.rules.large-audience",
+              "matched_expression": "用",
+              "origin": "local_lexical"
+            }
+          ],
+          "source": "terms/software-engineering/capacity-model.json#capacity-model"
+        }
+      ],
+      "clarifications": [
+        {
+          "id": "peak_load",
+          "question": "预计同时在线或峰值请求规模是多少？若只有用户总数，先区分总量与并发。"
+        },
+        {
+          "id": "response_target",
+          "question": "哪些操作不能变慢，期望的响应时间是多少？"
+        }
+      ],
+      "deferred_clarifications": [],
+      "coverage": {
+        "status": "bounded",
+        "unaccounted_clauses": [],
+        "limitation": "有限词法/组合规则覆盖，不是完整语义理解；有结果不代表整句全部覆盖。"
+      },
+      "delivery": {
+        "user_need": "很多人同时用也别卡",
+        "explicit_needs": [
+          {
+            "leaf_id": "capacity-model",
+            "entry_id": "capacity-model",
+            "explanation_index": 0
+          }
+        ],
+        "suggested_directions": [],
+        "scenario_plans": [
+          {
+            "scenario_id": "backend-quality",
+            "name": "后端质量目标澄清",
+            "match": "partial",
+            "selected_knowledge": [
+              {
+                "leaf_id": "capacity-model",
+                "entry_id": "capacity-model"
+              }
+            ],
+            "not_applicable": [
+              "没有软件/服务语境的稳定感受",
+              "只有总用户数时不得认定峰值并发"
+            ],
+            "required_information": [
+              {
+                "id": "peak_load",
+                "question": "预计同时在线或峰值请求规模是多少？若只有用户总数，先区分总量与并发。"
+              },
+              {
+                "id": "response_target",
+                "question": "哪些操作不能变慢，期望的响应时间是多少？"
+              }
+            ],
+            "provided_information": {},
+            "flow": [
+              "保留用户证据",
+              "只澄清改变方案的信息",
+              "按依赖组合知识",
+              "输出有边界的增强方案",
+              "用原文约束与场景验收检查交付"
+            ],
+            "output_fields": [
+              "用户原话与证据",
+              "候选质量属性",
+              "已确认目标与建议",
+              "待确定的业务与量化边界",
+              "约束与验证方法"
+            ],
+            "acceptance": [
+              "只讨论有证据的质量属性",
+              "稳定不得自动带入幂等、并发与扩展",
+              "不得自动选技术栈或填写容量指标"
+            ]
+          }
+        ],
+        "output_fields": [
+          "user_need",
+          "candidate_terms",
+          "explicit_vs_suggested",
+          "open_questions",
+          "constraints",
+          "acceptance"
+        ],
+        "prompt_outline": [
+          "保留原始需求及证据",
+          "区分已确认要求与候选术语",
+          "仅使用已加载正文及共享协议",
+          "回答必要问题后再确定参数/风格",
+          "按所选场景验收；未知与分阶段内容明确留出"
+        ],
+        "ready_for_final_prompt": false,
+        "acceptance_checks": {
+          "dependencies_complete_for_emitted_bundles": true,
+          "detected_requests_assembled": true,
+          "whole_request_semantics_verified": false,
+          "parameters_resolved": false,
+          "conflicting_layouts_not_blended": true,
+          "host_llm_workflow_verified": false,
+          "provider_facts_verified": true
+        },
+        "acceptance_sources": [
+          {
+            "source": "terms/software-engineering/capacity-model.json#capacity-model",
+            "fields": [
+              "constraints"
+            ]
+          }
+        ]
+      },
+      "verification_required": [],
+      "composition": {
+        "conflicts": [],
+        "deferred": [],
+        "deduplication": "stable leaf+entry IDs; shared contracts by path",
+        "related_policy": "informational_only; never loaded wholesale"
+      },
+      "network_search": "not_requested"
+    },
+    "agent_chars": 2593
+  },
+  {
+    "id": "spring",
+    "query": "像弹簧一样",
+    "expected_directions": [
+      "spring-press"
+    ],
+    "result": {
+      "query": "像弹簧一样",
+      "strategy": "progressive",
+      "trace": {
+        "levels": [
+          "root",
+          "subdomain",
+          "intent",
+          "leaf",
+          "entry"
+        ],
+        "execution_order": [
+          "read_generated_routing_indexes",
+          "match_scene_or_generic_route",
+          "assemble_atomic_knowledge_bundles",
+          "validate_membership",
+          "check_delivery"
+        ],
+        "root_loaded": "index/root.json",
+        "runtime_router_loaded": "index/runtime.json",
+        "domain_index_paths": [],
+        "intent_index_paths": [],
+        "selected_intents": [],
+        "selected_subdomains": [],
+        "loaded_leaf_paths": [],
+        "loaded_leaf_count": 0,
+        "entry_limit": 30,
+        "loaded_entry_count": 0,
+        "internal_read_paths": [
+          "index/root.json",
+          "index/runtime.json",
+          "index/retrieval.json"
+        ],
+        "internal_index_chars": 148251,
+        "indexes_in_llm_context": false,
+        "context_chars": 0,
+        "content_char_limit": 24000,
+        "content_budget_scope": "Canonical JSON of matches+dependencies; explanation/delivery envelope reported separately.",
+        "routing_ms": 23.428,
+        "total_processing_ms": 25.307,
+        "route_mode": "generic",
+        "runtime_routes_scored": 105,
+        "runtime_literal_guards_checked": 96,
+        "retrieval_entries_checked": 120,
+        "score_kind": "uncalibrated_heuristic_rank"
+      },
+      "matches": [],
+      "dependencies": [],
+      "status": "coverage_insufficient",
+      "explanations": [],
+      "clarifications": [],
+      "deferred_clarifications": [],
+      "coverage": {
+        "status": "insufficient",
+        "unaccounted_clauses": [
+          "像弹簧一样"
+        ],
+        "limitation": "有限词法/组合规则覆盖，不是完整语义理解；有结果不代表整句全部覆盖。"
+      },
+      "delivery": {
+        "user_need": "像弹簧一样",
+        "explicit_needs": [],
+        "suggested_directions": [],
+        "scenario_plans": [],
+        "output_fields": [
+          "user_need",
+          "candidate_terms",
+          "explicit_vs_suggested",
+          "open_questions",
+          "constraints",
+          "acceptance"
+        ],
+        "prompt_outline": [
+          "保留原始需求及证据",
+          "区分已确认要求与候选术语",
+          "仅使用已加载正文及共享协议",
+          "回答必要问题后再确定参数/风格",
+          "按所选场景验收；未知与分阶段内容明确留出"
+        ],
+        "ready_for_final_prompt": false,
+        "acceptance_checks": {
+          "dependencies_complete_for_emitted_bundles": true,
+          "detected_requests_assembled": false,
+          "whole_request_semantics_verified": false,
+          "parameters_resolved": true,
+          "conflicting_layouts_not_blended": true,
+          "host_llm_workflow_verified": false,
+          "provider_facts_verified": true
+        },
+        "acceptance_sources": []
+      },
+      "verification_required": [],
+      "composition": {
+        "conflicts": [],
+        "deferred": [],
+        "deduplication": "stable leaf+entry IDs; shared contracts by path",
+        "related_policy": "informational_only; never loaded wholesale"
+      },
+      "network_search": "not_requested"
+    },
+    "agent_chars": 961
+  },
+  {
+    "id": "smooth",
+    "query": "顺滑一点",
+    "expected_directions": [
+      "velocity-inheritance"
+    ],
+    "result": {
+      "query": "顺滑一点",
+      "strategy": "progressive",
+      "trace": {
+        "levels": [
+          "root",
+          "subdomain",
+          "intent",
+          "leaf",
+          "entry"
+        ],
+        "execution_order": [
+          "read_generated_routing_indexes",
+          "match_scene_or_generic_route",
+          "assemble_atomic_knowledge_bundles",
+          "validate_membership",
+          "check_delivery"
+        ],
+        "root_loaded": "index/root.json",
+        "runtime_router_loaded": "index/runtime.json",
+        "domain_index_paths": [],
+        "intent_index_paths": [],
+        "selected_intents": [],
+        "selected_subdomains": [],
+        "loaded_leaf_paths": [],
+        "loaded_leaf_count": 0,
+        "entry_limit": 30,
+        "loaded_entry_count": 0,
+        "internal_read_paths": [
+          "index/root.json",
+          "index/runtime.json",
+          "index/retrieval.json"
+        ],
+        "internal_index_chars": 148251,
+        "indexes_in_llm_context": false,
+        "context_chars": 0,
+        "content_char_limit": 24000,
+        "content_budget_scope": "Canonical JSON of matches+dependencies; explanation/delivery envelope reported separately.",
+        "routing_ms": 23.128,
+        "total_processing_ms": 24.943,
+        "route_mode": "generic",
+        "runtime_routes_scored": 105,
+        "runtime_literal_guards_checked": 96,
+        "retrieval_entries_checked": 120,
+        "score_kind": "uncalibrated_heuristic_rank"
+      },
+      "matches": [],
+      "dependencies": [],
+      "status": "coverage_insufficient",
+      "explanations": [],
+      "clarifications": [],
+      "deferred_clarifications": [],
+      "coverage": {
+        "status": "insufficient",
+        "unaccounted_clauses": [
+          "顺滑一点"
+        ],
+        "limitation": "有限词法/组合规则覆盖，不是完整语义理解；有结果不代表整句全部覆盖。"
+      },
+      "delivery": {
+        "user_need": "顺滑一点",
+        "explicit_needs": [],
+        "suggested_directions": [],
+        "scenario_plans": [],
+        "output_fields": [
+          "user_need",
+          "candidate_terms",
+          "explicit_vs_suggested",
+          "open_questions",
+          "constraints",
+          "acceptance"
+        ],
+        "prompt_outline": [
+          "保留原始需求及证据",
+          "区分已确认要求与候选术语",
+          "仅使用已加载正文及共享协议",
+          "回答必要问题后再确定参数/风格",
+          "按所选场景验收；未知与分阶段内容明确留出"
+        ],
+        "ready_for_final_prompt": false,
+        "acceptance_checks": {
+          "dependencies_complete_for_emitted_bundles": true,
+          "detected_requests_assembled": false,
+          "whole_request_semantics_verified": false,
+          "parameters_resolved": true,
+          "conflicting_layouts_not_blended": true,
+          "host_llm_workflow_verified": false,
+          "provider_facts_verified": true
+        },
+        "acceptance_sources": []
+      },
+      "verification_required": [],
+      "composition": {
+        "conflicts": [],
+        "deferred": [],
+        "deduplication": "stable leaf+entry IDs; shared contracts by path",
+        "related_policy": "informational_only; never loaded wholesale"
+      },
+      "network_search": "not_requested"
+    },
+    "agent_chars": 959
+  },
+  {
+    "id": "light",
+    "query": "轻一点",
+    "expected_directions": [],
+    "result": {
+      "query": "轻一点",
+      "strategy": "progressive",
+      "trace": {
+        "levels": [
+          "root",
+          "subdomain",
+          "intent",
+          "leaf",
+          "entry"
+        ],
+        "execution_order": [
+          "read_generated_routing_indexes",
+          "match_scene_or_generic_route",
+          "assemble_atomic_knowledge_bundles",
+          "validate_membership",
+          "check_delivery"
+        ],
+        "root_loaded": "index/root.json",
+        "runtime_router_loaded": "index/runtime.json",
+        "domain_index_paths": [],
+        "intent_index_paths": [],
+        "selected_intents": [],
+        "selected_subdomains": [],
+        "loaded_leaf_paths": [],
+        "loaded_leaf_count": 0,
+        "entry_limit": 30,
+        "loaded_entry_count": 0,
+        "internal_read_paths": [
+          "index/root.json",
+          "index/runtime.json",
+          "index/retrieval.json"
+        ],
+        "internal_index_chars": 148251,
+        "indexes_in_llm_context": false,
+        "context_chars": 0,
+        "content_char_limit": 24000,
+        "content_budget_scope": "Canonical JSON of matches+dependencies; explanation/delivery envelope reported separately.",
+        "routing_ms": 22.775,
+        "total_processing_ms": 24.554,
+        "route_mode": "generic",
+        "runtime_routes_scored": 105,
+        "runtime_literal_guards_checked": 96,
+        "retrieval_entries_checked": 120,
+        "score_kind": "uncalibrated_heuristic_rank"
+      },
+      "matches": [],
+      "dependencies": [],
+      "status": "coverage_insufficient",
+      "explanations": [],
+      "clarifications": [],
+      "deferred_clarifications": [],
+      "coverage": {
+        "status": "insufficient",
+        "unaccounted_clauses": [
+          "轻一点"
+        ],
+        "limitation": "有限词法/组合规则覆盖，不是完整语义理解；有结果不代表整句全部覆盖。"
+      },
+      "delivery": {
+        "user_need": "轻一点",
+        "explicit_needs": [],
+        "suggested_directions": [],
+        "scenario_plans": [],
+        "output_fields": [
+          "user_need",
+          "candidate_terms",
+          "explicit_vs_suggested",
+          "open_questions",
+          "constraints",
+          "acceptance"
+        ],
+        "prompt_outline": [
+          "保留原始需求及证据",
+          "区分已确认要求与候选术语",
+          "仅使用已加载正文及共享协议",
+          "回答必要问题后再确定参数/风格",
+          "按所选场景验收；未知与分阶段内容明确留出"
+        ],
+        "ready_for_final_prompt": false,
+        "acceptance_checks": {
+          "dependencies_complete_for_emitted_bundles": true,
+          "detected_requests_assembled": false,
+          "whole_request_semantics_verified": false,
+          "parameters_resolved": true,
+          "conflicting_layouts_not_blended": true,
+          "host_llm_workflow_verified": false,
+          "provider_facts_verified": true
+        },
+        "acceptance_sources": []
+      },
+      "verification_required": [],
+      "composition": {
+        "conflicts": [],
+        "deferred": [],
+        "deduplication": "stable leaf+entry IDs; shared contracts by path",
+        "related_policy": "informational_only; never loaded wholesale"
+      },
+      "network_search": "not_requested"
+    },
+    "agent_chars": 957
+  },
+  {
+    "id": "scoped-space",
+    "query": "网站要有呼吸感",
+    "expected_directions": [
+      "composition-patterns"
+    ],
+    "result": {
+      "query": "网站要有呼吸感",
+      "strategy": "progressive",
+      "trace": {
+        "levels": [
+          "root",
+          "subdomain",
+          "intent",
+          "leaf",
+          "entry"
+        ],
+        "execution_order": [
+          "read_generated_routing_indexes",
+          "match_scene_or_generic_route",
+          "assemble_atomic_knowledge_bundles",
+          "validate_membership",
+          "check_delivery"
+        ],
+        "root_loaded": "index/root.json",
+        "runtime_router_loaded": "index/runtime.json",
+        "domain_index_paths": [],
+        "intent_index_paths": [],
+        "selected_intents": [],
+        "selected_subdomains": [],
+        "loaded_leaf_paths": [],
+        "loaded_leaf_count": 0,
+        "entry_limit": 30,
+        "loaded_entry_count": 0,
+        "internal_read_paths": [
+          "index/root.json",
+          "index/runtime.json",
+          "index/retrieval.json"
+        ],
+        "internal_index_chars": 148251,
+        "indexes_in_llm_context": false,
+        "context_chars": 0,
+        "content_char_limit": 24000,
+        "content_budget_scope": "Canonical JSON of matches+dependencies; explanation/delivery envelope reported separately.",
+        "routing_ms": 23.854,
+        "total_processing_ms": 25.702,
+        "route_mode": "generic",
+        "runtime_routes_scored": 105,
+        "runtime_literal_guards_checked": 96,
+        "retrieval_entries_checked": 120,
+        "score_kind": "uncalibrated_heuristic_rank"
+      },
+      "matches": [],
+      "dependencies": [],
+      "status": "coverage_insufficient",
+      "explanations": [],
+      "clarifications": [],
+      "deferred_clarifications": [],
+      "coverage": {
+        "status": "insufficient",
+        "unaccounted_clauses": [
+          "网站要有呼吸感"
+        ],
+        "limitation": "有限词法/组合规则覆盖，不是完整语义理解；有结果不代表整句全部覆盖。"
+      },
+      "delivery": {
+        "user_need": "网站要有呼吸感",
+        "explicit_needs": [],
+        "suggested_directions": [],
+        "scenario_plans": [],
+        "output_fields": [
+          "user_need",
+          "candidate_terms",
+          "explicit_vs_suggested",
+          "open_questions",
+          "constraints",
+          "acceptance"
+        ],
+        "prompt_outline": [
+          "保留原始需求及证据",
+          "区分已确认要求与候选术语",
+          "仅使用已加载正文及共享协议",
+          "回答必要问题后再确定参数/风格",
+          "按所选场景验收；未知与分阶段内容明确留出"
+        ],
+        "ready_for_final_prompt": false,
+        "acceptance_checks": {
+          "dependencies_complete_for_emitted_bundles": true,
+          "detected_requests_assembled": false,
+          "whole_request_semantics_verified": false,
+          "parameters_resolved": true,
+          "conflicting_layouts_not_blended": true,
+          "host_llm_workflow_verified": false,
+          "provider_facts_verified": true
+        },
+        "acceptance_sources": []
+      },
+      "verification_required": [],
+      "composition": {
+        "conflicts": [],
+        "deferred": [],
+        "deduplication": "stable leaf+entry IDs; shared contracts by path",
+        "related_policy": "informational_only; never loaded wholesale"
+      },
+      "network_search": "not_requested"
+    },
+    "agent_chars": 965
+  },
+  {
+    "id": "scoped-focus",
+    "query": "页面没重点",
+    "expected_directions": [
+      "information-hierarchy"
+    ],
+    "result": {
+      "query": "页面没重点",
+      "strategy": "progressive",
+      "trace": {
+        "levels": [
+          "root",
+          "subdomain",
+          "intent",
+          "leaf",
+          "entry"
+        ],
+        "execution_order": [
+          "read_generated_routing_indexes",
+          "match_scene_or_generic_route",
+          "assemble_atomic_knowledge_bundles",
+          "validate_membership",
+          "check_delivery"
+        ],
+        "root_loaded": "index/root.json",
+        "runtime_router_loaded": "index/runtime.json",
+        "domain_index_paths": [
+          "index/domains/digital-product-uiux.json"
+        ],
+        "intent_index_paths": [
+          "index/intents/digital-product-uiux/visual-layout.json"
+        ],
+        "selected_intents": [
+          {
+            "domain_id": "digital-product-uiux",
+            "subdomain_id": "visual-layout",
+            "intent_id": "design-layout"
+          },
+          {
+            "domain_id": "digital-product-uiux",
+            "subdomain_id": "visual-layout",
+            "intent_id": "audit-layout"
+          }
+        ],
+        "selected_subdomains": [
+          {
+            "domain_id": "digital-product-uiux",
+            "subdomain_id": "visual-layout"
+          }
+        ],
+        "loaded_leaf_paths": [
+          "terms/visual-layout/composition-patterns.json"
+        ],
+        "loaded_leaf_count": 1,
+        "entry_limit": 30,
+        "loaded_entry_count": 1,
+        "internal_read_paths": [
+          "index/root.json",
+          "index/runtime.json",
+          "index/retrieval.json",
+          "terms/visual-layout/composition-patterns.json",
+          "index/domains/digital-product-uiux.json",
+          "index/intents/digital-product-uiux/visual-layout.json"
+        ],
+        "internal_index_chars": 151330,
+        "indexes_in_llm_context": false,
+        "context_chars": 674,
+        "content_char_limit": 24000,
+        "content_budget_scope": "Canonical JSON of matches+dependencies; explanation/delivery envelope reported separately.",
+        "routing_ms": 22.306,
+        "total_processing_ms": 25.784,
+        "route_mode": "scenario_fast_path",
+        "runtime_routes_scored": 0,
+        "runtime_literal_guards_checked": 96,
+        "retrieval_entries_checked": 120,
+        "score_kind": "uncalibrated_heuristic_rank"
+      },
+      "matches": [
+        {
+          "leaf_id": "composition-patterns",
+          "knowledge_type": "pattern",
+          "scope": "general",
+          "do_not_generalize": false,
+          "path": "terms/visual-layout/composition-patterns.json",
+          "score": 12,
+          "entries": [
+            {
+              "id": "composition-patterns",
+              "name": "卡片错位/大图主导/非对称/层叠/留白/破格出血",
+              "plain_language": "用比例、层级和安全区建立页面性格；每次只让少数元素破格。",
+              "when_to_use": "首屏、活动页、详情页和内容信息流",
+              "parameters": [
+                "错位按 8/12/16px 节奏",
+                "主图可占半屏或出血",
+                "使用 7:3 或 8:2 非对称",
+                "只破一处网格，内容留在安全区"
+              ],
+              "related": [
+                "layout-patterns",
+                "design-tokens"
+              ],
+              "constraints": [
+                "错位无规律会像未对齐",
+                "出血过多会削弱秩序",
+                "留白必须仍有视觉焦点"
+              ],
+              "aliases": []
+            }
+          ],
+          "entry_sources": [
+            {
+              "entry_id": "composition-patterns",
+              "role": "suggestion",
+              "source_refs": [
+                "user_query"
+              ]
+            }
+          ],
+          "provider": null
+        }
+      ],
+      "dependencies": [],
+      "status": "needs_clarification",
+      "explanations": [
+        {
+          "leaf_id": "composition-patterns",
+          "entry_id": "composition-patterns",
+          "role": "suggestion",
+          "term": "卡片错位/大图主导/非对称/层叠/留白/破格出血",
+          "reason": "Matched authored identity or bounded conjunctive evidence; parameters are not inferred.",
+          "evidence": [
+            {
+              "field": "retrieval.rules.visual-clarity",
+              "matched_expression": "页面",
+              "origin": "local_lexical"
+            },
+            {
+              "field": "retrieval.rules.visual-clarity",
+              "matched_expression": "重点",
+              "origin": "local_lexical"
+            }
+          ],
+          "source": "terms/visual-layout/composition-patterns.json#composition-patterns"
+        }
+      ],
+      "clarifications": [
+        {
+          "id": "primary_task",
+          "question": "页面最重要的信息和用户要完成的任务是什么？"
+        }
+      ],
+      "deferred_clarifications": [],
+      "coverage": {
+        "status": "bounded",
+        "unaccounted_clauses": [],
+        "limitation": "有限词法/组合规则覆盖，不是完整语义理解；有结果不代表整句全部覆盖。"
+      },
+      "delivery": {
+        "user_need": "页面没重点",
+        "explicit_needs": [],
+        "suggested_directions": [
+          {
+            "leaf_id": "composition-patterns",
+            "entry_id": "composition-patterns",
+            "explanation_index": 0
+          }
+        ],
+        "scenario_plans": [
+          {
+            "scenario_id": "visual-brief",
+            "name": "视觉感觉转设计方向",
+            "match": "partial",
+            "selected_knowledge": [
+              {
+                "leaf_id": "composition-patterns",
+                "entry_id": "composition-patterns"
+              }
+            ],
+            "not_applicable": [
+              "非界面视觉的乱或舒服",
+              "未确认时不得默认暗色、玻璃、渐变"
+            ],
+            "required_information": [
+              {
+                "id": "primary_task",
+                "question": "页面最重要的信息和用户要完成的任务是什么？"
+              }
+            ],
+            "provided_information": {},
+            "flow": [
+              "保留用户证据",
+              "只澄清改变方案的信息",
+              "按依赖组合知识",
+              "输出有边界的增强方案",
+              "用原文约束与场景验收检查交付"
+            ],
+            "output_fields": [
+              "原始感觉",
+              "结构与设计令牌候选",
+              "不超过必要数量的澄清",
+              "用户确认后的增强提示词",
+              "截图与任务可读性验收"
+            ],
+            "acceptance": [
+              "候选是方向而非已选美术方案",
+              "未指定的色值、栅格与风格不得作为事实",
+              "用前后截图核对视觉层级与主任务"
+            ]
+          }
+        ],
+        "output_fields": [
+          "user_need",
+          "candidate_terms",
+          "explicit_vs_suggested",
+          "open_questions",
+          "constraints",
+          "acceptance"
+        ],
+        "prompt_outline": [
+          "保留原始需求及证据",
+          "区分已确认要求与候选术语",
+          "仅使用已加载正文及共享协议",
+          "回答必要问题后再确定参数/风格",
+          "按所选场景验收；未知与分阶段内容明确留出"
+        ],
+        "ready_for_final_prompt": false,
+        "acceptance_checks": {
+          "dependencies_complete_for_emitted_bundles": true,
+          "detected_requests_assembled": true,
+          "whole_request_semantics_verified": false,
+          "parameters_resolved": false,
+          "conflicting_layouts_not_blended": true,
+          "host_llm_workflow_verified": false,
+          "provider_facts_verified": true
+        },
+        "acceptance_sources": [
+          {
+            "source": "terms/visual-layout/composition-patterns.json#composition-patterns",
+            "fields": [
+              "constraints"
+            ]
+          }
+        ]
+      },
+      "verification_required": [],
+      "composition": {
+        "conflicts": [],
+        "deferred": [],
+        "deduplication": "stable leaf+entry IDs; shared contracts by path",
+        "related_policy": "informational_only; never loaded wholesale"
+      },
+      "network_search": "not_requested"
+    },
+    "agent_chars": 2357
+  },
+  {
+    "id": "scoped-stable",
+    "query": "后端稳一点",
+    "expected_directions": [
+      "availability-patterns"
+    ],
+    "result": {
+      "query": "后端稳一点",
+      "strategy": "progressive",
+      "trace": {
+        "levels": [
+          "root",
+          "subdomain",
+          "intent",
+          "leaf",
+          "entry"
+        ],
+        "execution_order": [
+          "read_generated_routing_indexes",
+          "match_scene_or_generic_route",
+          "assemble_atomic_knowledge_bundles",
+          "validate_membership",
+          "check_delivery"
+        ],
+        "root_loaded": "index/root.json",
+        "runtime_router_loaded": "index/runtime.json",
+        "domain_index_paths": [],
+        "intent_index_paths": [],
+        "selected_intents": [],
+        "selected_subdomains": [],
+        "loaded_leaf_paths": [],
+        "loaded_leaf_count": 0,
+        "entry_limit": 30,
+        "loaded_entry_count": 0,
+        "internal_read_paths": [
+          "index/root.json",
+          "index/runtime.json",
+          "index/retrieval.json"
+        ],
+        "internal_index_chars": 148251,
+        "indexes_in_llm_context": false,
+        "context_chars": 0,
+        "content_char_limit": 24000,
+        "content_budget_scope": "Canonical JSON of matches+dependencies; explanation/delivery envelope reported separately.",
+        "routing_ms": 23.045,
+        "total_processing_ms": 24.887,
+        "route_mode": "generic",
+        "runtime_routes_scored": 105,
+        "runtime_literal_guards_checked": 96,
+        "retrieval_entries_checked": 120,
+        "score_kind": "uncalibrated_heuristic_rank"
+      },
+      "matches": [],
+      "dependencies": [],
+      "status": "coverage_insufficient",
+      "explanations": [],
+      "clarifications": [],
+      "deferred_clarifications": [],
+      "coverage": {
+        "status": "insufficient",
+        "unaccounted_clauses": [
+          "后端稳一点"
+        ],
+        "limitation": "有限词法/组合规则覆盖，不是完整语义理解；有结果不代表整句全部覆盖。"
+      },
+      "delivery": {
+        "user_need": "后端稳一点",
+        "explicit_needs": [],
+        "suggested_directions": [],
+        "scenario_plans": [],
+        "output_fields": [
+          "user_need",
+          "candidate_terms",
+          "explicit_vs_suggested",
+          "open_questions",
+          "constraints",
+          "acceptance"
+        ],
+        "prompt_outline": [
+          "保留原始需求及证据",
+          "区分已确认要求与候选术语",
+          "仅使用已加载正文及共享协议",
+          "回答必要问题后再确定参数/风格",
+          "按所选场景验收；未知与分阶段内容明确留出"
+        ],
+        "ready_for_final_prompt": false,
+        "acceptance_checks": {
+          "dependencies_complete_for_emitted_bundles": true,
+          "detected_requests_assembled": false,
+          "whole_request_semantics_verified": false,
+          "parameters_resolved": true,
+          "conflicting_layouts_not_blended": true,
+          "host_llm_workflow_verified": false,
+          "provider_facts_verified": true
+        },
+        "acceptance_sources": []
+      },
+      "verification_required": [],
+      "composition": {
+        "conflicts": [],
+        "deferred": [],
+        "deduplication": "stable leaf+entry IDs; shared contracts by path",
+        "related_policy": "informational_only; never loaded wholesale"
+      },
+      "network_search": "not_requested"
+    },
+    "agent_chars": 961
+  },
+  {
+    "id": "irrelevant-crowd",
+    "query": "办公室太挤了",
+    "expected_directions": [],
+    "result": {
+      "query": "办公室太挤了",
+      "strategy": "progressive",
+      "trace": {
+        "levels": [
+          "root",
+          "subdomain",
+          "intent",
+          "leaf",
+          "entry"
+        ],
+        "execution_order": [
+          "read_generated_routing_indexes",
+          "match_scene_or_generic_route",
+          "assemble_atomic_knowledge_bundles",
+          "validate_membership",
+          "check_delivery"
+        ],
+        "root_loaded": "index/root.json",
+        "runtime_router_loaded": "index/runtime.json",
+        "domain_index_paths": [],
+        "intent_index_paths": [],
+        "selected_intents": [],
+        "selected_subdomains": [],
+        "loaded_leaf_paths": [],
+        "loaded_leaf_count": 0,
+        "entry_limit": 30,
+        "loaded_entry_count": 0,
+        "internal_read_paths": [
+          "index/root.json",
+          "index/runtime.json",
+          "index/retrieval.json"
+        ],
+        "internal_index_chars": 148251,
+        "indexes_in_llm_context": false,
+        "context_chars": 0,
+        "content_char_limit": 24000,
+        "content_budget_scope": "Canonical JSON of matches+dependencies; explanation/delivery envelope reported separately.",
+        "routing_ms": 23.248,
+        "total_processing_ms": 25.097,
+        "route_mode": "generic",
+        "runtime_routes_scored": 105,
+        "runtime_literal_guards_checked": 96,
+        "retrieval_entries_checked": 120,
+        "score_kind": "uncalibrated_heuristic_rank"
+      },
+      "matches": [],
+      "dependencies": [],
+      "status": "coverage_insufficient",
+      "explanations": [],
+      "clarifications": [],
+      "deferred_clarifications": [],
+      "coverage": {
+        "status": "insufficient",
+        "unaccounted_clauses": [
+          "办公室太挤了"
+        ],
+        "limitation": "有限词法/组合规则覆盖，不是完整语义理解；有结果不代表整句全部覆盖。"
+      },
+      "delivery": {
+        "user_need": "办公室太挤了",
+        "explicit_needs": [],
+        "suggested_directions": [],
+        "scenario_plans": [],
+        "output_fields": [
+          "user_need",
+          "candidate_terms",
+          "explicit_vs_suggested",
+          "open_questions",
+          "constraints",
+          "acceptance"
+        ],
+        "prompt_outline": [
+          "保留原始需求及证据",
+          "区分已确认要求与候选术语",
+          "仅使用已加载正文及共享协议",
+          "回答必要问题后再确定参数/风格",
+          "按所选场景验收；未知与分阶段内容明确留出"
+        ],
+        "ready_for_final_prompt": false,
+        "acceptance_checks": {
+          "dependencies_complete_for_emitted_bundles": true,
+          "detected_requests_assembled": false,
+          "whole_request_semantics_verified": false,
+          "parameters_resolved": true,
+          "conflicting_layouts_not_blended": true,
+          "host_llm_workflow_verified": false,
+          "provider_facts_verified": true
+        },
+        "acceptance_sources": []
+      },
+      "verification_required": [],
+      "composition": {
+        "conflicts": [],
+        "deferred": [],
+        "deduplication": "stable leaf+entry IDs; shared contracts by path",
+        "related_policy": "informational_only; never loaded wholesale"
+      },
+      "network_search": "not_requested"
+    },
+    "agent_chars": 963
+  },
+  {
+    "id": "irrelevant-quality",
+    "query": "菜做得高级一点",
+    "expected_directions": [],
+    "result": {
+      "query": "菜做得高级一点",
+      "strategy": "progressive",
+      "trace": {
+        "levels": [
+          "root",
+          "subdomain",
+          "intent",
+          "leaf",
+          "entry"
+        ],
+        "execution_order": [
+          "read_generated_routing_indexes",
+          "match_scene_or_generic_route",
+          "assemble_atomic_knowledge_bundles",
+          "validate_membership",
+          "check_delivery"
+        ],
+        "root_loaded": "index/root.json",
+        "runtime_router_loaded": "index/runtime.json",
+        "domain_index_paths": [],
+        "intent_index_paths": [],
+        "selected_intents": [],
+        "selected_subdomains": [],
+        "loaded_leaf_paths": [],
+        "loaded_leaf_count": 0,
+        "entry_limit": 30,
+        "loaded_entry_count": 0,
+        "internal_read_paths": [
+          "index/root.json",
+          "index/runtime.json",
+          "index/retrieval.json"
+        ],
+        "internal_index_chars": 148251,
+        "indexes_in_llm_context": false,
+        "context_chars": 0,
+        "content_char_limit": 24000,
+        "content_budget_scope": "Canonical JSON of matches+dependencies; explanation/delivery envelope reported separately.",
+        "routing_ms": 23.104,
+        "total_processing_ms": 25.234,
+        "route_mode": "generic",
+        "runtime_routes_scored": 105,
+        "runtime_literal_guards_checked": 96,
+        "retrieval_entries_checked": 120,
+        "score_kind": "uncalibrated_heuristic_rank"
+      },
+      "matches": [],
+      "dependencies": [],
+      "status": "coverage_insufficient",
+      "explanations": [],
+      "clarifications": [],
+      "deferred_clarifications": [],
+      "coverage": {
+        "status": "insufficient",
+        "unaccounted_clauses": [
+          "菜做得高级一点"
+        ],
+        "limitation": "有限词法/组合规则覆盖，不是完整语义理解；有结果不代表整句全部覆盖。"
+      },
+      "delivery": {
+        "user_need": "菜做得高级一点",
+        "explicit_needs": [],
+        "suggested_directions": [],
+        "scenario_plans": [],
+        "output_fields": [
+          "user_need",
+          "candidate_terms",
+          "explicit_vs_suggested",
+          "open_questions",
+          "constraints",
+          "acceptance"
+        ],
+        "prompt_outline": [
+          "保留原始需求及证据",
+          "区分已确认要求与候选术语",
+          "仅使用已加载正文及共享协议",
+          "回答必要问题后再确定参数/风格",
+          "按所选场景验收；未知与分阶段内容明确留出"
+        ],
+        "ready_for_final_prompt": false,
+        "acceptance_checks": {
+          "dependencies_complete_for_emitted_bundles": true,
+          "detected_requests_assembled": false,
+          "whole_request_semantics_verified": false,
+          "parameters_resolved": true,
+          "conflicting_layouts_not_blended": true,
+          "host_llm_workflow_verified": false,
+          "provider_facts_verified": true
+        },
+        "acceptance_sources": []
+      },
+      "verification_required": [],
+      "composition": {
+        "conflicts": [],
+        "deferred": [],
+        "deduplication": "stable leaf+entry IDs; shared contracts by path",
+        "related_policy": "informational_only; never loaded wholesale"
+      },
+      "network_search": "not_requested"
+    },
+    "agent_chars": 965
+  },
+  {
+    "id": "uncovered",
+    "query": "帮我修一台核磁共振仪",
+    "expected_directions": [],
+    "result": {
+      "query": "帮我修一台核磁共振仪",
+      "strategy": "progressive",
+      "trace": {
+        "levels": [
+          "root",
+          "subdomain",
+          "intent",
+          "leaf",
+          "entry"
+        ],
+        "execution_order": [
+          "read_generated_routing_indexes",
+          "match_scene_or_generic_route",
+          "assemble_atomic_knowledge_bundles",
+          "validate_membership",
+          "check_delivery"
+        ],
+        "root_loaded": "index/root.json",
+        "runtime_router_loaded": "index/runtime.json",
+        "domain_index_paths": [],
+        "intent_index_paths": [],
+        "selected_intents": [],
+        "selected_subdomains": [],
+        "loaded_leaf_paths": [],
+        "loaded_leaf_count": 0,
+        "entry_limit": 30,
+        "loaded_entry_count": 0,
+        "internal_read_paths": [
+          "index/root.json",
+          "index/runtime.json",
+          "index/retrieval.json"
+        ],
+        "internal_index_chars": 148251,
+        "indexes_in_llm_context": false,
+        "context_chars": 0,
+        "content_char_limit": 24000,
+        "content_budget_scope": "Canonical JSON of matches+dependencies; explanation/delivery envelope reported separately.",
+        "routing_ms": 23.867,
+        "total_processing_ms": 25.679,
+        "route_mode": "generic",
+        "runtime_routes_scored": 105,
+        "runtime_literal_guards_checked": 96,
+        "retrieval_entries_checked": 120,
+        "score_kind": "uncalibrated_heuristic_rank"
+      },
+      "matches": [],
+      "dependencies": [],
+      "status": "coverage_insufficient",
+      "explanations": [],
+      "clarifications": [],
+      "deferred_clarifications": [],
+      "coverage": {
+        "status": "insufficient",
+        "unaccounted_clauses": [
+          "帮我修一台核磁共振仪"
+        ],
+        "limitation": "有限词法/组合规则覆盖，不是完整语义理解；有结果不代表整句全部覆盖。"
+      },
+      "delivery": {
+        "user_need": "帮我修一台核磁共振仪",
+        "explicit_needs": [],
+        "suggested_directions": [],
+        "scenario_plans": [],
+        "output_fields": [
+          "user_need",
+          "candidate_terms",
+          "explicit_vs_suggested",
+          "open_questions",
+          "constraints",
+          "acceptance"
+        ],
+        "prompt_outline": [
+          "保留原始需求及证据",
+          "区分已确认要求与候选术语",
+          "仅使用已加载正文及共享协议",
+          "回答必要问题后再确定参数/风格",
+          "按所选场景验收；未知与分阶段内容明确留出"
+        ],
+        "ready_for_final_prompt": false,
+        "acceptance_checks": {
+          "dependencies_complete_for_emitted_bundles": true,
+          "detected_requests_assembled": false,
+          "whole_request_semantics_verified": false,
+          "parameters_resolved": true,
+          "conflicting_layouts_not_blended": true,
+          "host_llm_workflow_verified": false,
+          "provider_facts_verified": true
+        },
+        "acceptance_sources": []
+      },
+      "verification_required": [],
+      "composition": {
+        "conflicts": [],
+        "deferred": [],
+        "deduplication": "stable leaf+entry IDs; shared contracts by path",
+        "related_policy": "informational_only; never loaded wholesale"
+      },
+      "network_search": "not_requested"
+    },
+    "agent_chars": 971
+  },
+  {
+    "id": "negative",
+    "query": "不要玻璃渐变，网站有质感一点",
+    "expected_directions": [
+      "token-system"
+    ],
+    "result": {
+      "query": "不要玻璃渐变，网站有质感一点",
+      "strategy": "progressive",
+      "trace": {
+        "levels": [
+          "root",
+          "subdomain",
+          "intent",
+          "leaf",
+          "entry"
+        ],
+        "execution_order": [
+          "read_generated_routing_indexes",
+          "match_scene_or_generic_route",
+          "assemble_atomic_knowledge_bundles",
+          "validate_membership",
+          "check_delivery"
+        ],
+        "root_loaded": "index/root.json",
+        "runtime_router_loaded": "index/runtime.json",
+        "domain_index_paths": [
+          "index/domains/digital-product-uiux.json"
+        ],
+        "intent_index_paths": [
+          "index/intents/digital-product-uiux/design-tokens.json"
+        ],
+        "selected_intents": [
+          {
+            "domain_id": "digital-product-uiux",
+            "subdomain_id": "design-tokens",
+            "intent_id": "define-tokens"
+          },
+          {
+            "domain_id": "digital-product-uiux",
+            "subdomain_id": "design-tokens",
+            "intent_id": "audit-tokens"
+          }
+        ],
+        "selected_subdomains": [
+          {
+            "domain_id": "digital-product-uiux",
+            "subdomain_id": "design-tokens"
+          }
+        ],
+        "loaded_leaf_paths": [
+          "terms/design-tokens/token-system.json"
+        ],
+        "loaded_leaf_count": 1,
+        "entry_limit": 30,
+        "loaded_entry_count": 1,
+        "internal_read_paths": [
+          "index/root.json",
+          "index/runtime.json",
+          "index/retrieval.json",
+          "terms/design-tokens/token-system.json",
+          "index/domains/digital-product-uiux.json",
+          "index/intents/digital-product-uiux/design-tokens.json"
+        ],
+        "internal_index_chars": 151315,
+        "indexes_in_llm_context": false,
+        "context_chars": 633,
+        "content_char_limit": 24000,
+        "content_budget_scope": "Canonical JSON of matches+dependencies; explanation/delivery envelope reported separately.",
+        "routing_ms": 29.038,
+        "total_processing_ms": 32.02,
+        "route_mode": "scenario_fast_path",
+        "runtime_routes_scored": 0,
+        "runtime_literal_guards_checked": 96,
+        "retrieval_entries_checked": 120,
+        "score_kind": "uncalibrated_heuristic_rank"
+      },
+      "matches": [
+        {
+          "leaf_id": "token-system",
+          "knowledge_type": "parameter",
+          "scope": "general",
+          "do_not_generalize": false,
+          "path": "terms/design-tokens/token-system.json",
+          "score": 12,
+          "entries": [
+            {
+              "id": "token-system",
+              "name": "底色/强调色/层级/材质/主角五变量",
+              "plain_language": "Dashboard 的审美方向主要由底色、强调色、布局层级、材质和内容主角决定。",
+              "when_to_use": "需要让 AI 生成非模板化后台或设计系统",
+              "parameters": [
+                "背景色",
+                "主强调色",
+                "文字层级",
+                "圆角/阴影",
+                "卡片材质",
+                "内容主角"
+              ],
+              "related": [
+                "dashboard-style-system",
+                "composition-patterns"
+              ],
+              "constraints": [
+                "先定 token 再定组件，不要每张卡单独发明规则"
+              ],
+              "aliases": []
+            }
+          ],
+          "entry_sources": [
+            {
+              "entry_id": "token-system",
+              "role": "suggestion",
+              "source_refs": [
+                "user_query"
+              ]
+            }
+          ],
+          "provider": null
+        }
+      ],
+      "dependencies": [],
+      "status": "needs_clarification",
+      "explanations": [
+        {
+          "leaf_id": "token-system",
+          "entry_id": "token-system",
+          "role": "suggestion",
+          "term": "底色/强调色/层级/材质/主角五变量",
+          "reason": "Matched authored identity or bounded conjunctive evidence; parameters are not inferred.",
+          "evidence": [
+            {
+              "field": "retrieval.rules.visual-quality",
+              "matched_expression": "网站",
+              "origin": "local_lexical"
+            },
+            {
+              "field": "retrieval.rules.visual-quality",
+              "matched_expression": "质感",
+              "origin": "local_lexical"
+            }
+          ],
+          "source": "terms/design-tokens/token-system.json#token-system"
+        }
+      ],
+      "clarifications": [
+        {
+          "id": "visual_priority",
+          "question": "更想改善排版层级、留白、配色一致性还是材质？有没有偏好的参考？"
+        }
+      ],
+      "deferred_clarifications": [],
+      "coverage": {
+        "status": "bounded",
+        "unaccounted_clauses": [],
+        "limitation": "有限词法/组合规则覆盖，不是完整语义理解；有结果不代表整句全部覆盖。"
+      },
+      "delivery": {
+        "user_need": "不要玻璃渐变，网站有质感一点",
+        "explicit_needs": [],
+        "suggested_directions": [
+          {
+            "leaf_id": "token-system",
+            "entry_id": "token-system",
+            "explanation_index": 0
+          }
+        ],
+        "scenario_plans": [
+          {
+            "scenario_id": "visual-brief",
+            "name": "视觉感觉转设计方向",
+            "match": "partial",
+            "selected_knowledge": [
+              {
+                "leaf_id": "token-system",
+                "entry_id": "token-system"
+              }
+            ],
+            "not_applicable": [
+              "非界面视觉的乱或舒服",
+              "未确认时不得默认暗色、玻璃、渐变"
+            ],
+            "required_information": [
+              {
+                "id": "visual_priority",
+                "question": "更想改善排版层级、留白、配色一致性还是材质？有没有偏好的参考？"
+              }
+            ],
+            "provided_information": {},
+            "flow": [
+              "保留用户证据",
+              "只澄清改变方案的信息",
+              "按依赖组合知识",
+              "输出有边界的增强方案",
+              "用原文约束与场景验收检查交付"
+            ],
+            "output_fields": [
+              "原始感觉",
+              "结构与设计令牌候选",
+              "不超过必要数量的澄清",
+              "用户确认后的增强提示词",
+              "截图与任务可读性验收"
+            ],
+            "acceptance": [
+              "候选是方向而非已选美术方案",
+              "未指定的色值、栅格与风格不得作为事实",
+              "用前后截图核对视觉层级与主任务"
+            ]
+          }
+        ],
+        "output_fields": [
+          "user_need",
+          "candidate_terms",
+          "explicit_vs_suggested",
+          "open_questions",
+          "constraints",
+          "acceptance"
+        ],
+        "prompt_outline": [
+          "保留原始需求及证据",
+          "区分已确认要求与候选术语",
+          "仅使用已加载正文及共享协议",
+          "回答必要问题后再确定参数/风格",
+          "按所选场景验收；未知与分阶段内容明确留出"
+        ],
+        "ready_for_final_prompt": false,
+        "acceptance_checks": {
+          "dependencies_complete_for_emitted_bundles": true,
+          "detected_requests_assembled": true,
+          "whole_request_semantics_verified": false,
+          "parameters_resolved": false,
+          "conflicting_layouts_not_blended": true,
+          "host_llm_workflow_verified": false,
+          "provider_facts_verified": true
+        },
+        "acceptance_sources": [
+          {
+            "source": "terms/design-tokens/token-system.json#token-system",
+            "fields": [
+              "constraints"
+            ]
+          }
+        ]
+      },
+      "verification_required": [],
+      "composition": {
+        "conflicts": [],
+        "deferred": [],
+        "deduplication": "stable leaf+entry IDs; shared contracts by path",
+        "related_policy": "informational_only; never loaded wholesale"
+      },
+      "network_search": "not_requested"
+    },
+    "agent_chars": 2306
+  },
+  {
+    "id": "combo",
+    "query": "页面太挤了，按钮像弹簧一样",
+    "expected_directions": [
+      "information-hierarchy",
+      "spring-press"
+    ],
+    "result": {
+      "query": "页面太挤了，按钮像弹簧一样",
+      "strategy": "progressive",
+      "trace": {
+        "levels": [
+          "root",
+          "subdomain",
+          "intent",
+          "leaf",
+          "entry"
+        ],
+        "execution_order": [
+          "read_generated_routing_indexes",
+          "match_scene_or_generic_route",
+          "assemble_atomic_knowledge_bundles",
+          "validate_membership",
+          "check_delivery"
+        ],
+        "root_loaded": "index/root.json",
+        "runtime_router_loaded": "index/runtime.json",
+        "domain_index_paths": [
+          "index/domains/digital-product-uiux.json"
+        ],
+        "intent_index_paths": [
+          "index/intents/digital-product-uiux/visual-layout.json"
+        ],
+        "selected_intents": [
+          {
+            "domain_id": "digital-product-uiux",
+            "subdomain_id": "visual-layout",
+            "intent_id": "design-layout"
+          },
+          {
+            "domain_id": "digital-product-uiux",
+            "subdomain_id": "visual-layout",
+            "intent_id": "audit-layout"
+          }
+        ],
+        "selected_subdomains": [
+          {
+            "domain_id": "digital-product-uiux",
+            "subdomain_id": "visual-layout"
+          }
+        ],
+        "loaded_leaf_paths": [
+          "terms/visual-layout/composition-patterns.json"
+        ],
+        "loaded_leaf_count": 1,
+        "entry_limit": 30,
+        "loaded_entry_count": 1,
+        "internal_read_paths": [
+          "index/root.json",
+          "index/runtime.json",
+          "index/retrieval.json",
+          "terms/visual-layout/composition-patterns.json",
+          "index/domains/digital-product-uiux.json",
+          "index/intents/digital-product-uiux/visual-layout.json"
+        ],
+        "internal_index_chars": 151330,
+        "indexes_in_llm_context": false,
+        "context_chars": 674,
+        "content_char_limit": 24000,
+        "content_budget_scope": "Canonical JSON of matches+dependencies; explanation/delivery envelope reported separately.",
+        "routing_ms": 23.956,
+        "total_processing_ms": 26.357,
+        "route_mode": "scenario_fast_path",
+        "runtime_routes_scored": 0,
+        "runtime_literal_guards_checked": 96,
+        "retrieval_entries_checked": 120,
+        "score_kind": "uncalibrated_heuristic_rank"
+      },
+      "matches": [
+        {
+          "leaf_id": "composition-patterns",
+          "knowledge_type": "pattern",
+          "scope": "general",
+          "do_not_generalize": false,
+          "path": "terms/visual-layout/composition-patterns.json",
+          "score": 12,
+          "entries": [
+            {
+              "id": "composition-patterns",
+              "name": "卡片错位/大图主导/非对称/层叠/留白/破格出血",
+              "plain_language": "用比例、层级和安全区建立页面性格；每次只让少数元素破格。",
+              "when_to_use": "首屏、活动页、详情页和内容信息流",
+              "parameters": [
+                "错位按 8/12/16px 节奏",
+                "主图可占半屏或出血",
+                "使用 7:3 或 8:2 非对称",
+                "只破一处网格，内容留在安全区"
+              ],
+              "related": [
+                "layout-patterns",
+                "design-tokens"
+              ],
+              "constraints": [
+                "错位无规律会像未对齐",
+                "出血过多会削弱秩序",
+                "留白必须仍有视觉焦点"
+              ],
+              "aliases": []
+            }
+          ],
+          "entry_sources": [
+            {
+              "entry_id": "composition-patterns",
+              "role": "suggestion",
+              "source_refs": [
+                "user_query"
+              ]
+            }
+          ],
+          "provider": null
+        }
+      ],
+      "dependencies": [],
+      "status": "partial_coverage",
+      "explanations": [
+        {
+          "leaf_id": "composition-patterns",
+          "entry_id": "composition-patterns",
+          "role": "suggestion",
+          "term": "卡片错位/大图主导/非对称/层叠/留白/破格出血",
+          "reason": "Matched authored identity or bounded conjunctive evidence; parameters are not inferred.",
+          "evidence": [
+            {
+              "field": "retrieval.rules.visual-clarity",
+              "matched_expression": "页面",
+              "origin": "local_lexical"
+            },
+            {
+              "field": "retrieval.rules.visual-clarity",
+              "matched_expression": "挤",
+              "origin": "local_lexical"
+            }
+          ],
+          "source": "terms/visual-layout/composition-patterns.json#composition-patterns"
+        }
+      ],
+      "clarifications": [
+        {
+          "id": "primary_task",
+          "question": "页面最重要的信息和用户要完成的任务是什么？"
+        },
+        {
+          "id": "uncovered-scope",
+          "question": "这些部分尚未找到可核验覆盖：按钮像弹簧一样。请缩小范围或提供资料。"
+        }
+      ],
+      "deferred_clarifications": [],
+      "coverage": {
+        "status": "partial",
+        "unaccounted_clauses": [
+          "按钮像弹簧一样"
+        ],
+        "limitation": "有限词法/组合规则覆盖，不是完整语义理解；有结果不代表整句全部覆盖。"
+      },
+      "delivery": {
+        "user_need": "页面太挤了，按钮像弹簧一样",
+        "explicit_needs": [],
+        "suggested_directions": [
+          {
+            "leaf_id": "composition-patterns",
+            "entry_id": "composition-patterns",
+            "explanation_index": 0
+          }
+        ],
+        "scenario_plans": [
+          {
+            "scenario_id": "visual-brief",
+            "name": "视觉感觉转设计方向",
+            "match": "partial",
+            "selected_knowledge": [
+              {
+                "leaf_id": "composition-patterns",
+                "entry_id": "composition-patterns"
+              }
+            ],
+            "not_applicable": [
+              "非界面视觉的乱或舒服",
+              "未确认时不得默认暗色、玻璃、渐变"
+            ],
+            "required_information": [
+              {
+                "id": "primary_task",
+                "question": "页面最重要的信息和用户要完成的任务是什么？"
+              }
+            ],
+            "provided_information": {},
+            "flow": [
+              "保留用户证据",
+              "只澄清改变方案的信息",
+              "按依赖组合知识",
+              "输出有边界的增强方案",
+              "用原文约束与场景验收检查交付"
+            ],
+            "output_fields": [
+              "原始感觉",
+              "结构与设计令牌候选",
+              "不超过必要数量的澄清",
+              "用户确认后的增强提示词",
+              "截图与任务可读性验收"
+            ],
+            "acceptance": [
+              "候选是方向而非已选美术方案",
+              "未指定的色值、栅格与风格不得作为事实",
+              "用前后截图核对视觉层级与主任务"
+            ]
+          }
+        ],
+        "output_fields": [
+          "user_need",
+          "candidate_terms",
+          "explicit_vs_suggested",
+          "open_questions",
+          "constraints",
+          "acceptance"
+        ],
+        "prompt_outline": [
+          "保留原始需求及证据",
+          "区分已确认要求与候选术语",
+          "仅使用已加载正文及共享协议",
+          "回答必要问题后再确定参数/风格",
+          "按所选场景验收；未知与分阶段内容明确留出"
+        ],
+        "ready_for_final_prompt": false,
+        "acceptance_checks": {
+          "dependencies_complete_for_emitted_bundles": true,
+          "detected_requests_assembled": false,
+          "whole_request_semantics_verified": false,
+          "parameters_resolved": false,
+          "conflicting_layouts_not_blended": true,
+          "host_llm_workflow_verified": false,
+          "provider_facts_verified": true
+        },
+        "acceptance_sources": [
+          {
+            "source": "terms/visual-layout/composition-patterns.json#composition-patterns",
+            "fields": [
+              "constraints"
+            ]
+          }
+        ]
+      },
+      "verification_required": [],
+      "composition": {
+        "conflicts": [],
+        "deferred": [],
+        "deduplication": "stable leaf+entry IDs; shared contracts by path",
+        "related_policy": "informational_only; never loaded wholesale"
+      },
+      "network_search": "not_requested"
+    },
+    "agent_chars": 2443
+  }
+]

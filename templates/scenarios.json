@@ -43,7 +43,8 @@
       "name": "视觉感觉转设计方向",
       "primary_leaves": [
         "token-system",
-        "composition-patterns"
+        "composition-patterns",
+        "information-hierarchy"
       ],
       "not_applicable": [
         "非界面视觉的乱或舒服",

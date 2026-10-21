@@ -7,7 +7,8 @@ import re
 from collections import Counter
 from text_evidence import clauses, negated, positive_query, literal_evidence, rule_evidence
 from lexical import normalize, score
-from routing_policy import EVIDENCE_SCORE, IDENTITY_BONUS, MAX_HOST_CANDIDATES
+from feeling_preview import discover_feelings
+from routing_policy import EVIDENCE_SCORE, IDENTITY_BONUS, MAX_HOST_CANDIDATES, AMBIGUOUS_ROUTE_SCOPES
 
 
 def provider_allowed(record, query, context):
@@ -37,6 +38,11 @@ def context_from_file(path, records):
         raise ValueError('too many or invalid host candidates')
     known = {(item['leaf_id'], item['entry_id']) for item in records}
     slots = {q['id'] for record in records for q in record['retrieval'].get('questions', [])}
+    slots.add('feeling_scope')
+    scope = value['answers'].get('feeling_scope')
+    scopes = {normalize(word) for record in records for rule in record['retrieval'].get('feelings',[]) for word in rule['scope_any']}
+    if scope and normalize(scope) not in scopes:
+        raise ValueError('feeling_scope must name an existing cue scope, e.g. 页面, 按钮, 后端')
     slots.update('source:' + record['entry_id'] for record in records if record.get('source_question'))
     groups = {record['composition']['exclusive_group'] for record in records if record['composition'].get('exclusive_group')}
     slots.update('choose:' + group for group in groups)
@@ -95,6 +101,13 @@ def discover_candidates(query, records, routes, context):
                           'score':EVIDENCE_SCORE + score(positive_query(query), [word for _, word in identities]),
                           'match_kind':'source_phrase' if all(hit['field'] in ('plain_language','when_to_use') for hit in evidence) else 'specific',
                           'reason':'Matched authored identity or bounded conjunctive evidence; parameters are not inferred.'}
+    for key, feeling in discover_feelings(query, records, context).items():
+        if not feeling['scope_confirmed'] or key in found:
+            continue
+        found[key] = {'record':feeling['record'], 'role':'suggestion',
+                      'evidence':feeling['evidence'], 'score':EVIDENCE_SCORE,
+                      'match_kind':'specific',
+                      'reason':'Feeling cue suggests source-backed terminology in an explicit matching scope; not a selected style or parameter.'}
     specific_leaves = {key[0] for key,item in found.items() if item['match_kind'] == 'specific'}
     found = {key:item for key,item in found.items() if key[0] not in specific_leaves or item['match_kind'] == 'specific'}
     for hint in context['candidates']:
@@ -146,12 +159,18 @@ def route_query(query, runtime, index, context, limits, fast=True):
     active_query = positive_query(query)
     ranked = []
     scanned = 0
+    generic_query = active_query
+    ambiguous_scopes = []
+    for scope, qualifiers in AMBIGUOUS_ROUTE_SCOPES.items():
+        if literal_evidence(query,scope,'scope') and not any(literal_evidence(query,word,'scope.qualifier') for word in qualifiers):
+            generic_query = generic_query.replace(normalize(scope), '')
+            ambiguous_scopes.append(scope)
     if not shortcut:
         for route in runtime['routes']:
             scanned += 1
             if not provider_allowed(route, query, context):
                 continue
-            value = score(active_query, route['keywords'])
+            value = score(generic_query, route['keywords'])
             if route.get('title') and normalize(route['title']) in active_query:
                 value += IDENTITY_BONUS
             if value >= limits['min_route_score']:
@@ -172,5 +191,5 @@ def route_query(query, runtime, index, context, limits, fast=True):
         by_leaf[id] = max(by_leaf.get(id,(0,routes[id])),(candidate['score'],routes[id]),key=lambda item:item[0])
     ranked = sorted(by_leaf.values(),key=lambda pair:(-pair[0],pair[1]['leaf_id']))
     return ranked,candidates,{'route_mode':'scenario_fast_path' if shortcut else 'generic',
-                              'runtime_routes_scored':scanned, 'runtime_literal_guards_checked':guarded, 'retrieval_entries_checked':len(index['entries']),
+                              'runtime_routes_scored':scanned, 'ambiguous_generic_scopes_ignored':ambiguous_scopes, 'runtime_literal_guards_checked':guarded, 'retrieval_entries_checked':len(index['entries']),
                               'score_kind':'uncalibrated_heuristic_rank'}

@@ -1,0 +1,193 @@
+[
+  {
+    "id": "u01",
+    "query": "整体有些喘不过气",
+    "expected_directions": [
+      "composition-patterns"
+    ],
+    "forbidden_directions": [
+      "liquid-glass",
+      "gsap-performance",
+      "idempotency-contract",
+      "scaling-strategies"
+    ],
+    "expected_status": "needs_clarification"
+  },
+  {
+    "id": "u02",
+    "query": "网页密密麻麻，好累",
+    "expected_directions": [
+      "composition-patterns",
+      "information-hierarchy"
+    ],
+    "forbidden_directions": [
+      "liquid-glass",
+      "gsap-performance",
+      "idempotency-contract",
+      "scaling-strategies"
+    ],
+    "expected_status": "needs_clarification"
+  },
+  {
+    "id": "u03",
+    "query": "看着更专业些",
+    "expected_directions": [
+      "token-system"
+    ],
+    "forbidden_directions": [
+      "liquid-glass",
+      "gsap-performance",
+      "idempotency-contract",
+      "scaling-strategies"
+    ],
+    "expected_status": "needs_clarification"
+  },
+  {
+    "id": "u04",
+    "query": "系统可靠一点",
+    "expected_directions": [
+      "availability-patterns"
+    ],
+    "forbidden_directions": [
+      "liquid-glass",
+      "gsap-performance",
+      "idempotency-contract",
+      "scaling-strategies"
+    ],
+    "expected_status": "needs_clarification"
+  },
+  {
+    "id": "u05",
+    "query": "页面希望没那么乱",
+    "expected_directions": [
+      "composition-patterns",
+      "information-hierarchy"
+    ],
+    "forbidden_directions": [
+      "liquid-glass",
+      "gsap-performance",
+      "idempotency-contract",
+      "scaling-strategies"
+    ],
+    "expected_status": "needs_clarification"
+  },
+  {
+    "id": "u06",
+    "query": "动画再丝滑一点",
+    "expected_directions": [
+      "velocity-inheritance",
+      "interruption"
+    ],
+    "forbidden_directions": [
+      "liquid-glass",
+      "gsap-performance",
+      "idempotency-contract",
+      "scaling-strategies"
+    ],
+    "expected_status": "needs_clarification"
+  },
+  {
+    "id": "u07",
+    "query": "按下去有点韧劲",
+    "expected_directions": [
+      "spring-press"
+    ],
+    "forbidden_directions": [
+      "liquid-glass",
+      "gsap-performance",
+      "idempotency-contract",
+      "scaling-strategies"
+    ],
+    "expected_status": "needs_clarification"
+  },
+  {
+    "id": "u08",
+    "query": "感觉主次不清",
+    "expected_directions": [
+      "information-hierarchy"
+    ],
+    "forbidden_directions": [
+      "liquid-glass",
+      "gsap-performance",
+      "idempotency-contract",
+      "scaling-strategies"
+    ],
+    "expected_status": "needs_clarification"
+  },
+  {
+    "id": "u09",
+    "query": "背包有点挤",
+    "expected_directions": [],
+    "forbidden_directions": [
+      "liquid-glass",
+      "gsap-performance",
+      "idempotency-contract",
+      "scaling-strategies",
+      "composition-patterns",
+      "information-hierarchy",
+      "token-system",
+      "availability-patterns",
+      "spring-press",
+      "interruption",
+      "velocity-inheritance"
+    ],
+    "expected_status": "coverage_insufficient"
+  },
+  {
+    "id": "u10",
+    "query": "我想让奶茶高级一点",
+    "expected_directions": [],
+    "forbidden_directions": [
+      "liquid-glass",
+      "gsap-performance",
+      "idempotency-contract",
+      "scaling-strategies",
+      "composition-patterns",
+      "information-hierarchy",
+      "token-system",
+      "availability-patterns",
+      "spring-press",
+      "interruption",
+      "velocity-inheritance"
+    ],
+    "expected_status": "coverage_insufficient"
+  },
+  {
+    "id": "u11",
+    "query": "椅子有呼吸感",
+    "expected_directions": [],
+    "forbidden_directions": [
+      "liquid-glass",
+      "gsap-performance",
+      "idempotency-contract",
+      "scaling-strategies",
+      "composition-patterns",
+      "information-hierarchy",
+      "token-system",
+      "availability-patterns",
+      "spring-press",
+      "interruption",
+      "velocity-inheritance"
+    ],
+    "expected_status": "coverage_insufficient"
+  },
+  {
+    "id": "u12",
+    "query": "研究光合作用的酶反应",
+    "expected_directions": [],
+    "forbidden_directions": [
+      "liquid-glass",
+      "gsap-performance",
+      "idempotency-contract",
+      "scaling-strategies",
+      "composition-patterns",
+      "information-hierarchy",
+      "token-system",
+      "availability-patterns",
+      "spring-press",
+      "interruption",
+      "velocity-inheritance"
+    ],
+    "expected_status": "coverage_insufficient"
+  }
+]

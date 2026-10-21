@@ -29,7 +29,34 @@
         "interruption"
       ],
       "constraints": [],
-      "aliases": []
+      "aliases": [],
+      "retrieval": {
+        "feelings": [
+          {
+            "id": "felt-elastic",
+            "all": [
+              [
+                "弹簧",
+                "回弹",
+                "弹性"
+              ]
+            ],
+            "scope_any": [
+              "按钮",
+              "动效",
+              "动画",
+              "拖拽",
+              "滑动",
+              "滚动",
+              "交互"
+            ],
+            "terms": [
+              "Spring 按压回弹"
+            ],
+            "role": "suggestion"
+          }
+        ]
+      }
     }
   ]
 }

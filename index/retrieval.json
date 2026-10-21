@@ -79,7 +79,9 @@
                 "不中断",
                 "可用",
                 "断了",
-                "掉线"
+                "掉线",
+                "稳",
+                "可靠"
               ]
             ],
             "role": "suggestion",
@@ -97,6 +99,40 @@
           {
             "id": "failure_tolerance",
             "question": "关键服务允许中断多久、最多能丢失多少数据？"
+          }
+        ],
+        "feelings": [
+          {
+            "id": "felt-reliability",
+            "rule_ref": "service-reliability",
+            "terms": [
+              "高可用模式",
+              "故障转移",
+              "RTO",
+              "RPO"
+            ],
+            "all": [
+              [
+                "稳定",
+                "宕机",
+                "故障",
+                "不中断",
+                "可用",
+                "断了",
+                "掉线",
+                "稳",
+                "可靠"
+              ]
+            ],
+            "scope_any": [
+              "后端",
+              "服务",
+              "系统",
+              "平台",
+              "在线服务"
+            ],
+            "exclude_any": [],
+            "role": "suggestion"
           }
         ]
       },
@@ -703,10 +739,13 @@
               [
                 "乱",
                 "挤",
-                "重点",
                 "舒服",
                 "清爽",
-                "层次"
+                "层次",
+                "呼吸感",
+                "透气",
+                "喘不过气",
+                "重点"
               ]
             ],
             "role": "suggestion",
@@ -725,7 +764,9 @@
             ],
             "exclude_any": [
               "论证",
-              "情节"
+              "情节",
+              "论文",
+              "小说"
             ]
           }
         ],
@@ -733,6 +774,43 @@
           {
             "id": "primary_task",
             "question": "页面最重要的信息和用户要完成的任务是什么？"
+          }
+        ],
+        "feelings": [
+          {
+            "id": "felt-space",
+            "rule_ref": "visual-clarity",
+            "terms": [
+              "留白",
+              "比例"
+            ],
+            "all": [
+              [
+                "乱",
+                "挤",
+                "舒服",
+                "清爽",
+                "层次",
+                "呼吸感",
+                "透气",
+                "喘不过气",
+                "重点"
+              ]
+            ],
+            "scope_any": [
+              "页面",
+              "网页",
+              "界面",
+              "布局",
+              "网站"
+            ],
+            "exclude_any": [
+              "论证",
+              "情节",
+              "论文",
+              "小说"
+            ],
+            "role": "suggestion"
           }
         ]
       },
@@ -2384,7 +2462,50 @@
         "plain_language": "先确定用户要做的决定，再按主次组织标题、数据、操作和辅助说明。",
         "when_to_use": "复杂后台、内容页和移动端首页"
       },
-      "retrieval": {},
+      "retrieval": {
+        "feelings": [
+          {
+            "id": "felt-hierarchy",
+            "all": [
+              [
+                "乱",
+                "挤",
+                "没重点",
+                "没有重点",
+                "主次不清",
+                "找不到重点",
+                "眼花",
+                "杂乱"
+              ]
+            ],
+            "scope_any": [
+              "网站",
+              "网页",
+              "页面",
+              "界面",
+              "布局",
+              "dashboard"
+            ],
+            "terms": [
+              "信息层级",
+              "主任务优先"
+            ],
+            "role": "suggestion",
+            "exclude_any": [
+              "论文",
+              "论证",
+              "小说",
+              "情节"
+            ]
+          }
+        ],
+        "questions": [
+          {
+            "id": "primary_task",
+            "question": "页面最重要的信息和用户要完成的任务是什么？"
+          }
+        ]
+      },
       "source_question": [],
       "reusable_fields": [],
       "contract_ref": null,
@@ -2472,7 +2593,33 @@
         "plain_language": "动画中途再次输入时接管当前状态，而不是等待旧动画结束。",
         "when_to_use": "可拖拽、可快速连点或可反悔的组件"
       },
-      "retrieval": {},
+      "retrieval": {
+        "feelings": [
+          {
+            "id": "felt-continuity",
+            "all": [
+              [
+                "顺滑",
+                "丝滑",
+                "不连贯"
+              ]
+            ],
+            "scope_any": [
+              "按钮",
+              "动效",
+              "动画",
+              "拖拽",
+              "滑动",
+              "滚动",
+              "交互"
+            ],
+            "terms": [
+              "可中断与恢复"
+            ],
+            "role": "suggestion"
+          }
+        ]
+      },
       "source_question": [],
       "reusable_fields": [],
       "contract_ref": null,
@@ -4490,7 +4637,33 @@
         "plain_language": "按下缩到 0.96–0.98，松手用弹簧回到 1 并允许 1.02–1.04 的轻微过冲。",
         "when_to_use": "需要高级反馈但仍要保持可理解的操作结果"
       },
-      "retrieval": {},
+      "retrieval": {
+        "feelings": [
+          {
+            "id": "felt-elastic",
+            "all": [
+              [
+                "弹簧",
+                "回弹",
+                "弹性"
+              ]
+            ],
+            "scope_any": [
+              "按钮",
+              "动效",
+              "动画",
+              "拖拽",
+              "滑动",
+              "滚动",
+              "交互"
+            ],
+            "terms": [
+              "Spring 按压回弹"
+            ],
+            "role": "suggestion"
+          }
+        ]
+      },
       "source_question": [],
       "reusable_fields": [],
       "contract_ref": null,
@@ -4964,17 +5137,60 @@
                 "精致",
                 "高级",
                 "专业",
-                "讲究"
+                "讲究",
+                "廉价"
               ]
             ],
             "role": "suggestion",
-            "subject_group": 0
+            "subject_group": 0,
+            "exclude_any": [
+              "论文",
+              "论证",
+              "小说",
+              "情节"
+            ]
           }
         ],
         "questions": [
           {
             "id": "visual_priority",
             "question": "更想改善排版层级、留白、配色一致性还是材质？有没有偏好的参考？"
+          }
+        ],
+        "feelings": [
+          {
+            "id": "felt-quality",
+            "rule_ref": "visual-quality",
+            "terms": [
+              "文字层级",
+              "主强调色",
+              "圆角/阴影",
+              "卡片材质"
+            ],
+            "all": [
+              [
+                "质感",
+                "精致",
+                "高级",
+                "专业",
+                "讲究",
+                "廉价"
+              ]
+            ],
+            "scope_any": [
+              "网站",
+              "网页",
+              "界面",
+              "页面",
+              "dashboard"
+            ],
+            "exclude_any": [
+              "论文",
+              "论证",
+              "小说",
+              "情节"
+            ],
+            "role": "suggestion"
           }
         ]
       },
@@ -5285,7 +5501,36 @@
         "plain_language": "松手后继续沿当前速度运动，再减速并吸附。",
         "when_to_use": "惯性滚动、抽屉和抛物线飞入"
       },
-      "retrieval": {},
+      "retrieval": {
+        "feelings": [
+          {
+            "id": "felt-smooth",
+            "all": [
+              [
+                "顺滑",
+                "丝滑",
+                "生硬",
+                "不连贯"
+              ]
+            ],
+            "scope_any": [
+              "按钮",
+              "动效",
+              "动画",
+              "拖拽",
+              "滑动",
+              "滚动",
+              "交互"
+            ],
+            "terms": [
+              "速度继承",
+              "减速",
+              "吸附"
+            ],
+            "role": "suggestion"
+          }
+        ]
+      },
       "source_question": [],
       "reusable_fields": [],
       "contract_ref": null,
@@ -5444,7 +5689,8 @@
       "name": "视觉感觉转设计方向",
       "primary_leaves": [
         "token-system",
-        "composition-patterns"
+        "composition-patterns",
+        "information-hierarchy"
       ],
       "not_applicable": [
         "非界面视觉的乱或舒服",

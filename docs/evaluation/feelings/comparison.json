@@ -1,0 +1,1071 @@
+{
+  "baseline_commit": "67987bb",
+  "kind": "CLI source execution; not complete host acceptance",
+  "before": {
+    "cases": 20,
+    "positive_cases": 16,
+    "positive_with_all_expected_terms": 0,
+    "positive_with_all_expected_terms_or_bodies": 2,
+    "cases_with_forbidden": 0,
+    "status_matches": 10,
+    "mean_agent_chars": 1261.5,
+    "mean_candidate_chars": 0,
+    "mean_body_chars": 132.3,
+    "mean_leaves": 0.2,
+    "median_routing_ms": 23.075
+  },
+  "after": {
+    "cases": 20,
+    "positive_cases": 16,
+    "positive_with_all_expected_terms": 16,
+    "positive_with_all_expected_terms_or_bodies": 16,
+    "cases_with_forbidden": 0,
+    "status_matches": 20,
+    "mean_agent_chars": 2321.9,
+    "mean_candidate_chars": 425.7,
+    "mean_body_chars": 289.1,
+    "mean_leaves": 0.45,
+    "median_routing_ms": 24.015
+  },
+  "before_cases": [
+    {
+      "id": "crowded",
+      "query": "太挤了",
+      "expected": [
+        "composition-patterns",
+        "information-hierarchy"
+      ],
+      "directions": [],
+      "loaded": [],
+      "missing_terminology": [
+        "composition-patterns",
+        "information-hierarchy"
+      ],
+      "missing_either_terms_or_bodies": [
+        "composition-patterns",
+        "information-hierarchy"
+      ],
+      "forbidden": [],
+      "status": "coverage_insufficient",
+      "status_matches": false,
+      "term_count": 0,
+      "leaf_count": 0,
+      "entry_count": 0,
+      "body_chars": 0,
+      "agent_chars": 957,
+      "candidate_chars": 0,
+      "explanation_chars": 0,
+      "routing_ms": 22.871,
+      "dependencies_complete": true
+    },
+    {
+      "id": "focus",
+      "query": "没重点",
+      "expected": [
+        "information-hierarchy"
+      ],
+      "directions": [],
+      "loaded": [],
+      "missing_terminology": [
+        "information-hierarchy"
+      ],
+      "missing_either_terms_or_bodies": [
+        "information-hierarchy"
+      ],
+      "forbidden": [],
+      "status": "coverage_insufficient",
+      "status_matches": false,
+      "term_count": 0,
+      "leaf_count": 0,
+      "entry_count": 0,
+      "body_chars": 0,
+      "agent_chars": 957,
+      "candidate_chars": 0,
+      "explanation_chars": 0,
+      "routing_ms": 22.607,
+      "dependencies_complete": true
+    },
+    {
+      "id": "breath",
+      "query": "有呼吸感",
+      "expected": [
+        "composition-patterns"
+      ],
+      "directions": [],
+      "loaded": [],
+      "missing_terminology": [
+        "composition-patterns"
+      ],
+      "missing_either_terms_or_bodies": [
+        "composition-patterns"
+      ],
+      "forbidden": [],
+      "status": "coverage_insufficient",
+      "status_matches": false,
+      "term_count": 0,
+      "leaf_count": 0,
+      "entry_count": 0,
+      "body_chars": 0,
+      "agent_chars": 959,
+      "candidate_chars": 0,
+      "explanation_chars": 0,
+      "routing_ms": 22.977,
+      "dependencies_complete": true
+    },
+    {
+      "id": "quality",
+      "query": "有质感一点",
+      "expected": [
+        "token-system"
+      ],
+      "directions": [],
+      "loaded": [],
+      "missing_terminology": [
+        "token-system"
+      ],
+      "missing_either_terms_or_bodies": [
+        "token-system"
+      ],
+      "forbidden": [],
+      "status": "needs_clarification",
+      "status_matches": true,
+      "term_count": 0,
+      "leaf_count": 0,
+      "entry_count": 0,
+      "body_chars": 0,
+      "agent_chars": 1014,
+      "candidate_chars": 0,
+      "explanation_chars": 0,
+      "routing_ms": 23.181,
+      "dependencies_complete": true
+    },
+    {
+      "id": "premium",
+      "query": "高级一点",
+      "expected": [
+        "token-system"
+      ],
+      "directions": [],
+      "loaded": [],
+      "missing_terminology": [
+        "token-system"
+      ],
+      "missing_either_terms_or_bodies": [
+        "token-system"
+      ],
+      "forbidden": [],
+      "status": "needs_clarification",
+      "status_matches": true,
+      "term_count": 0,
+      "leaf_count": 0,
+      "entry_count": 0,
+      "body_chars": 0,
+      "agent_chars": 1013,
+      "candidate_chars": 0,
+      "explanation_chars": 0,
+      "routing_ms": 23.145,
+      "dependencies_complete": true
+    },
+    {
+      "id": "messy",
+      "query": "太乱了",
+      "expected": [
+        "composition-patterns",
+        "information-hierarchy"
+      ],
+      "directions": [],
+      "loaded": [],
+      "missing_terminology": [
+        "composition-patterns",
+        "information-hierarchy"
+      ],
+      "missing_either_terms_or_bodies": [
+        "composition-patterns",
+        "information-hierarchy"
+      ],
+      "forbidden": [],
+      "status": "needs_clarification",
+      "status_matches": true,
+      "term_count": 0,
+      "leaf_count": 0,
+      "entry_count": 0,
+      "body_chars": 0,
+      "agent_chars": 1012,
+      "candidate_chars": 0,
+      "explanation_chars": 0,
+      "routing_ms": 22.952,
+      "dependencies_complete": true
+    },
+    {
+      "id": "cheap",
+      "query": "看着廉价",
+      "expected": [
+        "token-system"
+      ],
+      "directions": [],
+      "loaded": [],
+      "missing_terminology": [
+        "token-system"
+      ],
+      "missing_either_terms_or_bodies": [
+        "token-system"
+      ],
+      "forbidden": [],
+      "status": "coverage_insufficient",
+      "status_matches": false,
+      "term_count": 0,
+      "leaf_count": 0,
+      "entry_count": 0,
+      "body_chars": 0,
+      "agent_chars": 959,
+      "candidate_chars": 0,
+      "explanation_chars": 0,
+      "routing_ms": 22.742,
+      "dependencies_complete": true
+    },
+    {
+      "id": "stable",
+      "query": "稳一点",
+      "expected": [
+        "availability-patterns"
+      ],
+      "directions": [],
+      "loaded": [],
+      "missing_terminology": [
+        "availability-patterns"
+      ],
+      "missing_either_terms_or_bodies": [
+        "availability-patterns"
+      ],
+      "forbidden": [],
+      "status": "coverage_insufficient",
+      "status_matches": false,
+      "term_count": 0,
+      "leaf_count": 0,
+      "entry_count": 0,
+      "body_chars": 0,
+      "agent_chars": 957,
+      "candidate_chars": 0,
+      "explanation_chars": 0,
+      "routing_ms": 22.809,
+      "dependencies_complete": true
+    },
+    {
+      "id": "concurrent",
+      "query": "很多人同时用也别卡",
+      "expected": [
+        "capacity-model"
+      ],
+      "directions": [],
+      "loaded": [
+        "capacity-model"
+      ],
+      "missing_terminology": [
+        "capacity-model"
+      ],
+      "missing_either_terms_or_bodies": [],
+      "forbidden": [],
+      "status": "needs_clarification",
+      "status_matches": true,
+      "term_count": 0,
+      "leaf_count": 1,
+      "entry_count": 1,
+      "body_chars": 666,
+      "agent_chars": 2593,
+      "candidate_chars": 0,
+      "explanation_chars": 0,
+      "routing_ms": 22.865,
+      "dependencies_complete": true
+    },
+    {
+      "id": "spring",
+      "query": "像弹簧一样",
+      "expected": [
+        "spring-press"
+      ],
+      "directions": [],
+      "loaded": [],
+      "missing_terminology": [
+        "spring-press"
+      ],
+      "missing_either_terms_or_bodies": [
+        "spring-press"
+      ],
+      "forbidden": [],
+      "status": "coverage_insufficient",
+      "status_matches": false,
+      "term_count": 0,
+      "leaf_count": 0,
+      "entry_count": 0,
+      "body_chars": 0,
+      "agent_chars": 961,
+      "candidate_chars": 0,
+      "explanation_chars": 0,
+      "routing_ms": 23.428,
+      "dependencies_complete": true
+    },
+    {
+      "id": "smooth",
+      "query": "顺滑一点",
+      "expected": [
+        "velocity-inheritance"
+      ],
+      "directions": [],
+      "loaded": [],
+      "missing_terminology": [
+        "velocity-inheritance"
+      ],
+      "missing_either_terms_or_bodies": [
+        "velocity-inheritance"
+      ],
+      "forbidden": [],
+      "status": "coverage_insufficient",
+      "status_matches": false,
+      "term_count": 0,
+      "leaf_count": 0,
+      "entry_count": 0,
+      "body_chars": 0,
+      "agent_chars": 959,
+      "candidate_chars": 0,
+      "explanation_chars": 0,
+      "routing_ms": 23.128,
+      "dependencies_complete": true
+    },
+    {
+      "id": "light",
+      "query": "轻一点",
+      "expected": [],
+      "directions": [],
+      "loaded": [],
+      "missing_terminology": [],
+      "missing_either_terms_or_bodies": [],
+      "forbidden": [],
+      "status": "coverage_insufficient",
+      "status_matches": true,
+      "term_count": 0,
+      "leaf_count": 0,
+      "entry_count": 0,
+      "body_chars": 0,
+      "agent_chars": 957,
+      "candidate_chars": 0,
+      "explanation_chars": 0,
+      "routing_ms": 22.775,
+      "dependencies_complete": true
+    },
+    {
+      "id": "scoped-space",
+      "query": "网站要有呼吸感",
+      "expected": [
+        "composition-patterns"
+      ],
+      "directions": [],
+      "loaded": [],
+      "missing_terminology": [
+        "composition-patterns"
+      ],
+      "missing_either_terms_or_bodies": [
+        "composition-patterns"
+      ],
+      "forbidden": [],
+      "status": "coverage_insufficient",
+      "status_matches": false,
+      "term_count": 0,
+      "leaf_count": 0,
+      "entry_count": 0,
+      "body_chars": 0,
+      "agent_chars": 965,
+      "candidate_chars": 0,
+      "explanation_chars": 0,
+      "routing_ms": 23.854,
+      "dependencies_complete": true
+    },
+    {
+      "id": "scoped-focus",
+      "query": "页面没重点",
+      "expected": [
+        "information-hierarchy"
+      ],
+      "directions": [],
+      "loaded": [
+        "composition-patterns"
+      ],
+      "missing_terminology": [
+        "information-hierarchy"
+      ],
+      "missing_either_terms_or_bodies": [
+        "information-hierarchy"
+      ],
+      "forbidden": [],
+      "status": "needs_clarification",
+      "status_matches": true,
+      "term_count": 0,
+      "leaf_count": 1,
+      "entry_count": 1,
+      "body_chars": 674,
+      "agent_chars": 2357,
+      "candidate_chars": 0,
+      "explanation_chars": 0,
+      "routing_ms": 22.306,
+      "dependencies_complete": true
+    },
+    {
+      "id": "scoped-stable",
+      "query": "后端稳一点",
+      "expected": [
+        "availability-patterns"
+      ],
+      "directions": [],
+      "loaded": [],
+      "missing_terminology": [
+        "availability-patterns"
+      ],
+      "missing_either_terms_or_bodies": [
+        "availability-patterns"
+      ],
+      "forbidden": [],
+      "status": "coverage_insufficient",
+      "status_matches": false,
+      "term_count": 0,
+      "leaf_count": 0,
+      "entry_count": 0,
+      "body_chars": 0,
+      "agent_chars": 961,
+      "candidate_chars": 0,
+      "explanation_chars": 0,
+      "routing_ms": 23.045,
+      "dependencies_complete": true
+    },
+    {
+      "id": "irrelevant-crowd",
+      "query": "办公室太挤了",
+      "expected": [],
+      "directions": [],
+      "loaded": [],
+      "missing_terminology": [],
+      "missing_either_terms_or_bodies": [],
+      "forbidden": [],
+      "status": "coverage_insufficient",
+      "status_matches": true,
+      "term_count": 0,
+      "leaf_count": 0,
+      "entry_count": 0,
+      "body_chars": 0,
+      "agent_chars": 963,
+      "candidate_chars": 0,
+      "explanation_chars": 0,
+      "routing_ms": 23.248,
+      "dependencies_complete": true
+    },
+    {
+      "id": "irrelevant-quality",
+      "query": "菜做得高级一点",
+      "expected": [],
+      "directions": [],
+      "loaded": [],
+      "missing_terminology": [],
+      "missing_either_terms_or_bodies": [],
+      "forbidden": [],
+      "status": "coverage_insufficient",
+      "status_matches": true,
+      "term_count": 0,
+      "leaf_count": 0,
+      "entry_count": 0,
+      "body_chars": 0,
+      "agent_chars": 965,
+      "candidate_chars": 0,
+      "explanation_chars": 0,
+      "routing_ms": 23.104,
+      "dependencies_complete": true
+    },
+    {
+      "id": "uncovered",
+      "query": "帮我修一台核磁共振仪",
+      "expected": [],
+      "directions": [],
+      "loaded": [],
+      "missing_terminology": [],
+      "missing_either_terms_or_bodies": [],
+      "forbidden": [],
+      "status": "coverage_insufficient",
+      "status_matches": true,
+      "term_count": 0,
+      "leaf_count": 0,
+      "entry_count": 0,
+      "body_chars": 0,
+      "agent_chars": 971,
+      "candidate_chars": 0,
+      "explanation_chars": 0,
+      "routing_ms": 23.867,
+      "dependencies_complete": true
+    },
+    {
+      "id": "negative",
+      "query": "不要玻璃渐变，网站有质感一点",
+      "expected": [
+        "token-system"
+      ],
+      "directions": [],
+      "loaded": [
+        "token-system"
+      ],
+      "missing_terminology": [
+        "token-system"
+      ],
+      "missing_either_terms_or_bodies": [],
+      "forbidden": [],
+      "status": "needs_clarification",
+      "status_matches": true,
+      "term_count": 0,
+      "leaf_count": 1,
+      "entry_count": 1,
+      "body_chars": 633,
+      "agent_chars": 2306,
+      "candidate_chars": 0,
+      "explanation_chars": 0,
+      "routing_ms": 29.038,
+      "dependencies_complete": true
+    },
+    {
+      "id": "combo",
+      "query": "页面太挤了，按钮像弹簧一样",
+      "expected": [
+        "information-hierarchy",
+        "spring-press"
+      ],
+      "directions": [],
+      "loaded": [
+        "composition-patterns"
+      ],
+      "missing_terminology": [
+        "information-hierarchy",
+        "spring-press"
+      ],
+      "missing_either_terms_or_bodies": [
+        "information-hierarchy",
+        "spring-press"
+      ],
+      "forbidden": [],
+      "status": "partial_coverage",
+      "status_matches": false,
+      "term_count": 0,
+      "leaf_count": 1,
+      "entry_count": 1,
+      "body_chars": 674,
+      "agent_chars": 2443,
+      "candidate_chars": 0,
+      "explanation_chars": 0,
+      "routing_ms": 23.956,
+      "dependencies_complete": true
+    }
+  ],
+  "after_cases": [
+    {
+      "id": "crowded",
+      "query": "太挤了",
+      "expected": [
+        "composition-patterns",
+        "information-hierarchy"
+      ],
+      "directions": [
+        "composition-patterns",
+        "information-hierarchy"
+      ],
+      "loaded": [],
+      "missing_terminology": [],
+      "missing_either_terms_or_bodies": [],
+      "forbidden": [],
+      "status": "needs_clarification",
+      "status_matches": true,
+      "term_count": 4,
+      "leaf_count": 0,
+      "entry_count": 0,
+      "body_chars": 0,
+      "agent_chars": 2152,
+      "candidate_chars": 784,
+      "explanation_chars": 2,
+      "routing_ms": 25.352,
+      "dependencies_complete": true
+    },
+    {
+      "id": "focus",
+      "query": "没重点",
+      "expected": [
+        "information-hierarchy"
+      ],
+      "directions": [
+        "information-hierarchy"
+      ],
+      "loaded": [],
+      "missing_terminology": [],
+      "missing_either_terms_or_bodies": [],
+      "forbidden": [],
+      "status": "needs_clarification",
+      "status_matches": true,
+      "term_count": 2,
+      "leaf_count": 0,
+      "entry_count": 0,
+      "body_chars": 0,
+      "agent_chars": 1770,
+      "candidate_chars": 402,
+      "explanation_chars": 2,
+      "routing_ms": 25.618,
+      "dependencies_complete": true
+    },
+    {
+      "id": "breath",
+      "query": "有呼吸感",
+      "expected": [
+        "composition-patterns"
+      ],
+      "directions": [
+        "composition-patterns"
+      ],
+      "loaded": [],
+      "missing_terminology": [],
+      "missing_either_terms_or_bodies": [],
+      "forbidden": [],
+      "status": "needs_clarification",
+      "status_matches": true,
+      "term_count": 2,
+      "leaf_count": 0,
+      "entry_count": 0,
+      "body_chars": 0,
+      "agent_chars": 1756,
+      "candidate_chars": 387,
+      "explanation_chars": 2,
+      "routing_ms": 24.446,
+      "dependencies_complete": true
+    },
+    {
+      "id": "quality",
+      "query": "有质感一点",
+      "expected": [
+        "token-system"
+      ],
+      "directions": [
+        "token-system"
+      ],
+      "loaded": [],
+      "missing_terminology": [],
+      "missing_either_terms_or_bodies": [],
+      "forbidden": [],
+      "status": "needs_clarification",
+      "status_matches": true,
+      "term_count": 4,
+      "leaf_count": 0,
+      "entry_count": 0,
+      "body_chars": 0,
+      "agent_chars": 1756,
+      "candidate_chars": 386,
+      "explanation_chars": 2,
+      "routing_ms": 23.981,
+      "dependencies_complete": true
+    },
+    {
+      "id": "premium",
+      "query": "高级一点",
+      "expected": [
+        "token-system"
+      ],
+      "directions": [
+        "token-system"
+      ],
+      "loaded": [],
+      "missing_terminology": [],
+      "missing_either_terms_or_bodies": [],
+      "forbidden": [],
+      "status": "needs_clarification",
+      "status_matches": true,
+      "term_count": 4,
+      "leaf_count": 0,
+      "entry_count": 0,
+      "body_chars": 0,
+      "agent_chars": 1755,
+      "candidate_chars": 386,
+      "explanation_chars": 2,
+      "routing_ms": 23.882,
+      "dependencies_complete": true
+    },
+    {
+      "id": "messy",
+      "query": "太乱了",
+      "expected": [
+        "composition-patterns",
+        "information-hierarchy"
+      ],
+      "directions": [
+        "composition-patterns",
+        "information-hierarchy"
+      ],
+      "loaded": [],
+      "missing_terminology": [],
+      "missing_either_terms_or_bodies": [],
+      "forbidden": [],
+      "status": "needs_clarification",
+      "status_matches": true,
+      "term_count": 4,
+      "leaf_count": 0,
+      "entry_count": 0,
+      "body_chars": 0,
+      "agent_chars": 2152,
+      "candidate_chars": 784,
+      "explanation_chars": 2,
+      "routing_ms": 23.448,
+      "dependencies_complete": true
+    },
+    {
+      "id": "cheap",
+      "query": "看着廉价",
+      "expected": [
+        "token-system"
+      ],
+      "directions": [
+        "token-system"
+      ],
+      "loaded": [],
+      "missing_terminology": [],
+      "missing_either_terms_or_bodies": [],
+      "forbidden": [],
+      "status": "needs_clarification",
+      "status_matches": true,
+      "term_count": 4,
+      "leaf_count": 0,
+      "entry_count": 0,
+      "body_chars": 0,
+      "agent_chars": 1755,
+      "candidate_chars": 386,
+      "explanation_chars": 2,
+      "routing_ms": 23.858,
+      "dependencies_complete": true
+    },
+    {
+      "id": "stable",
+      "query": "稳一点",
+      "expected": [
+        "availability-patterns"
+      ],
+      "directions": [
+        "availability-patterns"
+      ],
+      "loaded": [],
+      "missing_terminology": [],
+      "missing_either_terms_or_bodies": [],
+      "forbidden": [],
+      "status": "needs_clarification",
+      "status_matches": true,
+      "term_count": 4,
+      "leaf_count": 0,
+      "entry_count": 0,
+      "body_chars": 0,
+      "agent_chars": 1771,
+      "candidate_chars": 403,
+      "explanation_chars": 2,
+      "routing_ms": 24.056,
+      "dependencies_complete": true
+    },
+    {
+      "id": "concurrent",
+      "query": "很多人同时用也别卡",
+      "expected": [
+        "capacity-model"
+      ],
+      "directions": [
+        "capacity-model"
+      ],
+      "loaded": [
+        "capacity-model"
+      ],
+      "missing_terminology": [],
+      "missing_either_terms_or_bodies": [],
+      "forbidden": [],
+      "status": "needs_clarification",
+      "status_matches": true,
+      "term_count": 1,
+      "leaf_count": 1,
+      "entry_count": 1,
+      "body_chars": 666,
+      "agent_chars": 3278,
+      "candidate_chars": 364,
+      "explanation_chars": 543,
+      "routing_ms": 23.826,
+      "dependencies_complete": true
+    },
+    {
+      "id": "spring",
+      "query": "像弹簧一样",
+      "expected": [
+        "spring-press"
+      ],
+      "directions": [
+        "spring-press"
+      ],
+      "loaded": [],
+      "missing_terminology": [],
+      "missing_either_terms_or_bodies": [],
+      "forbidden": [],
+      "status": "needs_clarification",
+      "status_matches": true,
+      "term_count": 1,
+      "leaf_count": 0,
+      "entry_count": 0,
+      "body_chars": 0,
+      "agent_chars": 1740,
+      "candidate_chars": 370,
+      "explanation_chars": 2,
+      "routing_ms": 24.48,
+      "dependencies_complete": true
+    },
+    {
+      "id": "smooth",
+      "query": "顺滑一点",
+      "expected": [
+        "velocity-inheritance"
+      ],
+      "directions": [
+        "interruption",
+        "velocity-inheritance"
+      ],
+      "loaded": [],
+      "missing_terminology": [],
+      "missing_either_terms_or_bodies": [],
+      "forbidden": [],
+      "status": "needs_clarification",
+      "status_matches": true,
+      "term_count": 4,
+      "leaf_count": 0,
+      "entry_count": 0,
+      "body_chars": 0,
+      "agent_chars": 2083,
+      "candidate_chars": 714,
+      "explanation_chars": 2,
+      "routing_ms": 25.123,
+      "dependencies_complete": true
+    },
+    {
+      "id": "light",
+      "query": "轻一点",
+      "expected": [],
+      "directions": [],
+      "loaded": [],
+      "missing_terminology": [],
+      "missing_either_terms_or_bodies": [],
+      "forbidden": [],
+      "status": "coverage_insufficient",
+      "status_matches": true,
+      "term_count": 0,
+      "leaf_count": 0,
+      "entry_count": 0,
+      "body_chars": 0,
+      "agent_chars": 1273,
+      "candidate_chars": 2,
+      "explanation_chars": 2,
+      "routing_ms": 23.218,
+      "dependencies_complete": true
+    },
+    {
+      "id": "scoped-space",
+      "query": "网站要有呼吸感",
+      "expected": [
+        "composition-patterns"
+      ],
+      "directions": [
+        "composition-patterns"
+      ],
+      "loaded": [
+        "composition-patterns"
+      ],
+      "missing_terminology": [],
+      "missing_either_terms_or_bodies": [],
+      "forbidden": [],
+      "status": "needs_clarification",
+      "status_matches": true,
+      "term_count": 2,
+      "leaf_count": 1,
+      "entry_count": 1,
+      "body_chars": 674,
+      "agent_chars": 3071,
+      "candidate_chars": 390,
+      "explanation_chars": 370,
+      "routing_ms": 23.41,
+      "dependencies_complete": true
+    },
+    {
+      "id": "scoped-focus",
+      "query": "页面没重点",
+      "expected": [
+        "information-hierarchy"
+      ],
+      "directions": [
+        "composition-patterns",
+        "information-hierarchy"
+      ],
+      "loaded": [
+        "composition-patterns",
+        "information-hierarchy"
+      ],
+      "missing_terminology": [],
+      "missing_either_terms_or_bodies": [],
+      "forbidden": [],
+      "status": "needs_clarification",
+      "status_matches": true,
+      "term_count": 4,
+      "leaf_count": 2,
+      "entry_count": 2,
+      "body_chars": 1265,
+      "agent_chars": 4431,
+      "candidate_chars": 793,
+      "explanation_chars": 736,
+      "routing_ms": 23.153,
+      "dependencies_complete": true
+    },
+    {
+      "id": "scoped-stable",
+      "query": "后端稳一点",
+      "expected": [
+        "availability-patterns"
+      ],
+      "directions": [
+        "availability-patterns"
+      ],
+      "loaded": [
+        "availability-patterns"
+      ],
+      "missing_terminology": [],
+      "missing_either_terms_or_bodies": [],
+      "forbidden": [],
+      "status": "needs_clarification",
+      "status_matches": true,
+      "term_count": 4,
+      "leaf_count": 1,
+      "entry_count": 1,
+      "body_chars": 707,
+      "agent_chars": 3139,
+      "candidate_chars": 406,
+      "explanation_chars": 389,
+      "routing_ms": 23.434,
+      "dependencies_complete": true
+    },
+    {
+      "id": "irrelevant-crowd",
+      "query": "办公室太挤了",
+      "expected": [],
+      "directions": [],
+      "loaded": [],
+      "missing_terminology": [],
+      "missing_either_terms_or_bodies": [],
+      "forbidden": [],
+      "status": "coverage_insufficient",
+      "status_matches": true,
+      "term_count": 0,
+      "leaf_count": 0,
+      "entry_count": 0,
+      "body_chars": 0,
+      "agent_chars": 1279,
+      "candidate_chars": 2,
+      "explanation_chars": 2,
+      "routing_ms": 23.802,
+      "dependencies_complete": true
+    },
+    {
+      "id": "irrelevant-quality",
+      "query": "菜做得高级一点",
+      "expected": [],
+      "directions": [],
+      "loaded": [],
+      "missing_terminology": [],
+      "missing_either_terms_or_bodies": [],
+      "forbidden": [],
+      "status": "coverage_insufficient",
+      "status_matches": true,
+      "term_count": 0,
+      "leaf_count": 0,
+      "entry_count": 0,
+      "body_chars": 0,
+      "agent_chars": 1281,
+      "candidate_chars": 2,
+      "explanation_chars": 2,
+      "routing_ms": 24.049,
+      "dependencies_complete": true
+    },
+    {
+      "id": "uncovered",
+      "query": "帮我修一台核磁共振仪",
+      "expected": [],
+      "directions": [],
+      "loaded": [],
+      "missing_terminology": [],
+      "missing_either_terms_or_bodies": [],
+      "forbidden": [],
+      "status": "coverage_insufficient",
+      "status_matches": true,
+      "term_count": 0,
+      "leaf_count": 0,
+      "entry_count": 0,
+      "body_chars": 0,
+      "agent_chars": 1287,
+      "candidate_chars": 2,
+      "explanation_chars": 2,
+      "routing_ms": 24.317,
+      "dependencies_complete": true
+    },
+    {
+      "id": "negative",
+      "query": "不要玻璃渐变，网站有质感一点",
+      "expected": [
+        "token-system"
+      ],
+      "directions": [
+        "token-system"
+      ],
+      "loaded": [
+        "token-system"
+      ],
+      "missing_terminology": [],
+      "missing_either_terms_or_bodies": [],
+      "forbidden": [],
+      "status": "needs_clarification",
+      "status_matches": true,
+      "term_count": 4,
+      "leaf_count": 1,
+      "entry_count": 1,
+      "body_chars": 633,
+      "agent_chars": 3016,
+      "candidate_chars": 389,
+      "explanation_chars": 337,
+      "routing_ms": 25.113,
+      "dependencies_complete": true
+    },
+    {
+      "id": "combo",
+      "query": "页面太挤了，按钮像弹簧一样",
+      "expected": [
+        "information-hierarchy",
+        "spring-press"
+      ],
+      "directions": [
+        "composition-patterns",
+        "information-hierarchy",
+        "spring-press"
+      ],
+      "loaded": [
+        "composition-patterns",
+        "information-hierarchy",
+        "spring-press"
+      ],
+      "missing_terminology": [],
+      "missing_either_terms_or_bodies": [],
+      "forbidden": [],
+      "status": "needs_clarification",
+      "status_matches": true,
+      "term_count": 5,
+      "leaf_count": 3,
+      "entry_count": 3,
+      "body_chars": 1836,
+      "agent_chars": 5694,
+      "candidate_chars": 1162,
+      "explanation_chars": 1048,
+      "routing_ms": 26.572,
+      "dependencies_complete": true
+    }
+  ]
+}
