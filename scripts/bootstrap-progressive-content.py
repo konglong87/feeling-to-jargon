@@ -754,13 +754,8 @@ dump(DASHBOARD_STYLE_TEMPLATE_PATH, {
             "slot": 5,
             "status": "needs_confirmation",
             "entry_id": "warm-three-column-dashboard",
-            "missing": "完整点击逻辑、模式与单位映射；候选执行逻辑不得默认落地"
-        },
-        {
-            "slot": 6,
-            "status": "missing",
-            "missing": "第六个 Dashboard 的三层提示词原文",
-            "policy": "不创建空叶子、不生成虚构案例，不声称六例完整"
+            "missing": "完整点击逻辑、模式与单位映射；仅在实际实现时确认，不阻塞现有素材整理",
+            "scope": "implementation_only"
         }
     ],
     "pattern_refs": [

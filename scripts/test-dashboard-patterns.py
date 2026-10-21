@@ -124,7 +124,7 @@ class DashboardPatternsTests(unittest.TestCase):
         self.assertEqual(glass["agentExec"][1]["example_values"], {"selectedMonth": 8, "selectedMetric": "score"})
         self.assertEqual(glass["agentExec"][2]["preserves"], ["selectedMonth"])
 
-    def test_unconfirmed_execution_is_not_presented_as_complete(self):
+    def test_source_provenance_does_not_expand_collection_scope(self):
         warm = self.patterns["warm-three-column-dashboard"]
         self.assertEqual(warm["evidence"]["status"], "needs_confirmation")
         self.assertEqual(warm["evidence"]["confirmed_layers"], ["layout", "termSkill", "uiSkill"])
@@ -133,8 +133,8 @@ class DashboardPatternsTests(unittest.TestCase):
             self.assertEqual(action["status"], "needs_confirmation")
         gaps = {item["slot"]: item for item in self.template["source_gaps"]}
         self.assertEqual(gaps[5]["status"], "needs_confirmation")
-        self.assertEqual(gaps[6]["status"], "missing")
-        self.assertNotIn("entry_id", gaps[6])
+        self.assertEqual(set(gaps), {5})
+        self.assertEqual(gaps[5]["scope"], "implementation_only")
         self.assertEqual(len(self.patterns), 5)
 
     def test_entry_ranking_precedes_limit_and_preserves_legacy_fallback(self):
