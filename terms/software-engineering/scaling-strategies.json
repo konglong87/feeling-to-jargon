@@ -33,7 +33,16 @@
       "constraints": [
         "不要把质量属性当作无边界承诺"
       ],
-      "aliases": []
+      "aliases": [],
+      "retrieval": {
+        "rules": [],
+        "questions": [
+          {
+            "id": "growth",
+            "question": "预期如何增长，现有瓶颈和可以改变的架构边界是什么？"
+          }
+        ]
+      }
     }
   ]
 }

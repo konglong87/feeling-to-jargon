@@ -5,6 +5,8 @@ import json
 import argparse
 import unicodedata
 from pathlib import Path
+from routing_policy import MAX_CONTENT_CHARS, RETRIEVAL_INDEX
+from retrieval_index import build_index
 
 ROOT = Path(__file__).resolve().parents[1]
 DASHBOARD_LAYOUT_LEAF_ID = "layout-patterns"
@@ -78,6 +80,7 @@ root["loading_policy"] = {
     "max_intents_scope": "per_subdomain",
     "max_leaf_packages": 8,
     "max_entries_per_leaf": 30,
+    "max_content_chars": MAX_CONTENT_CHARS,
     "route_score_margin": 2,
     "high_confidence_score": 6,
     "high_confidence_margin": 1,
@@ -888,4 +891,5 @@ dump("index/runtime.json", {
     "matching": {"normalization": ["lowercase", "unicode_nfkc"], "scoring": "token-overlap", "tie_break": "score_then_leaf_id"},
     "limits": root["loading_policy"], "routes": routes
 })
+dump(RETRIEVAL_INDEX, build_index(leaf_defs, ROOT))
 print(f"generated {len(leaf_refs)} granular leaves")

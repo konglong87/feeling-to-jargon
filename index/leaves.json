@@ -546,7 +546,8 @@
       ],
       "scope": "provider-specific",
       "entry_count": 1,
-      "do_not_generalize": true
+      "do_not_generalize": true,
+      "provider": "GPUIX"
     },
     {
       "leaf_id": "gpui-mobile",
@@ -562,7 +563,8 @@
       ],
       "scope": "provider-specific",
       "entry_count": 1,
-      "do_not_generalize": true
+      "do_not_generalize": true,
+      "provider": "GPUIX"
     },
     {
       "leaf_id": "grid-glass-dashboard",
@@ -1582,7 +1584,8 @@
       ],
       "scope": "provider-specific",
       "entry_count": 1,
-      "do_not_generalize": true
+      "do_not_generalize": true,
+      "provider": "ThreeUI"
     },
     {
       "leaf_id": "threshold",

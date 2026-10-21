@@ -24,6 +24,7 @@
     "max_intents_scope": "per_subdomain",
     "max_leaf_packages": 8,
     "max_entries_per_leaf": 30,
+    "max_content_chars": 24000,
     "route_score_margin": 2,
     "high_confidence_score": 6,
     "high_confidence_margin": 1,
@@ -736,7 +737,8 @@
         "choose-renderer"
       ],
       "scope": "provider-specific",
-      "do_not_generalize": true
+      "do_not_generalize": true,
+      "provider": "GPUIX"
     },
     {
       "leaf_id": "gpui-mobile",
@@ -759,7 +761,8 @@
         "choose-renderer"
       ],
       "scope": "provider-specific",
-      "do_not_generalize": true
+      "do_not_generalize": true,
+      "provider": "GPUIX"
     },
     {
       "leaf_id": "grid-glass-dashboard",
@@ -2128,7 +2131,8 @@
         "choose-renderer"
       ],
       "scope": "provider-specific",
-      "do_not_generalize": true
+      "do_not_generalize": true,
+      "provider": "ThreeUI"
     },
     {
       "leaf_id": "threshold",

@@ -32,7 +32,36 @@
       "constraints": [
         "先定 token 再定组件，不要每张卡单独发明规则"
       ],
-      "aliases": []
+      "aliases": [],
+      "retrieval": {
+        "rules": [
+          {
+            "id": "visual-quality",
+            "all": [
+              [
+                "网站",
+                "网页",
+                "界面",
+                "页面",
+                "dashboard"
+              ],
+              [
+                "质感",
+                "精致",
+                "高级",
+                "专业一点"
+              ]
+            ],
+            "role": "suggestion"
+          }
+        ],
+        "questions": [
+          {
+            "id": "visual_priority",
+            "question": "更想改善排版层级、留白、配色一致性还是材质？有没有偏好的参考？"
+          }
+        ]
+      }
     }
   ]
 }

@@ -1,0 +1,497 @@
+{
+  "version": 1,
+  "boundary": "Raw CLI, not a live host-LLM acceptance test. Expected candidates are directions, not prescribed parameters.",
+  "cases": [
+    {
+      "id": "backend-technical",
+      "query": "后端需要高可用、高并发、高扩展",
+      "required": [
+        "availability-patterns",
+        "capacity-model",
+        "scaling-strategies"
+      ],
+      "forbidden": [
+        "idempotency-contract"
+      ],
+      "clarify": true,
+      "coverage_insufficient": false,
+      "scenario": "backend-quality",
+      "kind": "technical",
+      "options": [],
+      "required_constraints": []
+    },
+    {
+      "id": "backend-vague",
+      "query": "我想做一个大型的后端，给很多人用，要稳定。",
+      "required": [
+        "availability-patterns"
+      ],
+      "forbidden": [
+        "idempotency-contract",
+        "scaling-strategies"
+      ],
+      "clarify": true,
+      "coverage_insufficient": false,
+      "scenario": "backend-quality",
+      "kind": "plain",
+      "options": [],
+      "required_constraints": []
+    },
+    {
+      "id": "backend-availability",
+      "query": "后端要稳定，别老是宕机。",
+      "required": [
+        "availability-patterns"
+      ],
+      "forbidden": [
+        "idempotency-contract",
+        "scaling-strategies",
+        "capacity-model"
+      ],
+      "clarify": true,
+      "coverage_insufficient": false,
+      "scenario": "backend-quality",
+      "kind": "plain",
+      "options": [],
+      "required_constraints": []
+    },
+    {
+      "id": "capacity",
+      "query": "很多人同时用也别卡。",
+      "required": [
+        "capacity-model"
+      ],
+      "forbidden": [
+        "idempotency-contract",
+        "scaling-strategies",
+        "availability-patterns"
+      ],
+      "clarify": true,
+      "coverage_insufficient": false,
+      "scenario": "backend-quality",
+      "kind": "plain",
+      "options": [],
+      "required_constraints": []
+    },
+    {
+      "id": "idempotency",
+      "query": "重复点提交别出错。",
+      "required": [
+        "idempotency-contract"
+      ],
+      "forbidden": [
+        "capacity-model",
+        "scaling-strategies",
+        "availability-patterns"
+      ],
+      "clarify": true,
+      "coverage_insufficient": false,
+      "scenario": "backend-quality",
+      "kind": "plain",
+      "options": [],
+      "required_constraints": []
+    },
+    {
+      "id": "quality",
+      "query": "我想做一个有质感的网站。",
+      "required": [
+        "token-system"
+      ],
+      "forbidden": [
+        "immersive-atmosphere",
+        "liquid-glass-bar",
+        "tonal-dark-dashboard"
+      ],
+      "clarify": true,
+      "coverage_insufficient": false,
+      "scenario": "visual-brief",
+      "kind": "plain",
+      "options": [],
+      "required_constraints": []
+    },
+    {
+      "id": "clutter",
+      "query": "页面看着太乱了，希望舒服一点。",
+      "required": [
+        "composition-patterns"
+      ],
+      "forbidden": [
+        "liquid-glass-bar",
+        "tonal-dark-dashboard"
+      ],
+      "clarify": true,
+      "coverage_insufficient": false,
+      "scenario": "visual-brief",
+      "kind": "plain",
+      "options": [],
+      "required_constraints": []
+    },
+    {
+      "id": "undo",
+      "query": "删除后可以反悔，而且键盘也能操作。",
+      "required": [
+        "undo-window",
+        "motion-accessibility"
+      ],
+      "forbidden": [],
+      "clarify": true,
+      "coverage_insufficient": false,
+      "scenario": "reversible-delete",
+      "kind": "plain",
+      "options": [],
+      "required_constraints": [
+        "不要每秒通过 aria-live 播报倒计时"
+      ]
+    },
+    {
+      "id": "industrial",
+      "query": "做工业分区布局，选中物料后联动补货卡。",
+      "required": [
+        "layout-patterns"
+      ],
+      "forbidden": [],
+      "clarify": true,
+      "coverage_insufficient": false,
+      "scenario": "dashboard-linked-state",
+      "kind": "plain",
+      "options": [],
+      "required_constraints": []
+    },
+    {
+      "id": "industrial-title",
+      "query": "我要一个工业分区布局的 Dashboard",
+      "required": [
+        "layout-patterns"
+      ],
+      "forbidden": [],
+      "clarify": true,
+      "coverage_insufficient": false,
+      "scenario": "dashboard-linked-state",
+      "kind": "technical",
+      "options": [],
+      "required_constraints": []
+    },
+    {
+      "id": "uncovered",
+      "query": "请推导黎曼猜想的完整证明。",
+      "required": [],
+      "forbidden": [],
+      "clarify": false,
+      "coverage_insufficient": true,
+      "scenario": null,
+      "kind": "uncovered",
+      "options": [],
+      "required_constraints": []
+    },
+    {
+      "id": "noise",
+      "query": "hello world",
+      "required": [],
+      "forbidden": [],
+      "clarify": false,
+      "coverage_insufficient": true,
+      "scenario": null,
+      "kind": "unrelated",
+      "options": [],
+      "required_constraints": []
+    },
+    {
+      "id": "ambiguous",
+      "query": "要稳定一点。",
+      "required": [],
+      "forbidden": [
+        "idempotency-contract",
+        "scaling-strategies",
+        "capacity-model"
+      ],
+      "clarify": true,
+      "coverage_insufficient": false,
+      "scenario": null,
+      "kind": "ambiguous",
+      "options": [],
+      "required_constraints": []
+    },
+    {
+      "id": "mixed",
+      "query": "网站看着太乱，重复点提交还会出错。",
+      "required": [
+        "composition-patterns",
+        "idempotency-contract"
+      ],
+      "forbidden": [
+        "capacity-model",
+        "scaling-strategies"
+      ],
+      "clarify": true,
+      "coverage_insufficient": false,
+      "scenario": null,
+      "kind": "multi",
+      "options": [],
+      "required_constraints": []
+    },
+    {
+      "id": "gsap",
+      "query": "用 GSAP 做 React ScrollTrigger，并正确清理",
+      "required": [
+        "gsap-scrolltrigger",
+        "gsap-react-lifecycle"
+      ],
+      "forbidden": [],
+      "clarify": false,
+      "coverage_insufficient": false,
+      "scenario": null,
+      "kind": "platform",
+      "options": [],
+      "required_constraints": []
+    },
+    {
+      "id": "react-only",
+      "query": "React 动画",
+      "required": [],
+      "forbidden": [
+        "gsap-react-lifecycle",
+        "gsap-core",
+        "gsap-scrolltrigger"
+      ],
+      "clarify": false,
+      "coverage_insufficient": false,
+      "scenario": null,
+      "kind": "platform",
+      "options": [],
+      "required_constraints": []
+    },
+    {
+      "id": "no-gsap",
+      "query": "不用 GSAP，只用 CSS 做动画",
+      "required": [],
+      "forbidden": [
+        "gsap-core",
+        "gsap-timeline",
+        "gsap-react-lifecycle",
+        "gsap-performance",
+        "gsap-scrolltrigger",
+        "gsap-framework-lifecycle",
+        "gsap-plugins"
+      ],
+      "clarify": false,
+      "coverage_insufficient": false,
+      "scenario": null,
+      "kind": "negative",
+      "options": [],
+      "required_constraints": []
+    },
+    {
+      "id": "gpui",
+      "query": "GPUIX 能不能跑移动端？",
+      "required": [
+        "gpui-mobile"
+      ],
+      "forbidden": [],
+      "clarify": false,
+      "coverage_insufficient": false,
+      "scenario": null,
+      "kind": "platform",
+      "options": [],
+      "required_constraints": [
+        "verified_at 未设置时不得当作确定事实"
+      ]
+    },
+    {
+      "id": "metal-only",
+      "query": "Metal 动画怎么做",
+      "required": [],
+      "forbidden": [
+        "gpui-mobile",
+        "gpui-desktop-web"
+      ],
+      "clarify": false,
+      "coverage_insufficient": false,
+      "scenario": null,
+      "kind": "platform",
+      "options": [],
+      "required_constraints": []
+    },
+    {
+      "id": "effects",
+      "query": "实现液态玻璃导航并提供移动端降级",
+      "required": [
+        "liquid-glass-bar"
+      ],
+      "forbidden": [],
+      "clarify": false,
+      "coverage_insufficient": false,
+      "scenario": null,
+      "kind": "composition",
+      "options": [],
+      "required_constraints": [
+        "performance_budget",
+        "fallback",
+        "mobile_degradation",
+        "reduced_motion"
+      ]
+    },
+    {
+      "id": "merge",
+      "query": "比较工业分区布局与暖色三栏布局",
+      "required": [
+        "layout-patterns"
+      ],
+      "forbidden": [],
+      "clarify": true,
+      "coverage_insufficient": false,
+      "scenario": "dashboard-linked-state",
+      "kind": "merged",
+      "options": [],
+      "required_constraints": []
+    },
+    {
+      "id": "entry-limit",
+      "query": "玻璃点阵月份指标联动",
+      "required": [
+        "layout-patterns"
+      ],
+      "forbidden": [],
+      "clarify": true,
+      "coverage_insufficient": false,
+      "scenario": "dashboard-linked-state",
+      "kind": "merged",
+      "options": [
+        "--max-entries",
+        "1"
+      ],
+      "required_constraints": []
+    },
+    {
+      "id": "paraphrase-capacity",
+      "query": "用户一窝蜂涌进来时，响应速度不要变慢。",
+      "required": [
+        "capacity-model"
+      ],
+      "forbidden": [
+        "scaling-strategies",
+        "idempotency-contract"
+      ],
+      "clarify": true,
+      "coverage_insufficient": false,
+      "scenario": "backend-quality",
+      "kind": "paraphrase",
+      "options": [],
+      "required_constraints": []
+    },
+    {
+      "id": "paraphrase-availability",
+      "query": "服务出故障后还能继续给用户使用吗？",
+      "required": [
+        "availability-patterns"
+      ],
+      "forbidden": [
+        "idempotency-contract",
+        "scaling-strategies",
+        "capacity-model"
+      ],
+      "clarify": true,
+      "coverage_insufficient": false,
+      "scenario": "backend-quality",
+      "kind": "paraphrase",
+      "options": [],
+      "required_constraints": []
+    },
+    {
+      "id": "paraphrase-submit",
+      "query": "手快连按了几下确认，希望只办一次。",
+      "required": [
+        "idempotency-contract"
+      ],
+      "forbidden": [
+        "capacity-model",
+        "scaling-strategies"
+      ],
+      "clarify": true,
+      "coverage_insufficient": false,
+      "scenario": "backend-quality",
+      "kind": "paraphrase",
+      "options": [],
+      "required_constraints": []
+    },
+    {
+      "id": "paraphrase-visual",
+      "query": "网页的东西挤成一团，想让人一眼找到重点。",
+      "required": [
+        "composition-patterns"
+      ],
+      "forbidden": [
+        "liquid-glass-bar",
+        "immersive-atmosphere"
+      ],
+      "clarify": true,
+      "coverage_insufficient": false,
+      "scenario": "visual-brief",
+      "kind": "paraphrase",
+      "options": [],
+      "required_constraints": []
+    },
+    {
+      "id": "paraphrase-undo",
+      "query": "误删了一项还能找回来，不用鼠标也可以操作。",
+      "required": [
+        "undo-window",
+        "motion-accessibility"
+      ],
+      "forbidden": [],
+      "clarify": true,
+      "coverage_insufficient": false,
+      "scenario": "reversible-delete",
+      "kind": "paraphrase",
+      "options": [],
+      "required_constraints": []
+    },
+    {
+      "id": "not-ui",
+      "query": "我的论文读着太乱，想理顺论证。",
+      "required": [],
+      "forbidden": [
+        "token-system",
+        "composition-patterns",
+        "layout-patterns"
+      ],
+      "clarify": false,
+      "coverage_insufficient": true,
+      "scenario": null,
+      "kind": "negative",
+      "options": [],
+      "required_constraints": []
+    },
+    {
+      "id": "stability-no-capacity",
+      "query": "后端要稳定，不需要高并发。",
+      "required": [
+        "availability-patterns"
+      ],
+      "forbidden": [
+        "capacity-model",
+        "idempotency-contract",
+        "scaling-strategies"
+      ],
+      "clarify": true,
+      "coverage_insufficient": false,
+      "scenario": "backend-quality",
+      "kind": "negative",
+      "options": [],
+      "required_constraints": []
+    },
+    {
+      "id": "mixed-coverage",
+      "query": "工业分区布局做好后，再证明黎曼猜想。",
+      "required": [
+        "layout-patterns"
+      ],
+      "forbidden": [],
+      "clarify": true,
+      "coverage_insufficient": true,
+      "scenario": null,
+      "kind": "multi",
+      "options": [],
+      "required_constraints": []
+    }
+  ]
+}

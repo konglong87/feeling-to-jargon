@@ -1,248 +1,145 @@
 #!/usr/bin/env python3
-"""Progressively route a user query to the smallest useful Feeling to Jargon knowledge set."""
+"""Route feelings to bounded knowledge, assemble dependencies, and plan delivery."""
 from __future__ import annotations
 import argparse
 import json
 import re
-import unicodedata
+import time
 from pathlib import Path
+from lexical import normalize, score, select_entries, positive_int
+from routing_policy import ROOT, RETRIEVAL_INDEX, MAX_CONTENT_CHARS
+from retrieval import context_from_file, route_query, literal_evidence, positive_query, negated
+from composition import Composer, content_size
+from scenario_delivery import delivery
 
-ROOT = Path(__file__).resolve().parents[1]
 
-def load(rel: str):
-    with (ROOT / rel).open(encoding="utf-8") as f:
-        return json.load(f)
+class KnowledgeLoader:
+    def __init__(self, root):
+        self.root,self.cache,self.read_paths = root,{},[]
 
-def normalize(value: str) -> str:
-    return unicodedata.normalize("NFKC", value).lower().strip()
+    def __call__(self, relative):
+        path = (self.root / relative).resolve()
+        if not path.is_relative_to(self.root.resolve()) or path.suffix != '.json':
+            raise ValueError('knowledge reference must be a repository JSON path')
+        if relative not in self.cache:
+            self.cache[relative] = json.loads(path.read_text(encoding='utf-8'))
+            self.read_paths.append(relative)
+        return self.cache[relative]
 
-def chunks(value: str) -> list[str]:
-    text = normalize(value)
-    # Keep Chinese runs and latin/digit words; substring matching handles short Chinese phrases.
-    return re.findall(r"[\u4e00-\u9fff]{2,}|[a-z0-9][a-z0-9+.#:/-]*", text)
 
-def chinese_runs(value: str) -> list[str]:
-    return re.findall(r"[\u4e00-\u9fff]{2,}", normalize(value))
+def generic_candidate(query, route, record, value):
+    evidence = []
+    for term in route['keywords']:
+        hit=literal_evidence(query,term,'runtime.keywords')
+        if hit:
+            evidence.append(hit)
+        elif len(term)>=3:
+            # Explain the exact prefix fragment consumed by legacy Chinese scoring.
+            for size in range(len(term)-1,2,-1):
+                hit=literal_evidence(query,term[:size],'runtime.keywords.prefix')
+                if hit:
+                    evidence.append(hit)
+                    break
+    return {'record':record,'score':value,'role':'suggestion', 'evidence':evidence,
+            'reason':'Generic lexical fallback; candidate direction, not a committed implementation choice.'}
 
-def positive_int(value: str) -> int:
-    parsed = int(value)
-    if parsed <= 0:
-        raise ValueError("must be a positive integer")
-    return parsed
 
-def unique_keywords(keywords: list[str]) -> list[str]:
-    result = []
-    seen = set()
-    for keyword in keywords:
-        normalized = normalize(keyword)
-        if normalized not in seen:
-            seen.add(normalized)
-            result.append(keyword)
-    return result
+def resolve_membership(load, matches, routes, limits):
+    domains,intents,selected = [],[],[]
+    for match in matches:
+        route=routes[match['leaf_id']]
+        domain_path='index/domains/' + route['domain_id'] + '.json'
+        domain=load(domain_path)
+        subdomain=next(item for item in domain['subdomains'] if item['subdomain_id']==route['subdomain_id'])
+        intent_path=subdomain['intent_index']
+        intent_doc=load(intent_path)
+        known=[item['id'] for item in intent_doc['intents'] if match['leaf_id'] in item['leaf_refs']]
+        if not set(route['intent_ids']) <= set(known):
+            raise ValueError('knowledge intent membership is inconsistent')
+        if domain_path not in domains: domains.append(domain_path)
+        if intent_path not in intents: intents.append(intent_path)
+        for id in known[:limits['max_intents']]:
+            item={'domain_id':route['domain_id'],'subdomain_id':route['subdomain_id'],'intent_id':id}
+            if item not in selected:selected.append(item)
+    return domains,intents,selected
 
-def score(query: str, keywords: list[str]) -> int:
-    q = normalize(query)
-    q_tokens = {
-        token
-        for token in chunks(q)
-        if len(token) >= 3 or any("\u4e00" <= char <= "\u9fff" for char in token)
+
+def query_knowledge(query, args):
+    started=time.perf_counter()
+    load=KnowledgeLoader(ROOT)
+    root=load('index/root.json')
+    runtime=load('index/runtime.json')
+    index=load(RETRIEVAL_INDEX)
+    context=context_from_file(args.context,index['entries'])
+    limits=dict(root['loading_policy'])
+    for key,value in [('max_leaf_packages',args.max_leaves),('max_entries_per_leaf',args.max_entries),('max_content_chars',args.max_chars)]:
+        if value is not None:limits[key]=min(value,limits.get(key,MAX_CONTENT_CHARS))
+    route_started=time.perf_counter()
+    ranked,candidates,route_trace=route_query(query,runtime,index,context,limits,not args.no_fast_path)
+    routing_ms=(time.perf_counter()-route_started)*1000
+    for candidate in candidates.values():
+        for rule in candidate['record']['retrieval'].get('inputs', []):
+            match = re.search(rule['pattern'],query)
+            if match and not negated(query,match.group('value')):
+                existing = context['answers'].get(rule['id'])
+                if existing and normalize(existing) != normalize(match.group('value')):
+                    raise ValueError('context answer conflicts with explicit query value: ' + rule['id'])
+                context['answers'][rule['id']] = match.group('value')
+    record_by_key={(r['leaf_id'],r['entry_id']):r for r in index['entries']}
+    composer=Composer(load,index['entries'],runtime['routes'],query,context,limits)
+    composer.scores={route['leaf_id']:value for value,route in ranked}
+    for value,route in ranked:
+        leaf=load(route['path'])
+        selected=[candidate for key,candidate in candidates.items() if key[0]==route['leaf_id']]
+        if selected:
+            selected.sort(key=lambda candidate:(-candidate['score'],candidate['record']['entry_id']))
+        else:
+            terms=select_entries(positive_query(query),leaf['entries'],len(leaf['entries']),limits['route_score_margin'],leaf.get('default_entry_id'))
+            selected=[generic_candidate(query,route,record_by_key[(route['leaf_id'],term['id'])],value) for term in terms]
+        for candidate in selected:
+            key=(route['leaf_id'],candidate['record']['entry_id'])
+            candidates.setdefault(key,candidate)
+            composer.add(key,candidate['role'],candidate['reason'])
+    matches,dependencies=composer.export()
+    routes={route['leaf_id']:route for route in runtime['routes']}
+    domain_paths,intent_paths,selected_intents=resolve_membership(load,matches,routes,limits)
+    result=delivery(query,candidates,matches,dependencies,index['scenarios'],index['entries'],context,composer.deferred)
+    selected_subdomains=[]
+    for intent in selected_intents:
+        key={field:intent[field] for field in ('domain_id','subdomain_id')}
+        if key not in selected_subdomains:selected_subdomains.append(key)
+    trace={
+        'levels':['root','subdomain','intent','leaf','entry'],
+        'execution_order':['read_generated_routing_indexes','match_scene_or_generic_route','assemble_atomic_knowledge_bundles','validate_membership','check_delivery'],
+        'root_loaded':'index/root.json','runtime_router_loaded':'index/runtime.json',
+        'domain_index_paths':domain_paths,'intent_index_paths':intent_paths,'selected_intents':selected_intents,
+        'selected_subdomains':selected_subdomains,'loaded_leaf_paths':[m['path'] for m in matches],
+        'loaded_leaf_count':len(matches),'entry_limit':limits['max_entries_per_leaf'],
+        'loaded_entry_count':sum(len(m['entries']) for m in matches),
+        'internal_read_paths':load.read_paths,'internal_index_chars':sum(len(json.dumps(load.cache[p],ensure_ascii=False)) for p in load.cache if p.startswith('index/')),
+        'indexes_in_llm_context':False,'context_chars':content_size(matches,dependencies),'content_char_limit':limits['max_content_chars'],
+        'content_budget_scope':'Canonical JSON of matches+dependencies; explanation/delivery envelope reported separately.',
+        'routing_ms':round(routing_ms,3),'total_processing_ms':round((time.perf_counter()-started)*1000,3),**route_trace,
     }
-    points = 0
-    matched_bigrams: set[str] = set()
-    matched_tokens: set[str] = set()
-    for keyword in unique_keywords(keywords):
-        candidate = normalize(keyword)
-        if candidate in q and (len(candidate) >= 3 or any("\u4e00" <= char <= "\u9fff" for char in candidate)):
-            points += 3
-            continue
-        # Chinese requests often contain a shorter phrase inside a descriptive
-        # keyword (e.g. “高可用” inside “高可用模式”). Count each observed
-        # bigram once per route so repeated aliases cannot inflate a score.
-        for phrase in chinese_runs(candidate):
-            if len(phrase) < 3:
-                continue
-            matched_indices = {
-                index
-                for index in range(0, len(phrase) - 1)
-                if phrase[index : index + 2] in q
-            }
-            # A single shared pair such as “卡片” is too generic. Require
-            # adjacent pairs from the same descriptive phrase, so the query
-            # contains a continuous 3-character fragment rather than two
-            # unrelated pairs scattered across the sentence.
-            adjacent_indices = {
-                index
-                for index in matched_indices
-                if index + 1 in matched_indices
-            }
-            if 0 in adjacent_indices:
-                matched_bigrams.update(
-                    phrase[index : index + 2]
-                    for index in adjacent_indices
-                )
-        matched_tokens.update(token for token in q_tokens if token in candidate)
-    return points + (2 * len(matched_bigrams)) + len(matched_tokens)
+    return {'query':query,'strategy':'progressive','trace':trace,'matches':matches,'dependencies':dependencies,
+            **result,'network_search':'not_requested'}
 
-def select_entries(query: str, entries: list[dict], limit: int, margin: int, default_entry_id=None) -> list[dict]:
-    """Rank inside a merged family before applying its entry budget."""
-    ranked = []
-    normalized_query = normalize(query)
-    for position, item in enumerate(entries):
-        identifiers = [item.get("id", ""), item.get("name", ""), *item.get("aliases", [])]
-        identifiers = [value for value in identifiers if normalize(value)]
-        exact = any(len(normalize(value)) >= 3 and normalize(value) in normalized_query for value in identifiers)
-        details = [item.get("plain_language", ""), item.get("when_to_use", "")]
-        item_score = score(query, identifiers) + score(query, [value for value in details if value])
-        if exact or item_score:
-            ranked.append((exact, item_score, position, item))
-    if not ranked:
-        # Families may name an overview; preserve other leaves' legacy fallback.
-        if default_entry_id:
-            return [item for item in entries if item["id"] == default_entry_id][:limit]
-        return entries[:limit]
-    ranked.sort(key=lambda item: (-item[0], -item[1], item[2]))
-    if ranked[0][0]:
-        selected = [item for item in ranked if item[0]]
-    else:
-        selected = [item for item in ranked if item[1] >= ranked[0][1] - margin]
-    return [item[3] for item in selected[:limit]]
 
-def main() -> None:
-    parser = argparse.ArgumentParser(description="Progressive Feeling to Jargon runtime query")
-    parser.add_argument("query", nargs="+", help="user request")
-    parser.add_argument("--max-leaves", type=positive_int, default=None)
-    parser.add_argument("--max-entries", type=positive_int, default=None)
-    args = parser.parse_args()
-    query = " ".join(args.query)
-    root = load("index/root.json")
-    runtime = load("index/runtime.json")
-    limits = root["loading_policy"]
-    min_route_score = limits.get("min_route_score", 1)
-    max_leaves = args.max_leaves if args.max_leaves is not None else limits["max_leaf_packages"]
-    max_entries = args.max_entries if args.max_entries is not None else limits["max_entries_per_leaf"]
+def main():
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('query',nargs='+',help='raw user request')
+    parser.add_argument('--max-leaves',type=positive_int)
+    parser.add_argument('--max-entries',type=positive_int)
+    parser.add_argument('--max-chars',type=positive_int,help='knowledge body budget, not model tokens; may only lower policy limit')
+    parser.add_argument('--no-fast-path',action='store_true',help='audit with generic route scan while retaining composition contracts')
+    parser.add_argument('--context',help='optional host JSON: providers, answers, evidence-grounded candidates; no model is called')
+    args=parser.parse_args()
+    try:
+        output=query_knowledge(' '.join(args.query),args)
+    except (ValueError,KeyError,StopIteration,OSError) as error:
+        parser.error(str(error))
+    print(json.dumps(output,ensure_ascii=False,indent=2))
 
-    ranked = []
-    for route in runtime["routes"]:
-        provider = normalize(route.get("provider") or "")
-        if provider and provider not in normalize(query):
-            continue
-        route_score = score(query, route["keywords"])
-        title = normalize(route.get("title") or "")
-        if len(title) >= 3 and title in normalize(query):
-            route_score += 2
-        if route_score >= min_route_score:
-            ranked.append((route_score, route))
-    # A merged family must not lose routing priority just because it contains
-    # more entries. Entry budgets are applied after within-family ranking.
-    ranked.sort(key=lambda pair: (-pair[0], pair[1]["leaf_id"]))
 
-    # Keep routes close to the best match within each selected subdomain. This
-    # preserves one strong route per relevant subdomain while preventing a
-    # specific request such as "GSAP timeline" from loading every leaf that
-    # shares only the provider keyword.
-    initial_selected = ranked[:max_leaves]
-    selected_subdomains = []
-    for _, route in initial_selected:
-        key = (route["domain_id"], route["subdomain_id"])
-        if key not in selected_subdomains:
-            selected_subdomains.append(key)
-    selected_subdomains = selected_subdomains[: limits["max_subdomains"]]
-    default_margin = limits.get("route_score_margin", 0)
-    high_confidence_score = limits.get("high_confidence_score", 0)
-    high_confidence_margin = limits.get("high_confidence_margin", default_margin)
-    selected = []
-    for subdomain in selected_subdomains:
-        subdomain_ranked = [
-            pair for pair in ranked
-            if (pair[1]["domain_id"], pair[1]["subdomain_id"]) == subdomain
-        ]
-        if not subdomain_ranked:
-            continue
-        top_score = subdomain_ranked[0][0]
-        score_margin = high_confidence_margin if top_score >= high_confidence_score else default_margin
-        selected.extend(
-            pair for pair in subdomain_ranked
-            if pair[0] >= max(1, top_score - score_margin)
-        )
-    selected = selected[:max_leaves]
-
-    # Resolve the selected hierarchy before loading leaf content. The runtime
-    # router stays small and hot, while these indexes provide the authoritative
-    # domain -> subdomain -> intent path for the selected request.
-    domain_index_paths = []
-    intent_index_paths = []
-    selected_intents = {}
-    for domain_id, subdomain_id in selected_subdomains:
-        domain_path = f"index/domains/{domain_id}.json"
-        domain_doc = load(domain_path)
-        domain_index_paths.append(domain_path)
-        subdomain = next(item for item in domain_doc["subdomains"] if item["subdomain_id"] == subdomain_id)
-        intent_doc = load(subdomain["intent_index"])
-        intent_index_paths.append(subdomain["intent_index"])
-        selected_intents[(domain_id, subdomain_id)] = {
-            intent["id"] for intent in intent_doc.get("intents", [])
-        }
-    intent_rank = {}
-    for route_score, route in selected:
-        for intent_id in route.get("intent_ids", []):
-            key = (route["domain_id"], route["subdomain_id"], intent_id)
-            intent_rank[key] = max(route_score, intent_rank.get(key, 0))
-    selected_intent_ids = set()
-    for domain_id, subdomain_id in selected_subdomains:
-        candidates = [
-            (score_value, intent_id)
-            for (candidate_domain, candidate_subdomain, intent_id), score_value in intent_rank.items()
-            if candidate_domain == domain_id and candidate_subdomain == subdomain_id
-        ]
-        candidates.sort(key=lambda item: (-item[0], item[1]))
-        selected_intent_ids.update(
-            (domain_id, subdomain_id, intent_id)
-            for _, intent_id in candidates[: limits["max_intents"]]
-        )
-    selected = [
-        pair for pair in selected
-        if any(
-            (pair[1]["domain_id"], pair[1]["subdomain_id"], intent_id) in selected_intent_ids
-            for intent_id in set(pair[1].get("intent_ids", []))
-            & selected_intents[(pair[1]["domain_id"], pair[1]["subdomain_id"])]
-        )
-    ]
-
-    loaded = []
-    for route_score, route in selected:
-        leaf = load(route["path"])
-        terms = select_entries(
-            query, leaf.get("entries", []), max_entries,
-            limits["route_score_margin"], leaf.get("default_entry_id"),
-        )
-        loaded.append({
-            "leaf_id": route["leaf_id"], "score": route_score, "knowledge_type": route["knowledge_type"],
-            "scope": route["scope"], "do_not_generalize": route["do_not_generalize"],
-            "path": route["path"], "entries": terms,
-        })
-
-    output = {
-        "query": query,
-        "strategy": "progressive",
-        "trace": {
-            "levels": ["root", "subdomain", "intent", "leaf", "entry"],
-            "root_loaded": "index/root.json",
-            "runtime_router_loaded": "index/runtime.json",
-            "domain_index_paths": domain_index_paths,
-            "intent_index_paths": intent_index_paths,
-            "selected_intents": [
-                {"domain_id": d, "subdomain_id": s, "intent_id": i}
-                for d, s, i in sorted(selected_intent_ids)
-            ],
-            "selected_subdomains": [{"domain_id": d, "subdomain_id": s} for d, s in selected_subdomains],
-            "loaded_leaf_paths": [item["path"] for item in loaded],
-            "loaded_leaf_count": len(loaded),
-            "entry_limit": max_entries,
-        },
-        "matches": loaded,
-        "network_search": "not_requested",
-    }
-    print(json.dumps(output, ensure_ascii=False, indent=2))
-
-if __name__ == "__main__":
+if __name__=='__main__':
     main()

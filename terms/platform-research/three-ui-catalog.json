@@ -38,5 +38,6 @@
       ],
       "aliases": []
     }
-  ]
+  ],
+  "provider": "ThreeUI"
 }

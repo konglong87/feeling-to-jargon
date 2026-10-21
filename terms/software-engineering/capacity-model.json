@@ -33,7 +33,69 @@
       "constraints": [
         "不要把质量属性当作无边界承诺"
       ],
-      "aliases": []
+      "aliases": [],
+      "retrieval": {
+        "rules": [
+          {
+            "id": "simultaneous-load",
+            "all": [
+              [
+                "人",
+                "用户",
+                "访问",
+                "请求"
+              ],
+              [
+                "同时",
+                "一起",
+                "涌",
+                "并发",
+                "同一时间"
+              ]
+            ],
+            "role": "explicit"
+          },
+          {
+            "id": "large-audience",
+            "all": [
+              [
+                "很多人",
+                "大量用户"
+              ],
+              [
+                "用",
+                "访问"
+              ]
+            ],
+            "role": "suggestion"
+          },
+          {
+            "id": "load-response",
+            "all": [
+              [
+                "响应",
+                "速度"
+              ],
+              [
+                "同时",
+                "涌",
+                "一起"
+              ]
+            ],
+            "role": "explicit"
+          }
+        ],
+        "questions": [
+          {
+            "id": "peak_load",
+            "question": "预计同时在线或峰值请求规模是多少？若只有用户总数，先区分总量与并发。"
+          },
+          {
+            "id": "response_target",
+            "question": "哪些操作不能变慢，期望的响应时间是多少？"
+          }
+        ]
+      }
     }
   ]
 }

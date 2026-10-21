@@ -29,7 +29,76 @@
       "constraints": [
         "不要让过期后仍看起来可点击"
       ],
-      "aliases": []
+      "aliases": [],
+      "retrieval": {
+        "rules": [
+          {
+            "id": "recover-deletion",
+            "all": [
+              [
+                "删除",
+                "误删",
+                "删掉",
+                "移除"
+              ],
+              [
+                "反悔",
+                "恢复",
+                "找回",
+                "撤销",
+                "后悔"
+              ]
+            ],
+            "role": "explicit"
+          }
+        ],
+        "questions": [
+          {
+            "id": "undo_window",
+            "question": "允许反悔多久？以本次业务风险确定，不自动采用示例秒数。"
+          }
+        ],
+        "inputs": [
+          {
+            "id": "undo_window",
+            "pattern": "(?P<value>\\d+(?:\\.\\d+)?\\s*(?:秒|s|分钟))\\s*内[^，。；\\n]{0,6}(?:撤销|反悔|恢复)"
+          },
+          {
+            "id": "undo_window",
+            "pattern": "(?:撤销窗口|反悔时间|恢复窗口)(?:为|是|允许|设为|\\s)*(?P<value>\\d+(?:\\.\\d+)?\\s*(?:秒|s|分钟))"
+          }
+        ]
+      },
+      "composition": {
+        "required": [
+          {
+            "leaf_id": "motion-accessibility",
+            "entry_ids": [
+              "undo-aria",
+              "undo-live"
+            ]
+          },
+          {
+            "leaf_id": "reverse-animation",
+            "entry_ids": [
+              "reverse-path",
+              "reduced-motion"
+            ]
+          }
+        ],
+        "conditional": [
+          {
+            "when_any": [
+              "原索引",
+              "插回",
+              "真实节点"
+            ],
+            "ref": {
+              "leaf_id": "flip-reentry"
+            }
+          }
+        ]
+      }
     },
     {
       "id": "progress-feedback",

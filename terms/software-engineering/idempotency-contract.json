@@ -34,7 +34,42 @@
       "constraints": [
         "不要把质量属性当作无边界承诺"
       ],
-      "aliases": []
+      "aliases": [
+        "同一操作只处理一次"
+      ],
+      "retrieval": {
+        "rules": [
+          {
+            "id": "repeat-operation",
+            "all": [
+              [
+                "重复",
+                "连按",
+                "连点",
+                "多点",
+                "点了两次"
+              ],
+              [
+                "提交",
+                "确认",
+                "下单",
+                "付款",
+                "保存"
+              ]
+            ],
+            "role": "explicit",
+            "also_explain": [
+              "一次"
+            ]
+          }
+        ],
+        "questions": [
+          {
+            "id": "operation_identity",
+            "question": "重复的是哪种操作，怎样认定两次请求属于同一次业务操作？"
+          }
+        ]
+      }
     }
   ]
 }

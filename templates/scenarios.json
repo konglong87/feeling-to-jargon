@@ -1,0 +1,144 @@
+{
+  "schema_version": "1.0.0",
+  "scenarios": [
+    {
+      "id": "backend-quality",
+      "name": "后端质量目标澄清",
+      "primary_leaves": [
+        "availability-patterns",
+        "capacity-model",
+        "scaling-strategies",
+        "idempotency-contract",
+        "observability-contract"
+      ],
+      "not_applicable": [
+        "没有软件/服务语境的稳定感受",
+        "只有总用户数时不得认定峰值并发"
+      ],
+      "output_fields": [
+        "用户原话与证据",
+        "候选质量属性",
+        "已确认目标与建议",
+        "待确定的业务与量化边界",
+        "约束与验证方法"
+      ],
+      "acceptance": [
+        "只讨论有证据的质量属性",
+        "稳定不得自动带入幂等、并发与扩展",
+        "不得自动选技术栈或填写容量指标"
+      ],
+      "trigger": "至少一个 primary_leaves 条目有有效证据；只有建议或缺少必要信息时为 partial",
+      "required_information": "从命中条目的 retrieval.questions 读取；已有 context.answers 不重复询问",
+      "knowledge": "只使用命中条目及其 composition / contract_ref，不加载整个场景的所有叶子",
+      "flow": [
+        "保留用户证据",
+        "只澄清改变方案的信息",
+        "按依赖组合知识",
+        "输出有边界的增强方案",
+        "用原文约束与场景验收检查交付"
+      ]
+    },
+    {
+      "id": "visual-brief",
+      "name": "视觉感觉转设计方向",
+      "primary_leaves": [
+        "token-system",
+        "composition-patterns"
+      ],
+      "not_applicable": [
+        "非界面视觉的乱或舒服",
+        "未确认时不得默认暗色、玻璃、渐变"
+      ],
+      "output_fields": [
+        "原始感觉",
+        "结构与设计令牌候选",
+        "不超过必要数量的澄清",
+        "用户确认后的增强提示词",
+        "截图与任务可读性验收"
+      ],
+      "acceptance": [
+        "候选是方向而非已选美术方案",
+        "未指定的色值、栅格与风格不得作为事实",
+        "用前后截图核对视觉层级与主任务"
+      ],
+      "trigger": "至少一个 primary_leaves 条目有有效证据；只有建议或缺少必要信息时为 partial",
+      "required_information": "从命中条目的 retrieval.questions 读取；已有 context.answers 不重复询问",
+      "knowledge": "只使用命中条目及其 composition / contract_ref，不加载整个场景的所有叶子",
+      "flow": [
+        "保留用户证据",
+        "只澄清改变方案的信息",
+        "按依赖组合知识",
+        "输出有边界的增强方案",
+        "用原文约束与场景验收检查交付"
+      ]
+    },
+    {
+      "id": "reversible-delete",
+      "name": "可撤销删除与可访问性",
+      "primary_leaves": [
+        "undo-window"
+      ],
+      "not_applicable": [
+        "不可逆且没有恢复语义的删除",
+        "只讨论键盘而没有可撤销操作"
+      ],
+      "output_fields": [
+        "删除与恢复时序",
+        "确认后的时间边界",
+        "键盘和读屏行为",
+        "必要依赖与状态约束",
+        "到期、恢复和焦点验收"
+      ],
+      "acceptance": [
+        "按主条目的 composition 完成依赖闭包",
+        "时间值来自本次业务而非示例默认",
+        "测试撤销、到期、键盘与不重复播报"
+      ],
+      "trigger": "至少一个 primary_leaves 条目有有效证据；只有建议或缺少必要信息时为 partial",
+      "required_information": "从命中条目的 retrieval.questions 读取；已有 context.answers 不重复询问",
+      "knowledge": "只使用命中条目及其 composition / contract_ref，不加载整个场景的所有叶子",
+      "flow": [
+        "保留用户证据",
+        "只澄清改变方案的信息",
+        "按依赖组合知识",
+        "输出有边界的增强方案",
+        "用原文约束与场景验收检查交付"
+      ]
+    },
+    {
+      "id": "dashboard-linked-state",
+      "name": "Dashboard 联动布局",
+      "primary_leaves": [
+        "layout-patterns"
+      ],
+      "not_applicable": [
+        "只有颜色或普通轮播需求",
+        "不同主布局不能未经确认合成同一页面"
+      ],
+      "output_fields": [
+        "layout",
+        "termSkill",
+        "uiSkill",
+        "agentExec",
+        "state",
+        "tokens"
+      ],
+      "acceptance": [
+        "读取选中条目的 contract_ref 共享协议",
+        "共享状态与独立控件不得误联动",
+        "变体并列展示为选项，不直接叠加成主布局",
+        "仅按已有五种素材组织，不追要额外案例"
+      ],
+      "trigger": "至少一个 primary_leaves 条目有有效证据；只有建议或缺少必要信息时为 partial",
+      "required_information": "从命中条目的 retrieval.questions 读取；已有 context.answers 不重复询问",
+      "knowledge": "只使用命中条目及其 composition / contract_ref，不加载整个场景的所有叶子",
+      "flow": [
+        "保留用户证据",
+        "只澄清改变方案的信息",
+        "按依赖组合知识",
+        "输出有边界的增强方案",
+        "用原文约束与场景验收检查交付"
+      ]
+    }
+  ]
+}

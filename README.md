@@ -66,57 +66,51 @@ npx skills add https://github.com/konglong87/feeling-to-jargon -g
 
 ## 渐进式索引
 
-> **索引越来越细，加载越来越少，术语越来越专，LLM 才能真正做到按需增强，而不是把整个知识库塞进上下文。**
+**知识组织、检索路由与知识组合分别负责“存在哪里”“找到什么”“怎样一起完成任务”。不以分类更细或命中更多叶子作为目标。**
 
-Feeling to Jargon 的运行路径固定为：
-
-```text
-根领域 → 专业子域 → 用户意图 → 叶子包 → 单条术语/技巧/模板
-```
+五级结构继续负责归属和引用：`根领域 → 子域 → 意图 → 叶子 → 条目`。CLI 并不是依次遍历这棵树；它的实际顺序是：
 
 ```mermaid
 flowchart LR
-    A[用户模糊需求] --> B[index/root.json]
-    B --> C[index/domains/domain.json]
-    C --> D[index/intents/domain/subdomain.json]
-    D --> E[index/runtime.json]
-    E --> F[最小叶子包]
-    F --> G[匹配的单条术语/模板]
-    G --> H[增强提示词]
+    A[原始白话] --> B[生成的检索投影与路由元数据]
+    B --> C{命中已有场景?}
+    C -->|明确或部分命中| D[复用场景流程]
+    C -->|没有场景| E[通用词法检索]
+    D --> F[按来源组合条目与必需协议]
+    E --> F
+    F --> G[预算与归属校验]
+    G --> H[候选术语 / 必要问题 / 交付验收结构]
 ```
 
-根索引会声明加载上限：
+`aliases / plain_language / when_to_use` 及条目内少量 `retrieval` 规则是生成检索投影的来源。正文保留在叶子文件；多个入口引用稳定 ID，不手工复制正文。`related` 是松散相关信息，不是必须全部加载的依赖。
 
-```json
-{
-  "max_subdomains": 3,
-  "max_intents": 3,
-  "max_intents_scope": "per_subdomain",
-  "max_leaf_packages": 8,
-  "max_entries_per_leaf": 30,
-  "route_score_margin": 2,
-  "high_confidence_score": 6,
-  "high_confidence_margin": 1,
-  "min_route_score": 2
-}
-```
+CLI 使用有限词法与组合证据，不是向量或 LLM 语义检索。分数仅供排序，历史 `high_confidence_*` 配置名不表示经过校准的置信概率。索引读取发生在程序内部，**不把完整索引放进 LLM 上下文**；快路径仍会检查生成的条目投影，而非零检索。
 
-因此，一个“撤销条 + 键盘可用”的请求只会加载交互动效和可访问性相关叶子包，不会加载所有 UI、AIGC 或后端知识。
+默认最多 3 个子域、每子域 3 个意图、8 个叶子、每叶子 30 条，另有 **24,000 字符的知识正文预算**。该预算按 `matches + dependencies` 的紧凑 JSON 计数，不是 token 或整个响应上限。解释、交付和 trace 是额外开销，评测同时统计完整输出字符数。必需组合放不下时返回 `needs_staging`，不截掉性能、降级或减少动态约束。CLI 数量/字符选项只能收紧默认预算。
 
-当前已建立：
+规模保持 **19 个领域、105 个叶子**，新增的是生成的条目检索投影和 **4 个场景流程**，不是更多分类。
 
-- 19 个根领域入口
-- 105 个可独立加载的叶子包
-- 5 级加载协议
-- 7 种知识类型：术语、模式、技巧、规范、参数、模板、平台研究
-- 非空运行时索引和本地查询器
+## 场景快路径与交付
+
+| 场景 | 固定流程与边界 | 不替用户决定 |
+| --- | --- | --- |
+| 后端质量目标 | 有证据的质量属性 → 必要指标澄清 → 约束与验证 | 稳定不自动等于并发、扩展或幂等；总用户数不等于峰值并发 |
+| 视觉感觉 | 感觉 → 结构/设计令牌候选 → 确认方向 → 截图与可读性验收 | 不默认暗色、玻璃、渐变、栅格或色值 |
+| 可撤销删除 | 时序/窗口 → 可访问性和反向恢复依赖 → 到期/焦点验收 | 不把原知识中的示例时间直接当本次答案 |
+| Dashboard 联动 | 已有变体 → 共享协议 → 状态与 token → 联动验收 | 不叠加互斥主布局，不复制整套风格库 |
+
+配方只引用已有条目、`contract_ref` 与 `composition`。部分命中保留已确定内容，只询问改变方案的信息；无场景时回退到通用检索，无知识时明确覆盖不足。候选输出区分 `explicit` 与 `suggestion`，没有参数依据时不替用户填数值。
+
+[架构与验收方案](docs/evaluation/architecture.md) · [CLI/宿主调用契约](docs/routing-contract.md) · [真实输入评测](docs/evaluation/report.md)
 
 ## 按需查询
 
 在仓库根目录运行：
 
 ```bash
-python3 scripts/query-index.py "删除列表项，5 秒内撤销并支持键盘"
+python3 scripts/query-index.py "我想做一个大型的后端，给很多人用，要稳定"
+python3 scripts/query-index.py "我想做一个有质感的网站"
+python3 scripts/query-index.py "删除后可以反悔，而且键盘也能操作"
 python3 scripts/query-index.py "设计一个不模板化的 AI 数据后台"
 python3 scripts/query-index.py "把这个角色做成毛绒玩偶和周边"
 python3 scripts/query-index.py "GPUIX 能不能跑移动端？"
@@ -129,6 +123,12 @@ python3 scripts/query-index.py "GPUIX 能不能跑移动端？"
 - 匹配的术语/技巧/模板条目
 - `provider-specific` 和 `do_not_generalize` 等边界标记
 - 本次是否触发网络搜索（默认不搜索）
+- 命中表达、来源与明确需求/建议方向：`explanations`
+- 共享协议、必需依赖、互斥与分阶段计划：`dependencies / composition`
+- 必要问题、覆盖不足和场景交付结构：`clarifications / coverage / delivery`
+- 内部读取、输出正文量、路由评分次数与耗时：`trace`
+
+`ready` 仅代表本次知识组合和所需信息已就绪，不代表产品已经实现或通过验收。供应商事实未经核验时返回 `needs_verification`。原始 CLI、宿主 LLM 理解、实际产品验收是三个不同边界。
 
 ## 内容分层
 
@@ -221,7 +221,8 @@ python3 scripts/query-index.py "玻璃点阵月份指标联动"
 
 ```bash
 python3 scripts/validate-index.py
-python3 scripts/test-progressive-index.py # 包含 Dashboard 合并分类、限载和幂等回归
+python3 scripts/test-progressive-index.py # 包含 Dashboard 与真实白话/组合回归
+python3 scripts/evaluate-user-outcomes.py # 重新测量；不覆盖修改前基线
 python3 scripts/query-index.py "一个真实用户请求"
 ```
 

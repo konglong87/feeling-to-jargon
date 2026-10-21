@@ -34,7 +34,36 @@
       "constraints": [
         "不要把质量属性当作无边界承诺"
       ],
-      "aliases": []
+      "aliases": [],
+      "retrieval": {
+        "rules": [
+          {
+            "id": "service-reliability",
+            "all": [
+              [
+                "后端",
+                "服务",
+                "系统",
+                "平台"
+              ],
+              [
+                "稳定",
+                "宕机",
+                "故障",
+                "不中断",
+                "可用"
+              ]
+            ],
+            "role": "suggestion"
+          }
+        ],
+        "questions": [
+          {
+            "id": "failure_tolerance",
+            "question": "关键服务允许中断多久、最多能丢失多少数据？"
+          }
+        ]
+      }
     }
   ]
 }

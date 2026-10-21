@@ -1,0 +1,1235 @@
+{
+  "revision": "4b18825cda9d37a8a033cb48cc5191f90371a41f",
+  "method": "One fresh CLI process per input; wall time includes interpreter startup; no calibrated confidence or host LLM tested.",
+  "results": [
+    {
+      "case_id": "backend-technical",
+      "query": "后端需要高可用、高并发、高扩展",
+      "leaf_ids": [
+        "availability-patterns",
+        "capacity-model",
+        "scaling-strategies"
+      ],
+      "entry_ids": [
+        "availability-patterns",
+        "capacity-model",
+        "scaling-strategies"
+      ],
+      "loaded_leaves": 3,
+      "loaded_entries": 3,
+      "output_chars": 5084,
+      "cli_elapsed_ms": 40.161,
+      "status": null,
+      "missing_required": [],
+      "forbidden_loaded": [],
+      "output": {
+        "query": "后端需要高可用、高并发、高扩展",
+        "strategy": "progressive",
+        "trace": {
+          "levels": [
+            "root",
+            "subdomain",
+            "intent",
+            "leaf",
+            "entry"
+          ],
+          "root_loaded": "index/root.json",
+          "runtime_router_loaded": "index/runtime.json",
+          "domain_index_paths": [
+            "index/domains/software-engineering-architecture.json",
+            "index/domains/software-engineering-architecture.json",
+            "index/domains/software-engineering-architecture.json"
+          ],
+          "intent_index_paths": [
+            "index/intents/software-engineering-architecture/high-availability.json",
+            "index/intents/software-engineering-architecture/high-concurrency.json",
+            "index/intents/software-engineering-architecture/scalability.json"
+          ],
+          "selected_intents": [
+            {
+              "domain_id": "software-engineering-architecture",
+              "subdomain_id": "high-availability",
+              "intent_id": "audit-ha"
+            },
+            {
+              "domain_id": "software-engineering-architecture",
+              "subdomain_id": "high-availability",
+              "intent_id": "design-ha"
+            },
+            {
+              "domain_id": "software-engineering-architecture",
+              "subdomain_id": "high-concurrency",
+              "intent_id": "model-capacity"
+            },
+            {
+              "domain_id": "software-engineering-architecture",
+              "subdomain_id": "high-concurrency",
+              "intent_id": "tune-performance"
+            },
+            {
+              "domain_id": "software-engineering-architecture",
+              "subdomain_id": "scalability",
+              "intent_id": "design-scale"
+            },
+            {
+              "domain_id": "software-engineering-architecture",
+              "subdomain_id": "scalability",
+              "intent_id": "plan-migration"
+            }
+          ],
+          "selected_subdomains": [
+            {
+              "domain_id": "software-engineering-architecture",
+              "subdomain_id": "high-availability"
+            },
+            {
+              "domain_id": "software-engineering-architecture",
+              "subdomain_id": "high-concurrency"
+            },
+            {
+              "domain_id": "software-engineering-architecture",
+              "subdomain_id": "scalability"
+            }
+          ],
+          "loaded_leaf_paths": [
+            "terms/software-engineering/availability-patterns.json",
+            "terms/software-engineering/capacity-model.json",
+            "terms/software-engineering/scaling-strategies.json"
+          ],
+          "loaded_leaf_count": 3,
+          "entry_limit": 30
+        },
+        "matches": [
+          {
+            "leaf_id": "availability-patterns",
+            "score": 5,
+            "knowledge_type": "term",
+            "scope": "general",
+            "do_not_generalize": false,
+            "path": "terms/software-engineering/availability-patterns.json",
+            "entries": [
+              {
+                "id": "availability-patterns",
+                "name": "高可用模式",
+                "plain_language": "跨实例、节点或可用区部署关键组件，并定义 RTO/RPO 和故障转移。",
+                "when_to_use": "后端或平台方案需要拆解质量属性时",
+                "parameters": [
+                  "failure domain",
+                  "redundancy",
+                  "RTO",
+                  "RPO",
+                  "failover"
+                ],
+                "related": [
+                  "high-availability",
+                  "capacity-model",
+                  "scaling-strategies",
+                  "observability-contract",
+                  "idempotency-contract"
+                ],
+                "constraints": [
+                  "不要把质量属性当作无边界承诺"
+                ],
+                "aliases": []
+              }
+            ]
+          },
+          {
+            "leaf_id": "capacity-model",
+            "score": 3,
+            "knowledge_type": "term",
+            "scope": "general",
+            "do_not_generalize": false,
+            "path": "terms/software-engineering/capacity-model.json",
+            "entries": [
+              {
+                "id": "capacity-model",
+                "name": "并发容量模型",
+                "plain_language": "用平均值、峰值、突发、P95/P99 和增长率描述高并发，而不是只说高并发。",
+                "when_to_use": "后端或平台方案需要拆解质量属性时",
+                "parameters": [
+                  "RPS",
+                  "burst",
+                  "P95/P99",
+                  "growth rate"
+                ],
+                "related": [
+                  "high-availability",
+                  "capacity-model",
+                  "scaling-strategies",
+                  "observability-contract",
+                  "idempotency-contract"
+                ],
+                "constraints": [
+                  "不要把质量属性当作无边界承诺"
+                ],
+                "aliases": []
+              }
+            ]
+          },
+          {
+            "leaf_id": "scaling-strategies",
+            "score": 3,
+            "knowledge_type": "term",
+            "scope": "general",
+            "do_not_generalize": false,
+            "path": "terms/software-engineering/scaling-strategies.json",
+            "entries": [
+              {
+                "id": "scaling-strategies",
+                "name": "扩展策略",
+                "plain_language": "按无状态实例、缓存、分片和异步队列拆解增长路径。",
+                "when_to_use": "后端或平台方案需要拆解质量属性时",
+                "parameters": [
+                  "horizontal scaling",
+                  "sharding",
+                  "cache",
+                  "async"
+                ],
+                "related": [
+                  "high-availability",
+                  "capacity-model",
+                  "scaling-strategies",
+                  "observability-contract",
+                  "idempotency-contract"
+                ],
+                "constraints": [
+                  "不要把质量属性当作无边界承诺"
+                ],
+                "aliases": []
+              }
+            ]
+          }
+        ],
+        "network_search": "not_requested"
+      }
+    },
+    {
+      "case_id": "backend-vague",
+      "query": "我想做一个大型的后端，给很多人用，要稳定。",
+      "leaf_ids": [],
+      "entry_ids": [],
+      "loaded_leaves": 0,
+      "loaded_entries": 0,
+      "output_chars": 527,
+      "cli_elapsed_ms": 32.156,
+      "status": null,
+      "missing_required": [
+        "availability-patterns"
+      ],
+      "forbidden_loaded": [],
+      "output": {
+        "query": "我想做一个大型的后端，给很多人用，要稳定。",
+        "strategy": "progressive",
+        "trace": {
+          "levels": [
+            "root",
+            "subdomain",
+            "intent",
+            "leaf",
+            "entry"
+          ],
+          "root_loaded": "index/root.json",
+          "runtime_router_loaded": "index/runtime.json",
+          "domain_index_paths": [],
+          "intent_index_paths": [],
+          "selected_intents": [],
+          "selected_subdomains": [],
+          "loaded_leaf_paths": [],
+          "loaded_leaf_count": 0,
+          "entry_limit": 30
+        },
+        "matches": [],
+        "network_search": "not_requested"
+      }
+    },
+    {
+      "case_id": "backend-availability",
+      "query": "后端要稳定，别老是宕机。",
+      "leaf_ids": [],
+      "entry_ids": [],
+      "loaded_leaves": 0,
+      "loaded_entries": 0,
+      "output_chars": 518,
+      "cli_elapsed_ms": 34.489,
+      "status": null,
+      "missing_required": [
+        "availability-patterns"
+      ],
+      "forbidden_loaded": []
+    },
+    {
+      "case_id": "capacity",
+      "query": "很多人同时用也别卡。",
+      "leaf_ids": [],
+      "entry_ids": [],
+      "loaded_leaves": 0,
+      "loaded_entries": 0,
+      "output_chars": 516,
+      "cli_elapsed_ms": 33.072,
+      "status": null,
+      "missing_required": [
+        "capacity-model"
+      ],
+      "forbidden_loaded": [],
+      "output": {
+        "query": "很多人同时用也别卡。",
+        "strategy": "progressive",
+        "trace": {
+          "levels": [
+            "root",
+            "subdomain",
+            "intent",
+            "leaf",
+            "entry"
+          ],
+          "root_loaded": "index/root.json",
+          "runtime_router_loaded": "index/runtime.json",
+          "domain_index_paths": [],
+          "intent_index_paths": [],
+          "selected_intents": [],
+          "selected_subdomains": [],
+          "loaded_leaf_paths": [],
+          "loaded_leaf_count": 0,
+          "entry_limit": 30
+        },
+        "matches": [],
+        "network_search": "not_requested"
+      }
+    },
+    {
+      "case_id": "idempotency",
+      "query": "重复点提交别出错。",
+      "leaf_ids": [],
+      "entry_ids": [],
+      "loaded_leaves": 0,
+      "loaded_entries": 0,
+      "output_chars": 515,
+      "cli_elapsed_ms": 58.329,
+      "status": null,
+      "missing_required": [
+        "idempotency-contract"
+      ],
+      "forbidden_loaded": [],
+      "output": {
+        "query": "重复点提交别出错。",
+        "strategy": "progressive",
+        "trace": {
+          "levels": [
+            "root",
+            "subdomain",
+            "intent",
+            "leaf",
+            "entry"
+          ],
+          "root_loaded": "index/root.json",
+          "runtime_router_loaded": "index/runtime.json",
+          "domain_index_paths": [],
+          "intent_index_paths": [],
+          "selected_intents": [],
+          "selected_subdomains": [],
+          "loaded_leaf_paths": [],
+          "loaded_leaf_count": 0,
+          "entry_limit": 30
+        },
+        "matches": [],
+        "network_search": "not_requested"
+      }
+    },
+    {
+      "case_id": "quality",
+      "query": "我想做一个有质感的网站。",
+      "leaf_ids": [],
+      "entry_ids": [],
+      "loaded_leaves": 0,
+      "loaded_entries": 0,
+      "output_chars": 518,
+      "cli_elapsed_ms": 57.103,
+      "status": null,
+      "missing_required": [
+        "token-system"
+      ],
+      "forbidden_loaded": [],
+      "output": {
+        "query": "我想做一个有质感的网站。",
+        "strategy": "progressive",
+        "trace": {
+          "levels": [
+            "root",
+            "subdomain",
+            "intent",
+            "leaf",
+            "entry"
+          ],
+          "root_loaded": "index/root.json",
+          "runtime_router_loaded": "index/runtime.json",
+          "domain_index_paths": [],
+          "intent_index_paths": [],
+          "selected_intents": [],
+          "selected_subdomains": [],
+          "loaded_leaf_paths": [],
+          "loaded_leaf_count": 0,
+          "entry_limit": 30
+        },
+        "matches": [],
+        "network_search": "not_requested"
+      }
+    },
+    {
+      "case_id": "clutter",
+      "query": "页面看着太乱了，希望舒服一点。",
+      "leaf_ids": [],
+      "entry_ids": [],
+      "loaded_leaves": 0,
+      "loaded_entries": 0,
+      "output_chars": 521,
+      "cli_elapsed_ms": 33.589,
+      "status": null,
+      "missing_required": [
+        "composition-patterns"
+      ],
+      "forbidden_loaded": []
+    },
+    {
+      "case_id": "undo",
+      "query": "删除后可以反悔，而且键盘也能操作。",
+      "leaf_ids": [
+        "motion-accessibility",
+        "undo-window"
+      ],
+      "entry_ids": [
+        "undo-aria",
+        "undo-live",
+        "undo-window"
+      ],
+      "loaded_leaves": 2,
+      "loaded_entries": 3,
+      "output_chars": 3482,
+      "cli_elapsed_ms": 36.437,
+      "status": null,
+      "missing_required": [],
+      "forbidden_loaded": [],
+      "output": {
+        "query": "删除后可以反悔，而且键盘也能操作。",
+        "strategy": "progressive",
+        "trace": {
+          "levels": [
+            "root",
+            "subdomain",
+            "intent",
+            "leaf",
+            "entry"
+          ],
+          "root_loaded": "index/root.json",
+          "runtime_router_loaded": "index/runtime.json",
+          "domain_index_paths": [
+            "index/domains/digital-product-uiux.json",
+            "index/domains/digital-product-uiux.json"
+          ],
+          "intent_index_paths": [
+            "index/intents/digital-product-uiux/accessibility.json",
+            "index/intents/digital-product-uiux/interaction-motion.json"
+          ],
+          "selected_intents": [
+            {
+              "domain_id": "digital-product-uiux",
+              "subdomain_id": "accessibility",
+              "intent_id": "audit-accessibility"
+            },
+            {
+              "domain_id": "digital-product-uiux",
+              "subdomain_id": "accessibility",
+              "intent_id": "implement-accessibility"
+            },
+            {
+              "domain_id": "digital-product-uiux",
+              "subdomain_id": "interaction-motion",
+              "intent_id": "audit-motion"
+            },
+            {
+              "domain_id": "digital-product-uiux",
+              "subdomain_id": "interaction-motion",
+              "intent_id": "design-interaction"
+            }
+          ],
+          "selected_subdomains": [
+            {
+              "domain_id": "digital-product-uiux",
+              "subdomain_id": "accessibility"
+            },
+            {
+              "domain_id": "digital-product-uiux",
+              "subdomain_id": "interaction-motion"
+            }
+          ],
+          "loaded_leaf_paths": [
+            "terms/interaction/accessibility.json",
+            "terms/interaction/undo-window.json"
+          ],
+          "loaded_leaf_count": 2,
+          "entry_limit": 30
+        },
+        "matches": [
+          {
+            "leaf_id": "motion-accessibility",
+            "score": 3,
+            "knowledge_type": "guideline",
+            "scope": "general",
+            "do_not_generalize": false,
+            "path": "terms/interaction/accessibility.json",
+            "entries": [
+              {
+                "id": "undo-aria",
+                "name": "撤销按钮可读标签",
+                "plain_language": "按钮要读出操作和剩余时间，例如撤销删除，剩余 5 秒。",
+                "when_to_use": "撤销条、倒计时按钮",
+                "parameters": [
+                  "aria-label 动态更新",
+                  "键盘可聚焦和触发"
+                ],
+                "related": [
+                  "undo-window"
+                ],
+                "constraints": [
+                  "不要每秒通过 aria-live 播报倒计时"
+                ],
+                "aliases": []
+              },
+              {
+                "id": "undo-live",
+                "name": "轻量状态播报",
+                "plain_language": "用 aria-live=polite 提示已删除、可撤销等关键状态。",
+                "when_to_use": "操作结果需要被读屏用户感知",
+                "parameters": [
+                  "只播报状态变化",
+                  "焦点不被撤销条抢走"
+                ],
+                "related": [
+                  "undo-aria"
+                ],
+                "constraints": [
+                  "不重复播报相同状态"
+                ],
+                "aliases": []
+              }
+            ]
+          },
+          {
+            "leaf_id": "undo-window",
+            "score": 2,
+            "knowledge_type": "technique",
+            "scope": "general",
+            "do_not_generalize": false,
+            "path": "terms/interaction/undo-window.json",
+            "entries": [
+              {
+                "id": "undo-window",
+                "name": "可逆操作时间窗口",
+                "plain_language": "删除后保留一段明确的可撤销时间，让用户有机会反悔。",
+                "when_to_use": "删除、归档、批量移除等可逆操作",
+                "parameters": [
+                  "窗口默认 5s；高风险操作 8–10s",
+                  "过期后按钮禁用并完成最终删除"
+                ],
+                "related": [
+                  "progress-feedback",
+                  "reverse-animation"
+                ],
+                "constraints": [
+                  "不要让过期后仍看起来可点击"
+                ],
+                "aliases": []
+              }
+            ]
+          }
+        ],
+        "network_search": "not_requested"
+      }
+    },
+    {
+      "case_id": "industrial",
+      "query": "做工业分区布局，选中物料后联动补货卡。",
+      "leaf_ids": [
+        "layout-patterns"
+      ],
+      "entry_ids": [
+        "industrial-zones-dashboard"
+      ],
+      "loaded_leaves": 1,
+      "loaded_entries": 1,
+      "output_chars": 4733,
+      "cli_elapsed_ms": 33.773,
+      "status": null,
+      "missing_required": [],
+      "forbidden_loaded": []
+    },
+    {
+      "case_id": "industrial-title",
+      "query": "我要一个工业分区布局的 Dashboard",
+      "leaf_ids": [
+        "layout-patterns"
+      ],
+      "entry_ids": [
+        "industrial-zones-dashboard"
+      ],
+      "loaded_leaves": 1,
+      "loaded_entries": 1,
+      "output_chars": 4735,
+      "cli_elapsed_ms": 34.634,
+      "status": null,
+      "missing_required": [],
+      "forbidden_loaded": [],
+      "output": {
+        "query": "我要一个工业分区布局的 Dashboard",
+        "strategy": "progressive",
+        "trace": {
+          "levels": [
+            "root",
+            "subdomain",
+            "intent",
+            "leaf",
+            "entry"
+          ],
+          "root_loaded": "index/root.json",
+          "runtime_router_loaded": "index/runtime.json",
+          "domain_index_paths": [
+            "index/domains/digital-product-uiux.json"
+          ],
+          "intent_index_paths": [
+            "index/intents/digital-product-uiux/dashboard-design.json"
+          ],
+          "selected_intents": [
+            {
+              "domain_id": "digital-product-uiux",
+              "subdomain_id": "dashboard-design",
+              "intent_id": "audit-dashboard"
+            },
+            {
+              "domain_id": "digital-product-uiux",
+              "subdomain_id": "dashboard-design",
+              "intent_id": "design-dashboard"
+            }
+          ],
+          "selected_subdomains": [
+            {
+              "domain_id": "digital-product-uiux",
+              "subdomain_id": "dashboard-design"
+            }
+          ],
+          "loaded_leaf_paths": [
+            "terms/dashboard/layout-patterns.json"
+          ],
+          "loaded_leaf_count": 1,
+          "entry_limit": 30
+        },
+        "matches": [
+          {
+            "leaf_id": "layout-patterns",
+            "score": 10,
+            "knowledge_type": "pattern",
+            "scope": "general",
+            "do_not_generalize": false,
+            "path": "terms/dashboard/layout-patterns.json",
+            "entries": [
+              {
+                "id": "industrial-zones-dashboard",
+                "name": "工业分区布局",
+                "plain_language": "右侧固定操作区；左侧状态筛选；玻璃表格；选中态联动",
+                "when_to_use": "需要工业分区布局的信息结构、视觉参数与交互联动规范时",
+                "parameters": [
+                  "accent_hex",
+                  "secondary_accent_hex",
+                  "grid_ratio",
+                  "first_row_px",
+                  "row_height_px"
+                ],
+                "related": [
+                  "grid-glass-dashboard"
+                ],
+                "constraints": [
+                  "布局、视觉和执行状态分层；具体参数只属于本例，不作为同类页面默认值"
+                ],
+                "aliases": [
+                  "工业分区",
+                  "玻璃表格",
+                  "低库存筛选",
+                  "选中物料联动补货卡"
+                ],
+                "contract_ref": "templates/dashboard/dashboard-style-system.json",
+                "layout": "工业分区布局",
+                "termSkill": [
+                  "右侧固定操作区",
+                  "左侧状态筛选",
+                  "玻璃表格",
+                  "选中态联动"
+                ],
+                "uiSkill": {
+                  "background": "雾灰",
+                  "material": "玻璃表格",
+                  "layout": "左侧筛选 / 中部表格 / 右侧固定操作区"
+                },
+                "agentExec": [
+                  {
+                    "event": "filter_low_stock",
+                    "writes": [
+                      "stockFilter"
+                    ],
+                    "sets": {
+                      "stockFilter": 2
+                    },
+                    "updates": [
+                      "visibleRows"
+                    ],
+                    "preserves": [
+                      "replenishmentCount"
+                    ]
+                  },
+                  {
+                    "event": "select_item",
+                    "example": "选中 Prime 85mm",
+                    "writes": [
+                      "selectedItemId"
+                    ],
+                    "updates": [
+                      "replenishmentCard"
+                    ],
+                    "preserves": [
+                      "replenishmentCount"
+                    ]
+                  },
+                  {
+                    "event": "add_to_replenishment",
+                    "writes": [
+                      "replenishmentItems"
+                    ],
+                    "updates": [
+                      "replenishmentCount"
+                    ],
+                    "example_transition": {
+                      "before": 7,
+                      "after": 8
+                    },
+                    "guard": "成功加入一个新项目才增加；重复、失败与空选择不得重复计数"
+                  }
+                ],
+                "state": {
+                  "model_status": "proposed_implementation",
+                  "source": {
+                    "stockFilter": "st 筛选码；低库存 st=2",
+                    "selectedItemId": "稳定物料 ID，不用行号",
+                    "replenishmentItems": "待补货集合"
+                  },
+                  "derived": {
+                    "visibleRows": "items filtered by stockFilter",
+                    "replenishmentCard": "items[selectedItemId]",
+                    "replenishmentCount": "count(replenishmentItems)"
+                  },
+                  "invariants": [
+                    "筛选不应伪装成新增补货",
+                    "选中物料与补货卡一致",
+                    "7→8 是示例断言，不是写死计数；重复加入策略需确认"
+                  ]
+                },
+                "tokens": {
+                  "scope": "provided_example",
+                  "values": {
+                    "accent_hex": "#F3EB30",
+                    "secondary_accent_hex": "#FB9350",
+                    "grid_ratio": [
+                      1.02,
+                      1,
+                      0.72
+                    ],
+                    "first_row_px": 196,
+                    "row_height_px": 60
+                  }
+                },
+                "evidence": {
+                  "status": "provided",
+                  "source": "user_dashboard_brief",
+                  "state_model": "实现建议，不宣称为原始产品已有逻辑"
+                }
+              }
+            ]
+          }
+        ],
+        "network_search": "not_requested"
+      }
+    },
+    {
+      "case_id": "uncovered",
+      "query": "请推导黎曼猜想的完整证明。",
+      "leaf_ids": [],
+      "entry_ids": [],
+      "loaded_leaves": 0,
+      "loaded_entries": 0,
+      "output_chars": 519,
+      "cli_elapsed_ms": 32.178,
+      "status": null,
+      "missing_required": [],
+      "forbidden_loaded": []
+    },
+    {
+      "case_id": "noise",
+      "query": "hello world",
+      "leaf_ids": [],
+      "entry_ids": [],
+      "loaded_leaves": 0,
+      "loaded_entries": 0,
+      "output_chars": 517,
+      "cli_elapsed_ms": 33.434,
+      "status": null,
+      "missing_required": [],
+      "forbidden_loaded": []
+    },
+    {
+      "case_id": "ambiguous",
+      "query": "要稳定一点。",
+      "leaf_ids": [],
+      "entry_ids": [],
+      "loaded_leaves": 0,
+      "loaded_entries": 0,
+      "output_chars": 512,
+      "cli_elapsed_ms": 31.882,
+      "status": null,
+      "missing_required": [],
+      "forbidden_loaded": []
+    },
+    {
+      "case_id": "mixed",
+      "query": "网站看着太乱，重复点提交还会出错。",
+      "leaf_ids": [],
+      "entry_ids": [],
+      "loaded_leaves": 0,
+      "loaded_entries": 0,
+      "output_chars": 523,
+      "cli_elapsed_ms": 33.24,
+      "status": null,
+      "missing_required": [
+        "composition-patterns",
+        "idempotency-contract"
+      ],
+      "forbidden_loaded": []
+    },
+    {
+      "case_id": "gsap",
+      "query": "用 GSAP 做 React ScrollTrigger，并正确清理",
+      "leaf_ids": [
+        "gsap-react-lifecycle",
+        "gsap-scrolltrigger"
+      ],
+      "entry_ids": [
+        "gsap-react-lifecycle",
+        "gsap-scrolltrigger"
+      ],
+      "loaded_leaves": 2,
+      "loaded_entries": 2,
+      "output_chars": 3840,
+      "cli_elapsed_ms": 33.492,
+      "status": null,
+      "missing_required": [],
+      "forbidden_loaded": []
+    },
+    {
+      "case_id": "react-only",
+      "query": "React 动画",
+      "leaf_ids": [],
+      "entry_ids": [],
+      "loaded_leaves": 0,
+      "loaded_entries": 0,
+      "output_chars": 514,
+      "cli_elapsed_ms": 34.127,
+      "status": null,
+      "missing_required": [],
+      "forbidden_loaded": []
+    },
+    {
+      "case_id": "no-gsap",
+      "query": "不用 GSAP，只用 CSS 做动画",
+      "leaf_ids": [
+        "gsap-react-lifecycle"
+      ],
+      "entry_ids": [
+        "gsap-react-lifecycle"
+      ],
+      "loaded_leaves": 1,
+      "loaded_entries": 1,
+      "output_chars": 2453,
+      "cli_elapsed_ms": 33.497,
+      "status": null,
+      "missing_required": [],
+      "forbidden_loaded": [
+        "gsap-react-lifecycle"
+      ]
+    },
+    {
+      "case_id": "gpui",
+      "query": "GPUIX 能不能跑移动端？",
+      "leaf_ids": [
+        "gpui-mobile"
+      ],
+      "entry_ids": [
+        "gpui-mobile"
+      ],
+      "loaded_leaves": 1,
+      "loaded_entries": 1,
+      "output_chars": 1874,
+      "cli_elapsed_ms": 33.961,
+      "status": null,
+      "missing_required": [],
+      "forbidden_loaded": []
+    },
+    {
+      "case_id": "metal-only",
+      "query": "Metal 动画怎么做",
+      "leaf_ids": [
+        "gpui-desktop-web"
+      ],
+      "entry_ids": [
+        "gpui-desktop-web"
+      ],
+      "loaded_leaves": 1,
+      "loaded_entries": 1,
+      "output_chars": 1934,
+      "cli_elapsed_ms": 32.824,
+      "status": null,
+      "missing_required": [],
+      "forbidden_loaded": [
+        "gpui-desktop-web"
+      ]
+    },
+    {
+      "case_id": "effects",
+      "query": "实现液态玻璃导航并提供移动端降级",
+      "leaf_ids": [
+        "gpui-mobile",
+        "liquid-glass-bar"
+      ],
+      "entry_ids": [
+        "gpui-mobile",
+        "liquid-glass-bar"
+      ],
+      "loaded_leaves": 2,
+      "loaded_entries": 2,
+      "output_chars": 4087,
+      "cli_elapsed_ms": 33.867,
+      "status": null,
+      "missing_required": [],
+      "forbidden_loaded": [],
+      "output": {
+        "query": "实现液态玻璃导航并提供移动端降级",
+        "strategy": "progressive",
+        "trace": {
+          "levels": [
+            "root",
+            "subdomain",
+            "intent",
+            "leaf",
+            "entry"
+          ],
+          "root_loaded": "index/root.json",
+          "runtime_router_loaded": "index/runtime.json",
+          "domain_index_paths": [
+            "index/domains/digital-product-uiux.json",
+            "index/domains/digital-product-uiux.json"
+          ],
+          "intent_index_paths": [
+            "index/intents/digital-product-uiux/3d-web-interface.json",
+            "index/intents/digital-product-uiux/visual-effects.json"
+          ],
+          "selected_intents": [
+            {
+              "domain_id": "digital-product-uiux",
+              "subdomain_id": "3d-web-interface",
+              "intent_id": "choose-renderer"
+            },
+            {
+              "domain_id": "digital-product-uiux",
+              "subdomain_id": "3d-web-interface",
+              "intent_id": "compare-platform"
+            },
+            {
+              "domain_id": "digital-product-uiux",
+              "subdomain_id": "visual-effects",
+              "intent_id": "audit-performance"
+            },
+            {
+              "domain_id": "digital-product-uiux",
+              "subdomain_id": "visual-effects",
+              "intent_id": "design-visual-effect"
+            },
+            {
+              "domain_id": "digital-product-uiux",
+              "subdomain_id": "visual-effects",
+              "intent_id": "implement-visual-effect"
+            }
+          ],
+          "selected_subdomains": [
+            {
+              "domain_id": "digital-product-uiux",
+              "subdomain_id": "3d-web-interface"
+            },
+            {
+              "domain_id": "digital-product-uiux",
+              "subdomain_id": "visual-effects"
+            }
+          ],
+          "loaded_leaf_paths": [
+            "terms/platform-research/gpui-mobile.json",
+            "terms/visual-effects/liquid-glass-bar.json"
+          ],
+          "loaded_leaf_count": 2,
+          "entry_limit": 30
+        },
+        "matches": [
+          {
+            "leaf_id": "gpui-mobile",
+            "score": 5,
+            "knowledge_type": "platform-research",
+            "scope": "provider-specific",
+            "do_not_generalize": true,
+            "path": "terms/platform-research/gpui-mobile.json",
+            "entries": [
+              {
+                "id": "gpui-mobile",
+                "name": "GPUIX 移动端平台研究",
+                "plain_language": "移动端支持状态需以官方仓库和版本为准；社区实现不能等同官方支持。",
+                "when_to_use": "用户明确询问指定平台或组件目录",
+                "parameters": [
+                  "iOS/Metal",
+                  "Android/Vulkan 或 GL",
+                  "触摸、软键盘、安全区"
+                ],
+                "related": [],
+                "constraints": [
+                  "必须标注 provider-specific",
+                  "检索时优先官方来源",
+                  "verified_at 未设置时不得当作确定事实"
+                ],
+                "aliases": []
+              }
+            ]
+          },
+          {
+            "leaf_id": "liquid-glass-bar",
+            "score": 4,
+            "knowledge_type": "technique",
+            "scope": "general",
+            "do_not_generalize": false,
+            "path": "terms/visual-effects/liquid-glass-bar.json",
+            "entries": [
+              {
+                "id": "liquid-glass-bar",
+                "name": "液态玻璃栏",
+                "plain_language": "固定导航使用背景模糊、轻微折射和随滚动位移的高光，底色与文字对比度随背景亮度平滑调整。",
+                "when_to_use": "需要有视觉表现但必须同时控制 GPU、移动端和减少动态成本",
+                "parameters": [
+                  "backdrop-filter",
+                  "SVG displacement",
+                  "高光层",
+                  "亮度采样",
+                  "scroll-driven animation"
+                ],
+                "related": [
+                  "performance-budget",
+                  "progressive-degradation",
+                  "reduced-motion"
+                ],
+                "constraints": [
+                  "动效必须可中断",
+                  "优先 transform/opacity",
+                  "不得以视觉效果掩盖可读性"
+                ],
+                "aliases": [],
+                "performance_budget": [
+                  "桌面端优先使用 GPU 合成",
+                  "高光和折射必须限制在导航区域",
+                  "文字对比度持续满足可读性"
+                ],
+                "fallback": [
+                  "不支持 backdrop-filter 时退化为不透明底色",
+                  "低端设备关闭折射只保留模糊或纯色"
+                ],
+                "mobile_degradation": [
+                  "移动端降低模糊半径",
+                  "滚动中避免逐帧读取布局"
+                ],
+                "reduced_motion": [
+                  "prefers-reduced-motion 下停用高光流动，保留静态玻璃层"
+                ],
+                "acceptance": [
+                  "滚动或拖拽保持 60fps 目标",
+                  "降级后主任务仍可完成",
+                  "视觉层不影响文本对比度"
+                ]
+              }
+            ]
+          }
+        ],
+        "network_search": "not_requested"
+      }
+    },
+    {
+      "case_id": "merge",
+      "query": "比较工业分区布局与暖色三栏布局",
+      "leaf_ids": [
+        "layout-patterns"
+      ],
+      "entry_ids": [
+        "industrial-zones-dashboard",
+        "warm-three-column-dashboard"
+      ],
+      "loaded_leaves": 1,
+      "loaded_entries": 2,
+      "output_chars": 7852,
+      "cli_elapsed_ms": 32.563,
+      "status": null,
+      "missing_required": [],
+      "forbidden_loaded": []
+    },
+    {
+      "case_id": "entry-limit",
+      "query": "玻璃点阵月份指标联动",
+      "leaf_ids": [
+        "layout-patterns"
+      ],
+      "entry_ids": [
+        "glass-dot-matrix-dashboard"
+      ],
+      "loaded_leaves": 1,
+      "loaded_entries": 1,
+      "output_chars": 4604,
+      "cli_elapsed_ms": 31.903,
+      "status": null,
+      "missing_required": [],
+      "forbidden_loaded": []
+    },
+    {
+      "case_id": "paraphrase-capacity",
+      "query": "用户一窝蜂涌进来时，响应速度不要变慢。",
+      "leaf_ids": [],
+      "entry_ids": [],
+      "loaded_leaves": 0,
+      "loaded_entries": 0,
+      "output_chars": 525,
+      "cli_elapsed_ms": 33.101,
+      "status": null,
+      "missing_required": [
+        "capacity-model"
+      ],
+      "forbidden_loaded": []
+    },
+    {
+      "case_id": "paraphrase-availability",
+      "query": "服务出故障后还能继续给用户使用吗？",
+      "leaf_ids": [],
+      "entry_ids": [],
+      "loaded_leaves": 0,
+      "loaded_entries": 0,
+      "output_chars": 523,
+      "cli_elapsed_ms": 32.825,
+      "status": null,
+      "missing_required": [
+        "availability-patterns"
+      ],
+      "forbidden_loaded": []
+    },
+    {
+      "case_id": "paraphrase-submit",
+      "query": "手快连按了几下确认，希望只办一次。",
+      "leaf_ids": [],
+      "entry_ids": [],
+      "loaded_leaves": 0,
+      "loaded_entries": 0,
+      "output_chars": 523,
+      "cli_elapsed_ms": 33.838,
+      "status": null,
+      "missing_required": [
+        "idempotency-contract"
+      ],
+      "forbidden_loaded": []
+    },
+    {
+      "case_id": "paraphrase-visual",
+      "query": "网页的东西挤成一团，想让人一眼找到重点。",
+      "leaf_ids": [],
+      "entry_ids": [],
+      "loaded_leaves": 0,
+      "loaded_entries": 0,
+      "output_chars": 526,
+      "cli_elapsed_ms": 33.654,
+      "status": null,
+      "missing_required": [
+        "composition-patterns"
+      ],
+      "forbidden_loaded": []
+    },
+    {
+      "case_id": "paraphrase-undo",
+      "query": "误删了一项还能找回来，不用鼠标也可以操作。",
+      "leaf_ids": [],
+      "entry_ids": [],
+      "loaded_leaves": 0,
+      "loaded_entries": 0,
+      "output_chars": 527,
+      "cli_elapsed_ms": 32.898,
+      "status": null,
+      "missing_required": [
+        "motion-accessibility",
+        "undo-window"
+      ],
+      "forbidden_loaded": []
+    },
+    {
+      "case_id": "not-ui",
+      "query": "我的论文读着太乱，想理顺论证。",
+      "leaf_ids": [],
+      "entry_ids": [],
+      "loaded_leaves": 0,
+      "loaded_entries": 0,
+      "output_chars": 521,
+      "cli_elapsed_ms": 33.139,
+      "status": null,
+      "missing_required": [],
+      "forbidden_loaded": []
+    },
+    {
+      "case_id": "stability-no-capacity",
+      "query": "后端要稳定，不需要高并发。",
+      "leaf_ids": [
+        "capacity-model"
+      ],
+      "entry_ids": [
+        "capacity-model"
+      ],
+      "loaded_leaves": 1,
+      "loaded_entries": 1,
+      "output_chars": 2045,
+      "cli_elapsed_ms": 32.947,
+      "status": null,
+      "missing_required": [
+        "availability-patterns"
+      ],
+      "forbidden_loaded": [
+        "capacity-model"
+      ]
+    },
+    {
+      "case_id": "mixed-coverage",
+      "query": "工业分区布局做好后，再证明黎曼猜想。",
+      "leaf_ids": [
+        "layout-patterns"
+      ],
+      "entry_ids": [
+        "industrial-zones-dashboard"
+      ],
+      "loaded_leaves": 1,
+      "loaded_entries": 1,
+      "output_chars": 4731,
+      "cli_elapsed_ms": 33.961,
+      "status": null,
+      "missing_required": [],
+      "forbidden_loaded": []
+    }
+  ]
+}

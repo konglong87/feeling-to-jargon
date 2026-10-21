@@ -1,0 +1,5180 @@
+{
+  "schema_version": "1.0.0",
+  "generated_by": "scripts/bootstrap-progressive-content.py",
+  "source_of_truth": "Authored leaf entries; generated search projection, not a second knowledge store.",
+  "entries": [
+    {
+      "leaf_id": "action-item",
+      "entry_id": "action-item",
+      "path": "terms/workplace/action-item.json",
+      "domain_id": "workplace-communication",
+      "subdomain_id": "execution-language",
+      "intent_ids": [
+        "write-action",
+        "review-status"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "执行项",
+        "aliases": [],
+        "plain_language": "每个执行项写清负责人、下一步、截止时间和完成证据。",
+        "when_to_use": "用户说出职场模糊表达或需要改写协作要求时"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "每个执行项写清负责人"
+        },
+        {
+          "field": "plain_language",
+          "text": "下一步"
+        },
+        {
+          "field": "plain_language",
+          "text": "截止时间和完成证据"
+        }
+      ]
+    },
+    {
+      "leaf_id": "availability-patterns",
+      "entry_id": "availability-patterns",
+      "path": "terms/software-engineering/availability-patterns.json",
+      "domain_id": "software-engineering-architecture",
+      "subdomain_id": "high-availability",
+      "intent_ids": [
+        "design-ha",
+        "audit-ha"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "高可用模式",
+        "aliases": [],
+        "plain_language": "跨实例、节点或可用区部署关键组件，并定义 RTO/RPO 和故障转移。",
+        "when_to_use": "后端或平台方案需要拆解质量属性时"
+      },
+      "retrieval": {
+        "rules": [
+          {
+            "id": "service-reliability",
+            "all": [
+              [
+                "后端",
+                "服务",
+                "系统",
+                "平台"
+              ],
+              [
+                "稳定",
+                "宕机",
+                "故障",
+                "不中断",
+                "可用"
+              ]
+            ],
+            "role": "suggestion"
+          }
+        ],
+        "questions": [
+          {
+            "id": "failure_tolerance",
+            "question": "关键服务允许中断多久、最多能丢失多少数据？"
+          }
+        ]
+      },
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "跨实例"
+        },
+        {
+          "field": "plain_language",
+          "text": "节点或可用区部署关键组件"
+        },
+        {
+          "field": "plain_language",
+          "text": "并定义 RTO"
+        },
+        {
+          "field": "plain_language",
+          "text": "RPO 和故障转移"
+        }
+      ]
+    },
+    {
+      "leaf_id": "before-after-slider",
+      "entry_id": "before-after-slider",
+      "path": "terms/interaction/advanced/before-after-slider.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "gesture-interaction",
+      "intent_ids": [
+        "design-gesture",
+        "implement-gesture",
+        "audit-gesture"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "前后对比滑块",
+        "aliases": [],
+        "plain_language": "拖动分割线实时裁切两张图，位置在 0%–100%，不使用惯性。",
+        "when_to_use": "需要明确触发、阈值、取消、边界和键盘替代路径的复杂交互"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "拖动分割线实时裁切两张图"
+        },
+        {
+          "field": "plain_language",
+          "text": "位置在 0%–100%"
+        },
+        {
+          "field": "plain_language",
+          "text": "不使用惯性"
+        }
+      ]
+    },
+    {
+      "leaf_id": "bottom-sheet",
+      "entry_id": "bottom-sheet",
+      "path": "terms/interaction/bottom-sheet.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "gesture-interaction",
+      "intent_ids": [
+        "design-gesture",
+        "implement-gesture"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "阻尼弹性底部抽屉",
+        "aliases": [],
+        "plain_language": "支持下拉、橡皮筋和多个锚点吸附。",
+        "when_to_use": "需要高级反馈但仍要保持可理解的操作结果"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "支持下拉"
+        },
+        {
+          "field": "plain_language",
+          "text": "橡皮筋和多个锚点吸附"
+        }
+      ]
+    },
+    {
+      "leaf_id": "burst-feedback",
+      "entry_id": "burst-feedback",
+      "path": "terms/interaction/burst-feedback.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "interaction-motion",
+      "intent_ids": [
+        "design-interaction",
+        "implement-animation"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "Burst 点击爆散",
+        "aliases": [],
+        "plain_language": "关键点击用 6–12 个短寿命粒子表达完成或奖励。",
+        "when_to_use": "需要高级反馈但仍要保持可理解的操作结果"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "关键点击用 6–12 个短寿命粒子表达完成或奖励"
+        }
+      ]
+    },
+    {
+      "leaf_id": "button-stepper-morph",
+      "entry_id": "button-stepper-morph",
+      "path": "terms/interaction/continuous/button-stepper-morph.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "continuous-interaction",
+      "intent_ids": [
+        "design-continuous",
+        "implement-continuous",
+        "audit-continuous"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "按钮变步进器",
+        "aliases": [],
+        "plain_language": "加号按钮原位展开为减号、数量和加号，数量归零后收回。",
+        "when_to_use": "需要状态切换连续、焦点稳定且避免跳页或突然替换容器的组件"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "加号按钮原位展开为减号"
+        },
+        {
+          "field": "plain_language",
+          "text": "数量和加号"
+        },
+        {
+          "field": "plain_language",
+          "text": "数量归零后收回"
+        }
+      ]
+    },
+    {
+      "leaf_id": "camera-language",
+      "entry_id": "camera-language",
+      "path": "terms/camera-language/camera-language.json",
+      "domain_id": "ai-aigc-meta-skills",
+      "subdomain_id": "camera-language",
+      "intent_ids": [
+        "write-image-prompt",
+        "write-video-prompt"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "景别/机位/焦段/运镜",
+        "aliases": [],
+        "plain_language": "把电影感拆成可执行的景别、机位、焦段、景深和运动。",
+        "when_to_use": "想要电影感但需要稳定复现时"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "把电影感拆成可执行的景别"
+        },
+        {
+          "field": "plain_language",
+          "text": "景深和运动"
+        },
+        {
+          "field": "when_to_use",
+          "text": "想要电影感但需要稳定复现时"
+        }
+      ]
+    },
+    {
+      "leaf_id": "capacity-model",
+      "entry_id": "capacity-model",
+      "path": "terms/software-engineering/capacity-model.json",
+      "domain_id": "software-engineering-architecture",
+      "subdomain_id": "high-concurrency",
+      "intent_ids": [
+        "model-capacity",
+        "tune-performance"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "并发容量模型",
+        "aliases": [],
+        "plain_language": "用平均值、峰值、突发、P95/P99 和增长率描述高并发，而不是只说高并发。",
+        "when_to_use": "后端或平台方案需要拆解质量属性时"
+      },
+      "retrieval": {
+        "rules": [
+          {
+            "id": "simultaneous-load",
+            "all": [
+              [
+                "人",
+                "用户",
+                "访问",
+                "请求"
+              ],
+              [
+                "同时",
+                "一起",
+                "涌",
+                "并发",
+                "同一时间"
+              ]
+            ],
+            "role": "explicit"
+          },
+          {
+            "id": "large-audience",
+            "all": [
+              [
+                "很多人",
+                "大量用户"
+              ],
+              [
+                "用",
+                "访问"
+              ]
+            ],
+            "role": "suggestion"
+          },
+          {
+            "id": "load-response",
+            "all": [
+              [
+                "响应",
+                "速度"
+              ],
+              [
+                "同时",
+                "涌",
+                "一起"
+              ]
+            ],
+            "role": "explicit"
+          }
+        ],
+        "questions": [
+          {
+            "id": "peak_load",
+            "question": "预计同时在线或峰值请求规模是多少？若只有用户总数，先区分总量与并发。"
+          },
+          {
+            "id": "response_target",
+            "question": "哪些操作不能变慢，期望的响应时间是多少？"
+          }
+        ]
+      },
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "用平均值"
+        },
+        {
+          "field": "plain_language",
+          "text": "P95"
+        },
+        {
+          "field": "plain_language",
+          "text": "P99 和增长率描述高并发"
+        },
+        {
+          "field": "plain_language",
+          "text": "而不是只说高并发"
+        }
+      ]
+    },
+    {
+      "leaf_id": "card-flip",
+      "entry_id": "card-flip",
+      "path": "terms/interaction/card-flip.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "interaction-motion",
+      "intent_ids": [
+        "design-interaction",
+        "implement-animation"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "3D 卡片翻面",
+        "aliases": [],
+        "plain_language": "正反面围绕同一中心翻转，保持透视和背面隐藏。",
+        "when_to_use": "需要高级反馈但仍要保持可理解的操作结果"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "正反面围绕同一中心翻转"
+        },
+        {
+          "field": "plain_language",
+          "text": "保持透视和背面隐藏"
+        }
+      ]
+    },
+    {
+      "leaf_id": "character-ip",
+      "entry_id": "base-ip",
+      "path": "terms/character-ip/character-ip.json",
+      "domain_id": "ai-aigc-meta-skills",
+      "subdomain_id": "character-ip",
+      "intent_ids": [
+        "generate-character",
+        "extend-character"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "基础 IP 设定",
+        "aliases": [],
+        "plain_language": "先锁定角色体型、配色、五官、材质和负面约束，再按场景增量加载。",
+        "when_to_use": "同一角色需要生成三视图、动作、服装、表情或周边"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "先锁定角色体型"
+        },
+        {
+          "field": "plain_language",
+          "text": "材质和负面约束"
+        },
+        {
+          "field": "plain_language",
+          "text": "再按场景增量加载"
+        },
+        {
+          "field": "when_to_use",
+          "text": "同一角色需要生成三视图"
+        },
+        {
+          "field": "when_to_use",
+          "text": "表情或周边"
+        }
+      ]
+    },
+    {
+      "leaf_id": "character-ip",
+      "entry_id": "scene-module",
+      "path": "terms/character-ip/character-ip.json",
+      "domain_id": "ai-aigc-meta-skills",
+      "subdomain_id": "character-ip",
+      "intent_ids": [
+        "generate-character",
+        "extend-character"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "场景增量模块",
+        "aliases": [],
+        "plain_language": "把材质、动作、镜头或周边作为独立模块叠加到基础 IP。",
+        "when_to_use": "需要复用角色但更换表现目标"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "把材质"
+        },
+        {
+          "field": "plain_language",
+          "text": "镜头或周边作为独立模块叠加到基础 IP"
+        },
+        {
+          "field": "when_to_use",
+          "text": "需要复用角色但更换表现目标"
+        }
+      ]
+    },
+    {
+      "leaf_id": "checkbox-cascade",
+      "entry_id": "checkbox-cascade",
+      "path": "terms/interaction/continuous/checkbox-cascade.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "continuous-interaction",
+      "intent_ids": [
+        "design-continuous",
+        "implement-continuous",
+        "audit-continuous"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "勾选联动",
+        "aliases": [
+          "勾选联动",
+          "checkbox cascade"
+        ],
+        "plain_language": "一次勾选按明确先后驱动顶部背景、进度环和数字滚动，多个反馈共享同一完成结果。",
+        "when_to_use": "用户用自然语言描述联动、叠卡、吸附画线或圆形转场的感觉时"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "一次勾选按明确先后驱动顶部背景"
+        },
+        {
+          "field": "plain_language",
+          "text": "进度环和数字滚动"
+        },
+        {
+          "field": "plain_language",
+          "text": "多个反馈共享同一完成结果"
+        }
+      ]
+    },
+    {
+      "leaf_id": "composition-language",
+      "entry_id": "composition-language",
+      "path": "terms/composition/composition-language.json",
+      "domain_id": "ai-aigc-meta-skills",
+      "subdomain_id": "composition",
+      "intent_ids": [
+        "write-image-prompt",
+        "audit-image-prompt"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "主体位置与视觉动线",
+        "aliases": [],
+        "plain_language": "用中心、三分、对称、留白、前中后景和视觉引导线描述构图。",
+        "when_to_use": "需要主体位置和画面平衡可控时"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "用中心"
+        },
+        {
+          "field": "plain_language",
+          "text": "前中后景和视觉引导线描述构图"
+        },
+        {
+          "field": "when_to_use",
+          "text": "需要主体位置和画面平衡可控时"
+        }
+      ]
+    },
+    {
+      "leaf_id": "composition-patterns",
+      "entry_id": "composition-patterns",
+      "path": "terms/visual-layout/composition-patterns.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "visual-layout",
+      "intent_ids": [
+        "design-layout",
+        "audit-layout"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "卡片错位/大图主导/非对称/层叠/留白/破格出血",
+        "aliases": [],
+        "plain_language": "用比例、层级和安全区建立页面性格；每次只让少数元素破格。",
+        "when_to_use": "首屏、活动页、详情页和内容信息流"
+      },
+      "retrieval": {
+        "rules": [
+          {
+            "id": "visual-clarity",
+            "all": [
+              [
+                "页面",
+                "网页",
+                "界面",
+                "布局",
+                "网站"
+              ],
+              [
+                "乱",
+                "挤",
+                "重点",
+                "舒服",
+                "清爽",
+                "层次"
+              ]
+            ],
+            "role": "suggestion"
+          }
+        ],
+        "questions": [
+          {
+            "id": "primary_task",
+            "question": "页面最重要的信息和用户要完成的任务是什么？"
+          }
+        ]
+      },
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "用比例"
+        },
+        {
+          "field": "plain_language",
+          "text": "层级和安全区建立页面性格"
+        },
+        {
+          "field": "plain_language",
+          "text": "每次只让少数元素破格"
+        },
+        {
+          "field": "when_to_use",
+          "text": "活动页"
+        },
+        {
+          "field": "when_to_use",
+          "text": "详情页和内容信息流"
+        }
+      ]
+    },
+    {
+      "leaf_id": "count-animation",
+      "entry_id": "count-animation",
+      "path": "terms/interaction/count-animation.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "interaction-motion",
+      "intent_ids": [
+        "design-interaction",
+        "implement-animation"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "Count 数字滚动",
+        "aliases": [],
+        "plain_language": "数字按位滚动并在最后一段明显减速。",
+        "when_to_use": "需要高级反馈但仍要保持可理解的操作结果"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "数字按位滚动并在最后一段明显减速"
+        }
+      ]
+    },
+    {
+      "leaf_id": "cover-color-ambient-glow",
+      "entry_id": "cover-color-ambient-glow",
+      "path": "terms/visual-effects/cover-color-ambient-glow.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "visual-effects",
+      "intent_ids": [
+        "design-visual-effect",
+        "implement-visual-effect",
+        "audit-performance"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "封面取色氛围光",
+        "aliases": [],
+        "plain_language": "从封面图提取主色生成外围柔光，换图时用连续插值过渡而不是颜色突变。",
+        "when_to_use": "需要有视觉表现但必须同时控制 GPU、移动端和减少动态成本"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [
+        "performance_budget",
+        "fallback",
+        "mobile_degradation",
+        "reduced_motion",
+        "acceptance"
+      ],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "从封面图提取主色生成外围柔光"
+        },
+        {
+          "field": "plain_language",
+          "text": "换图时用连续插值过渡而不是颜色突变"
+        }
+      ]
+    },
+    {
+      "leaf_id": "cross-platform-rendering",
+      "entry_id": "cross-platform-rendering",
+      "path": "terms/software-engineering/cross-platform-rendering.json",
+      "domain_id": "software-engineering-architecture",
+      "subdomain_id": "desktop-web-mobile",
+      "intent_ids": [
+        "compare-platform",
+        "choose-renderer"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "跨平台渲染边界",
+        "aliases": [],
+        "plain_language": "按平台能力、渲染后端、输入方式和降级路径选择实现策略。",
+        "when_to_use": "后端或平台方案需要拆解质量属性时"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "按平台能力"
+        },
+        {
+          "field": "plain_language",
+          "text": "渲染后端"
+        },
+        {
+          "field": "plain_language",
+          "text": "输入方式和降级路径选择实现策略"
+        }
+      ]
+    },
+    {
+      "leaf_id": "cylindrical-list",
+      "entry_id": "cylindrical-list",
+      "path": "terms/visual-effects/cylindrical-list.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "visual-effects",
+      "intent_ids": [
+        "design-visual-effect",
+        "implement-visual-effect",
+        "audit-performance"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "圆柱卷收列表",
+        "aliases": [],
+        "plain_language": "根据列表项距视区中心的距离插值旋转、缩放、亮度和透明度，让中心项突出、边缘项自然卷入。",
+        "when_to_use": "需要有视觉表现但必须同时控制 GPU、移动端和减少动态成本"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [
+        "performance_budget",
+        "fallback",
+        "mobile_degradation",
+        "reduced_motion",
+        "acceptance"
+      ],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "根据列表项距视区中心的距离插值旋转"
+        },
+        {
+          "field": "plain_language",
+          "text": "亮度和透明度"
+        },
+        {
+          "field": "plain_language",
+          "text": "让中心项突出"
+        },
+        {
+          "field": "plain_language",
+          "text": "边缘项自然卷入"
+        }
+      ]
+    },
+    {
+      "leaf_id": "damped-bottom-sheet",
+      "entry_id": "damped-bottom-sheet",
+      "path": "terms/component-design/damped-bottom-sheet.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "component-design",
+      "intent_ids": [
+        "generate-component",
+        "spec-component"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "阻尼弹性抽屉",
+        "aliases": [],
+        "plain_language": "Bottom Sheet 根据位移和速度在 closed/peek/half/full 锚点间吸附，越界呈 rubber band 回弹。",
+        "when_to_use": "需要给 AI 编程或设计工具描述可复用组件"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "Bottom Sheet 根据位移和速度在 closed"
+        },
+        {
+          "field": "plain_language",
+          "text": "peek"
+        },
+        {
+          "field": "plain_language",
+          "text": "half"
+        },
+        {
+          "field": "plain_language",
+          "text": "full 锚点间吸附"
+        },
+        {
+          "field": "plain_language",
+          "text": "越界呈 rubber band 回弹"
+        }
+      ]
+    },
+    {
+      "leaf_id": "damped-bottom-sheet",
+      "entry_id": "tear-line-panel",
+      "path": "terms/component-design/damped-bottom-sheet.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "component-design",
+      "intent_ids": [
+        "generate-component",
+        "spec-component"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "撕线弹出面板",
+        "aliases": [
+          "撕线面板",
+          "撕口弹出",
+          "tear line panel"
+        ],
+        "plain_language": "面板顶部用虚线撕口和锯齿 SVG 表达可拖拽边界，下拉跟手映射撕裂进度，超过阈值弹簧展开，未达则回弹。",
+        "when_to_use": "需要通过撕口下拉打开局部面板，并把撕裂感转成可衡量的位移和开口进度"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "面板顶部用虚线撕口和锯齿 SVG 表达可拖拽边界"
+        },
+        {
+          "field": "plain_language",
+          "text": "下拉跟手映射撕裂进度"
+        },
+        {
+          "field": "plain_language",
+          "text": "超过阈值弹簧展开"
+        },
+        {
+          "field": "plain_language",
+          "text": "未达则回弹"
+        },
+        {
+          "field": "when_to_use",
+          "text": "需要通过撕口下拉打开局部面板"
+        },
+        {
+          "field": "when_to_use",
+          "text": "并把撕裂感转成可衡量的位移和开口进度"
+        }
+      ]
+    },
+    {
+      "leaf_id": "dependency-alignment",
+      "entry_id": "dependency-alignment",
+      "path": "terms/workplace/dependency-alignment.json",
+      "domain_id": "workplace-communication",
+      "subdomain_id": "project-collaboration",
+      "intent_ids": [
+        "align-collaboration",
+        "resolve-dependency"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "项目依赖对齐",
+        "aliases": [],
+        "plain_language": "明确依赖方、输入、输出、阻塞风险和升级路径。",
+        "when_to_use": "用户说出职场模糊表达或需要改写协作要求时"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "明确依赖方"
+        },
+        {
+          "field": "plain_language",
+          "text": "阻塞风险和升级路径"
+        }
+      ]
+    },
+    {
+      "leaf_id": "depth-layer-scroll",
+      "entry_id": "depth-layer-scroll",
+      "path": "terms/visual-effects/depth-layer-scroll.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "visual-effects",
+      "intent_ids": [
+        "design-visual-effect",
+        "implement-visual-effect",
+        "audit-performance"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "景深分层滚动",
+        "aliases": [],
+        "plain_language": "把内容拆为前、中、后三层，按滚动进度驱动不同速度、模糊和亮度，形成可控景深。",
+        "when_to_use": "需要有视觉表现但必须同时控制 GPU、移动端和减少动态成本"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [
+        "performance_budget",
+        "fallback",
+        "mobile_degradation",
+        "reduced_motion",
+        "acceptance"
+      ],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "把内容拆为前"
+        },
+        {
+          "field": "plain_language",
+          "text": "后三层"
+        },
+        {
+          "field": "plain_language",
+          "text": "按滚动进度驱动不同速度"
+        },
+        {
+          "field": "plain_language",
+          "text": "模糊和亮度"
+        },
+        {
+          "field": "plain_language",
+          "text": "形成可控景深"
+        }
+      ]
+    },
+    {
+      "leaf_id": "diffused-glow-border",
+      "entry_id": "diffused-glow-border",
+      "path": "terms/component-design/diffused-glow-border.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "component-design",
+      "intent_ids": [
+        "generate-component",
+        "spec-component"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "动态弥散光晕边框",
+        "aliases": [],
+        "plain_language": "用 conic-gradient 旋转描边，叠加 blur+opacity 呼吸背光，并用 mask 保留描边区域。",
+        "when_to_use": "需要给 AI 编程或设计工具描述可复用组件"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "用 conic-gradient 旋转描边"
+        },
+        {
+          "field": "plain_language",
+          "text": "叠加 blur+opacity 呼吸背光"
+        },
+        {
+          "field": "plain_language",
+          "text": "并用 mask 保留描边区域"
+        }
+      ]
+    },
+    {
+      "leaf_id": "drag-to-absorb",
+      "entry_id": "drag-to-absorb",
+      "path": "terms/interaction/advanced/drag-to-absorb.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "gesture-interaction",
+      "intent_ids": [
+        "design-gesture",
+        "implement-gesture",
+        "audit-gesture"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "拖到目标吸入",
+        "aliases": [],
+        "plain_language": "拖拽元素靠近目标后目标张开，松手时元素缩小并吸入目标中心。",
+        "when_to_use": "需要明确触发、阈值、取消、边界和键盘替代路径的复杂交互"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "拖拽元素靠近目标后目标张开"
+        },
+        {
+          "field": "plain_language",
+          "text": "松手时元素缩小并吸入目标中心"
+        }
+      ]
+    },
+    {
+      "leaf_id": "draw-success",
+      "entry_id": "draw-success",
+      "path": "terms/interaction/draw-success.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "interaction-motion",
+      "intent_ids": [
+        "design-interaction",
+        "implement-animation"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "Draw 成功勾选",
+        "aliases": [],
+        "plain_language": "先画圆再画勾，用 SVG 描边过程表达成功。",
+        "when_to_use": "需要高级反馈但仍要保持可理解的操作结果"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "先画圆再画勾"
+        },
+        {
+          "field": "plain_language",
+          "text": "用 SVG 描边过程表达成功"
+        }
+      ]
+    },
+    {
+      "leaf_id": "edge-docked-fab",
+      "entry_id": "edge-docked-fab",
+      "path": "terms/interaction/advanced/edge-docked-fab.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "gesture-interaction",
+      "intent_ids": [
+        "design-gesture",
+        "implement-gesture",
+        "audit-gesture"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "吸边悬浮球",
+        "aliases": [
+          "吸边悬浮球",
+          "贴边悬浮按钮",
+          "edge docked fab"
+        ],
+        "plain_language": "毛玻璃悬浮球跟手拖拽，释放后吸附到最近左右边缘，闲置后缩成半透明贴边状态。",
+        "when_to_use": "需要可移动的悬浮入口，同时避免遮挡底部 Tab 和安全区内容"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "毛玻璃悬浮球跟手拖拽"
+        },
+        {
+          "field": "plain_language",
+          "text": "释放后吸附到最近左右边缘"
+        },
+        {
+          "field": "plain_language",
+          "text": "闲置后缩成半透明贴边状态"
+        },
+        {
+          "field": "when_to_use",
+          "text": "需要可移动的悬浮入口"
+        },
+        {
+          "field": "when_to_use",
+          "text": "同时避免遮挡底部 Tab 和安全区内容"
+        }
+      ]
+    },
+    {
+      "leaf_id": "elastic-press-feedback",
+      "entry_id": "elastic-press-feedback",
+      "path": "terms/component-design/elastic-press-feedback.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "component-design",
+      "intent_ids": [
+        "generate-component",
+        "spec-component"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "弹性微缩触觉反馈",
+        "aliases": [],
+        "plain_language": "按钮按压缩到 0.96 并增加内阴影，释放时 Spring 轻微超调回 1，支持快速连点。",
+        "when_to_use": "需要给 AI 编程或设计工具描述可复用组件"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "按钮按压缩到 0.96 并增加内阴影"
+        },
+        {
+          "field": "plain_language",
+          "text": "释放时 Spring 轻微超调回 1"
+        },
+        {
+          "field": "plain_language",
+          "text": "支持快速连点"
+        }
+      ]
+    },
+    {
+      "leaf_id": "fab-panel-morph",
+      "entry_id": "fab-panel-morph",
+      "path": "terms/interaction/continuous/fab-panel-morph.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "continuous-interaction",
+      "intent_ids": [
+        "design-continuous",
+        "implement-continuous",
+        "audit-continuous"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "加号展开面板",
+        "aliases": [],
+        "plain_language": "FAB 原位形变为操作面板，中心点保持不变，关闭时逆向收回。",
+        "when_to_use": "需要状态切换连续、焦点稳定且避免跳页或突然替换容器的组件"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "FAB 原位形变为操作面板"
+        },
+        {
+          "field": "plain_language",
+          "text": "中心点保持不变"
+        },
+        {
+          "field": "plain_language",
+          "text": "关闭时逆向收回"
+        }
+      ]
+    },
+    {
+      "leaf_id": "flip-reentry",
+      "entry_id": "flip",
+      "path": "terms/interaction/flip-reentry.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "interaction-motion",
+      "intent_ids": [
+        "implement-animation"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "First Last Invert Play",
+        "aliases": [],
+        "plain_language": "记录删除前后布局，撤销时把真实节点插回原索引，再播放反向变换。",
+        "when_to_use": "列表重排、共享元素和复杂布局撤销"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "记录删除前后布局"
+        },
+        {
+          "field": "plain_language",
+          "text": "撤销时把真实节点插回原索引"
+        },
+        {
+          "field": "plain_language",
+          "text": "再播放反向变换"
+        },
+        {
+          "field": "when_to_use",
+          "text": "列表重排"
+        },
+        {
+          "field": "when_to_use",
+          "text": "共享元素和复杂布局撤销"
+        }
+      ]
+    },
+    {
+      "leaf_id": "flip-reentry",
+      "entry_id": "placeholder",
+      "path": "terms/interaction/flip-reentry.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "interaction-motion",
+      "intent_ids": [
+        "implement-animation"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "占位与真实节点回插",
+        "aliases": [],
+        "plain_language": "节点暂时移除后保留占位，撤销时按原索引插回真实节点。",
+        "when_to_use": "DOM 节点生命周期较短的列表"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "节点暂时移除后保留占位"
+        },
+        {
+          "field": "plain_language",
+          "text": "撤销时按原索引插回真实节点"
+        },
+        {
+          "field": "when_to_use",
+          "text": "DOM 节点生命周期较短的列表"
+        }
+      ]
+    },
+    {
+      "leaf_id": "fluid-capsule-morph",
+      "entry_id": "fluid-capsule-morph",
+      "path": "terms/component-design/fluid-capsule-morph.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "component-design",
+      "intent_ids": [
+        "generate-component",
+        "spec-component"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "流体胶囊形变",
+        "aliases": [],
+        "plain_language": "胶囊按钮通过 FLIP/shared layout 形变为弹窗，圆角从 999px 过渡到 24px，内容延迟淡入并带遮罩。",
+        "when_to_use": "需要给 AI 编程或设计工具描述可复用组件"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "胶囊按钮通过 FLIP"
+        },
+        {
+          "field": "plain_language",
+          "text": "shared layout 形变为弹窗"
+        },
+        {
+          "field": "plain_language",
+          "text": "圆角从 999px 过渡到 24px"
+        },
+        {
+          "field": "plain_language",
+          "text": "内容延迟淡入并带遮罩"
+        }
+      ]
+    },
+    {
+      "leaf_id": "follow",
+      "entry_id": "follow",
+      "path": "terms/interaction/follow.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "gesture-interaction",
+      "intent_ids": [
+        "design-gesture",
+        "implement-gesture",
+        "audit-gesture"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "跟随",
+        "aliases": [],
+        "plain_language": "元素连续继承输入位置或速度，不瞬间跳到新状态。",
+        "when_to_use": "拖拽、滚动、转场和惯性动作"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "元素连续继承输入位置或速度"
+        },
+        {
+          "field": "plain_language",
+          "text": "不瞬间跳到新状态"
+        },
+        {
+          "field": "when_to_use",
+          "text": "转场和惯性动作"
+        }
+      ]
+    },
+    {
+      "leaf_id": "frontend-runtime",
+      "entry_id": "frontend-runtime",
+      "path": "terms/software-engineering/frontend-runtime.json",
+      "domain_id": "software-engineering-architecture",
+      "subdomain_id": "frontend-platform",
+      "intent_ids": [
+        "design-frontend",
+        "audit-frontend"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "前端平台边界",
+        "aliases": [],
+        "plain_language": "把组件、构建、运行时、发布和回滚能力作为平台契约。",
+        "when_to_use": "后端或平台方案需要拆解质量属性时"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "把组件"
+        },
+        {
+          "field": "plain_language",
+          "text": "运行时"
+        },
+        {
+          "field": "plain_language",
+          "text": "发布和回滚能力作为平台契约"
+        }
+      ]
+    },
+    {
+      "leaf_id": "fullscreen-reveal-menu",
+      "entry_id": "fullscreen-reveal-menu",
+      "path": "terms/interaction/continuous/fullscreen-reveal-menu.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "continuous-interaction",
+      "intent_ids": [
+        "design-continuous",
+        "implement-continuous",
+        "audit-continuous"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "菜单铺满全屏",
+        "aliases": [],
+        "plain_language": "以触发按钮为中心用圆形揭示铺满全屏，菜单项交错进入。",
+        "when_to_use": "需要状态切换连续、焦点稳定且避免跳页或突然替换容器的组件"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "以触发按钮为中心用圆形揭示铺满全屏"
+        },
+        {
+          "field": "plain_language",
+          "text": "菜单项交错进入"
+        }
+      ]
+    },
+    {
+      "leaf_id": "goal-metric",
+      "entry_id": "goal-metric",
+      "path": "terms/workplace/goal-metric.json",
+      "domain_id": "workplace-communication",
+      "subdomain_id": "goal-alignment",
+      "intent_ids": [
+        "define-goal",
+        "review-priority"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "目标与指标",
+        "aliases": [],
+        "plain_language": "把方向性目标拆成可观察结果、指标口径、范围和优先级。",
+        "when_to_use": "用户说出职场模糊表达或需要改写协作要求时"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "把方向性目标拆成可观察结果"
+        },
+        {
+          "field": "plain_language",
+          "text": "指标口径"
+        },
+        {
+          "field": "plain_language",
+          "text": "范围和优先级"
+        }
+      ]
+    },
+    {
+      "leaf_id": "gpui-desktop-web",
+      "entry_id": "gpui-desktop-web",
+      "path": "terms/platform-research/gpui-desktop-web.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "3d-web-interface",
+      "intent_ids": [
+        "compare-platform",
+        "choose-renderer"
+      ],
+      "scope": "provider-specific",
+      "provider": "GPUIX",
+      "fields": {
+        "name": "GPUIX 桌面与 Web 平台研究",
+        "aliases": [],
+        "plain_language": "待核验的桌面/Web 平台适配记录；不得推广为所有 GPU UI 框架事实。",
+        "when_to_use": "用户明确询问指定平台或组件目录"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "待核验的桌面"
+        },
+        {
+          "field": "plain_language",
+          "text": "Web 平台适配记录"
+        },
+        {
+          "field": "plain_language",
+          "text": "不得推广为所有 GPU UI 框架事实"
+        }
+      ]
+    },
+    {
+      "leaf_id": "gpui-mobile",
+      "entry_id": "gpui-mobile",
+      "path": "terms/platform-research/gpui-mobile.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "3d-web-interface",
+      "intent_ids": [
+        "compare-platform",
+        "choose-renderer"
+      ],
+      "scope": "provider-specific",
+      "provider": "GPUIX",
+      "fields": {
+        "name": "GPUIX 移动端平台研究",
+        "aliases": [],
+        "plain_language": "移动端支持状态需以官方仓库和版本为准；社区实现不能等同官方支持。",
+        "when_to_use": "用户明确询问指定平台或组件目录"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "移动端支持状态需以官方仓库和版本为准"
+        },
+        {
+          "field": "plain_language",
+          "text": "社区实现不能等同官方支持"
+        }
+      ]
+    },
+    {
+      "leaf_id": "grid-glass-dashboard",
+      "entry_id": "grid-glass-dashboard",
+      "path": "terms/dashboard/grid-glass-dashboard.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "dashboard-design",
+      "intent_ids": [
+        "design-dashboard",
+        "audit-dashboard"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "方格纸玻璃卡 Dashboard",
+        "aliases": [],
+        "plain_language": "用 44px 方格纸做底，让半透明白玻璃卡透出底层网格，指标按数值形成阶梯。",
+        "when_to_use": "Dashboard 需要有明确审美方向且避免模板化"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "用 44px 方格纸做底"
+        },
+        {
+          "field": "plain_language",
+          "text": "让半透明白玻璃卡透出底层网格"
+        },
+        {
+          "field": "plain_language",
+          "text": "指标按数值形成阶梯"
+        }
+      ]
+    },
+    {
+      "leaf_id": "grouped-sidebar-dashboard",
+      "entry_id": "grouped-sidebar-dashboard",
+      "path": "terms/dashboard/grouped-sidebar-dashboard.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "dashboard-design",
+      "intent_ids": [
+        "design-dashboard",
+        "audit-dashboard"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "分组侧边栏 Dashboard",
+        "aliases": [],
+        "plain_language": "把导航拆成三组并用大留白分隔，主区用超大细体字、三组数字和横向比例条建立节奏。",
+        "when_to_use": "Dashboard 需要有明确审美方向且避免模板化"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "把导航拆成三组并用大留白分隔"
+        },
+        {
+          "field": "plain_language",
+          "text": "主区用超大细体字"
+        },
+        {
+          "field": "plain_language",
+          "text": "三组数字和横向比例条建立节奏"
+        }
+      ]
+    },
+    {
+      "leaf_id": "gsap-core",
+      "entry_id": "gsap-core",
+      "path": "terms/animation-tool-adapter/gsap-core.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "animation-tool-adapter",
+      "intent_ids": [
+        "implement-gsap",
+        "audit-gsap"
+      ],
+      "scope": "provider-specific",
+      "provider": "GSAP",
+      "fields": {
+        "name": "GSAP Core",
+        "aliases": [
+          "GSAP",
+          "gsap core"
+        ],
+        "plain_language": "tween、duration、easing、stagger 和可中断控制的基础适配。",
+        "when_to_use": "用户明确指定 GSAP，或项目已经采用 GSAP 作为动效实现层"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "tween"
+        },
+        {
+          "field": "plain_language",
+          "text": "duration"
+        },
+        {
+          "field": "plain_language",
+          "text": "easing"
+        },
+        {
+          "field": "plain_language",
+          "text": "stagger 和可中断控制的基础适配"
+        }
+      ]
+    },
+    {
+      "leaf_id": "gsap-frameworks",
+      "entry_id": "gsap-frameworks",
+      "path": "terms/animation-tool-adapter/gsap-frameworks.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "animation-tool-adapter",
+      "intent_ids": [
+        "implement-gsap",
+        "audit-gsap"
+      ],
+      "scope": "provider-specific",
+      "provider": "GSAP",
+      "fields": {
+        "name": "GSAP 框架适配",
+        "aliases": [
+          "GSAP",
+          "gsap 框架适配"
+        ],
+        "plain_language": "在 Vue、Svelte 等框架中按生命周期创建和销毁上下文，隔离 SSR、hydration 与客户端动画。",
+        "when_to_use": "用户明确指定 GSAP，或项目已经采用 GSAP 作为动效实现层"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "在 Vue"
+        },
+        {
+          "field": "plain_language",
+          "text": "Svelte 等框架中按生命周期创建和销毁上下文"
+        },
+        {
+          "field": "plain_language",
+          "text": "隔离 SSR"
+        },
+        {
+          "field": "plain_language",
+          "text": "hydration 与客户端动画"
+        }
+      ]
+    },
+    {
+      "leaf_id": "gsap-performance",
+      "entry_id": "gsap-performance",
+      "path": "terms/animation-tool-adapter/gsap-performance.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "animation-tool-adapter",
+      "intent_ids": [
+        "implement-gsap",
+        "audit-gsap"
+      ],
+      "scope": "provider-specific",
+      "provider": "GSAP",
+      "fields": {
+        "name": "GSAP 性能边界",
+        "aliases": [
+          "GSAP",
+          "gsap 性能边界"
+        ],
+        "plain_language": "把高频动效限制在合成属性，批量更新并减少布局读取，给复杂效果设置设备降级策略。",
+        "when_to_use": "用户明确指定 GSAP，或项目已经采用 GSAP 作为动效实现层"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "把高频动效限制在合成属性"
+        },
+        {
+          "field": "plain_language",
+          "text": "批量更新并减少布局读取"
+        },
+        {
+          "field": "plain_language",
+          "text": "给复杂效果设置设备降级策略"
+        }
+      ]
+    },
+    {
+      "leaf_id": "gsap-plugins",
+      "entry_id": "gsap-plugins",
+      "path": "terms/animation-tool-adapter/gsap-plugins.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "animation-tool-adapter",
+      "intent_ids": [
+        "implement-gsap",
+        "audit-gsap"
+      ],
+      "scope": "provider-specific",
+      "provider": "GSAP",
+      "fields": {
+        "name": "GSAP Plugins",
+        "aliases": [
+          "GSAP",
+          "gsap plugins"
+        ],
+        "plain_language": "按需使用 Flip、Draggable、Observer、SplitText 等插件，插件能力必须和交互目标一一对应。",
+        "when_to_use": "用户明确指定 GSAP，或项目已经采用 GSAP 作为动效实现层"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "按需使用 Flip"
+        },
+        {
+          "field": "plain_language",
+          "text": "Draggable"
+        },
+        {
+          "field": "plain_language",
+          "text": "Observer"
+        },
+        {
+          "field": "plain_language",
+          "text": "SplitText 等插件"
+        },
+        {
+          "field": "plain_language",
+          "text": "插件能力必须和交互目标一一对应"
+        }
+      ]
+    },
+    {
+      "leaf_id": "gsap-react-lifecycle",
+      "entry_id": "gsap-react-lifecycle",
+      "path": "terms/animation-tool-adapter/gsap-react-lifecycle.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "animation-tool-adapter",
+      "intent_ids": [
+        "implement-gsap",
+        "audit-gsap"
+      ],
+      "scope": "provider-specific",
+      "provider": "GSAP",
+      "fields": {
+        "name": "GSAP React 生命周期",
+        "aliases": [
+          "GSAP",
+          "gsap react 生命周期"
+        ],
+        "plain_language": "在 React 中用 useGSAP 或 gsap.context 管理选择器作用域、动画创建和 ctx.revert 清理。",
+        "when_to_use": "用户明确指定 GSAP，或项目已经采用 GSAP 作为动效实现层"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "在 React 中用 useGSAP 或 gsap.context 管理选择器作用域"
+        },
+        {
+          "field": "plain_language",
+          "text": "动画创建和 ctx.revert 清理"
+        }
+      ]
+    },
+    {
+      "leaf_id": "gsap-scrolltrigger",
+      "entry_id": "gsap-scrolltrigger",
+      "path": "terms/animation-tool-adapter/gsap-scrolltrigger.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "animation-tool-adapter",
+      "intent_ids": [
+        "implement-gsap",
+        "audit-gsap"
+      ],
+      "scope": "provider-specific",
+      "provider": "GSAP",
+      "fields": {
+        "name": "GSAP ScrollTrigger",
+        "aliases": [
+          "GSAP",
+          "gsap scrolltrigger"
+        ],
+        "plain_language": "用 scrub、pin 和 start/end 将动画绑定到滚动进度，并避免把滚动逻辑散落在组件中。",
+        "when_to_use": "用户明确指定 GSAP，或项目已经采用 GSAP 作为动效实现层"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "用 scrub"
+        },
+        {
+          "field": "plain_language",
+          "text": "pin 和 start"
+        },
+        {
+          "field": "plain_language",
+          "text": "end 将动画绑定到滚动进度"
+        },
+        {
+          "field": "plain_language",
+          "text": "并避免把滚动逻辑散落在组件中"
+        }
+      ]
+    },
+    {
+      "leaf_id": "gsap-timeline",
+      "entry_id": "gsap-timeline",
+      "path": "terms/animation-tool-adapter/gsap-timeline.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "animation-tool-adapter",
+      "intent_ids": [
+        "implement-gsap",
+        "audit-gsap"
+      ],
+      "scope": "provider-specific",
+      "provider": "GSAP",
+      "fields": {
+        "name": "GSAP Timeline",
+        "aliases": [
+          "GSAP",
+          "gsap timeline"
+        ],
+        "plain_language": "用时间线、label 和 position parameter 编排连续动效，保持顺序可读且可复用。",
+        "when_to_use": "用户明确指定 GSAP，或项目已经采用 GSAP 作为动效实现层"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "用时间线"
+        },
+        {
+          "field": "plain_language",
+          "text": "label 和 position parameter 编排连续动效"
+        },
+        {
+          "field": "plain_language",
+          "text": "保持顺序可读且可复用"
+        }
+      ]
+    },
+    {
+      "leaf_id": "high-contrast",
+      "entry_id": "high-contrast",
+      "path": "terms/dashboard/high-contrast.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "dashboard-design",
+      "intent_ids": [
+        "design-dashboard",
+        "audit-dashboard"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "强对比视觉型",
+        "aliases": [],
+        "plain_language": "一张主卡占据视觉中心，用高饱和对比和大数字建立层级。",
+        "when_to_use": "Dashboard 需要有明确审美方向且避免模板化"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "一张主卡占据视觉中心"
+        },
+        {
+          "field": "plain_language",
+          "text": "用高饱和对比和大数字建立层级"
+        }
+      ]
+    },
+    {
+      "leaf_id": "icon-morph",
+      "entry_id": "icon-morph",
+      "path": "terms/interaction/continuous/icon-morph.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "continuous-interaction",
+      "intent_ids": [
+        "design-continuous",
+        "implement-continuous",
+        "audit-continuous"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "图标变形",
+        "aliases": [],
+        "plain_language": "菜单、播放等图标优先通过 SVG path 插值完成状态变化。",
+        "when_to_use": "需要状态切换连续、焦点稳定且避免跳页或突然替换容器的组件"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "播放等图标优先通过 SVG path 插值完成状态变化"
+        }
+      ]
+    },
+    {
+      "leaf_id": "idempotency-contract",
+      "entry_id": "idempotency-contract",
+      "path": "terms/software-engineering/idempotency-contract.json",
+      "domain_id": "software-engineering-architecture",
+      "subdomain_id": "idempotency",
+      "intent_ids": [
+        "design-idempotency",
+        "diagnose-duplicate"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "幂等契约",
+        "aliases": [
+          "同一操作只处理一次"
+        ],
+        "plain_language": "用操作身份、同键重试、内容一致性、并发响应和结果关联定义重复处理。",
+        "when_to_use": "后端或平台方案需要拆解质量属性时"
+      },
+      "retrieval": {
+        "rules": [
+          {
+            "id": "repeat-operation",
+            "all": [
+              [
+                "重复",
+                "连按",
+                "连点",
+                "多点",
+                "点了两次"
+              ],
+              [
+                "提交",
+                "确认",
+                "下单",
+                "付款",
+                "保存"
+              ]
+            ],
+            "role": "explicit",
+            "also_explain": [
+              "一次"
+            ]
+          }
+        ],
+        "questions": [
+          {
+            "id": "operation_identity",
+            "question": "重复的是哪种操作，怎样认定两次请求属于同一次业务操作？"
+          }
+        ]
+      },
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "用操作身份"
+        },
+        {
+          "field": "plain_language",
+          "text": "同键重试"
+        },
+        {
+          "field": "plain_language",
+          "text": "内容一致性"
+        },
+        {
+          "field": "plain_language",
+          "text": "并发响应和结果关联定义重复处理"
+        }
+      ]
+    },
+    {
+      "leaf_id": "image-led-content",
+      "entry_id": "image-led-content",
+      "path": "terms/dashboard/image-led-content.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "dashboard-design",
+      "intent_ids": [
+        "design-dashboard",
+        "audit-dashboard"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "图卡内容型",
+        "aliases": [],
+        "plain_language": "让真实图片成为主角，文字叠加且只保留一个强调色。",
+        "when_to_use": "Dashboard 需要有明确审美方向且避免模板化"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "让真实图片成为主角"
+        },
+        {
+          "field": "plain_language",
+          "text": "文字叠加且只保留一个强调色"
+        }
+      ]
+    },
+    {
+      "leaf_id": "immersive-atmosphere",
+      "entry_id": "immersive-atmosphere",
+      "path": "terms/dashboard/immersive-atmosphere.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "dashboard-design",
+      "intent_ids": [
+        "design-dashboard",
+        "audit-dashboard"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "氛围沉浸型",
+        "aliases": [],
+        "plain_language": "深色底、雾面渐变、玻璃卡片和轻微动态光斑。",
+        "when_to_use": "Dashboard 需要有明确审美方向且避免模板化"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "深色底"
+        },
+        {
+          "field": "plain_language",
+          "text": "雾面渐变"
+        },
+        {
+          "field": "plain_language",
+          "text": "玻璃卡片和轻微动态光斑"
+        }
+      ]
+    },
+    {
+      "leaf_id": "inertial-wheel",
+      "entry_id": "inertial-wheel",
+      "path": "terms/interaction/advanced/inertial-wheel.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "gesture-interaction",
+      "intent_ids": [
+        "design-gesture",
+        "implement-gesture",
+        "audit-gesture"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "惯性滚轮",
+        "aliases": [],
+        "plain_language": "时间或数值滚轮在释放后继承速度惯性减速，越界时阻尼回弹并吸附到最近刻度。",
+        "when_to_use": "需要明确触发、阈值、取消、边界和键盘替代路径的复杂交互"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "时间或数值滚轮在释放后继承速度惯性减速"
+        },
+        {
+          "field": "plain_language",
+          "text": "越界时阻尼回弹并吸附到最近刻度"
+        }
+      ]
+    },
+    {
+      "leaf_id": "information-hierarchy",
+      "entry_id": "information-hierarchy",
+      "path": "terms/information-architecture/information-hierarchy.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "information-architecture",
+      "intent_ids": [
+        "design-information",
+        "audit-information"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "信息层级",
+        "aliases": [],
+        "plain_language": "先确定用户要做的决定，再按主次组织标题、数据、操作和辅助说明。",
+        "when_to_use": "复杂后台、内容页和移动端首页"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "先确定用户要做的决定"
+        },
+        {
+          "field": "plain_language",
+          "text": "再按主次组织标题"
+        },
+        {
+          "field": "plain_language",
+          "text": "操作和辅助说明"
+        },
+        {
+          "field": "when_to_use",
+          "text": "复杂后台"
+        },
+        {
+          "field": "when_to_use",
+          "text": "内容页和移动端首页"
+        }
+      ]
+    },
+    {
+      "leaf_id": "inline-detail-expand",
+      "entry_id": "inline-detail-expand",
+      "path": "terms/interaction/continuous/inline-detail-expand.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "continuous-interaction",
+      "intent_ids": [
+        "design-continuous",
+        "implement-continuous",
+        "audit-continuous"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "列表展开详情",
+        "aliases": [],
+        "plain_language": "选中列表项就地展开，其余项顺势下移，不跳转详情页。",
+        "when_to_use": "需要状态切换连续、焦点稳定且避免跳页或突然替换容器的组件"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "选中列表项就地展开"
+        },
+        {
+          "field": "plain_language",
+          "text": "其余项顺势下移"
+        },
+        {
+          "field": "plain_language",
+          "text": "不跳转详情页"
+        }
+      ]
+    },
+    {
+      "leaf_id": "interruption",
+      "entry_id": "interruption",
+      "path": "terms/interaction/interruption.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "gesture-interaction",
+      "intent_ids": [
+        "design-gesture",
+        "implement-gesture",
+        "audit-gesture"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "可中断与恢复",
+        "aliases": [],
+        "plain_language": "动画中途再次输入时接管当前状态，而不是等待旧动画结束。",
+        "when_to_use": "可拖拽、可快速连点或可反悔的组件"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "动画中途再次输入时接管当前状态"
+        },
+        {
+          "field": "plain_language",
+          "text": "而不是等待旧动画结束"
+        },
+        {
+          "field": "when_to_use",
+          "text": "可拖拽"
+        },
+        {
+          "field": "when_to_use",
+          "text": "可快速连点或可反悔的组件"
+        }
+      ]
+    },
+    {
+      "leaf_id": "jargon-translation",
+      "entry_id": "jargon-translation",
+      "path": "terms/workplace/jargon-translation.json",
+      "domain_id": "workplace-communication",
+      "subdomain_id": "vague-expression",
+      "intent_ids": [
+        "clarify-vague",
+        "rewrite-actionable"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "职场黑话翻译",
+        "aliases": [],
+        "plain_language": "把“拉齐、抓手、闭环、赋能”等模糊词翻译为对象、动作、负责人和结果。",
+        "when_to_use": "用户说出职场模糊表达或需要改写协作要求时"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "把“拉齐"
+        },
+        {
+          "field": "plain_language",
+          "text": "赋能”等模糊词翻译为对象"
+        },
+        {
+          "field": "plain_language",
+          "text": "负责人和结果"
+        }
+      ]
+    },
+    {
+      "leaf_id": "layout-patterns",
+      "entry_id": "layout-patterns",
+      "path": "terms/dashboard/layout-patterns.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "dashboard-design",
+      "intent_ids": [
+        "design-dashboard",
+        "audit-dashboard"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "高级布局模式",
+        "aliases": [
+          "Dashboard三层规范",
+          "术语视觉执行分层"
+        ],
+        "plain_language": "用错位、大图、非对称、层叠、留白和破格出血建立布局性格。",
+        "when_to_use": "Dashboard 需要有明确审美方向且避免模板化"
+      },
+      "retrieval": {},
+      "contract_ref": "templates/dashboard/dashboard-style-system.json",
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "用错位"
+        },
+        {
+          "field": "plain_language",
+          "text": "非对称"
+        },
+        {
+          "field": "plain_language",
+          "text": "留白和破格出血建立布局性格"
+        }
+      ]
+    },
+    {
+      "leaf_id": "layout-patterns",
+      "entry_id": "color-staggered-dashboard",
+      "path": "terms/dashboard/layout-patterns.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "dashboard-design",
+      "intent_ids": [
+        "design-dashboard",
+        "audit-dashboard"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "多彩错列布局",
+        "aliases": [
+          "多彩错列",
+          "非对称双列",
+          "容量圆点独立切换"
+        ],
+        "plain_language": "非对称双列；大卡主位；多彩卡片；斜纹/实心状态",
+        "when_to_use": "需要多彩错列布局的信息结构、视觉参数与交互联动规范时"
+      },
+      "retrieval": {
+        "rules": [],
+        "questions": [
+          {
+            "id": "dashboard_data",
+            "question": "有哪些可用数据与操作规则？只采用本次确认的字段、状态和参数。"
+          }
+        ]
+      },
+      "contract_ref": "templates/dashboard/dashboard-style-system.json",
+      "composition": {
+        "exclusive_group": "dashboard-primary-layout",
+        "alternatives_allowed": true
+      },
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "非对称双列"
+        },
+        {
+          "field": "plain_language",
+          "text": "大卡主位"
+        },
+        {
+          "field": "plain_language",
+          "text": "多彩卡片"
+        },
+        {
+          "field": "plain_language",
+          "text": "实心状态"
+        },
+        {
+          "field": "when_to_use",
+          "text": "需要多彩错列布局的信息结构"
+        }
+      ]
+    },
+    {
+      "leaf_id": "layout-patterns",
+      "entry_id": "industrial-zones-dashboard",
+      "path": "terms/dashboard/layout-patterns.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "dashboard-design",
+      "intent_ids": [
+        "design-dashboard",
+        "audit-dashboard"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "工业分区布局",
+        "aliases": [
+          "工业分区",
+          "玻璃表格",
+          "低库存筛选",
+          "选中物料联动补货卡"
+        ],
+        "plain_language": "右侧固定操作区；左侧状态筛选；玻璃表格；选中态联动",
+        "when_to_use": "需要工业分区布局的信息结构、视觉参数与交互联动规范时"
+      },
+      "retrieval": {
+        "rules": [],
+        "questions": [
+          {
+            "id": "dashboard_data",
+            "question": "有哪些可用数据与操作规则？只采用本次确认的字段、状态和参数。"
+          }
+        ]
+      },
+      "contract_ref": "templates/dashboard/dashboard-style-system.json",
+      "composition": {
+        "exclusive_group": "dashboard-primary-layout",
+        "alternatives_allowed": true
+      },
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "右侧固定操作区"
+        },
+        {
+          "field": "plain_language",
+          "text": "左侧状态筛选"
+        },
+        {
+          "field": "plain_language",
+          "text": "玻璃表格"
+        },
+        {
+          "field": "plain_language",
+          "text": "选中态联动"
+        },
+        {
+          "field": "when_to_use",
+          "text": "需要工业分区布局的信息结构"
+        }
+      ]
+    },
+    {
+      "leaf_id": "layout-patterns",
+      "entry_id": "axial-observatory-dashboard",
+      "path": "terms/dashboard/layout-patterns.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "dashboard-design",
+      "intent_ids": [
+        "design-dashboard",
+        "audit-dashboard"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "中轴观测布局",
+        "aliases": [
+          "中轴观测",
+          "共享选中态",
+          "时间轴预览",
+          "M33联动"
+        ],
+        "plain_language": "中央主视图；双侧信息栏；共享选中态；时间轴预览",
+        "when_to_use": "需要中轴观测布局的信息结构、视觉参数与交互联动规范时"
+      },
+      "retrieval": {
+        "rules": [],
+        "questions": [
+          {
+            "id": "dashboard_data",
+            "question": "有哪些可用数据与操作规则？只采用本次确认的字段、状态和参数。"
+          }
+        ]
+      },
+      "contract_ref": "templates/dashboard/dashboard-style-system.json",
+      "composition": {
+        "exclusive_group": "dashboard-primary-layout",
+        "alternatives_allowed": true
+      },
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "中央主视图"
+        },
+        {
+          "field": "plain_language",
+          "text": "双侧信息栏"
+        },
+        {
+          "field": "plain_language",
+          "text": "共享选中态"
+        },
+        {
+          "field": "plain_language",
+          "text": "时间轴预览"
+        },
+        {
+          "field": "when_to_use",
+          "text": "需要中轴观测布局的信息结构"
+        }
+      ]
+    },
+    {
+      "leaf_id": "layout-patterns",
+      "entry_id": "glass-dot-matrix-dashboard",
+      "path": "terms/dashboard/layout-patterns.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "dashboard-design",
+      "intent_ids": [
+        "design-dashboard",
+        "audit-dashboard"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "玻璃点阵布局",
+        "aliases": [
+          "玻璃点阵",
+          "点阵读数",
+          "月份指标联动",
+          "二氧化碳趋势"
+        ],
+        "plain_language": "浅灰玻璃；点阵读数；月份切换；指标趋势联动",
+        "when_to_use": "需要玻璃点阵布局的信息结构、视觉参数与交互联动规范时"
+      },
+      "retrieval": {
+        "rules": [],
+        "questions": [
+          {
+            "id": "dashboard_data",
+            "question": "有哪些可用数据与操作规则？只采用本次确认的字段、状态和参数。"
+          }
+        ]
+      },
+      "contract_ref": "templates/dashboard/dashboard-style-system.json",
+      "composition": {
+        "exclusive_group": "dashboard-primary-layout",
+        "alternatives_allowed": true
+      },
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "浅灰玻璃"
+        },
+        {
+          "field": "plain_language",
+          "text": "点阵读数"
+        },
+        {
+          "field": "plain_language",
+          "text": "月份切换"
+        },
+        {
+          "field": "plain_language",
+          "text": "指标趋势联动"
+        },
+        {
+          "field": "when_to_use",
+          "text": "需要玻璃点阵布局的信息结构"
+        }
+      ]
+    },
+    {
+      "leaf_id": "layout-patterns",
+      "entry_id": "warm-three-column-dashboard",
+      "path": "terms/dashboard/layout-patterns.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "dashboard-design",
+      "intent_ids": [
+        "design-dashboard",
+        "audit-dashboard"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "暖色三栏布局",
+        "aliases": [
+          "暖色三栏",
+          "三栏控制台",
+          "卧室房间联动",
+          "模式单位同步"
+        ],
+        "plain_language": "深浅分区；三栏控制台；模式与单位同步",
+        "when_to_use": "需要暖色三栏布局的信息结构、视觉参数与交互联动规范时"
+      },
+      "retrieval": {
+        "rules": [],
+        "questions": [
+          {
+            "id": "dashboard_data",
+            "question": "有哪些可用数据与操作规则？只采用本次确认的字段、状态和参数。"
+          }
+        ]
+      },
+      "contract_ref": "templates/dashboard/dashboard-style-system.json",
+      "composition": {
+        "exclusive_group": "dashboard-primary-layout",
+        "alternatives_allowed": true
+      },
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "深浅分区"
+        },
+        {
+          "field": "plain_language",
+          "text": "三栏控制台"
+        },
+        {
+          "field": "plain_language",
+          "text": "模式与单位同步"
+        },
+        {
+          "field": "when_to_use",
+          "text": "需要暖色三栏布局的信息结构"
+        }
+      ]
+    },
+    {
+      "leaf_id": "liquid-adhesion-drag",
+      "entry_id": "liquid-adhesion-drag",
+      "path": "terms/visual-effects/liquid-adhesion-drag.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "visual-effects",
+      "intent_ids": [
+        "design-visual-effect",
+        "implement-visual-effect",
+        "audit-performance"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "液滴粘连拖拽",
+        "aliases": [],
+        "plain_language": "拖动元素与原位之间生成液态粘连连接，距离增大时颈部收缩，超过阈值后断开并弹性回圆。",
+        "when_to_use": "需要有视觉表现但必须同时控制 GPU、移动端和减少动态成本"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [
+        "performance_budget",
+        "fallback",
+        "mobile_degradation",
+        "reduced_motion",
+        "acceptance"
+      ],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "拖动元素与原位之间生成液态粘连连接"
+        },
+        {
+          "field": "plain_language",
+          "text": "距离增大时颈部收缩"
+        },
+        {
+          "field": "plain_language",
+          "text": "超过阈值后断开并弹性回圆"
+        }
+      ]
+    },
+    {
+      "leaf_id": "liquid-glass-bar",
+      "entry_id": "liquid-glass-bar",
+      "path": "terms/visual-effects/liquid-glass-bar.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "visual-effects",
+      "intent_ids": [
+        "design-visual-effect",
+        "implement-visual-effect",
+        "audit-performance"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "液态玻璃栏",
+        "aliases": [],
+        "plain_language": "固定导航使用背景模糊、轻微折射和随滚动位移的高光，底色与文字对比度随背景亮度平滑调整。",
+        "when_to_use": "需要有视觉表现但必须同时控制 GPU、移动端和减少动态成本"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [
+        "performance_budget",
+        "fallback",
+        "mobile_degradation",
+        "reduced_motion",
+        "acceptance"
+      ],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "固定导航使用背景模糊"
+        },
+        {
+          "field": "plain_language",
+          "text": "轻微折射和随滚动位移的高光"
+        },
+        {
+          "field": "plain_language",
+          "text": "底色与文字对比度随背景亮度平滑调整"
+        }
+      ]
+    },
+    {
+      "leaf_id": "liquid-slider",
+      "entry_id": "liquid-slider",
+      "path": "terms/interaction/liquid-slider.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "interaction-motion",
+      "intent_ids": [
+        "design-interaction",
+        "implement-animation"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "Liquid 液态滑块",
+        "aliases": [],
+        "plain_language": "轨道、滑钮和数值使用同一弹簧同步变化。",
+        "when_to_use": "需要高级反馈但仍要保持可理解的操作结果"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "滑钮和数值使用同一弹簧同步变化"
+        }
+      ]
+    },
+    {
+      "leaf_id": "list-grid-flip",
+      "entry_id": "list-grid-flip",
+      "path": "terms/interaction/continuous/list-grid-flip.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "continuous-interaction",
+      "intent_ids": [
+        "design-continuous",
+        "implement-continuous",
+        "audit-continuous"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "列表切换网格",
+        "aliases": [],
+        "plain_language": "记录旧布局，切换布局后反转并播放到新位置，避免重载和跳变。",
+        "when_to_use": "需要状态切换连续、焦点稳定且避免跳页或突然替换容器的组件"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "记录旧布局"
+        },
+        {
+          "field": "plain_language",
+          "text": "切换布局后反转并播放到新位置"
+        },
+        {
+          "field": "plain_language",
+          "text": "避免重载和跳变"
+        }
+      ]
+    },
+    {
+      "leaf_id": "living-style-guide-preview",
+      "entry_id": "living-style-guide-preview",
+      "path": "terms/design-system/living-style-guide-preview.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "design-system",
+      "intent_ids": [
+        "build-design-system",
+        "preview-design-system",
+        "audit-design-system"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "Light/Dark 活样式指南",
+        "aliases": [],
+        "plain_language": "用可直接打开的预览把色板、字体层级、组件状态和设计令牌映射到真实页面效果。",
+        "when_to_use": "需要让设计评审和 AI 在写代码前先确认视觉方向"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "用可直接打开的预览把色板"
+        },
+        {
+          "field": "plain_language",
+          "text": "字体层级"
+        },
+        {
+          "field": "plain_language",
+          "text": "组件状态和设计令牌映射到真实页面效果"
+        },
+        {
+          "field": "when_to_use",
+          "text": "需要让设计评审和 AI 在写代码前先确认视觉方向"
+        }
+      ]
+    },
+    {
+      "leaf_id": "long-press-preview",
+      "entry_id": "long-press-preview",
+      "path": "terms/interaction/advanced/long-press-preview.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "gesture-interaction",
+      "intent_ids": [
+        "design-gesture",
+        "implement-gesture",
+        "audit-gesture"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "长按浮起预览",
+        "aliases": [],
+        "plain_language": "长按列表项打开上下文预览，选中项浮起，菜单在局部空间内展开。",
+        "when_to_use": "需要明确触发、阈值、取消、边界和键盘替代路径的复杂交互"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "长按列表项打开上下文预览"
+        },
+        {
+          "field": "plain_language",
+          "text": "选中项浮起"
+        },
+        {
+          "field": "plain_language",
+          "text": "菜单在局部空间内展开"
+        }
+      ]
+    },
+    {
+      "leaf_id": "magnetic-cursor-odometer",
+      "entry_id": "magnetic-cursor-odometer",
+      "path": "terms/component-design/magnetic-cursor-odometer.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "component-design",
+      "intent_ids": [
+        "generate-component",
+        "spec-component"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "磁吸游标与滚动码表",
+        "aliases": [],
+        "plain_language": "折线图拖拽时数据点磁吸，顶部数值使用 Odometer 按位滚动，拖拽、吸附和数值用 lerp+spring 联动。",
+        "when_to_use": "需要给 AI 编程或设计工具描述可复用组件"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "折线图拖拽时数据点磁吸"
+        },
+        {
+          "field": "plain_language",
+          "text": "顶部数值使用 Odometer 按位滚动"
+        },
+        {
+          "field": "plain_language",
+          "text": "吸附和数值用 lerp+spring 联动"
+        }
+      ]
+    },
+    {
+      "leaf_id": "management-mechanism",
+      "entry_id": "management-mechanism",
+      "path": "terms/workplace/management-mechanism.json",
+      "domain_id": "workplace-communication",
+      "subdomain_id": "management-terms",
+      "intent_ids": [
+        "explain-term",
+        "translate-jargon"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "管理机制",
+        "aliases": [],
+        "plain_language": "把机制、复盘、资源配置和组织动作落到可观察的流程。",
+        "when_to_use": "用户说出职场模糊表达或需要改写协作要求时"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "把机制"
+        },
+        {
+          "field": "plain_language",
+          "text": "资源配置和组织动作落到可观察的流程"
+        }
+      ]
+    },
+    {
+      "leaf_id": "material-library",
+      "entry_id": "material-library",
+      "path": "terms/material-style/material-library.json",
+      "domain_id": "ai-aigc-meta-skills",
+      "subdomain_id": "material-style",
+      "intent_ids": [
+        "write-image-prompt"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "材质与反射",
+        "aliases": [],
+        "plain_language": "用可观察的表面属性描述材质，例如高光泽釉面、短植绒、哑光纸张和半通透胶带。",
+        "when_to_use": "产品渲染、角色周边和材质迁移"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "用可观察的表面属性描述材质"
+        },
+        {
+          "field": "plain_language",
+          "text": "例如高光泽釉面"
+        },
+        {
+          "field": "plain_language",
+          "text": "短植绒"
+        },
+        {
+          "field": "plain_language",
+          "text": "哑光纸张和半通透胶带"
+        },
+        {
+          "field": "when_to_use",
+          "text": "产品渲染"
+        },
+        {
+          "field": "when_to_use",
+          "text": "角色周边和材质迁移"
+        }
+      ]
+    },
+    {
+      "leaf_id": "minimal-data",
+      "entry_id": "minimal-data",
+      "path": "terms/dashboard/minimal-data.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "dashboard-design",
+      "intent_ids": [
+        "design-dashboard",
+        "audit-dashboard"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "极简数据型",
+        "aliases": [],
+        "plain_language": "以灰阶和一个强调色组织数据，去网格线和多余标签。",
+        "when_to_use": "Dashboard 需要有明确审美方向且避免模板化"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "以灰阶和一个强调色组织数据"
+        },
+        {
+          "field": "plain_language",
+          "text": "去网格线和多余标签"
+        }
+      ]
+    },
+    {
+      "leaf_id": "morph-icon",
+      "entry_id": "morph-icon",
+      "path": "terms/interaction/morph-icon.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "interaction-motion",
+      "intent_ids": [
+        "design-interaction",
+        "implement-animation"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "Morph 汉堡变叉",
+        "aliases": [],
+        "plain_language": "使用同路径或线段位移旋转完成图标变形。",
+        "when_to_use": "需要高级反馈但仍要保持可理解的操作结果"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "使用同路径或线段位移旋转完成图标变形"
+        }
+      ]
+    },
+    {
+      "leaf_id": "motion-accessibility",
+      "entry_id": "undo-aria",
+      "path": "terms/interaction/accessibility.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "accessibility",
+      "intent_ids": [
+        "audit-accessibility",
+        "implement-accessibility"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "撤销按钮可读标签",
+        "aliases": [],
+        "plain_language": "按钮要读出操作和剩余时间，例如撤销删除，剩余 5 秒。",
+        "when_to_use": "撤销条、倒计时按钮"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "按钮要读出操作和剩余时间"
+        },
+        {
+          "field": "plain_language",
+          "text": "例如撤销删除"
+        },
+        {
+          "field": "plain_language",
+          "text": "剩余 5 秒"
+        },
+        {
+          "field": "when_to_use",
+          "text": "撤销条"
+        },
+        {
+          "field": "when_to_use",
+          "text": "倒计时按钮"
+        }
+      ]
+    },
+    {
+      "leaf_id": "motion-accessibility",
+      "entry_id": "undo-live",
+      "path": "terms/interaction/accessibility.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "accessibility",
+      "intent_ids": [
+        "audit-accessibility",
+        "implement-accessibility"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "轻量状态播报",
+        "aliases": [],
+        "plain_language": "用 aria-live=polite 提示已删除、可撤销等关键状态。",
+        "when_to_use": "操作结果需要被读屏用户感知"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "用 aria-live=polite 提示已删除"
+        },
+        {
+          "field": "plain_language",
+          "text": "可撤销等关键状态"
+        },
+        {
+          "field": "when_to_use",
+          "text": "操作结果需要被读屏用户感知"
+        }
+      ]
+    },
+    {
+      "leaf_id": "motion-language",
+      "entry_id": "motion-language",
+      "path": "terms/motion-control/motion-language.json",
+      "domain_id": "ai-aigc-meta-skills",
+      "subdomain_id": "motion-control",
+      "intent_ids": [
+        "write-video-prompt"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "方向/速度/幅度/节奏",
+        "aliases": [],
+        "plain_language": "明确主体怎么动、镜头怎么动、速度和幅度如何变化。",
+        "when_to_use": "文生视频、产品动效和角色动作延展"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "明确主体怎么动"
+        },
+        {
+          "field": "plain_language",
+          "text": "镜头怎么动"
+        },
+        {
+          "field": "plain_language",
+          "text": "速度和幅度如何变化"
+        },
+        {
+          "field": "when_to_use",
+          "text": "文生视频"
+        },
+        {
+          "field": "when_to_use",
+          "text": "产品动效和角色动作延展"
+        }
+      ]
+    },
+    {
+      "leaf_id": "negative-constraints",
+      "entry_id": "negative-constraints",
+      "path": "terms/negative-prompt/negative-constraints.json",
+      "domain_id": "ai-aigc-meta-skills",
+      "subdomain_id": "negative-prompt",
+      "intent_ids": [
+        "write-image-prompt",
+        "audit-image-prompt"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "结构/材质/一致性负面词",
+        "aliases": [],
+        "plain_language": "把不希望出现的变形、额外肢体、颜色漂移、重复主体和低清晰度写成约束。",
+        "when_to_use": "角色一致性、产品渲染和批量出图"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "把不希望出现的变形"
+        },
+        {
+          "field": "plain_language",
+          "text": "额外肢体"
+        },
+        {
+          "field": "plain_language",
+          "text": "颜色漂移"
+        },
+        {
+          "field": "plain_language",
+          "text": "重复主体和低清晰度写成约束"
+        },
+        {
+          "field": "when_to_use",
+          "text": "角色一致性"
+        },
+        {
+          "field": "when_to_use",
+          "text": "产品渲染和批量出图"
+        }
+      ]
+    },
+    {
+      "leaf_id": "observability-contract",
+      "entry_id": "observability-contract",
+      "path": "terms/software-engineering/observability-contract.json",
+      "domain_id": "software-engineering-architecture",
+      "subdomain_id": "observability",
+      "intent_ids": [
+        "define-slo",
+        "debug-production"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "可观测性契约",
+        "aliases": [],
+        "plain_language": "将 SLI/SLO、日志、指标、追踪、告警和故障演练绑定到服务目标。",
+        "when_to_use": "后端或平台方案需要拆解质量属性时"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "将 SLI"
+        },
+        {
+          "field": "plain_language",
+          "text": "SLO"
+        },
+        {
+          "field": "plain_language",
+          "text": "告警和故障演练绑定到服务目标"
+        }
+      ]
+    },
+    {
+      "leaf_id": "perspective-carousel",
+      "entry_id": "perspective-carousel",
+      "path": "terms/interaction/advanced/perspective-carousel.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "gesture-interaction",
+      "intent_ids": [
+        "design-gesture",
+        "implement-gesture",
+        "audit-gesture"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "景随图换轮播",
+        "aliases": [],
+        "plain_language": "拖动距离或速度达到阈值后切换，中心项放大，侧边项透视缩小。",
+        "when_to_use": "需要明确触发、阈值、取消、边界和键盘替代路径的复杂交互"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "拖动距离或速度达到阈值后切换"
+        },
+        {
+          "field": "plain_language",
+          "text": "中心项放大"
+        },
+        {
+          "field": "plain_language",
+          "text": "侧边项透视缩小"
+        }
+      ]
+    },
+    {
+      "leaf_id": "perspective-carousel",
+      "entry_id": "stacked-card-carousel",
+      "path": "terms/interaction/advanced/perspective-carousel.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "gesture-interaction",
+      "intent_ids": [
+        "design-gesture",
+        "implement-gesture",
+        "audit-gesture"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "卡片层叠轮播",
+        "aliases": [
+          "卡片层叠轮播",
+          "叠卡轮播",
+          "卡片堆叠轮播",
+          "stacked card carousel"
+        ],
+        "plain_language": "三张卡片以缩放和 Y 轴偏移形成层叠，顶层跟随拖拽并轻微旋转，达到距离或速度阈值后飞出，下层补位。",
+        "when_to_use": "需要卡片层级、拖拽跟手、飞出切换和循环补位的移动端轮播"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "三张卡片以缩放和 Y 轴偏移形成层叠"
+        },
+        {
+          "field": "plain_language",
+          "text": "顶层跟随拖拽并轻微旋转"
+        },
+        {
+          "field": "plain_language",
+          "text": "达到距离或速度阈值后飞出"
+        },
+        {
+          "field": "plain_language",
+          "text": "下层补位"
+        },
+        {
+          "field": "when_to_use",
+          "text": "需要卡片层级"
+        },
+        {
+          "field": "when_to_use",
+          "text": "拖拽跟手"
+        },
+        {
+          "field": "when_to_use",
+          "text": "飞出切换和循环补位的移动端轮播"
+        }
+      ]
+    },
+    {
+      "leaf_id": "press-and-hold-confirm",
+      "entry_id": "press-and-hold-confirm",
+      "path": "terms/interaction/advanced/press-and-hold-confirm.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "gesture-interaction",
+      "intent_ids": [
+        "design-gesture",
+        "implement-gesture",
+        "audit-gesture"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "按住蓄力确认",
+        "aliases": [],
+        "plain_language": "按住危险操作按钮达到 800–1200ms 才确认，未满松手或移动超限则取消。",
+        "when_to_use": "需要明确触发、阈值、取消、边界和键盘替代路径的复杂交互"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "按住危险操作按钮达到 800–1200ms 才确认"
+        },
+        {
+          "field": "plain_language",
+          "text": "未满松手或移动超限则取消"
+        }
+      ]
+    },
+    {
+      "leaf_id": "prompt-blocks",
+      "entry_id": "prompt-blocks",
+      "path": "terms/image-prompt/prompt-blocks.json",
+      "domain_id": "ai-aigc-meta-skills",
+      "subdomain_id": "image-prompt",
+      "intent_ids": [
+        "write-image-prompt",
+        "audit-image-prompt"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "主体/材质/光线/构图/质量模块",
+        "aliases": [],
+        "plain_language": "把图像提示词拆为可重排模块，先锁主体，再补材质、光线、构图和质量。",
+        "when_to_use": "文生图、参考图重绘和产品效果图"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "把图像提示词拆为可重排模块"
+        },
+        {
+          "field": "plain_language",
+          "text": "先锁主体"
+        },
+        {
+          "field": "plain_language",
+          "text": "再补材质"
+        },
+        {
+          "field": "plain_language",
+          "text": "构图和质量"
+        },
+        {
+          "field": "when_to_use",
+          "text": "文生图"
+        },
+        {
+          "field": "when_to_use",
+          "text": "参考图重绘和产品效果图"
+        }
+      ]
+    },
+    {
+      "leaf_id": "radial-menu",
+      "entry_id": "radial-menu",
+      "path": "terms/interaction/advanced/radial-menu.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "gesture-interaction",
+      "intent_ids": [
+        "design-gesture",
+        "implement-gesture",
+        "audit-gesture"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "弧形快捷菜单",
+        "aliases": [],
+        "plain_language": "长按悬浮按钮展开弧形子菜单，子项沿弧线交错弹出并支持边缘翻转。",
+        "when_to_use": "需要明确触发、阈值、取消、边界和键盘替代路径的复杂交互"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "长按悬浮按钮展开弧形子菜单"
+        },
+        {
+          "field": "plain_language",
+          "text": "子项沿弧线交错弹出并支持边缘翻转"
+        }
+      ]
+    },
+    {
+      "leaf_id": "radial-reveal-transition",
+      "entry_id": "radial-reveal-transition",
+      "path": "terms/interaction/continuous/radial-reveal-transition.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "continuous-interaction",
+      "intent_ids": [
+        "design-continuous",
+        "implement-continuous",
+        "audit-continuous"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "圆形扩散转场",
+        "aliases": [
+          "圆形扩散转场",
+          "radial reveal transition"
+        ],
+        "plain_language": "从真实点击位置捕获圆心，以 clip-path circle 扩散覆盖屏幕，完全覆盖后再显示新页面内容。",
+        "when_to_use": "用户用自然语言描述联动、叠卡、吸附画线或圆形转场的感觉时"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "从真实点击位置捕获圆心"
+        },
+        {
+          "field": "plain_language",
+          "text": "以 clip-path circle 扩散覆盖屏幕"
+        },
+        {
+          "field": "plain_language",
+          "text": "完全覆盖后再显示新页面内容"
+        }
+      ]
+    },
+    {
+      "leaf_id": "reverse-animation",
+      "entry_id": "reverse-path",
+      "path": "terms/interaction/reverse-animation.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "interaction-motion",
+      "intent_ids": [
+        "implement-animation",
+        "audit-motion"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "沿原路径反向归位",
+        "aliases": [],
+        "plain_language": "撤销时沿删除动画的反方向回到原位置，而不是重新淡入。",
+        "when_to_use": "列表删除后恢复原项"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "撤销时沿删除动画的反方向回到原位置"
+        },
+        {
+          "field": "plain_language",
+          "text": "而不是重新淡入"
+        },
+        {
+          "field": "when_to_use",
+          "text": "列表删除后恢复原项"
+        }
+      ]
+    },
+    {
+      "leaf_id": "reverse-animation",
+      "entry_id": "reentry-highlight",
+      "path": "terms/interaction/reverse-animation.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "interaction-motion",
+      "intent_ids": [
+        "implement-animation",
+        "audit-motion"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "归位确认高亮",
+        "aliases": [],
+        "plain_language": "元素回到原位后增加短暂高亮或脉冲，确认它确实回来了。",
+        "when_to_use": "撤销后的状态需要被快速识别"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "元素回到原位后增加短暂高亮或脉冲"
+        },
+        {
+          "field": "plain_language",
+          "text": "确认它确实回来了"
+        },
+        {
+          "field": "when_to_use",
+          "text": "撤销后的状态需要被快速识别"
+        }
+      ]
+    },
+    {
+      "leaf_id": "reverse-animation",
+      "entry_id": "reduced-motion",
+      "path": "terms/interaction/reverse-animation.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "interaction-motion",
+      "intent_ids": [
+        "implement-animation",
+        "audit-motion"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "减少动态降级",
+        "aliases": [],
+        "plain_language": "减少动态时保留进度、状态和结果，不强制播放位移动画。",
+        "when_to_use": "用户开启 prefers-reduced-motion"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "减少动态时保留进度"
+        },
+        {
+          "field": "plain_language",
+          "text": "状态和结果"
+        },
+        {
+          "field": "plain_language",
+          "text": "不强制播放位移动画"
+        },
+        {
+          "field": "when_to_use",
+          "text": "用户开启 prefers-reduced-motion"
+        }
+      ]
+    },
+    {
+      "leaf_id": "ripple-button",
+      "entry_id": "ripple-button",
+      "path": "terms/interaction/ripple-button.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "interaction-motion",
+      "intent_ids": [
+        "design-interaction",
+        "implement-animation"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "Ripple 水波按钮",
+        "aliases": [],
+        "plain_language": "从真实触点向最远角扩散水波，不把点击中心固定在控件中心。",
+        "when_to_use": "需要高级反馈但仍要保持可理解的操作结果"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "从真实触点向最远角扩散水波"
+        },
+        {
+          "field": "plain_language",
+          "text": "不把点击中心固定在控件中心"
+        }
+      ]
+    },
+    {
+      "leaf_id": "rotary-knob",
+      "entry_id": "rotary-knob",
+      "path": "terms/interaction/advanced/rotary-knob.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "gesture-interaction",
+      "intent_ids": [
+        "design-gesture",
+        "implement-gesture",
+        "audit-gesture"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "旋钮转盘",
+        "aliases": [],
+        "plain_language": "拖动或用键盘旋转旋钮，释放后吸附到最近刻度，中心数值同步变化。",
+        "when_to_use": "需要明确触发、阈值、取消、边界和键盘替代路径的复杂交互"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "拖动或用键盘旋转旋钮"
+        },
+        {
+          "field": "plain_language",
+          "text": "释放后吸附到最近刻度"
+        },
+        {
+          "field": "plain_language",
+          "text": "中心数值同步变化"
+        }
+      ]
+    },
+    {
+      "leaf_id": "scaling-strategies",
+      "entry_id": "scaling-strategies",
+      "path": "terms/software-engineering/scaling-strategies.json",
+      "domain_id": "software-engineering-architecture",
+      "subdomain_id": "scalability",
+      "intent_ids": [
+        "design-scale",
+        "plan-migration"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "扩展策略",
+        "aliases": [],
+        "plain_language": "按无状态实例、缓存、分片和异步队列拆解增长路径。",
+        "when_to_use": "后端或平台方案需要拆解质量属性时"
+      },
+      "retrieval": {
+        "rules": [],
+        "questions": [
+          {
+            "id": "growth",
+            "question": "预期如何增长，现有瓶颈和可以改变的架构边界是什么？"
+          }
+        ]
+      },
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "按无状态实例"
+        },
+        {
+          "field": "plain_language",
+          "text": "分片和异步队列拆解增长路径"
+        }
+      ]
+    },
+    {
+      "leaf_id": "scroll-header-collapse",
+      "entry_id": "scroll-header-collapse",
+      "path": "terms/interaction/continuous/scroll-header-collapse.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "continuous-interaction",
+      "intent_ids": [
+        "design-continuous",
+        "implement-continuous",
+        "audit-continuous"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "顶栏随滚动收起",
+        "aliases": [],
+        "plain_language": "滚动进度驱动搜索栏和顶栏收缩，反向滚动恢复。",
+        "when_to_use": "需要状态切换连续、焦点稳定且避免跳页或突然替换容器的组件"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "滚动进度驱动搜索栏和顶栏收缩"
+        },
+        {
+          "field": "plain_language",
+          "text": "反向滚动恢复"
+        }
+      ]
+    },
+    {
+      "leaf_id": "search-expand",
+      "entry_id": "search-expand",
+      "path": "terms/interaction/continuous/search-expand.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "continuous-interaction",
+      "intent_ids": [
+        "design-continuous",
+        "implement-continuous",
+        "audit-continuous"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "搜索框展开",
+        "aliases": [],
+        "plain_language": "图标与输入框共用容器，展开后自动聚焦，关闭时沿原路径收回。",
+        "when_to_use": "需要状态切换连续、焦点稳定且避免跳页或突然替换容器的组件"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "图标与输入框共用容器"
+        },
+        {
+          "field": "plain_language",
+          "text": "展开后自动聚焦"
+        },
+        {
+          "field": "plain_language",
+          "text": "关闭时沿原路径收回"
+        }
+      ]
+    },
+    {
+      "leaf_id": "segmented-progress",
+      "entry_id": "segmented-progress",
+      "path": "terms/interaction/advanced/segmented-progress.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "gesture-interaction",
+      "intent_ids": [
+        "design-gesture",
+        "implement-gesture",
+        "audit-gesture"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "分段进度条",
+        "aliases": [],
+        "plain_language": "按住暂停，点击左右区域切换上一项或下一项，进度与内容同步。",
+        "when_to_use": "需要明确触发、阈值、取消、边界和键盘替代路径的复杂交互"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "按住暂停"
+        },
+        {
+          "field": "plain_language",
+          "text": "点击左右区域切换上一项或下一项"
+        },
+        {
+          "field": "plain_language",
+          "text": "进度与内容同步"
+        }
+      ]
+    },
+    {
+      "leaf_id": "service-boundary",
+      "entry_id": "service-boundary",
+      "path": "terms/software-engineering/service-boundary.json",
+      "domain_id": "software-engineering-architecture",
+      "subdomain_id": "backend-architecture",
+      "intent_ids": [
+        "design-backend",
+        "review-backend"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "服务边界与状态",
+        "aliases": [],
+        "plain_language": "把服务职责、同步/异步边界、状态归属和数据一致性写清楚。",
+        "when_to_use": "后端或平台方案需要拆解质量属性时"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "把服务职责"
+        },
+        {
+          "field": "plain_language",
+          "text": "异步边界"
+        },
+        {
+          "field": "plain_language",
+          "text": "状态归属和数据一致性写清楚"
+        }
+      ]
+    },
+    {
+      "leaf_id": "shared-element-expand",
+      "entry_id": "shared-element-expand",
+      "path": "terms/component-design/shared-element-expand.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "component-design",
+      "intent_ids": [
+        "generate-component",
+        "spec-component"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "共享元素无缝展开",
+        "aliases": [],
+        "plain_language": "列表卡片到详情页使用同一 layoutId，图片、标题和容器连续缩放，背景遮罩淡入，避免跳变。",
+        "when_to_use": "需要给 AI 编程或设计工具描述可复用组件"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "列表卡片到详情页使用同一 layoutId"
+        },
+        {
+          "field": "plain_language",
+          "text": "标题和容器连续缩放"
+        },
+        {
+          "field": "plain_language",
+          "text": "背景遮罩淡入"
+        },
+        {
+          "field": "plain_language",
+          "text": "避免跳变"
+        }
+      ]
+    },
+    {
+      "leaf_id": "single-dark-accent-dashboard",
+      "entry_id": "single-dark-accent-dashboard",
+      "path": "terms/dashboard/single-dark-accent-dashboard.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "dashboard-design",
+      "intent_ids": [
+        "design-dashboard",
+        "audit-dashboard"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "单深色单强调色 Dashboard",
+        "aliases": [],
+        "plain_language": "整页只保留一条深色侧边栏和一个强调色，当前项、主按钮和命中图表共享同一强调色。",
+        "when_to_use": "Dashboard 需要有明确审美方向且避免模板化"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "整页只保留一条深色侧边栏和一个强调色"
+        },
+        {
+          "field": "plain_language",
+          "text": "当前项"
+        },
+        {
+          "field": "plain_language",
+          "text": "主按钮和命中图表共享同一强调色"
+        }
+      ]
+    },
+    {
+      "leaf_id": "skeleton-shimmer",
+      "entry_id": "skeleton-shimmer",
+      "path": "terms/interaction/skeleton-shimmer.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "interaction-motion",
+      "intent_ids": [
+        "design-interaction",
+        "implement-animation"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "Shimmer 骨架落位",
+        "aliases": [],
+        "plain_language": "骨架尺寸与真实内容一致，内容到达后平滑替换。",
+        "when_to_use": "需要高级反馈但仍要保持可理解的操作结果"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "骨架尺寸与真实内容一致"
+        },
+        {
+          "field": "plain_language",
+          "text": "内容到达后平滑替换"
+        }
+      ]
+    },
+    {
+      "leaf_id": "slide-to-confirm",
+      "entry_id": "slide-to-confirm",
+      "path": "terms/interaction/advanced/slide-to-confirm.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "gesture-interaction",
+      "intent_ids": [
+        "design-gesture",
+        "implement-gesture",
+        "audit-gesture"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "滑动确认组件",
+        "aliases": [],
+        "plain_language": "滑块超过 80% 才确认，不足松手则弹回，确认只触发一次。",
+        "when_to_use": "需要明确触发、阈值、取消、边界和键盘替代路径的复杂交互"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "滑块超过 80% 才确认"
+        },
+        {
+          "field": "plain_language",
+          "text": "不足松手则弹回"
+        },
+        {
+          "field": "plain_language",
+          "text": "确认只触发一次"
+        }
+      ]
+    },
+    {
+      "leaf_id": "snap",
+      "entry_id": "snap",
+      "path": "terms/interaction/snap.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "gesture-interaction",
+      "intent_ids": [
+        "design-gesture",
+        "implement-gesture",
+        "audit-gesture"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "吸附",
+        "aliases": [],
+        "plain_language": "松手后把连续输入收敛到明确落点。",
+        "when_to_use": "滚轮、底部抽屉、滑块和拖拽"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "松手后把连续输入收敛到明确落点"
+        },
+        {
+          "field": "when_to_use",
+          "text": "底部抽屉"
+        },
+        {
+          "field": "when_to_use",
+          "text": "滑块和拖拽"
+        }
+      ]
+    },
+    {
+      "leaf_id": "snap-card-timeline",
+      "entry_id": "snap-card-timeline",
+      "path": "terms/interaction/continuous/snap-card-timeline.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "continuous-interaction",
+      "intent_ids": [
+        "design-continuous",
+        "implement-continuous",
+        "audit-continuous"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "吸附卡加画线",
+        "aliases": [
+          "吸附卡加画线",
+          "snap card timeline"
+        ],
+        "plain_language": "卡片先减速吸附到最近目标，停稳后时间线再从起点逐段绘制到对应卡片位置。",
+        "when_to_use": "用户用自然语言描述联动、叠卡、吸附画线或圆形转场的感觉时"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "卡片先减速吸附到最近目标"
+        },
+        {
+          "field": "plain_language",
+          "text": "停稳后时间线再从起点逐段绘制到对应卡片位置"
+        }
+      ]
+    },
+    {
+      "leaf_id": "spring-press",
+      "entry_id": "spring-press",
+      "path": "terms/interaction/spring-press.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "interaction-motion",
+      "intent_ids": [
+        "design-interaction",
+        "implement-animation"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "Spring 按压回弹",
+        "aliases": [],
+        "plain_language": "按下缩到 0.96–0.98，松手用弹簧回到 1 并允许 1.02–1.04 的轻微过冲。",
+        "when_to_use": "需要高级反馈但仍要保持可理解的操作结果"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "按下缩到 0.96–0.98"
+        },
+        {
+          "field": "plain_language",
+          "text": "松手用弹簧回到 1 并允许 1.02–1.04 的轻微过冲"
+        }
+      ]
+    },
+    {
+      "leaf_id": "spring-stagger-flow",
+      "entry_id": "spring-stagger-flow",
+      "path": "terms/component-design/spring-stagger-flow.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "component-design",
+      "intent_ids": [
+        "generate-component",
+        "spec-component"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "物理弹簧交错流",
+        "aliases": [],
+        "plain_language": "列表子项按 index*0.03–0.06s 交错，从 y:20、opacity:0 进入并带轻微 spring。",
+        "when_to_use": "需要给 AI 编程或设计工具描述可复用组件"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "列表子项按 index*0.03–0.06s 交错"
+        },
+        {
+          "field": "plain_language",
+          "text": "从 y:20"
+        },
+        {
+          "field": "plain_language",
+          "text": "opacity:0 进入并带轻微 spring"
+        }
+      ]
+    },
+    {
+      "leaf_id": "squash-toggle",
+      "entry_id": "squash-toggle",
+      "path": "terms/interaction/squash-toggle.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "interaction-motion",
+      "intent_ids": [
+        "design-interaction",
+        "implement-animation"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "Squash 弹性开关",
+        "aliases": [],
+        "plain_language": "开关起步横向拉伸、纵向压缩，再回到正常比例。",
+        "when_to_use": "需要高级反馈但仍要保持可理解的操作结果"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "开关起步横向拉伸"
+        },
+        {
+          "field": "plain_language",
+          "text": "纵向压缩"
+        },
+        {
+          "field": "plain_language",
+          "text": "再回到正常比例"
+        }
+      ]
+    },
+    {
+      "leaf_id": "stack-card",
+      "entry_id": "stack-card",
+      "path": "terms/interaction/stack-card.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "interaction-motion",
+      "intent_ids": [
+        "design-interaction",
+        "implement-animation"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "Stack 卡片抽走",
+        "aliases": [],
+        "plain_language": "抽走前卡时露出后卡的缩放和位移层级。",
+        "when_to_use": "需要高级反馈但仍要保持可理解的操作结果"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "抽走前卡时露出后卡的缩放和位移层级"
+        }
+      ]
+    },
+    {
+      "leaf_id": "stack-card-expand",
+      "entry_id": "stack-card-expand",
+      "path": "terms/interaction/continuous/stack-card-expand.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "continuous-interaction",
+      "intent_ids": [
+        "design-continuous",
+        "implement-continuous",
+        "audit-continuous"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "叠卡展开",
+        "aliases": [
+          "叠卡展开",
+          "stack card expand"
+        ],
+        "plain_language": "叠放卡片点击或下滑后扇出成完整铺排，再沿原空间路径叠回，展开期间锁定下方卡片误触。",
+        "when_to_use": "用户用自然语言描述联动、叠卡、吸附画线或圆形转场的感觉时"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "叠放卡片点击或下滑后扇出成完整铺排"
+        },
+        {
+          "field": "plain_language",
+          "text": "再沿原空间路径叠回"
+        },
+        {
+          "field": "plain_language",
+          "text": "展开期间锁定下方卡片误触"
+        }
+      ]
+    },
+    {
+      "leaf_id": "submit-state-machine",
+      "entry_id": "submit-state-machine",
+      "path": "terms/interaction/continuous/submit-state-machine.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "continuous-interaction",
+      "intent_ids": [
+        "design-continuous",
+        "implement-continuous",
+        "audit-continuous"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "提交状态反馈",
+        "aliases": [],
+        "plain_language": "按钮容器固定，通过状态机切换 loading、success 和 result，避免按钮位移。",
+        "when_to_use": "需要状态切换连续、焦点稳定且避免跳页或突然替换容器的组件"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "按钮容器固定"
+        },
+        {
+          "field": "plain_language",
+          "text": "通过状态机切换 loading"
+        },
+        {
+          "field": "plain_language",
+          "text": "success 和 result"
+        },
+        {
+          "field": "plain_language",
+          "text": "避免按钮位移"
+        }
+      ]
+    },
+    {
+      "leaf_id": "submit-state-machine",
+      "entry_id": "save-progress-ring",
+      "path": "terms/interaction/continuous/submit-state-machine.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "continuous-interaction",
+      "intent_ids": [
+        "design-continuous",
+        "implement-continuous",
+        "audit-continuous"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "保存按钮变进度环",
+        "aliases": [
+          "保存按钮进度环",
+          "保存转进度",
+          "save progress ring"
+        ],
+        "plain_language": "胶囊保存按钮点击后收缩为正圆，文字淡出并在同一容器内绘制进度环，完成后画勾并展开为已保存。",
+        "when_to_use": "保存、上传或提交操作需要把进行中、完成和结果连续表达在同一按钮内"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "胶囊保存按钮点击后收缩为正圆"
+        },
+        {
+          "field": "plain_language",
+          "text": "文字淡出并在同一容器内绘制进度环"
+        },
+        {
+          "field": "plain_language",
+          "text": "完成后画勾并展开为已保存"
+        },
+        {
+          "field": "when_to_use",
+          "text": "上传或提交操作需要把进行中"
+        },
+        {
+          "field": "when_to_use",
+          "text": "完成和结果连续表达在同一按钮内"
+        }
+      ]
+    },
+    {
+      "leaf_id": "tab-indicator-spring",
+      "entry_id": "tab-indicator-spring",
+      "path": "terms/interaction/continuous/tab-indicator-spring.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "continuous-interaction",
+      "intent_ids": [
+        "design-continuous",
+        "implement-continuous",
+        "audit-continuous"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "标签指示条",
+        "aliases": [],
+        "plain_language": "指示条先拉向新位置，再收缩归位，轻微超调但不影响点击判断。",
+        "when_to_use": "需要状态切换连续、焦点稳定且避免跳页或突然替换容器的组件"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "指示条先拉向新位置"
+        },
+        {
+          "field": "plain_language",
+          "text": "再收缩归位"
+        },
+        {
+          "field": "plain_language",
+          "text": "轻微超调但不影响点击判断"
+        }
+      ]
+    },
+    {
+      "leaf_id": "three-ui-catalog",
+      "entry_id": "three-ui-catalog",
+      "path": "terms/platform-research/three-ui-catalog.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "3d-web-interface",
+      "intent_ids": [
+        "compare-platform",
+        "choose-renderer"
+      ],
+      "scope": "provider-specific",
+      "provider": "ThreeUI",
+      "fields": {
+        "name": "ThreeUI 组件目录研究",
+        "aliases": [],
+        "plain_language": "目录分类用于检索组件，不代表所有组件都适合生产环境。",
+        "when_to_use": "用户明确询问指定平台或组件目录"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "目录分类用于检索组件"
+        },
+        {
+          "field": "plain_language",
+          "text": "不代表所有组件都适合生产环境"
+        }
+      ]
+    },
+    {
+      "leaf_id": "threshold",
+      "entry_id": "threshold",
+      "path": "terms/interaction/threshold.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "gesture-interaction",
+      "intent_ids": [
+        "design-gesture",
+        "implement-gesture",
+        "audit-gesture"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "阈值",
+        "aliases": [],
+        "plain_language": "达到位移、速度或双条件后才触发状态切换。",
+        "when_to_use": "半屏弹层、长按拖拽、粘连断开"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "达到位移"
+        },
+        {
+          "field": "plain_language",
+          "text": "速度或双条件后才触发状态切换"
+        },
+        {
+          "field": "when_to_use",
+          "text": "半屏弹层"
+        },
+        {
+          "field": "when_to_use",
+          "text": "长按拖拽"
+        },
+        {
+          "field": "when_to_use",
+          "text": "粘连断开"
+        }
+      ]
+    },
+    {
+      "leaf_id": "tilt-light-panel",
+      "entry_id": "tilt-light-panel",
+      "path": "terms/component-design/tilt-light-panel.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "component-design",
+      "intent_ids": [
+        "generate-component",
+        "spec-component"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "3D 倾斜光影面板",
+        "aliases": [],
+        "plain_language": "监听 pointermove/touchmove 计算 rotateX/rotateY，最大倾斜 8–12°，叠加随指针移动的径向高光，松手用 Spring 回正。",
+        "when_to_use": "需要给 AI 编程或设计工具描述可复用组件"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "监听 pointermove"
+        },
+        {
+          "field": "plain_language",
+          "text": "touchmove 计算 rotateX"
+        },
+        {
+          "field": "plain_language",
+          "text": "rotateY"
+        },
+        {
+          "field": "plain_language",
+          "text": "最大倾斜 8–12°"
+        },
+        {
+          "field": "plain_language",
+          "text": "叠加随指针移动的径向高光"
+        },
+        {
+          "field": "plain_language",
+          "text": "松手用 Spring 回正"
+        }
+      ]
+    },
+    {
+      "leaf_id": "token-system",
+      "entry_id": "token-system",
+      "path": "terms/design-tokens/token-system.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "design-tokens",
+      "intent_ids": [
+        "define-tokens",
+        "audit-tokens"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "底色/强调色/层级/材质/主角五变量",
+        "aliases": [],
+        "plain_language": "Dashboard 的审美方向主要由底色、强调色、布局层级、材质和内容主角决定。",
+        "when_to_use": "需要让 AI 生成非模板化后台或设计系统"
+      },
+      "retrieval": {
+        "rules": [
+          {
+            "id": "visual-quality",
+            "all": [
+              [
+                "网站",
+                "网页",
+                "界面",
+                "页面",
+                "dashboard"
+              ],
+              [
+                "质感",
+                "精致",
+                "高级",
+                "专业一点"
+              ]
+            ],
+            "role": "suggestion"
+          }
+        ],
+        "questions": [
+          {
+            "id": "visual_priority",
+            "question": "更想改善排版层级、留白、配色一致性还是材质？有没有偏好的参考？"
+          }
+        ]
+      },
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "Dashboard 的审美方向主要由底色"
+        },
+        {
+          "field": "plain_language",
+          "text": "强调色"
+        },
+        {
+          "field": "plain_language",
+          "text": "布局层级"
+        },
+        {
+          "field": "plain_language",
+          "text": "材质和内容主角决定"
+        },
+        {
+          "field": "when_to_use",
+          "text": "需要让 AI 生成非模板化后台或设计系统"
+        }
+      ]
+    },
+    {
+      "leaf_id": "tonal-dark-dashboard",
+      "entry_id": "tonal-dark-dashboard",
+      "path": "terms/dashboard/tonal-dark-dashboard.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "dashboard-design",
+      "intent_ids": [
+        "design-dashboard",
+        "audit-dashboard"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "暗底明度分层 Dashboard",
+        "aliases": [],
+        "plain_language": "近黑底上只用明度区分卡片层级，不画描边；主读数放大，日期用圆点阵列表达。",
+        "when_to_use": "Dashboard 需要有明确审美方向且避免模板化"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "近黑底上只用明度区分卡片层级"
+        },
+        {
+          "field": "plain_language",
+          "text": "不画描边"
+        },
+        {
+          "field": "plain_language",
+          "text": "主读数放大"
+        },
+        {
+          "field": "plain_language",
+          "text": "日期用圆点阵列表达"
+        }
+      ]
+    },
+    {
+      "leaf_id": "tool-parameters",
+      "entry_id": "tool-parameters",
+      "path": "terms/tool-adapter/tool-parameters.json",
+      "domain_id": "ai-aigc-meta-skills",
+      "subdomain_id": "tool-adapter",
+      "intent_ids": [
+        "write-image-prompt",
+        "write-video-prompt"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "通用/Midjourney/SD 适配",
+        "aliases": [],
+        "plain_language": "把同一套提示词拆成通用正文、画幅参数和工具专用控制字段。",
+        "when_to_use": "需要在多个生图工具间复用提示词"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "把同一套提示词拆成通用正文"
+        },
+        {
+          "field": "plain_language",
+          "text": "画幅参数和工具专用控制字段"
+        },
+        {
+          "field": "when_to_use",
+          "text": "需要在多个生图工具间复用提示词"
+        }
+      ]
+    },
+    {
+      "leaf_id": "undo-window",
+      "entry_id": "undo-window",
+      "path": "terms/interaction/undo-window.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "interaction-motion",
+      "intent_ids": [
+        "design-interaction",
+        "audit-motion"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "可逆操作时间窗口",
+        "aliases": [],
+        "plain_language": "删除后保留一段明确的可撤销时间，让用户有机会反悔。",
+        "when_to_use": "删除、归档、批量移除等可逆操作"
+      },
+      "retrieval": {
+        "rules": [
+          {
+            "id": "recover-deletion",
+            "all": [
+              [
+                "删除",
+                "误删",
+                "删掉",
+                "移除"
+              ],
+              [
+                "反悔",
+                "恢复",
+                "找回",
+                "撤销",
+                "后悔"
+              ]
+            ],
+            "role": "explicit"
+          }
+        ],
+        "questions": [
+          {
+            "id": "undo_window",
+            "question": "允许反悔多久？以本次业务风险确定，不自动采用示例秒数。"
+          }
+        ],
+        "inputs": [
+          {
+            "id": "undo_window",
+            "pattern": "(?P<value>\\d+(?:\\.\\d+)?\\s*(?:秒|s|分钟))\\s*内[^，。；\\n]{0,6}(?:撤销|反悔|恢复)"
+          },
+          {
+            "id": "undo_window",
+            "pattern": "(?:撤销窗口|反悔时间|恢复窗口)(?:为|是|允许|设为|\\s)*(?P<value>\\d+(?:\\.\\d+)?\\s*(?:秒|s|分钟))"
+          }
+        ]
+      },
+      "contract_ref": null,
+      "composition": {
+        "required": [
+          {
+            "leaf_id": "motion-accessibility",
+            "entry_ids": [
+              "undo-aria",
+              "undo-live"
+            ]
+          },
+          {
+            "leaf_id": "reverse-animation",
+            "entry_ids": [
+              "reverse-path",
+              "reduced-motion"
+            ]
+          }
+        ],
+        "conditional": [
+          {
+            "when_any": [
+              "原索引",
+              "插回",
+              "真实节点"
+            ],
+            "ref": {
+              "leaf_id": "flip-reentry"
+            }
+          }
+        ]
+      },
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "删除后保留一段明确的可撤销时间"
+        },
+        {
+          "field": "plain_language",
+          "text": "让用户有机会反悔"
+        },
+        {
+          "field": "when_to_use",
+          "text": "批量移除等可逆操作"
+        }
+      ]
+    },
+    {
+      "leaf_id": "undo-window",
+      "entry_id": "progress-feedback",
+      "path": "terms/interaction/undo-window.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "interaction-motion",
+      "intent_ids": [
+        "design-interaction",
+        "audit-motion"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "线性进度反馈",
+        "aliases": [],
+        "plain_language": "进度条或进度环的完成时间与撤销窗口完全一致。",
+        "when_to_use": "需要让剩余时间可见"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "进度条或进度环的完成时间与撤销窗口完全一致"
+        },
+        {
+          "field": "when_to_use",
+          "text": "需要让剩余时间可见"
+        }
+      ]
+    },
+    {
+      "leaf_id": "undo-window",
+      "entry_id": "pause-on-focus",
+      "path": "terms/interaction/undo-window.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "interaction-motion",
+      "intent_ids": [
+        "design-interaction",
+        "audit-motion"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "聚焦暂停窗口",
+        "aliases": [],
+        "plain_language": "用户悬停或键盘聚焦撤销控件时暂停倒计时。",
+        "when_to_use": "误操作成本高且需要可访问性增强的场景"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "用户悬停或键盘聚焦撤销控件时暂停倒计时"
+        },
+        {
+          "field": "when_to_use",
+          "text": "误操作成本高且需要可访问性增强的场景"
+        }
+      ]
+    },
+    {
+      "leaf_id": "velocity-inheritance",
+      "entry_id": "velocity-inheritance",
+      "path": "terms/interaction/velocity-inheritance.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "gesture-interaction",
+      "intent_ids": [
+        "design-gesture",
+        "implement-gesture",
+        "audit-gesture"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "速度继承",
+        "aliases": [],
+        "plain_language": "松手后继续沿当前速度运动，再减速并吸附。",
+        "when_to_use": "惯性滚动、抽屉和抛物线飞入"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "松手后继续沿当前速度运动"
+        },
+        {
+          "field": "plain_language",
+          "text": "再减速并吸附"
+        },
+        {
+          "field": "when_to_use",
+          "text": "惯性滚动"
+        },
+        {
+          "field": "when_to_use",
+          "text": "抽屉和抛物线飞入"
+        }
+      ]
+    },
+    {
+      "leaf_id": "video-direction",
+      "entry_id": "video-direction",
+      "path": "terms/video-prompt/video-direction.json",
+      "domain_id": "ai-aigc-meta-skills",
+      "subdomain_id": "video-prompt",
+      "intent_ids": [
+        "write-video-prompt",
+        "audit-video-prompt"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "镜头/主体运动/声音三层描述",
+        "aliases": [],
+        "plain_language": "视频提示词至少拆成景别、镜头运动、主体动作、节奏和声音。",
+        "when_to_use": "文生视频和分镜生成"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "视频提示词至少拆成景别"
+        },
+        {
+          "field": "plain_language",
+          "text": "镜头运动"
+        },
+        {
+          "field": "plain_language",
+          "text": "主体动作"
+        },
+        {
+          "field": "plain_language",
+          "text": "节奏和声音"
+        },
+        {
+          "field": "when_to_use",
+          "text": "文生视频和分镜生成"
+        }
+      ]
+    },
+    {
+      "leaf_id": "warm-minimal",
+      "entry_id": "warm-minimal",
+      "path": "terms/dashboard/warm-minimal.json",
+      "domain_id": "digital-product-uiux",
+      "subdomain_id": "dashboard-design",
+      "intent_ids": [
+        "design-dashboard",
+        "audit-dashboard"
+      ],
+      "scope": "general",
+      "provider": null,
+      "fields": {
+        "name": "暖调留白型",
+        "aliases": [],
+        "plain_language": "奶油底色、单一黄色强调、细边框和弱阴影，保留呼吸感。",
+        "when_to_use": "Dashboard 需要有明确审美方向且避免模板化"
+      },
+      "retrieval": {},
+      "contract_ref": null,
+      "composition": {},
+      "required_fields": [],
+      "search_phrases": [
+        {
+          "field": "plain_language",
+          "text": "奶油底色"
+        },
+        {
+          "field": "plain_language",
+          "text": "单一黄色强调"
+        },
+        {
+          "field": "plain_language",
+          "text": "细边框和弱阴影"
+        },
+        {
+          "field": "plain_language",
+          "text": "保留呼吸感"
+        }
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "backend-quality",
+      "name": "后端质量目标澄清",
+      "primary_leaves": [
+        "availability-patterns",
+        "capacity-model",
+        "scaling-strategies",
+        "idempotency-contract",
+        "observability-contract"
+      ],
+      "not_applicable": [
+        "没有软件/服务语境的稳定感受",
+        "只有总用户数时不得认定峰值并发"
+      ],
+      "output_fields": [
+        "用户原话与证据",
+        "候选质量属性",
+        "已确认目标与建议",
+        "待确定的业务与量化边界",
+        "约束与验证方法"
+      ],
+      "acceptance": [
+        "只讨论有证据的质量属性",
+        "稳定不得自动带入幂等、并发与扩展",
+        "不得自动选技术栈或填写容量指标"
+      ],
+      "trigger": "至少一个 primary_leaves 条目有有效证据；只有建议或缺少必要信息时为 partial",
+      "required_information": "从命中条目的 retrieval.questions 读取；已有 context.answers 不重复询问",
+      "knowledge": "只使用命中条目及其 composition / contract_ref，不加载整个场景的所有叶子",
+      "flow": [
+        "保留用户证据",
+        "只澄清改变方案的信息",
+        "按依赖组合知识",
+        "输出有边界的增强方案",
+        "用原文约束与场景验收检查交付"
+      ]
+    },
+    {
+      "id": "visual-brief",
+      "name": "视觉感觉转设计方向",
+      "primary_leaves": [
+        "token-system",
+        "composition-patterns"
+      ],
+      "not_applicable": [
+        "非界面视觉的乱或舒服",
+        "未确认时不得默认暗色、玻璃、渐变"
+      ],
+      "output_fields": [
+        "原始感觉",
+        "结构与设计令牌候选",
+        "不超过必要数量的澄清",
+        "用户确认后的增强提示词",
+        "截图与任务可读性验收"
+      ],
+      "acceptance": [
+        "候选是方向而非已选美术方案",
+        "未指定的色值、栅格与风格不得作为事实",
+        "用前后截图核对视觉层级与主任务"
+      ],
+      "trigger": "至少一个 primary_leaves 条目有有效证据；只有建议或缺少必要信息时为 partial",
+      "required_information": "从命中条目的 retrieval.questions 读取；已有 context.answers 不重复询问",
+      "knowledge": "只使用命中条目及其 composition / contract_ref，不加载整个场景的所有叶子",
+      "flow": [
+        "保留用户证据",
+        "只澄清改变方案的信息",
+        "按依赖组合知识",
+        "输出有边界的增强方案",
+        "用原文约束与场景验收检查交付"
+      ]
+    },
+    {
+      "id": "reversible-delete",
+      "name": "可撤销删除与可访问性",
+      "primary_leaves": [
+        "undo-window"
+      ],
+      "not_applicable": [
+        "不可逆且没有恢复语义的删除",
+        "只讨论键盘而没有可撤销操作"
+      ],
+      "output_fields": [
+        "删除与恢复时序",
+        "确认后的时间边界",
+        "键盘和读屏行为",
+        "必要依赖与状态约束",
+        "到期、恢复和焦点验收"
+      ],
+      "acceptance": [
+        "按主条目的 composition 完成依赖闭包",
+        "时间值来自本次业务而非示例默认",
+        "测试撤销、到期、键盘与不重复播报"
+      ],
+      "trigger": "至少一个 primary_leaves 条目有有效证据；只有建议或缺少必要信息时为 partial",
+      "required_information": "从命中条目的 retrieval.questions 读取；已有 context.answers 不重复询问",
+      "knowledge": "只使用命中条目及其 composition / contract_ref，不加载整个场景的所有叶子",
+      "flow": [
+        "保留用户证据",
+        "只澄清改变方案的信息",
+        "按依赖组合知识",
+        "输出有边界的增强方案",
+        "用原文约束与场景验收检查交付"
+      ]
+    },
+    {
+      "id": "dashboard-linked-state",
+      "name": "Dashboard 联动布局",
+      "primary_leaves": [
+        "layout-patterns"
+      ],
+      "not_applicable": [
+        "只有颜色或普通轮播需求",
+        "不同主布局不能未经确认合成同一页面"
+      ],
+      "output_fields": [
+        "layout",
+        "termSkill",
+        "uiSkill",
+        "agentExec",
+        "state",
+        "tokens"
+      ],
+      "acceptance": [
+        "读取选中条目的 contract_ref 共享协议",
+        "共享状态与独立控件不得误联动",
+        "变体并列展示为选项，不直接叠加成主布局",
+        "仅按已有五种素材组织，不追要额外案例"
+      ],
+      "trigger": "至少一个 primary_leaves 条目有有效证据；只有建议或缺少必要信息时为 partial",
+      "required_information": "从命中条目的 retrieval.questions 读取；已有 context.answers 不重复询问",
+      "knowledge": "只使用命中条目及其 composition / contract_ref，不加载整个场景的所有叶子",
+      "flow": [
+        "保留用户证据",
+        "只澄清改变方案的信息",
+        "按依赖组合知识",
+        "输出有边界的增强方案",
+        "用原文约束与场景验收检查交付"
+      ]
+    }
+  ]
+}

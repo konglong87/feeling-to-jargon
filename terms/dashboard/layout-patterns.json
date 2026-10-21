@@ -137,6 +137,19 @@
         "status": "provided",
         "source": "user_dashboard_brief",
         "state_model": "实现建议，不宣称为原始产品已有逻辑"
+      },
+      "retrieval": {
+        "rules": [],
+        "questions": [
+          {
+            "id": "dashboard_data",
+            "question": "有哪些可用数据与操作规则？只采用本次确认的字段、状态和参数。"
+          }
+        ]
+      },
+      "composition": {
+        "exclusive_group": "dashboard-primary-layout",
+        "alternatives_allowed": true
       }
     },
     {
@@ -256,6 +269,19 @@
         "status": "provided",
         "source": "user_dashboard_brief",
         "state_model": "实现建议，不宣称为原始产品已有逻辑"
+      },
+      "retrieval": {
+        "rules": [],
+        "questions": [
+          {
+            "id": "dashboard_data",
+            "question": "有哪些可用数据与操作规则？只采用本次确认的字段、状态和参数。"
+          }
+        ]
+      },
+      "composition": {
+        "exclusive_group": "dashboard-primary-layout",
+        "alternatives_allowed": true
       }
     },
     {
@@ -362,6 +388,19 @@
         "status": "provided",
         "source": "user_dashboard_brief",
         "state_model": "实现建议，不宣称为原始产品已有逻辑"
+      },
+      "retrieval": {
+        "rules": [],
+        "questions": [
+          {
+            "id": "dashboard_data",
+            "question": "有哪些可用数据与操作规则？只采用本次确认的字段、状态和参数。"
+          }
+        ]
+      },
+      "composition": {
+        "exclusive_group": "dashboard-primary-layout",
+        "alternatives_allowed": true
       }
     },
     {
@@ -478,6 +517,19 @@
         "status": "provided",
         "source": "user_dashboard_brief",
         "state_model": "实现建议，不宣称为原始产品已有逻辑"
+      },
+      "retrieval": {
+        "rules": [],
+        "questions": [
+          {
+            "id": "dashboard_data",
+            "question": "有哪些可用数据与操作规则？只采用本次确认的字段、状态和参数。"
+          }
+        ]
+      },
+      "composition": {
+        "exclusive_group": "dashboard-primary-layout",
+        "alternatives_allowed": true
       }
     },
     {
@@ -583,6 +635,19 @@
           "房名/照片/温度卡点击后的完整逻辑",
           "模式枚举及单位映射、换算规则"
         ]
+      },
+      "retrieval": {
+        "rules": [],
+        "questions": [
+          {
+            "id": "dashboard_data",
+            "question": "有哪些可用数据与操作规则？只采用本次确认的字段、状态和参数。"
+          }
+        ]
+      },
+      "composition": {
+        "exclusive_group": "dashboard-primary-layout",
+        "alternatives_allowed": true
       }
     }
   ],
